@@ -23,5 +23,5 @@ public import a.*                     // only macro packages can be public
                                       // public import in macro packages
 import b.*
 public macro M2(input:Tokens):Tokens{
-  return @M1(input) + quote($(F1(1)))
+  return @M1(input) + Token(TokenKind.ADD) + quote($(F1(1)))
 }

@@ -22,8 +22,14 @@ public import b.*
 
 main() {
   var input = 111
-  @M1(input)
-  F1(input)
-  @M2(input)
+  if (@M1(input) != 111) {
+    return 1
+  }
+  if (F1(input) != 111) {
+    return 1
+  }
+  if (@M2(input) != 112) {
+    return 1
+  }
   return 0
 }

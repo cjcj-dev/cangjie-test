@@ -19,17 +19,12 @@
 
 import c.*
 public import b.*
+import utils.assert.*
 
 main() {
   var input = 111
-  if (@M1(input) != 111) {
-    return 1
-  }
-  if (F1(input) != 111) {
-    return 1
-  }
-  if (@M2(input) != 112) {
-    return 1
-  }
+  Assert.isTrue(@M1(input) == 111)
+  Assert.isTrue(F1(input) == 111)
+  Assert.isTrue(@M2(input) == 112)
   return 0
 }

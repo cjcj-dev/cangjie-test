@@ -14,7 +14,7 @@
   @Negative:     no
 
   @Structure:    complex-main
-  @Dependencies: C/C.cj
+  @Dependencies: C/c.cj
 */
 
 import c.*

@@ -10,7 +10,7 @@
   @Structure:    complex-aux
   @MacroLib
 
-  @Dependencies: ../A/A.cj ../B/B.cj
+  @Dependencies: ../A/a.cj ../B/b.cj
 */
 
 // C.cj

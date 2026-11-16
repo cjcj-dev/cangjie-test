@@ -22,8 +22,9 @@
 */
 import utils.assert.Assert
 main() {
-   print(0x.1p1); print(" must be: "); println(0.1*2.0)
-   print(0x.4p-1);print(" must be: "); println(0.4*0.5)
+   // Hexadecimal fractional digits: .1 = 1/16, .4 = 4/16; p scales by powers of two.
+   print(0x.1p1); print(" must be: "); println(0.0625*2.0)
+   print(0x.4p-1);print(" must be: "); println(0.25*0.5)
 
 
 }

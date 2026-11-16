@@ -23,6 +23,7 @@
 import utils.assert.Assert
 
 main() {
-    Assert.equals(0x2.1p1,2.1*2.0) 
-    Assert.equals(0xA.4p-1,10.4/2.0)
+    // Hexadecimal fractional digits: .1 = 1/16, .4 = 4/16; p scales by powers of two.
+    Assert.equals(0x2.1p1,2.0625*2.0)
+    Assert.equals(0xA.4p-1,10.25/2.0)
 }

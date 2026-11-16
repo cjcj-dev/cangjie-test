@@ -21,6 +21,7 @@
 
 */
 main() {
-   print(0x2.1p1); print(" must be: "); println(2.1*2.0) 
-   print(0xA.4p-1);  print(" must be: ");println(10.4/2.0)
+   // Hexadecimal fractional digits: .1 = 1/16, .4 = 4/16; p scales by powers of two.
+   print(0x2.1p1); print(" must be: "); println(2.0625*2.0)
+   print(0xA.4p-1);  print(" must be: ");println(10.25/2.0)
 }

@@ -40,8 +40,12 @@
 
 */
 
+import utils.assert.Assert
+
 open class Foo {
     public open func foo<T>(a: T): Unit { // error: open generic function in class
+        let values: Array<T> = [a]
+        Assert.equals(1, values.size)
     }
 }
 

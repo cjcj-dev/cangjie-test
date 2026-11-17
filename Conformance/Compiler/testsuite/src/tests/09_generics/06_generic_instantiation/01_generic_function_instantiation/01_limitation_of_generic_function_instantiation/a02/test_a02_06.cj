@@ -40,8 +40,12 @@
 
 */
 
+import utils.assert.Assert
+
 abstract class AbsClass {
     public open func bar<T>(a: T) { // error: open generic function in abstract class
+        let values: Array<T> = [a]
+        Assert.equals(1, values.size)
     }
 }
 

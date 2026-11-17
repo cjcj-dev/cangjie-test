@@ -105,6 +105,10 @@ def convert_res_to_log(name: str, res: CompletedProcess, action='compilation', p
     log += _prepare_process_output('stdout', res.stdout, prefix)
     log += _prepare_process_output('stderr', res.stderr, prefix)
     log += f'{prefix} {PT_BOLD}return code:{PT_END_COLORING} {res.returncode}\n'
+    if getattr(res, 'timed_out', False):
+      log += f'{prefix} timed out: True\n'
+      log += f'{prefix} waited process pid: {res.wait_pid}\n'
+      log += f'{prefix} waited process return code: {res.wait_returncode}\n'
   return log
 
 
@@ -134,8 +138,16 @@ def execute_subprocess(command: str, timeout=None, shell=True, **kwargs) -> Comp
         return CompletedProcess(process.args, stdout=stdout, stderr=stderr, returncode=retcode)
       except TimeoutExpired as error:
         kill_processes(process.pid)
-        return CompletedProcess(args=error.cmd, stdout=error.stdout if error.stdout else b'',
-                                stderr=f'The {error.timeout}-second timeout has expired'.encode('utf-8'), returncode=127)
+        stdout, stderr = process.communicate()
+        message = f'The {error.timeout}-second timeout has expired'.encode('utf-8')
+        separator = b'\n' if stderr and not stderr.endswith(b'\n') else b''
+        result = CompletedProcess(args=error.cmd, stdout=stdout, stderr=stderr + separator + message, returncode=127)
+        result.timed_out = True
+        # This is the direct Popen process (the shell when shell=True), not an
+        # inferred status for any descendant compiler or application.
+        result.wait_pid = process.pid
+        result.wait_returncode = process.returncode
+        return result
       except SubprocessError as error:  # Other exception
         kill_processes(process.pid)
         return CompletedProcess(error.args, stderr=str(error).encode('utf-8'), returncode=127)

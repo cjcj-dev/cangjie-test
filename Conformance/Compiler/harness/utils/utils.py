@@ -109,6 +109,8 @@ def convert_res_to_log(name: str, res: CompletedProcess, action='compilation', p
       log += f'{prefix} timed out: True\n'
       log += f'{prefix} waited process pid: {res.wait_pid}\n'
       log += f'{prefix} waited process return code: {res.wait_returncode}\n'
+      log += f'{prefix} timeout cleanup: {res.timeout_cleanup}\n'
+      log += f'{prefix} output pipes reached EOF: {res.output_complete}\n'
   return log
 
 
@@ -130,27 +132,77 @@ def execute_subprocess(command: str, timeout=None, shell=True, **kwargs) -> Comp
       else:
         command = split(command, posix=True)
 
-    with Popen(command, shell=shell, stdout=subprocess.PIPE, stderr=subprocess.PIPE, start_new_session=True, **kwargs) as process:
+    # Do not use Popen's context manager: __exit__ can wait without a bound.
+    process = Popen(command, shell=shell, stdout=subprocess.PIPE, stderr=subprocess.PIPE, start_new_session=True, **kwargs)
+    previous_handler = None
+    try:
       try:
-        signal.signal(signal.SIGINT, lambda signum, frame: kill_processes(process.pid))
+        previous_handler = signal.signal(signal.SIGINT, lambda signum, frame: kill_processes(process.pid))
         stdout, stderr = process.communicate(None, timeout=timeout)
-        retcode = process.poll()
-        return CompletedProcess(process.args, stdout=stdout, stderr=stderr, returncode=retcode)
-      except TimeoutExpired as error:
-        kill_processes(process.pid)
-        stdout, stderr = process.communicate()
-        message = f'The {error.timeout}-second timeout has expired'.encode('utf-8')
+        return CompletedProcess(process.args, stdout=stdout, stderr=stderr, returncode=process.returncode)
+      except SubprocessError as error:
+        # This private session's group ID is its initial Popen PID, even if
+        # the shell has exited. Looking up the dead shell's PGID loses children.
+        cleanup = []
+        def terminate(sig):
+          try:
+            if os.name == 'nt':
+              kill_processes(process.pid)
+            else:
+              os.killpg(process.pid, sig)
+            cleanup.append(f'{sig.name}: sent')
+          except ProcessLookupError:
+            cleanup.append(f'{sig.name}: already exited')
+          except OSError as failure:
+            cleanup.append(f'{sig.name}: {failure}')
+
+        stdout = getattr(error, 'output', None) or b''
+        stderr = getattr(error, 'stderr', None) or b''
+        complete = False
+        terminate(signal.SIGTERM)
+        try:
+          stdout, stderr = process.communicate(timeout=0.5)
+          complete = True
+        except TimeoutExpired as pending:
+          stdout = pending.output if pending.output is not None else stdout
+          stderr = pending.stderr if pending.stderr is not None else stderr
+        # A child may close its pipes but remain in our group. Reclaim the
+        # remaining group even when the direct process and pipes are finished.
+        terminate(signal.SIGKILL if os.name != 'nt' else signal.SIGTERM)
+        if not complete:
+          try:
+            stdout, stderr = process.communicate(timeout=0.5)
+            complete = True
+          except TimeoutExpired as pending:
+            stdout = pending.output if pending.output is not None else stdout
+            stderr = pending.stderr if pending.stderr is not None else stderr
+            cleanup.append('pipe drain deadline expired; captured partial output')
+        # An escaped/inaccessible pipe holder cannot extend this wait. Closing
+        # our read ends preserves captured bytes; it does not prove child exit.
+        for stream in (process.stdout, process.stderr):
+          stream.close()
+        try:
+          process.wait(timeout=0.5)
+        except TimeoutExpired:
+          cleanup.append('direct process wait deadline expired; status unknown')
+        timed_out = isinstance(error, TimeoutExpired)
+        message = (f'The {error.timeout}-second timeout has expired' if timed_out else str(error)).encode('utf-8')
         separator = b'\n' if stderr and not stderr.endswith(b'\n') else b''
-        result = CompletedProcess(args=error.cmd, stdout=stdout, stderr=stderr + separator + message, returncode=127)
-        result.timed_out = True
-        # This is the direct Popen process (the shell when shell=True), not an
-        # inferred status for any descendant compiler or application.
+        result = CompletedProcess(args=process.args, stdout=stdout, stderr=stderr + separator + message, returncode=127)
+        result.timed_out = timed_out
+        # Only the direct Popen process is waited here; descendant exit status
+        # is not inferred from signal delivery or from closed pipes.
         result.wait_pid = process.pid
         result.wait_returncode = process.returncode
+        result.timeout_cleanup = '; '.join(cleanup)
+        result.output_complete = complete
         return result
-      except SubprocessError as error:  # Other exception
-        kill_processes(process.pid)
-        return CompletedProcess(error.args, stderr=str(error).encode('utf-8'), returncode=127)
+    finally:
+      if previous_handler is not None:
+        signal.signal(signal.SIGINT, previous_handler)
+      for stream in (process.stdout, process.stderr):
+        stream.close()
+
   except OSError as error:
     return CompletedProcess(command, stderr=str(error).encode('utf-8'), returncode=127)
 

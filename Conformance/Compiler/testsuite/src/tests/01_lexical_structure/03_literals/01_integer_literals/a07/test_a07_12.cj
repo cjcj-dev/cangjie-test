@@ -139,4 +139,5 @@ main() {
     Assert.equals(101, 101_i32)
     Assert.equals(10, 1_0_i32)
     Assert.equals(0, 0_i32)
+    Assert.equals(0, a)
 }

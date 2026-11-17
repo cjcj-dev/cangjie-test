@@ -10,16 +10,17 @@
   @Name:         03_03_02_01_a02_04
 
   @Level:         1
-  @Assertion:    A variable initialized on every reachable path may be used.
+  @Assertion:    3.3.2.1(2) Note that each variable must be initialized before being used.
+                 Otherwise, a compilation error is reported.
 
-  @Description:  The constant-true branch initializes a before its subsequent interpolation.
+  @Description:  Checks that mutable variable can't be used after conditional initialization
 
   @Mode:         compileonly
-  @Negative:     no
+  @Negative:     yes
   @Structure:    single
 
   @CompileWarning: no
-  @Comment: Implementation-compatibility decision 2026-11-17: official nightly 1.3.0-alpha.20261025001053 and compiler 385e74af83f1b88d82684b9d947cc78da23869ba accept this source; historical negative result is retained separately.
+  @Comment: Implementation decision 2026-11-17: official nightly 1.3.0-alpha.20261025001053 rejects the interpolation read as uninitialized, while compiler 385e74af83f1b88d82684b9d947cc78da23869ba accepts it. Keep the original negative expectation; this is not a jointly accepted compatibility case.
 */
 
 main() {

@@ -135,4 +135,5 @@ main() {
     Assert.equals(101, 101_i8)
     Assert.equals(10, 1_0_i8)
     Assert.equals(0, 0_i8)
+    Assert.equals(0, a)
 }

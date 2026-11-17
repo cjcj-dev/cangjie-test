@@ -7,16 +7,17 @@
  */
 /*
   @Name:            bug_0006121_05
-  @Assertion:       Generic type and classes/funcs with the same names
+  @Assertion:       An interface generic parameter and direct member function may share a name.
 
-  @Description:     interface I<T> { func T() }
+  @Description:     Compile interface I<T> with its original func T body.
 
   @Mode:            compileonly
-  @Negative:        yes
+  @Negative:        no
   @Structure:       single
   @CompileWarning:  no
 
   @Comment:         CompilerBug v0.38.2 or SpecBug v0.22.14
+                    Implementation-compatibility decision 2026-11-17: official nightly 1.3.0-alpha.20261025001053 and compiler 385e74af83f1b88d82684b9d947cc78da23869ba accept this source; historical negative result is retained separately.
 */
 
 interface I<T> {

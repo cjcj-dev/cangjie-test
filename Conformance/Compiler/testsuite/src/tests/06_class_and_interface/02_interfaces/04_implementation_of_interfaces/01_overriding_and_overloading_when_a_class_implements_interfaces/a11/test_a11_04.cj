@@ -46,7 +46,7 @@ interface I {
         get() {
             4
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     prop p2: Int64 {
         get() {
@@ -57,7 +57,7 @@ interface I {
         get() {
             6
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     static prop p4: Int64 {
         get() {
@@ -66,6 +66,8 @@ interface I {
     }
 
     operator func[](idx: Int64) {
+        let consumedOperand = [idx]
+        Assert.equals(1, consumedOperand.size)
         return 8
     }
 }
@@ -85,7 +87,7 @@ struct C1 <: I {
         get() {
             14
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p2: Int64 {
         get() {
@@ -96,7 +98,7 @@ struct C1 <: I {
         get() {
             16
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p4: Int64 {
         get() {
@@ -105,6 +107,8 @@ struct C1 <: I {
     }
 
     public operator func[](idx: Int64) {
+        let consumedOperand = [idx]
+        Assert.equals(1, consumedOperand.size)
         return 18
     }
 
@@ -135,7 +139,7 @@ struct C2 <: I {
         get() {
             24
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public override prop p2: Int64 {
         get() {
@@ -146,7 +150,7 @@ struct C2 <: I {
         get() {
             26
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public redef static prop p4: Int64 {
         get() {
@@ -155,6 +159,8 @@ struct C2 <: I {
     }
 
     public override operator func[](idx: Int64) {
+        let consumedOperand = [idx]
+        Assert.equals(1, consumedOperand.size)
         return 28
     }
 

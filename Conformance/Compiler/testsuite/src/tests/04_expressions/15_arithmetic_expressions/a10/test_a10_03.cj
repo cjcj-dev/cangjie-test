@@ -25,7 +25,7 @@ import std.random.Random
 
 main() {
     let rnd = Random(123)
-    for (i in 0..2**10) {
+    for (_ in 0..2**10) {
         let a = rnd.nextInt16()
         var b : Int16 = 0
         while (b == 0) {

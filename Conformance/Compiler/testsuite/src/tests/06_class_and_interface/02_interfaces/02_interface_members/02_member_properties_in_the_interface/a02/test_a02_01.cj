@@ -53,7 +53,7 @@ interface I {
         get() {
             11
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     prop p6: Int64 {
         get() {
@@ -64,7 +64,7 @@ interface I {
         get() {
             13
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     static prop p8: Int64 {
         get() {
@@ -105,7 +105,7 @@ class Impl <: I {
         get() {
             7
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p2: Int64 {
         get() {
@@ -116,7 +116,7 @@ class Impl <: I {
         get() {
             9
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p4: Int64 {
         get() {

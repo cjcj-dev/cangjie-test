@@ -23,11 +23,10 @@
 
 import utils.assert.Assert
 import std.random.Random
-import std.math.*
 
 main() {
     let rnd = Random(123)
-    for (i in 0..2**10) {
+    for (_ in 0..2**10) {
         let a = rnd.nextUInt8()
         var b : UInt8 = 0
         while (b == 0) {

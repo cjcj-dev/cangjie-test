@@ -46,7 +46,7 @@ interface I1 {
         get() {
             4
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     prop p2: Int64 {
         get() {
@@ -57,7 +57,7 @@ interface I1 {
         get() {
             6
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     static prop p4: Int64 {
         get() {
@@ -65,6 +65,8 @@ interface I1 {
         }
     }
     operator func+(rhs: Int64) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 8
     }
 }
@@ -109,7 +111,7 @@ struct A <: I1 & I2 & I3 {
         get() {
             14
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p2: Int64 {
         get() {
@@ -120,7 +122,7 @@ struct A <: I1 & I2 & I3 {
         get() {
             16
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p4: Int64 {
         get() {
@@ -128,6 +130,8 @@ struct A <: I1 & I2 & I3 {
         }
     }
     public operator func+(rhs: Int64) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 18
     }
 

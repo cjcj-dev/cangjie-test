@@ -28,7 +28,7 @@ import utils.assert.Assert
 open class A {
   open public mut prop i1: Int64 {
     get() { 7 }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 

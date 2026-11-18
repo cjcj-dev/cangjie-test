@@ -46,7 +46,7 @@ open class OpenParent {
     get() {
       3
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 
@@ -65,7 +65,7 @@ class ChildOfOpen <: OpenParent {
     get() {
       12
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 
   func testOpen() {
@@ -93,7 +93,7 @@ abstract class AbstractParent {
     get() {
       "b"
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 
@@ -112,7 +112,7 @@ class ChildOfAbstract <: AbstractParent {
     get() {
       "D"
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 
   func testAbstract() {
@@ -140,7 +140,7 @@ sealed abstract class SealedParent {
     get() {
       -20
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 
@@ -159,7 +159,7 @@ class ChildOfSealed <: SealedParent {
     get() {
       20
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 
   func testSealed() {

@@ -46,7 +46,7 @@ interface I {
         get() {
             4
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 
     prop p2: Int64 {
@@ -59,7 +59,7 @@ interface I {
         get() {
             6
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 
     static prop p4: Int64 {
@@ -84,7 +84,7 @@ class C1 <: I {
         get() {
             14
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 
     public prop p2: Int64 {
@@ -97,7 +97,7 @@ class C1 <: I {
         get() {
             16
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 
     public static prop p4: Int64 {
@@ -132,7 +132,7 @@ struct S1 <: I {
         get() {
             24
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 
     public prop p2: Int64 {
@@ -145,7 +145,7 @@ struct S1 <: I {
         get() {
             26
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 
     public static prop p4: Int64 {
@@ -218,7 +218,7 @@ class C2 <: J {
         get() {
             44
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 
     public prop p2: Int64 {
@@ -231,7 +231,7 @@ class C2 <: J {
         get() {
             46
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 
     public static prop p4: Int64 {
@@ -266,7 +266,7 @@ struct S2 <: J {
         get() {
             54
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 
     public prop p2: Int64 {
@@ -279,7 +279,7 @@ struct S2 <: J {
         get() {
             56
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 
     public static prop p4: Int64 {

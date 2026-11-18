@@ -54,6 +54,8 @@ interface I1 {
     }
 
     operator func+(rhs: Int64) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 6
     }
 }
@@ -105,6 +107,8 @@ enum A <: I1 & I2 & I3 {
     }
 
     public operator func+(rhs: Int64) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 16
     }
 

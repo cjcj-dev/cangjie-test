@@ -34,7 +34,7 @@ interface I {
   }
   mut prop i2: Int64 {
     get() { 1 }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 

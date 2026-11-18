@@ -140,7 +140,9 @@ enum myTestEnum {
     range64
   }
 
-  func funcFunc(z!: Int32 = 2, y!: Int32 = 3): (Int32, Int32) -> Int32 { 
+  func funcFunc(z!: Int32 = 2, y!: Int32 = 3): (Int32, Int32) -> Int32 {
+    Assert.equals(2, z)
+    Assert.equals(3, y)
     return {x, y => x + y}
   } 
 }

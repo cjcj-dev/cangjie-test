@@ -24,6 +24,8 @@
 
 */
 
+import utils.assert.Assert
+
 interface I {
   prop i1: Int64
   mut prop i2: Int64
@@ -35,7 +37,7 @@ class C <: I {
   }
   public mut prop i2: Int64 {
     get() { 0 }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 

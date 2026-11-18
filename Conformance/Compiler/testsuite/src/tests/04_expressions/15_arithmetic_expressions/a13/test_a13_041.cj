@@ -20,9 +20,12 @@
   @CompileWarning: no
 */
 
+import utils.assert.Assert
+
 main() {
     let v1 : Int64 = 1
     let v2 : UInt64 = 1
     let v3 = v1 ** v2
+    Assert.equals(1, [v3].size)
 }
 

@@ -53,6 +53,8 @@ interface I {
     }
 
     operator func+(rhs: I) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 6
     }
 }
@@ -81,6 +83,8 @@ enum A <: I {
     }
 
     public operator func+(rhs: I) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 16
     }
 

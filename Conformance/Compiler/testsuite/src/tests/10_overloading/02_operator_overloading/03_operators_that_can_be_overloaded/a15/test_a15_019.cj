@@ -29,18 +29,20 @@
 
 */
 
+import utils.assert.Assert
+
 extend Object {
-    public operator func +(x : Unit) { Object() }
-    public operator func -(x : Unit) { Object() }
-    public operator func *(x : Unit) { Object() }
-    public operator func **(x : Unit) { Object() }
-    public operator func /(x : Unit) { Object() }
-    public operator func %(x : Unit) { Object() }
-    public operator func &(x : Unit) { Object() }
-    public operator func |(x : Unit) { Object() }
-    public operator func ^(x : Unit) { Object() }
-    public operator func <<(x : Unit) { Object() }
-    public operator func >>(x : Unit) { Object() }
+    public operator func +(x : Unit) { Assert.equals((), x); Object() }
+    public operator func -(x : Unit) { Assert.equals((), x); Object() }
+    public operator func *(x : Unit) { Assert.equals((), x); Object() }
+    public operator func **(x : Unit) { Assert.equals((), x); Object() }
+    public operator func /(x : Unit) { Assert.equals((), x); Object() }
+    public operator func %(x : Unit) { Assert.equals((), x); Object() }
+    public operator func &(x : Unit) { Assert.equals((), x); Object() }
+    public operator func |(x : Unit) { Assert.equals((), x); Object() }
+    public operator func ^(x : Unit) { Assert.equals((), x); Object() }
+    public operator func <<(x : Unit) { Assert.equals((), x); Object() }
+    public operator func >>(x : Unit) { Assert.equals((), x); Object() }
 }
 
 main() {

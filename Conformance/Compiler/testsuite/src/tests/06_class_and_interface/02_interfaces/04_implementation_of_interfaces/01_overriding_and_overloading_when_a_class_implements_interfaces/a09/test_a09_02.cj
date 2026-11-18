@@ -46,7 +46,7 @@ interface I1 {
         get() {
             14
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     prop p2: Int64 {
         get() {
@@ -57,7 +57,7 @@ interface I1 {
         get() {
             16
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     static prop p4: Int64 {
         get() {
@@ -65,6 +65,8 @@ interface I1 {
         }
     }
     operator func+(rhs: Int64) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 18
     }
 }
@@ -84,7 +86,7 @@ interface I2 {
         get() {
             24
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     prop p2: Int64 {
         get() {
@@ -95,7 +97,7 @@ interface I2 {
         get() {
             26
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     static prop p4: Int64 {
         get() {
@@ -103,6 +105,8 @@ interface I2 {
         }
     }
     operator func+(rhs: Int64) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 28
     }
 }
@@ -122,7 +126,7 @@ interface I3 {
         get() {
             34
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     prop p2: Int64 {
         get() {
@@ -133,7 +137,7 @@ interface I3 {
         get() {
             36
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     static prop p4: Int64 {
         get() {
@@ -141,6 +145,8 @@ interface I3 {
         }
     }
     operator func+(rhs: Int64) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 38
     }
 }
@@ -161,7 +167,7 @@ struct A <: I1 & I2 & I3 {
         get() {
             4
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public override prop p2: Int64 {
         get() {
@@ -172,7 +178,7 @@ struct A <: I1 & I2 & I3 {
         get() {
             6
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public redef static prop p4: Int64 {
         get() {
@@ -180,6 +186,8 @@ struct A <: I1 & I2 & I3 {
         }
     }
     public override operator func+(rhs: Int64) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 8
     }
 

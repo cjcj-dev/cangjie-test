@@ -25,29 +25,35 @@ import utils.assert.Assert
 
 main() {
     var v1: String = "Cangjie"
+    Assert.equals(1, [v1].size)
     Assert.isTrue(match(v1) {
         case foo => true
     })
     var v2: String = ""
+    Assert.equals(1, [v2].size)
     Assert.isTrue(match(v2) {
         case foo => true
     })
     var v3: String = """
 
     """
+    Assert.equals(1, [v3].size)
     Assert.isTrue(match(v3) {
         case foo => true
     })
     var v4: String = ##"A"
     "##
+    Assert.equals(1, [v4].size)
     Assert.isTrue(match(v4) {
         case foo => true
     })
     var v5: String = ##""##
+    Assert.equals(1, [v5].size)
     Assert.isTrue(match(v5) {
         case foo => true
     })
     var v6: String = #""#
+    Assert.equals(1, [v6].size)
     Assert.isTrue(match(v6) {
         case foo => true
     })

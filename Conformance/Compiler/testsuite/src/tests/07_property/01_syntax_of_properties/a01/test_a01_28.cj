@@ -42,17 +42,19 @@
 
 */
 
+import utils.assert.Assert
+
 abstract class A {
   static public mut prop aaa : Int32 {
     get() { 0 }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 
 class B <: A {
   redef static public mut prop aaa : Int32 {
     get() { 0 }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 

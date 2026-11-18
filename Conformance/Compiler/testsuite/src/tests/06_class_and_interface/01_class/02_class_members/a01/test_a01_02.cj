@@ -53,7 +53,7 @@ public interface TestA0102 {
     get() {
       5
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 
   static prop top_sprop: Int64 {
@@ -66,7 +66,7 @@ public interface TestA0102 {
     get() {
       7
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 
   prop top_prop: Int64 {
@@ -97,7 +97,7 @@ sealed interface Bottom <: TestA0102 {
     get() {
       13
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 
   static prop bottom_sprop: Int64 {
@@ -110,7 +110,7 @@ sealed interface Bottom <: TestA0102 {
     get() {
       15
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 
   prop bottom_prop: Int64 {

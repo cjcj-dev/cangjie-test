@@ -23,13 +23,15 @@
 
 */
 
+import utils.assert.Assert
+
 interface A1 {
   prop a1 : Int32 {
     get() { 0 }
   }
   mut prop a2 : Int32 {
     get() { 0 }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 

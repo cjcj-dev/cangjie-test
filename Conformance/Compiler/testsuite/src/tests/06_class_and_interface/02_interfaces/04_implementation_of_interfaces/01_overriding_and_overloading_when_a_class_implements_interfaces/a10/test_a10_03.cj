@@ -60,7 +60,7 @@ open class S {
         get() {
             4
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p2: Int64 {
         get() {
@@ -71,7 +71,7 @@ open class S {
         get() {
             6
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p4: Int64 {
         get() {
@@ -79,6 +79,8 @@ open class S {
         }
     }
     public operator func-(rhs: Int64) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 8
     }
 }

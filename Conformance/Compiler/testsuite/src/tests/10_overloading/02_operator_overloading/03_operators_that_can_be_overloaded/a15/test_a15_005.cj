@@ -29,18 +29,20 @@
 
 */
 
+import utils.assert.Assert
+
 extend Int64 {
-    public operator func +(x : Unit) { 1i64 }
-    public operator func -(x : Unit) { 1i64 }
-    public operator func *(x : Unit) { 1i64 }
-    public operator func **(x : Unit) { 1i64 }
-    public operator func /(x : Unit) { 1i64 }
-    public operator func %(x : Unit) { 1i64 }
-    public operator func &(x : Unit) { 1i64 }
-    public operator func |(x : Unit) { 1i64 }
-    public operator func ^(x : Unit) { 1i64 }
-    public operator func <<(x : Unit) { 1i64 }
-    public operator func >>(x : Unit) { 1i64 }
+    public operator func +(x : Unit) { Assert.equals((), x); 1i64 }
+    public operator func -(x : Unit) { Assert.equals((), x); 1i64 }
+    public operator func *(x : Unit) { Assert.equals((), x); 1i64 }
+    public operator func **(x : Unit) { Assert.equals((), x); 1i64 }
+    public operator func /(x : Unit) { Assert.equals((), x); 1i64 }
+    public operator func %(x : Unit) { Assert.equals((), x); 1i64 }
+    public operator func &(x : Unit) { Assert.equals((), x); 1i64 }
+    public operator func |(x : Unit) { Assert.equals((), x); 1i64 }
+    public operator func ^(x : Unit) { Assert.equals((), x); 1i64 }
+    public operator func <<(x : Unit) { Assert.equals((), x); 1i64 }
+    public operator func >>(x : Unit) { Assert.equals((), x); 1i64 }
 }
 
 main() {

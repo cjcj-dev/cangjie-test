@@ -30,14 +30,14 @@ import utils.assert.Assert
 open class A {
   open protected mut prop a: Int64 {
     get() { 0 }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 
 class B <: A {
   override protected mut prop a: Int64 {
     get() { 1 }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 

@@ -48,6 +48,7 @@ func checkSome<T1, T2>(t : T1, expected : Bool) {
         case None => Assert.isFalse(expected)
         case Some(_) => Assert.isTrue(expected)
     }
+    Assert.equals((), val)
 }
 
 main() {

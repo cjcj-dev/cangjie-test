@@ -46,7 +46,7 @@ public open class TestA1406 {
     get() {
       3
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 
@@ -65,7 +65,7 @@ sealed abstract class SealedParent <: TestA1406 {
     get() {
       -20
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 
@@ -84,7 +84,7 @@ class ChildOfSealed <: SealedParent {
     get() {
       20
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 
   func test() {

@@ -46,7 +46,7 @@ public open class TheTopClass {
     get() {
       0x3
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 
@@ -65,7 +65,7 @@ public abstract class UpperClass <: TheTopClass {
     get() {
       0x6
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 
@@ -83,7 +83,7 @@ sealed abstract class TheParent <: UpperClass {
     get() {
       0x9
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 
@@ -101,7 +101,7 @@ class Test <: TheParent {
     get() {
       0x13
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 
   public func upperFunc() {
@@ -117,7 +117,7 @@ class Test <: TheParent {
     get() {
       0x16
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 
   public func Func() {
@@ -133,7 +133,7 @@ class Test <: TheParent {
     get() {
       0x19
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 
   func test() {

@@ -29,18 +29,20 @@
 
 */
 
+import utils.assert.Assert
+
 extend Rune {
-    public operator func +(x : Unit) { r'1' }
-    public operator func -(x : Unit) { r'1' }
-    public operator func *(x : Unit) { r'1' }
-    public operator func **(x : Unit) { r'1' }
-    public operator func /(x : Unit) { r'1' }
-    public operator func %(x : Unit) { r'1' }
-    public operator func &(x : Unit) { r'1' }
-    public operator func |(x : Unit) { r'1' }
-    public operator func ^(x : Unit) { r'1' }
-    public operator func <<(x : Unit) { r'1' }
-    public operator func >>(x : Unit) { r'1' }
+    public operator func +(x : Unit) { Assert.equals((), x); r'1' }
+    public operator func -(x : Unit) { Assert.equals((), x); r'1' }
+    public operator func *(x : Unit) { Assert.equals((), x); r'1' }
+    public operator func **(x : Unit) { Assert.equals((), x); r'1' }
+    public operator func /(x : Unit) { Assert.equals((), x); r'1' }
+    public operator func %(x : Unit) { Assert.equals((), x); r'1' }
+    public operator func &(x : Unit) { Assert.equals((), x); r'1' }
+    public operator func |(x : Unit) { Assert.equals((), x); r'1' }
+    public operator func ^(x : Unit) { Assert.equals((), x); r'1' }
+    public operator func <<(x : Unit) { Assert.equals((), x); r'1' }
+    public operator func >>(x : Unit) { Assert.equals((), x); r'1' }
 }
 
 main() {

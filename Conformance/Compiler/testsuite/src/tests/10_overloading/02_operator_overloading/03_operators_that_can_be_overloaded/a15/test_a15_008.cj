@@ -29,18 +29,20 @@
 
 */
 
+import utils.assert.Assert
+
 extend UInt16 {
-    public operator func +(x : Unit) { 1u16 }
-    public operator func -(x : Unit) { 1u16 }
-    public operator func *(x : Unit) { 1u16 }
-    public operator func **(x : Unit) { 1u16 }
-    public operator func /(x : Unit) { 1u16 }
-    public operator func %(x : Unit) { 1u16 }
-    public operator func &(x : Unit) { 1u16 }
-    public operator func |(x : Unit) { 1u16 }
-    public operator func ^(x : Unit) { 1u16 }
-    public operator func <<(x : Unit) { 1u16 }
-    public operator func >>(x : Unit) { 1u16 }
+    public operator func +(x : Unit) { Assert.equals((), x); 1u16 }
+    public operator func -(x : Unit) { Assert.equals((), x); 1u16 }
+    public operator func *(x : Unit) { Assert.equals((), x); 1u16 }
+    public operator func **(x : Unit) { Assert.equals((), x); 1u16 }
+    public operator func /(x : Unit) { Assert.equals((), x); 1u16 }
+    public operator func %(x : Unit) { Assert.equals((), x); 1u16 }
+    public operator func &(x : Unit) { Assert.equals((), x); 1u16 }
+    public operator func |(x : Unit) { Assert.equals((), x); 1u16 }
+    public operator func ^(x : Unit) { Assert.equals((), x); 1u16 }
+    public operator func <<(x : Unit) { Assert.equals((), x); 1u16 }
+    public operator func >>(x : Unit) { Assert.equals((), x); 1u16 }
 }
 
 main() {

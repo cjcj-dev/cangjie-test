@@ -34,107 +34,143 @@ let f32: Float32 = Float32(Assert.getRuntimeZero() + 1)
 main() {  
     // Literal type is the same as variable type
     var x1: Float32 = 3.145628
+    Assert.equals(1, [x1].size)
     var x2: Float32 = .145628
+    Assert.equals(1, [x2].size)
     var x3: Float32 = 3e4
+    Assert.equals(1, [x3].size)
     var x4: Float32 = 345e-4
+    Assert.equals(1, [x4].size)
 
     // Literal type is the same as the type of the second literal:
 
     var x5 = 10.3f32 + 3.145628
+    Assert.equals(1, [x5].size)
     Assert.isTrue(x5 is Float32)
 
     var x6 = 3.145628 - 10.3f32
+    Assert.equals(1, [x6].size)
     Assert.isTrue(x6 is Float32)
 
     var x7 = 10.3f32 * 3.145628
+    Assert.equals(1, [x7].size)
     Assert.isTrue(x7 is Float32)
 
     var x8 = 3.145628 / 10.3f32
+    Assert.equals(1, [x8].size)
     Assert.isTrue(x8 is Float32)
 
     var x9 = 10.3f32 + .14
+    Assert.equals(1, [x9].size)
     Assert.isTrue(x9 is Float32)
 
     var x10 = .14 - 10.3f32
+    Assert.equals(1, [x10].size)
     Assert.isTrue(x10 is Float32)
 
     var x11 = 10.3f32 * .14
+    Assert.equals(1, [x11].size)
     Assert.isTrue(x11 is Float32)
 
     var x12 = .14 / 10.3f32
+    Assert.equals(1, [x12].size)
     Assert.isTrue(x12 is Float32)
 
     var x13 = 10.3f32 + 12345e3
+    Assert.equals(1, [x13].size)
     Assert.isTrue(x13 is Float32)
 
     var x14 = 12345e3 - 10.3f32
+    Assert.equals(1, [x14].size)
     Assert.isTrue(x14 is Float32)
 
     var x15 = 10.3f32 * 12345e3
+    Assert.equals(1, [x15].size)
     Assert.isTrue(x15 is Float32)
 
     var x16 = 12345e3 / 10.3f32
+    Assert.equals(1, [x16].size)
     Assert.isTrue(x16 is Float32)
 
     var x17 = 10.3f32 + 12345e-3
+    Assert.equals(1, [x17].size)
     Assert.isTrue(x17 is Float32)
 
     var x18 = 12345e-3 - 10.3f32
+    Assert.equals(1, [x18].size)
     Assert.isTrue(x18 is Float32)
 
     var x19 = 10.3f32 * 12345e-3
+    Assert.equals(1, [x19].size)
     Assert.isTrue(x19 is Float32)
 
     var x20 = 12345e-3 / 10.3f32
+    Assert.equals(1, [x20].size)
     Assert.isTrue(x20 is Float32)
 
     // Literal type is the same as the type of the variable type:
 
     var x21 = f32 + 3.145628
+    Assert.equals(1, [x21].size)
     Assert.isTrue(x21 is Float32)
 
     var x22 = 3.145628 - f32
+    Assert.equals(1, [x22].size)
     Assert.isTrue(x22 is Float32)
 
     var x23 = f32 * 3.145628
+    Assert.equals(1, [x23].size)
     Assert.isTrue(x23 is Float32)
 
     var x24 = 3.145628 / f32
+    Assert.equals(1, [x24].size)
     Assert.isTrue(x24 is Float32)
 
     var x25 = f32 + .14
+    Assert.equals(1, [x25].size)
     Assert.isTrue(x25 is Float32)
 
     var x26 = .14 - f32
+    Assert.equals(1, [x26].size)
     Assert.isTrue(x26 is Float32)
 
     var x27 = f32 * .14
+    Assert.equals(1, [x27].size)
     Assert.isTrue(x27 is Float32)
 
     var x28 = .14 / f32
+    Assert.equals(1, [x28].size)
     Assert.isTrue(x28 is Float32)
 
     var x29 = f32 + 12345e3
+    Assert.equals(1, [x29].size)
     Assert.isTrue(x29 is Float32)
 
     var x30 = 12345e3 - f32
+    Assert.equals(1, [x30].size)
     Assert.isTrue(x30 is Float32)
 
     var x31 = f32 * 12345e3
+    Assert.equals(1, [x31].size)
     Assert.isTrue(x31 is Float32)
 
     var x32 = 12345e3 / f32
+    Assert.equals(1, [x32].size)
     Assert.isTrue(x32 is Float32)
 
     var x33 = f32 + 12345e-3
+    Assert.equals(1, [x33].size)
     Assert.isTrue(x33 is Float32)
 
     var x34 = 12345e-3 - f32
+    Assert.equals(1, [x34].size)
     Assert.isTrue(x34 is Float32)
 
     var x35 = f32 * 12345e-3
+    Assert.equals(1, [x35].size)
     Assert.isTrue(x35 is Float32)
 
     var x36 = 12345e-3 / f32
+    Assert.equals(1, [x36].size)
     Assert.isTrue(x36 is Float32)
 }

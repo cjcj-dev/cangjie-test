@@ -78,6 +78,7 @@ main() {
     Assert.isTrue(x12 is Float64)
 
     var x13 = 2.002e-4f16
+    Assert.equals(1, [x13].size)
     Assert.approxEquals(2.0020e4, x11)
     Assert.isTrue(x13 is Float16)
 

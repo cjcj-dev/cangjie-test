@@ -29,20 +29,22 @@
 
 */
 
+import utils.assert.Assert
+
 open class A {}
 
 open class B <: A {
-    public operator func +(x : Unit) { B() }
-    public operator func -(x : Unit) { B() }
-    public operator func *(x : Unit) { B() }
-    public operator func **(x : Unit) { B() }
-    public operator func /(x : Unit) { B() }
-    public operator func %(x : Unit) { B() }
-    public operator func &(x : Unit) { B() }
-    public operator func |(x : Unit) { B() }
-    public operator func ^(x : Unit) { B() }
-    public operator func <<(x : Unit) { B() }
-    public operator func >>(x : Unit) { B() }
+    public operator func +(x : Unit) { Assert.equals((), x); B() }
+    public operator func -(x : Unit) { Assert.equals((), x); B() }
+    public operator func *(x : Unit) { Assert.equals((), x); B() }
+    public operator func **(x : Unit) { Assert.equals((), x); B() }
+    public operator func /(x : Unit) { Assert.equals((), x); B() }
+    public operator func %(x : Unit) { Assert.equals((), x); B() }
+    public operator func &(x : Unit) { Assert.equals((), x); B() }
+    public operator func |(x : Unit) { Assert.equals((), x); B() }
+    public operator func ^(x : Unit) { Assert.equals((), x); B() }
+    public operator func <<(x : Unit) { Assert.equals((), x); B() }
+    public operator func >>(x : Unit) { Assert.equals((), x); B() }
 }
 
 open class C <: B {}

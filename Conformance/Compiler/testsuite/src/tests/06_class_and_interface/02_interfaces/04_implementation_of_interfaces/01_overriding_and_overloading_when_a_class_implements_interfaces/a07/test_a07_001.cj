@@ -77,7 +77,7 @@ class A <: I {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p2: Int32 {
         get() {
@@ -88,7 +88,7 @@ class A <: I {
         get() {
             3i16
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p4: Int8 {
         get() {
@@ -100,7 +100,7 @@ class A <: I {
         get() {
             5u64
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p6: UInt32 {
         get() {
@@ -111,7 +111,7 @@ class A <: I {
         get() {
             7u16
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p8: UInt8 {
         get() {
@@ -123,7 +123,7 @@ class A <: I {
         get() {
             0.01f64
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p10: Float32 {
         get() {
@@ -134,7 +134,7 @@ class A <: I {
         get() {
             0.01f16
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p12: Unit {
         get() {
@@ -145,7 +145,7 @@ class A <: I {
         get() {
             "tfqfq"
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p14: Rune {
         get() {
@@ -156,7 +156,7 @@ class A <: I {
         get() {
             true
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p16: (String, Rune, Bool) {
         get() {
@@ -168,7 +168,7 @@ class A <: I {
         get() {
             {=>17}
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p18: Range<Int64> {
         get() {
@@ -179,7 +179,7 @@ class A <: I {
         get() {
             [true, true]
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p20: VArray<Int64, $3> {
         get() {
@@ -191,7 +191,7 @@ class A <: I {
         get() {
             HC()
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p22: HC {
         get() {
@@ -202,7 +202,7 @@ class A <: I {
         get() {
             HS(x: 23)
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p24: HE {
         get() {

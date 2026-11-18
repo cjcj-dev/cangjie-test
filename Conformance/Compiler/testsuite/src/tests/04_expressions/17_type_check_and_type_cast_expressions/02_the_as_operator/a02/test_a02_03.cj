@@ -37,6 +37,7 @@ func isNone<T1, T2>(x : T1) {
       case None => ()
       case Some(_) => none = false
   }
+  Assert.equals((), val)
 }
 
 func check1<T>(x : T) {

@@ -25,14 +25,17 @@ import utils.assert.Assert
 
 main() {
     var v1: Byte = b'a'
+    Assert.equals(1, [v1].size)
     Assert.isTrue(match(v1) {
         case foo => true
     })
     var v2: Byte = b'\u{AB}'
+    Assert.equals(1, [v2].size)
     Assert.isTrue(match(v2) {
         case foo => true
     })
     var v3: Byte = b'\t'
+    Assert.equals(1, [v3].size)
     Assert.isTrue(match(v3) {
         case foo => true
     })

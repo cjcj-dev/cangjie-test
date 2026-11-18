@@ -27,6 +27,7 @@ import utils.assert.Assert
 
 extend<T> Range<T> {
     operator func[](index: Int64) {
+        Assert.equals(1, index)
         42
     }
 }

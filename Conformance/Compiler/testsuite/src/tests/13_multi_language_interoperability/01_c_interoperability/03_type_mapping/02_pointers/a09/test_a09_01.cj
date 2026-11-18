@@ -30,8 +30,11 @@
 
 */
 
+import utils.assert.Assert
+
 foreign func rand ():Int32
 main() {
     var ptr =CPointer <Int8 >(rand)
+    Assert.equals(1, [ptr].size)
     0
 }

@@ -51,7 +51,7 @@ abstract class C <: I {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p4: Int64 {
         get() {
@@ -69,7 +69,7 @@ abstract class C1 <: I {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p2: Int64 {
         get() {
@@ -80,7 +80,7 @@ abstract class C1 <: I {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p4: Int64 {
         get() {
@@ -100,7 +100,7 @@ abstract class C2 <: I {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p2: Int64 {
         get() {
@@ -111,7 +111,7 @@ abstract class C2 <: I {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p4: Int64 {
         get() {
@@ -131,7 +131,7 @@ abstract class C3 <: I {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p2: Int64 {
         get() {
@@ -142,7 +142,7 @@ abstract class C3 <: I {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p4: Int64 {
         get() {
@@ -167,7 +167,7 @@ abstract class C4 <: I {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p4: Int64 {
         get() {
@@ -187,13 +187,13 @@ abstract class C5 <: I {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static mut prop p3: Int64 {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p4: Int64 {
         get() {
@@ -213,7 +213,7 @@ abstract class C6 <: I {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p2: Int64 {
         get() {
@@ -224,7 +224,7 @@ abstract class C6 <: I {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p4: Int64 {
         get() {
@@ -244,7 +244,7 @@ abstract class C7 <: I {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p2: Int64 {
         get() {
@@ -255,7 +255,7 @@ abstract class C7 <: I {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p4: Int64 {
         get() {
@@ -275,7 +275,7 @@ abstract class C8 <: I {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p2: Int64 {
         get() {
@@ -286,7 +286,7 @@ abstract class C8 <: I {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p4: Int64 {
         get() {

@@ -54,6 +54,8 @@ interface I1 {
     }
 
     operator func+(rhs: Int64) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 16
     }
 }
@@ -81,6 +83,8 @@ interface I2 {
     }
 
     operator func+(rhs: Int64) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 26
     }
 }
@@ -108,6 +112,8 @@ interface I3 {
     }
 
     operator func+(rhs: Int64) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 36
     }
 }
@@ -138,6 +144,8 @@ enum A <: I1 & I2 & I3 {
     }
 
     public override operator func+(rhs: Int64) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 6
     }
 

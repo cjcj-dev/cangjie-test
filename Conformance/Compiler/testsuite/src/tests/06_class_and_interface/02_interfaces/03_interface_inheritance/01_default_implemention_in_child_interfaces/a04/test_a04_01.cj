@@ -52,7 +52,7 @@ interface I {
         get() {
             0
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     prop p2: Int64 {
         get() {
@@ -63,7 +63,7 @@ interface I {
         get() {
             0
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     static prop p4: Int64 {
         get() {
@@ -91,7 +91,7 @@ interface J1 <: I {
         get() {
             4
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     prop p2: Int64 {
         get() {
@@ -102,7 +102,7 @@ interface J1 <: I {
         get() {
             6
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     static prop p4: Int64 {
         get() {
@@ -141,7 +141,7 @@ interface J2 <: I {
         get() {
             40
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     override prop p2: Int64 {
         get() {
@@ -152,7 +152,7 @@ interface J2 <: I {
         get() {
             60
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     redef static prop p4: Int64 {
         get() {

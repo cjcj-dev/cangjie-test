@@ -27,6 +27,8 @@
   @Issue: 0006421
 */
 
+import utils.assert.Assert
+
 @C
 func func_01(x: Int32): Int32 {
     return x + 100
@@ -35,4 +37,5 @@ func func_01(x: Int32): Int32 {
 main() {
     var F: CFunc<(Int32)->Int32> = func_01
     var P: CPointer<Unit> = CPointer<Unit>(F)
+    Assert.equals(1, [P].size)
 }

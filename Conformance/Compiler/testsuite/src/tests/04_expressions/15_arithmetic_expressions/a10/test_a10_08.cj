@@ -25,7 +25,7 @@ import std.random.Random
 
 main() {
     let rnd = Random(123)
-    for (i in 0..2**10) {
+    for (_ in 0..2**10) {
         let a = rnd.nextUInt64()
         var b : UInt64 = 0
         while (b == 0) {

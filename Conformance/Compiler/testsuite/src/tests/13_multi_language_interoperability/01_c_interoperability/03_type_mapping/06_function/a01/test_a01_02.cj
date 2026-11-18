@@ -28,9 +28,12 @@
   @Issue: 0006421
 */
 
+import utils.assert.Assert
+
 @C func func_01(x: Int32): Int32 { 100 + x }
 
 main() {
     let F: CFunc<(Int32)->Int32> = func_01
     var V: CType = F
+    Assert.equals(1, [V].size)
 }

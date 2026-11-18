@@ -29,18 +29,20 @@
 
 */
 
+import utils.assert.Assert
+
 extend Float32 {
-    public operator func +(x : Unit) { 1.0f32 }
-    public operator func -(x : Unit) { 1.0f32 }
-    public operator func *(x : Unit) { 1.0f32 }
-    public operator func **(x : Unit) { 1.0f32 }
-    public operator func /(x : Unit) { 1.0f32 }
-    public operator func %(x : Unit) { 1.0f32 }
-    public operator func &(x : Unit) { 1.0f32 }
-    public operator func |(x : Unit) { 1.0f32 }
-    public operator func ^(x : Unit) { 1.0f32 }
-    public operator func <<(x : Unit) { 1.0f32 }
-    public operator func >>(x : Unit) { 1.0f32 }
+    public operator func +(x : Unit) { Assert.equals((), x); 1.0f32 }
+    public operator func -(x : Unit) { Assert.equals((), x); 1.0f32 }
+    public operator func *(x : Unit) { Assert.equals((), x); 1.0f32 }
+    public operator func **(x : Unit) { Assert.equals((), x); 1.0f32 }
+    public operator func /(x : Unit) { Assert.equals((), x); 1.0f32 }
+    public operator func %(x : Unit) { Assert.equals((), x); 1.0f32 }
+    public operator func &(x : Unit) { Assert.equals((), x); 1.0f32 }
+    public operator func |(x : Unit) { Assert.equals((), x); 1.0f32 }
+    public operator func ^(x : Unit) { Assert.equals((), x); 1.0f32 }
+    public operator func <<(x : Unit) { Assert.equals((), x); 1.0f32 }
+    public operator func >>(x : Unit) { Assert.equals((), x); 1.0f32 }
 }
 
 main() {

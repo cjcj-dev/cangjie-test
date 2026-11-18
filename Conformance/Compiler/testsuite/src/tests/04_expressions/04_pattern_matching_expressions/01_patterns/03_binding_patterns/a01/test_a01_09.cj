@@ -25,6 +25,7 @@ import utils.assert.Assert
 
 main() {
     var v1: (Int64, Int64, Int64) = (1, 2, 3)
+    Assert.equals(1, [v1].size)
     Assert.isTrue(match(v1) {
         case foo => true
     })

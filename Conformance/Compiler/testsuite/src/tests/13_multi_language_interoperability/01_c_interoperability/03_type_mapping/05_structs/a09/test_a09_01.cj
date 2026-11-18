@@ -26,9 +26,12 @@
   @Issue: 0006421
 */
 
+import utils.assert.Assert
+
 @C
 struct ABC {}
 
 main() {
     var x:CType = ABC()
+    Assert.equals(1, [x].size)
 }

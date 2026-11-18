@@ -48,7 +48,7 @@ interface I6 {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 }
 
@@ -71,7 +71,7 @@ interface I8 {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 }
 
@@ -92,7 +92,7 @@ interface I9 {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 }
 
@@ -114,7 +114,7 @@ interface J7 <: I7 {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 }
 
@@ -127,7 +127,7 @@ interface J9 <: I9 {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 }
 
@@ -149,7 +149,7 @@ interface J16<T> <: I7 {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 }
 
@@ -162,7 +162,7 @@ interface J18<T> <: I9 {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 }
 
@@ -174,14 +174,14 @@ interface J19 <: I1 & I2<Unit> & I3 &I4 & I5 & I6 & I7 & I8 & I9 {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 
     static mut prop i4: Int64 {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 }
 
@@ -193,14 +193,14 @@ interface J20<T> <: I1 & I2<Unit> & I3 &I4 & I5 & I6 & I7 & I8 & I9 {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 
     static mut prop i4: Int64 {
         get() {
             1
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 }
 

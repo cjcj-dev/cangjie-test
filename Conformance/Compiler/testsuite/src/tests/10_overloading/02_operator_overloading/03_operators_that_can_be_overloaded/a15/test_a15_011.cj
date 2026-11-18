@@ -29,18 +29,20 @@
 
 */
 
+import utils.assert.Assert
+
 extend UIntNative {
-    public operator func +(x : Unit) { UIntNative(1) }
-    public operator func -(x : Unit) { UIntNative(1) }
-    public operator func *(x : Unit) { UIntNative(1) }
-    public operator func **(x : Unit) { UIntNative(1) }
-    public operator func /(x : Unit) { UIntNative(1) }
-    public operator func %(x : Unit) { UIntNative(1) }
-    public operator func &(x : Unit) { UIntNative(1) }
-    public operator func |(x : Unit) { UIntNative(1) }
-    public operator func ^(x : Unit) { UIntNative(1) }
-    public operator func <<(x : Unit) { UIntNative(1) }
-    public operator func >>(x : Unit) { UIntNative(1) }
+    public operator func +(x : Unit) { Assert.equals((), x); UIntNative(1) }
+    public operator func -(x : Unit) { Assert.equals((), x); UIntNative(1) }
+    public operator func *(x : Unit) { Assert.equals((), x); UIntNative(1) }
+    public operator func **(x : Unit) { Assert.equals((), x); UIntNative(1) }
+    public operator func /(x : Unit) { Assert.equals((), x); UIntNative(1) }
+    public operator func %(x : Unit) { Assert.equals((), x); UIntNative(1) }
+    public operator func &(x : Unit) { Assert.equals((), x); UIntNative(1) }
+    public operator func |(x : Unit) { Assert.equals((), x); UIntNative(1) }
+    public operator func ^(x : Unit) { Assert.equals((), x); UIntNative(1) }
+    public operator func <<(x : Unit) { Assert.equals((), x); UIntNative(1) }
+    public operator func >>(x : Unit) { Assert.equals((), x); UIntNative(1) }
 }
 
 main() {

@@ -30,21 +30,21 @@ import utils.assert.Assert
 open class Foo {
   static mut prop a: String {
     get() { "Foo" }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 
 class Foo1 <: Foo {
   static mut prop a: String {
     get() { "Foo1" }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 
 class Foo2 <: Foo {
   redef static mut prop a: String {
     get() { "Foo2" }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 

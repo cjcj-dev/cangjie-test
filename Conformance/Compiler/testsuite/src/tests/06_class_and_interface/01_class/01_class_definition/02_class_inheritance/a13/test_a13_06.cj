@@ -69,7 +69,7 @@ sealed abstract class A<U, V> {
     get() {
       12
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 
   public prop pub_prop: Int64 {
@@ -82,7 +82,7 @@ sealed abstract class A<U, V> {
     get() {
       14
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 
   protected prop prot_prop: Int64 {
@@ -95,7 +95,7 @@ sealed abstract class A<U, V> {
     get() {
       16
     }
-    set(v) {}
+    set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
   }
 }
 

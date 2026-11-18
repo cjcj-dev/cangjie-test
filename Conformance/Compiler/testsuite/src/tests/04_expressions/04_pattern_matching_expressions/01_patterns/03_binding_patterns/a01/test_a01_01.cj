@@ -25,34 +25,42 @@ import utils.assert.Assert
 
 main() {
     var v1: UInt8 = 1
+    Assert.equals(1, [v1].size)
     Assert.isTrue(match(v1) {
         case foo => true
     })
     var v2: UInt16 = 1
+    Assert.equals(1, [v2].size)
     Assert.isTrue(match(v2) {
         case foo => true
     })
     var v3: UInt32 = 1
+    Assert.equals(1, [v3].size)
     Assert.isTrue(match(v3) {
         case foo => true
     })
     var v4: UInt64 = 1
+    Assert.equals(1, [v4].size)
     Assert.isTrue(match(v4) {
         case foo => true
     })
     var v5: Int8 = 1
+    Assert.equals(1, [v5].size)
     Assert.isTrue(match(v5) {
         case foo => true
     })
     var v6: Int16 = 1
+    Assert.equals(1, [v6].size)
     Assert.isTrue(match(v6) {
         case foo => true
     })
     var v7: Int32 = 1
+    Assert.equals(1, [v7].size)
     Assert.isTrue(match(v7) {
         case foo => true
     })
     var v8: Int64 = 1
+    Assert.equals(1, [v8].size)
     Assert.isTrue(match(v8) {
         case foo => true
     })

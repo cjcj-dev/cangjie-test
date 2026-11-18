@@ -36,6 +36,8 @@
   @Issue: 0006421
 */
 
+import utils.assert.Assert
+
 @C
 struct A{}// implicit implement CType
 
@@ -43,4 +45,5 @@ class D<T> where T <: CType {}
 
 main() {
     var d0=D<Int8 >()// ok
+    Assert.equals(1, [d0].size)
 }

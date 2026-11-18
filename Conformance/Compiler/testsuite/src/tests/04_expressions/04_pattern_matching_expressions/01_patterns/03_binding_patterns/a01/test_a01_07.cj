@@ -25,10 +25,12 @@ import utils.assert.Assert
 
 main() {
     var v1: Unit = println("")
+    Assert.equals((), v1)
     Assert.isTrue(match(v1) {
         case foo => true
     })
     var v2: Unit = ()
+    Assert.equals((), v2)
     Assert.isTrue(match(v2) {
         case foo => true
     })

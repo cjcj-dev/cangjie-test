@@ -29,6 +29,8 @@
 
 */
 
+import utils.assert.Assert
+
 interface I {
     operator func +(x : Unit) : K
     operator func -(x : Unit) : K
@@ -50,62 +52,62 @@ interface K <: J {}
 interface L <: I {}
 
 open class CI <: I {
-    public operator func +(x : Unit) { CK.k() }
-    public operator func -(x : Unit) { CK.k() }
-    public operator func *(x : Unit) { CK.k() }
-    public operator func **(x : Unit) { CK.k() }
-    public operator func /(x : Unit) { CK.k() }
-    public operator func %(x : Unit) { CK.k() }
-    public operator func &(x : Unit) { CK.k() }
-    public operator func |(x : Unit) { CK.k() }
-    public operator func ^(x : Unit) { CK.k() }
-    public operator func <<(x : Unit) { CK.k() }
-    public operator func >>(x : Unit) { CK.k() }
+    public operator func +(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func -(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func *(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func **(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func /(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func %(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func &(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func |(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func ^(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func <<(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func >>(x : Unit) { Assert.equals((), x); CK.k() }
     static func i() : I { CI() }
 }
 
 open class CJ <: J {
-    public operator func +(x : Unit) { CK.k() }
-    public operator func -(x : Unit) { CK.k() }
-    public operator func *(x : Unit) { CK.k() }
-    public operator func **(x : Unit) { CK.k() }
-    public operator func /(x : Unit) { CK.k() }
-    public operator func %(x : Unit) { CK.k() }
-    public operator func &(x : Unit) { CK.k() }
-    public operator func |(x : Unit) { CK.k() }
-    public operator func ^(x : Unit) { CK.k() }
-    public operator func <<(x : Unit) { CK.k() }
-    public operator func >>(x : Unit) { CK.k() }
+    public operator func +(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func -(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func *(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func **(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func /(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func %(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func &(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func |(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func ^(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func <<(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func >>(x : Unit) { Assert.equals((), x); CK.k() }
     static func j() : J { CJ() }
 }
 
 open class CK <: K {
-    public operator func +(x : Unit) { CK.k() }
-    public operator func -(x : Unit) { CK.k() }
-    public operator func *(x : Unit) { CK.k() }
-    public operator func **(x : Unit) { CK.k() }
-    public operator func /(x : Unit) { CK.k() }
-    public operator func %(x : Unit) { CK.k() }
-    public operator func &(x : Unit) { CK.k() }
-    public operator func |(x : Unit) { CK.k() }
-    public operator func ^(x : Unit) { CK.k() }
-    public operator func <<(x : Unit) { CK.k() }
-    public operator func >>(x : Unit) { CK.k() }
+    public operator func +(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func -(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func *(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func **(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func /(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func %(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func &(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func |(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func ^(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func <<(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func >>(x : Unit) { Assert.equals((), x); CK.k() }
     static func k() : K { CK() }
 }
 
 open class CL <: L {
-    public operator func +(x : Unit) { CK.k() }
-    public operator func -(x : Unit) { CK.k() }
-    public operator func *(x : Unit) { CK.k() }
-    public operator func **(x : Unit) { CK.k() }
-    public operator func /(x : Unit) { CK.k() }
-    public operator func %(x : Unit) { CK.k() }
-    public operator func &(x : Unit) { CK.k() }
-    public operator func |(x : Unit) { CK.k() }
-    public operator func ^(x : Unit) { CK.k() }
-    public operator func <<(x : Unit) { CK.k() }
-    public operator func >>(x : Unit) { CK.k() }
+    public operator func +(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func -(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func *(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func **(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func /(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func %(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func &(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func |(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func ^(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func <<(x : Unit) { Assert.equals((), x); CK.k() }
+    public operator func >>(x : Unit) { Assert.equals((), x); CK.k() }
     static func l() : L { CL() }
 }
 

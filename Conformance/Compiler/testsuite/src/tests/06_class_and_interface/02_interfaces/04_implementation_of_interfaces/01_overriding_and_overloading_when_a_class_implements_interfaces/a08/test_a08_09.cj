@@ -45,7 +45,7 @@ interface I {
         get() {
             4
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     prop p2: Int64 {
         get() {
@@ -56,7 +56,7 @@ interface I {
         get() {
             6
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     static prop p4: Int64 {
         get() {
@@ -64,6 +64,8 @@ interface I {
         }
     }
     operator func+(rhs: I) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 8
     }
 }

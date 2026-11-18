@@ -111,7 +111,7 @@ struct Case2 <: I1 & I2 {
         get() {
             4
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p2_i1: Int64 {
         get() {
@@ -122,7 +122,7 @@ struct Case2 <: I1 & I2 {
         get() {
             6
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p4_i1: Int64 {
         get() {
@@ -131,6 +131,8 @@ struct Case2 <: I1 & I2 {
     }
 
     public operator func +(rhs: I1) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 8
     }
 
@@ -148,7 +150,7 @@ struct Case2 <: I1 & I2 {
         get() {
             12
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p2_i2: Int64 {
         get() {
@@ -159,7 +161,7 @@ struct Case2 <: I1 & I2 {
         get() {
             14
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p4_i2: Int64 {
         get() {
@@ -168,6 +170,8 @@ struct Case2 <: I1 & I2 {
     }
 
     public operator func -(rhs: I2) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 16
     }
 
@@ -207,7 +211,7 @@ struct Case3 <: J1 & J2 & J3 & J4 & J5 & J6 & J7 & J8 {
         get() {
             40
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public prop p2: Int64 {
         get() {
@@ -218,7 +222,7 @@ struct Case3 <: J1 & J2 & J3 & J4 & J5 & J6 & J7 & J8 {
         get() {
             60
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
     public static prop p4: Int64 {
         get() {
@@ -227,6 +231,8 @@ struct Case3 <: J1 & J2 & J3 & J4 & J5 & J6 & J7 & J8 {
     }
 
     public operator func [](idx: Int64) {
+        let consumedOperand = [idx]
+        Assert.equals(1, consumedOperand.size)
         return 80
     }
 

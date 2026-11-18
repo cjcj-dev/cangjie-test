@@ -25,10 +25,12 @@ import utils.assert.Assert
 
 main() {
     var v1: Bool = true
+    Assert.equals(1, [v1].size)
     Assert.isTrue(match(v1) {
         case _ => true
     })
     var v2: Bool = false
+    Assert.equals(1, [v2].size)
     Assert.isTrue(match(v2) {
         case _ => true
     })

@@ -39,6 +39,7 @@ interface I1 {
 
 interface I2 {
     static func f(x: Rune) {
+        Assert.equals(1, [x].size)
         return 3
     }
 
@@ -47,6 +48,7 @@ interface I2 {
 
 interface I3 <: I2 {
     static func f(x: Bool) {
+        Assert.equals(1, [x].size)
         return 5
     }
     static func f(x: Unit): Int64
@@ -54,42 +56,57 @@ interface I3 <: I2 {
 
 abstract class A {
     static func f(x: Rune, y: Rune) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 7
     }
     static func f(x: String, y!: Rune) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 8
     }
 
     static func f<T>(x: T, y: T, z: T) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
+        Assert.equals(1, [z].size)
         return 11
     }
     static func f<T>(x: Range<Int64>) {
+        Assert.equals(1, [x].size)
         return 12
     }
 }
 
 class B <: A & I1 & I3 {
     public static func f(x: Int64) {
+        Assert.equals(1, [x].size)
         return 2
     }
     public static func f(x: String) {
+        Assert.equals(1, [x].size)
         return 4
     }
     public static func f(x: Unit) {
+        Assert.equals((), x)
         return 6
     }
 
     static func f(x: () -> Int64) {
+        Assert.equals(1, [x].size)
         return 9
     }
     static func f(x: () -> Int32) {
+        Assert.equals(1, [x].size)
         return 10
     }
 
     static func f<T>(x: Array<Bool>) {
+        Assert.equals(1, [x].size)
         return 13
     }
     static func f<T>(x: Float32) {
+        Assert.equals(1, [x].size)
         return 14
     }
 }

@@ -54,6 +54,8 @@ interface I {
     }
 
     operator func[](idx: Int64) {
+        let consumedOperand = [idx]
+        Assert.equals(1, consumedOperand.size)
         return 6
     }
 }
@@ -82,6 +84,8 @@ enum C1 <: I {
     }
 
     public operator func[](idx: Int64) {
+        let consumedOperand = [idx]
+        Assert.equals(1, consumedOperand.size)
         return 16
     }
 
@@ -119,6 +123,8 @@ enum C2 <: I {
     }
 
     public override operator func[](idx: Int64) {
+        let consumedOperand = [idx]
+        Assert.equals(1, consumedOperand.size)
         return 26
     }
 

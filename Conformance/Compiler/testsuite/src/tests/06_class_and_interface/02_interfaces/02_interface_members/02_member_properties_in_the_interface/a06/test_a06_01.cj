@@ -46,7 +46,7 @@ interface I {
         get() {
             4
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 
     prop p2: Int64 {
@@ -58,7 +58,7 @@ interface I {
         get() {
             6
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 
     static prop p4: Int64 {
@@ -98,7 +98,7 @@ interface J2 <: I {
         get() {
             40
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 
     prop p2: Int64 {
@@ -110,7 +110,7 @@ interface J2 <: I {
         get() {
             60
         }
-        set(v) {}
+        set(v) { let consumedValue = [v]; Assert.equals(1, consumedValue.size) }
     }
 
     static prop p4: Int64 {

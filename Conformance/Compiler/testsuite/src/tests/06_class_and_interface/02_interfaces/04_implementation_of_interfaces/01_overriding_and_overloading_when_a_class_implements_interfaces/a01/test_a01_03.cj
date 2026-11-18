@@ -111,6 +111,8 @@ enum Case2 <: I1 & I2 {
     }
 
     public operator func +(rhs: I1) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 6
     }
 
@@ -136,6 +138,8 @@ enum Case2 <: I1 & I2 {
     }
 
     public operator func -(rhs: I2) {
+        let consumedOperand = [rhs]
+        Assert.equals(1, consumedOperand.size)
         return 12
     }
 
@@ -181,6 +185,8 @@ enum Case3 <: J1 & J2 & J3 & J4 & J5 & J6 {
     }
 
     public operator func [](idx: Int64) {
+        let consumedOperand = [idx]
+        Assert.equals(1, consumedOperand.size)
         return 60
     }
 

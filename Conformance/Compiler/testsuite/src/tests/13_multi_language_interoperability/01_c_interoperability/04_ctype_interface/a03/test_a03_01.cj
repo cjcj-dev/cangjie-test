@@ -41,6 +41,8 @@
   @Issue: 0006421
 */
 
+import utils.assert.Assert
+
 @C
 struct Data {}
 
@@ -49,9 +51,15 @@ func foo() {}
 
 main() {
     var c: CType = Data() // ok
+    Assert.equals(1, [c].size)
     c = 0 // ok
+    Assert.equals(1, [c].size)
     c = true // ok
+    Assert.equals(1, [c].size)
     c = CString(CPointer<UInt8>()) // ok
+    Assert.equals(1, [c].size)
     c = CPointer<Int8>() // ok
+    Assert.equals(1, [c].size)
     c = foo // ok
+    Assert.equals(1, [c].size)
 }

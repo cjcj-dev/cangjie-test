@@ -22,10 +22,16 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
   let a1 = 0i8..5i8
+  Assert.equals(1, [a1].size)
   let a2 = 0u16..=5u16:2i64
+  Assert.equals(1, [a2].size)
   let a3 = 10i32..=0i32:-2i64
+  Assert.equals(1, [a3].size)
   let a4 = 10u64..0u64:333i64
+  Assert.equals(1, [a4].size)
   return 0
 }

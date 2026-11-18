@@ -25,10 +25,12 @@ import utils.assert.Assert
 
 main() {
     var v1: Float32 = 1024.512_f32
+    Assert.equals(1, [v1].size)
     Assert.isTrue(match(v1) {
         case foo => true
     })
     var v2: Float64 = 1024.512
+    Assert.equals(1, [v2].size)
     Assert.isTrue(match(v2) {
         case foo => true
     })

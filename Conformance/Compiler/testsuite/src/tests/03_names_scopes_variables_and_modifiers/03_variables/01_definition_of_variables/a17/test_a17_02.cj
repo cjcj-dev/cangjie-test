@@ -95,7 +95,9 @@ struct Triangle {
 
 main() {
     var myLocalVarInt32: Int32 = 12
+    Assert.equals(12i32, myLocalVarInt32)
     let myLocalLetInt32: Int32 = 12
+    Assert.equals(12i32, myLocalLetInt32)
 
     Assert.isTrue(myLocalVarInt32 is Int32)
     Assert.isTrue(myLocalVarInt32 is Int32)

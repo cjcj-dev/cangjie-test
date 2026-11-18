@@ -59,6 +59,7 @@ main() {
         let e = try (r1 = TestA1201(),
                     r2 = TestA1201(),
                     r3 = TestA1201()) {}
+        Assert.equals((), e)
     } catch (e: ReleaseException2) {
         Assert.fail(reason : "Only the first exception thrown during the release should be caught")
     } catch (e: ReleaseException3) {

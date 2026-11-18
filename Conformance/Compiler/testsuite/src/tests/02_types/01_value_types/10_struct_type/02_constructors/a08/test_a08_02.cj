@@ -43,9 +43,16 @@ func gen_param(x: String) {
 struct A {
     A(a: Int64, b: Int64, c: Int64, d!: Int64, e!: Int64 = 5, f!: Int64) {
         Assert.equals("abcdef", str)
+        Assert.equals(1, [a].size)
+        Assert.equals(1, [b].size)
+        Assert.equals(1, [c].size)
+        Assert.equals(1, [d].size)
+        Assert.equals(1, [e].size)
+        Assert.equals(1, [f].size)
     }
 }
 
 main() {
     let a = A(gen_param("a"), gen_param("b"), gen_param("c"), d: gen_param("d"), f: gen_param("f"), e: gen_param("e"))
+    Assert.equals(1, [a].size)
 }

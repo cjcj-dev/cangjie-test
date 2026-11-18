@@ -61,24 +61,28 @@ class D {
 class E {
   func E(x: Int64) {
     constructor_counter++
+    Assert.equals(1, [x].size)
   }
 }
 
 class F {
   public func F(b!: String = "1") {
     constructor_counter++
+    Assert.equals(1, [b].size)
   }
 }
 
 class G {
   protected func G(a!: Int64) {
     constructor_counter++
+    Assert.equals(1, [a].size)
   }
 }
 
 class H {
   private func H(a: Int64) {
     constructor_counter++
+    Assert.equals(1, [a].size)
   }
 
   func check_private() {

@@ -37,35 +37,42 @@ class Test {
     init(x: Int64) {
         this()
         order += "_2"
+        Assert.equals(1, [x].size)
     }
 
     init(x: Int32) {
         this(12)
         order += "_3"
+        Assert.equals(1, [x].size)
     }
 
     init(x: Int16) {
         this(1i32)
         order += "_4"
+        Assert.equals(1, [x].size)
     }
 
     init(x: Int8) {
         this(1i16)
         order += "_5"
+        Assert.equals(1, [x].size)
     }
 
     init(x: Float64) {
         order += "_3"
+        Assert.equals(1, [x].size)
     }
 
     init(x: Float32) {
         this(0.1)
         order += "_4"
+        Assert.equals(1, [x].size)
     }
 
     init(x: Float16) {
         this(0.1f32)
         order += "_5"
+        Assert.equals(1, [x].size)
     }
 
     init(x: Bool) {

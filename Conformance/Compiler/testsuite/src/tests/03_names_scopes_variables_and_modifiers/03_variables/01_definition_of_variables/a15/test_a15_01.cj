@@ -339,23 +339,37 @@ struct MyStruct {
 
 func myFunc() {
     var myLocalFuncNotDefinedButUInt8Initialized = tmpUInt8
+    Assert.equals(1, [myLocalFuncNotDefinedButUInt8Initialized].size)
     var myLocalFuncNotDefinedButUInt16Initialized = tmpUInt16
+    Assert.equals(1, [myLocalFuncNotDefinedButUInt16Initialized].size)
     var myLocalFuncNotDefinedButUInt32Initialized = tmpUInt32
+    Assert.equals(1, [myLocalFuncNotDefinedButUInt32Initialized].size)
     var myLocalFuncNotDefinedButUInt64Initialized = tmpUInt64
+    Assert.equals(1, [myLocalFuncNotDefinedButUInt64Initialized].size)
 
     var myLocalFuncNotDefinedButInt8Initialized = tmpInt8
+    Assert.equals(1, [myLocalFuncNotDefinedButInt8Initialized].size)
     var myLocalFuncNotDefinedButInt16Initialized = tmpInt16
+    Assert.equals(1, [myLocalFuncNotDefinedButInt16Initialized].size)
     var myLocalFuncNotDefinedButInt32Initialized = tmpInt32
+    Assert.equals(1, [myLocalFuncNotDefinedButInt32Initialized].size)
     var myLocalFuncNotDefinedButInt64Initialized = tmpInt64
+    Assert.equals(1, [myLocalFuncNotDefinedButInt64Initialized].size)
 
     var myLocalFuncNotDefinedButFloat16Initialized = tmpFloat16
+    Assert.equals(1, [myLocalFuncNotDefinedButFloat16Initialized].size)
     var myLocalFuncNotDefinedButFloat32Initialized = tmpFloat32
+    Assert.equals(1, [myLocalFuncNotDefinedButFloat32Initialized].size)
     var myLocalFuncNotDefinedButFloat64Initialized = tmpFloat64
+    Assert.equals(1, [myLocalFuncNotDefinedButFloat64Initialized].size)
 
     var myLocalFuncNotDefinedButCharInitialized = tmpChar
+    Assert.equals(1, [myLocalFuncNotDefinedButCharInitialized].size)
     var myLocalFuncNotDefinedButStringInitialized = tmpString
+    Assert.equals(1, [myLocalFuncNotDefinedButStringInitialized].size)
 
     var myLocalFuncNotDefinedButTupleInitialized = tmpTuple
+    Assert.equals(1, [myLocalFuncNotDefinedButTupleInitialized].size)
 
     Assert.isTrue(myLocalFuncNotDefinedButUInt8Initialized is UInt8)
     Assert.isTrue(myLocalFuncNotDefinedButUInt16Initialized is UInt16)
@@ -392,38 +406,57 @@ func assignChar() {
 main() {
     myFunc()
     var myLocalNotDefinedInitialized1 = assignFloat32()
+    Assert.equals(1, [myLocalNotDefinedInitialized1].size)
     Assert.isTrue(myLocalNotDefinedInitialized1 is Float32)
     var myLocalNotDefinedInitialized2 = assignRangeInt64()
+    Assert.equals(1, [myLocalNotDefinedInitialized2].size)
     Assert.isTrue(myLocalNotDefinedInitialized2 is Range<Int64>)
     var myLocalNotDefinedInitialized3 = assignChar()
+    Assert.equals(1, [myLocalNotDefinedInitialized3].size)
     Assert.isTrue(myLocalNotDefinedInitialized3 is Rune)
 
     var myLocalNotDefinedInitialized4 = 55i8
+    Assert.equals(1, [myLocalNotDefinedInitialized4].size)
     Assert.isTrue(myLocalNotDefinedInitialized4 is Int8)
     var myLocalNotDefinedInitialized5 = r'\b'
+    Assert.equals(1, [myLocalNotDefinedInitialized5].size)
     Assert.isTrue(myLocalNotDefinedInitialized5 is Rune)
 
     var lambda1: (Int32, Int32)->Int32 = {a: Int32, b: Int32 => a - b}
     var myLocalNotDefinedInitialized6 = lambda1(12, 8)
+    Assert.equals(1, [myLocalNotDefinedInitialized6].size)
     Assert.isTrue(myLocalNotDefinedInitialized6 is Int32)
   
     var myLocalNotDefinedButUInt16Initialized = tmpUInt16
+    Assert.equals(1, [myLocalNotDefinedButUInt16Initialized].size)
     var myLocalNotDefinedButUInt32Initialized = tmpUInt32
+    Assert.equals(1, [myLocalNotDefinedButUInt32Initialized].size)
     var myLocalNotDefinedButUInt64Initialized = tmpUInt64
+    Assert.equals(1, [myLocalNotDefinedButUInt64Initialized].size)
 
     var myLocalNotDefinedButInt8Initialized = tmpInt8
+    Assert.equals(1, [myLocalNotDefinedButInt8Initialized].size)
     var myLocalNotDefinedButInt16Initialized = tmpInt16
+    Assert.equals(1, [myLocalNotDefinedButInt16Initialized].size)
     var myLocalNotDefinedButInt32Initialized = tmpInt32
+    Assert.equals(1, [myLocalNotDefinedButInt32Initialized].size)
     var myLocalNotDefinedButInt64Initialized = tmpInt64
+    Assert.equals(1, [myLocalNotDefinedButInt64Initialized].size)
 
     var myLocalNotDefinedFloat16Initialized = tmpFloat16
+    Assert.equals(1, [myLocalNotDefinedFloat16Initialized].size)
     var myLocalNotDefinedFloat32Initialized = tmpFloat32
+    Assert.equals(1, [myLocalNotDefinedFloat32Initialized].size)
     var myLocalNotDefinedFloat64Initialized = tmpFloat64
+    Assert.equals(1, [myLocalNotDefinedFloat64Initialized].size)
 
     var myLocalNotDefinedButCharInitialized = tmpChar
+    Assert.equals(1, [myLocalNotDefinedButCharInitialized].size)
     var myLocalNotDefinedButStringInitialized = tmpString
+    Assert.equals(1, [myLocalNotDefinedButStringInitialized].size)
 
     var myLocalNotDefinedButTupleInitialized = tmpTuple
+    Assert.equals(1, [myLocalNotDefinedButTupleInitialized].size)
 
     var myClassImpl = MyClass()
     myClassImpl.checkType()

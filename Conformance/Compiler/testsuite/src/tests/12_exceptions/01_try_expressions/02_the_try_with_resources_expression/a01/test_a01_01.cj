@@ -42,12 +42,14 @@ main() {
     let e1 = try (res = res1) {
         Assert.isFalse(res.isClosed())
     }
+    Assert.equals((), e1)
     Assert.isTrue(res1.isClosed())
 // test case #2
     let res2 = TestA0101()
     let e2 = try (r = res2) {
         Assert.isFalse(res2.isClosed())
     } catch (_) {}
+    Assert.equals((), e2)
     Assert.isTrue(res2.isClosed())
 // test case #3
     let res3 = TestA0101()
@@ -57,6 +59,7 @@ main() {
     } catch (_) {
         Assert.isTrue(res3.isClosed())
     }
+    Assert.equals((), e3)
     Assert.isTrue(res3.isClosed())
 // test case #4
     let res4 = TestA0101()
@@ -65,4 +68,5 @@ main() {
     } finally {
         Assert.isTrue(res4.isClosed())
     }
+    Assert.equals((), e4)
 }

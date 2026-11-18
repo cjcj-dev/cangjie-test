@@ -44,6 +44,7 @@ main() {
     let e1 = try (r1 = TestA0901(), r2 = TestA0901(), r3 = TestA0901()) {
         sequence = 1    
     }
+    Assert.equals((), e1)
     Assert.equals(1, sequence)
 
 // test case #2
@@ -53,6 +54,7 @@ main() {
     } catch (_) {
         sequence += 2    
     }
+    Assert.equals((), e2)
     Assert.equals(1, sequence)
 
 // test case #3
@@ -62,6 +64,7 @@ main() {
     } finally {
         sequence += 3    
     }
+    Assert.equals((), e3)
     Assert.equals(4, sequence)
 
 // test case #4
@@ -74,5 +77,6 @@ main() {
     } finally {
         sequence += 3    
     }
+    Assert.equals((), e4)
     Assert.equals(6, sequence)
 }

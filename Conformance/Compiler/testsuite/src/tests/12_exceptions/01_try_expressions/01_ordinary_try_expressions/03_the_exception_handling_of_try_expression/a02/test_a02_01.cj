@@ -44,6 +44,7 @@ main(ina :Array<String>) {
             finally_block = true
             foo()
         }
+        Assert.equals((), e)
     } catch (_) {
         Assert.fail()
     }

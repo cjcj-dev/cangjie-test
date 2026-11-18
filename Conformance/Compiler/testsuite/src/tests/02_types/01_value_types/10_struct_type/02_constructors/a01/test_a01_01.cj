@@ -38,10 +38,13 @@ struct NonGeneric {
     init(x: Int64) {
         constructor_counter++
         last_executed_constructor = "NonGeneric.init(Int64)"
+        Assert.equals(1, [x].size)
     }
     init(a: String, b: String) {
         constructor_counter++
         last_executed_constructor = "NonGeneric.init(String, String)"
+        Assert.equals(1, [a].size)
+        Assert.equals(1, [b].size)
     }
 }
 
@@ -49,6 +52,9 @@ struct Generic<T> {
     public Generic(a: Bool, b: Rune, c: Float64) {
         constructor_counter++
         last_executed_constructor = "Generic.Primary"
+        Assert.equals(1, [a].size)
+        Assert.equals(1, [b].size)
+        Assert.equals(1, [c].size)
     }
 
     init() {
@@ -59,21 +65,25 @@ struct Generic<T> {
     init(x: Bool) {
         constructor_counter++
         last_executed_constructor = "Generic.init(Bool)"
+        Assert.equals(1, [x].size)
     }
 
     init(x: Rune) {
         constructor_counter++
         last_executed_constructor = "Generic.init(Rune)"
+        Assert.equals(1, [x].size)
     }
 
     init(x: String) {
         constructor_counter++
         last_executed_constructor = "Generic.init(String)"
+        Assert.equals(1, [x].size)
     }
 
     init(x: Int64) {
         constructor_counter++
         last_executed_constructor = "Generic.init(Int64)"
+        Assert.equals(1, [x].size)
     }
 }
 
@@ -81,38 +91,47 @@ main() {
     Assert.equals(0, constructor_counter)
 
     var case1 = NonGeneric()
+    Assert.equals(1, [case1].size)
     Assert.equals(1, constructor_counter)
     Assert.equals("NonGeneric.Primary", last_executed_constructor)
 
     var case2 = NonGeneric(76)
+    Assert.equals(1, [case2].size)
     Assert.equals(2, constructor_counter)
     Assert.equals("NonGeneric.init(Int64)", last_executed_constructor)
 
     var case3 = NonGeneric("", "")
+    Assert.equals(1, [case3].size)
     Assert.equals(3, constructor_counter)
     Assert.equals("NonGeneric.init(String, String)", last_executed_constructor)
 
     var case4 = Generic<Unit>(false, r'a', 0.5)
+    Assert.equals(1, [case4].size)
     Assert.equals(4, constructor_counter)
     Assert.equals("Generic.Primary", last_executed_constructor)
 
     var case5 = Generic<Bool>()
+    Assert.equals(1, [case5].size)
     Assert.equals(5, constructor_counter)
     Assert.equals("Generic.init()", last_executed_constructor)
 
     var case6 = Generic<Int32>(true)
+    Assert.equals(1, [case6].size)
     Assert.equals(6, constructor_counter)
     Assert.equals("Generic.init(Bool)", last_executed_constructor)
 
     var case7 = Generic<Float32>(r'a')
+    Assert.equals(1, [case7].size)
     Assert.equals(7, constructor_counter)
     Assert.equals("Generic.init(Rune)", last_executed_constructor)
 
     var case8 = Generic<String>("1")
+    Assert.equals(1, [case8].size)
     Assert.equals(8, constructor_counter)
     Assert.equals("Generic.init(String)", last_executed_constructor)
 
     var case9 = Generic<(Unit, Unit, Unit)>(3)
+    Assert.equals(1, [case9].size)
     Assert.equals(9, constructor_counter)
     Assert.equals("Generic.init(Int64)", last_executed_constructor)
 }

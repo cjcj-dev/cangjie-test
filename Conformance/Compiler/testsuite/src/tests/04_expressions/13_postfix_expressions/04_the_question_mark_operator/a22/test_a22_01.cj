@@ -32,6 +32,7 @@ class C {
     }
 
     operator func[](i: Int64, value!: Int64) {
+        Assert.equals(1, [i].size)
         x = value
     }
 

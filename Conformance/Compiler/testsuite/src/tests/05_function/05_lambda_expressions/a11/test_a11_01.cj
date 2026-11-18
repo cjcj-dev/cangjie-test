@@ -32,6 +32,7 @@ main() {
     var sum1: (Int32, Int32) -> Int32 = {a, b => a + b} 
     var sum2: (Int32, Int32) -> Int32 = {a: Int32, b => a + b} 
     var display = { => print("Hello") } 
+    Assert.equals(1, [display].size)
     var a = { => return 1 } 
 
     Assert.equals(9, sum1(2, 7))

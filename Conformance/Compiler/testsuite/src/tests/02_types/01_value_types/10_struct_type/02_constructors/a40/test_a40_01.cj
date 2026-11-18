@@ -40,10 +40,13 @@ struct Test1 {
 
     init(x: Int64) {
         id = 2
+        Assert.equals(1, [x].size)
     }
 
     public init(a!: String, b!: Rune) {
         id = 3
+        Assert.equals(1, [a].size)
+        Assert.equals(1, [b].size)
     }
 }
 
@@ -60,10 +63,13 @@ struct Test2 {
 
     public init(a: () -> Rune) {
         id = 5
+        Assert.equals(1, [a].size)
     }
 
     public init(f: (String, String), g!: (Bool, Bool, Bool, String) = (false, false, true, "")) {
         id = 6
+        Assert.equals(1, [f].size)
+        Assert.equals(1, [g].size)
     } 
 }
 
@@ -87,6 +93,7 @@ struct Test3 {
         this.y = r'b'
 
         id = 8
+        Assert.equals(1, [y].size)
     }
 
     init(y: Unit, yy: Unit, z: Unit, zz: Unit, zzz: Unit) {
@@ -94,34 +101,48 @@ struct Test3 {
         this.y = r'x'
 
         id = 9
+        Assert.equals((), y)
+        Assert.equals((), yy)
+        Assert.equals((), z)
+        Assert.equals((), zz)
+        Assert.equals((), zzz)
     }
 }
 
 main() {
     let case1 = Test1()
+    Assert.equals(1, [case1].size)
     Assert.equals(1, id)
 
     let case2 = Test1(318)
+    Assert.equals(1, [case2].size)
     Assert.equals(2, id)
 
     let case3 = Test1(a: "", b: r'd')
+    Assert.equals(1, [case3].size)
     Assert.equals(3, id)
 
     let case4 = Test2()
+    Assert.equals(1, [case4].size)
     Assert.equals(4, id)
 
     let case5 = Test2({ => r't'})
+    Assert.equals(1, [case5].size)
     Assert.equals(5, id)
 
     let case6 = Test2(("", ""))
+    Assert.equals(1, [case6].size)
     Assert.equals(6, id)
 
     let case7 = Test3()
+    Assert.equals(1, [case7].size)
     Assert.equals(7, id)
 
     let case8 = Test3(15, 0.15)
+    Assert.equals(1, [case8].size)
     Assert.equals(8, id)
 
     let case9 = Test3((), (), () , () , ())
+    Assert.equals(1, [case9].size)
     Assert.equals(9, id)
 }

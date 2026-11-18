@@ -35,6 +35,7 @@ abstract class A {
     init(x: Int64) {
         this()
         order += "_1"
+        Assert.equals(1, [x].size)
     }
 }
 
@@ -57,11 +58,13 @@ class C <: B {
     init(x: Int64) {
         this()
         order += "_5"
+        Assert.equals(1, [x].size)
     }
 
     init(x: Int64, y: Int64) {
         this(x)
         order += "_6"
+        Assert.equals(1, [y].size)
     }
 }
 

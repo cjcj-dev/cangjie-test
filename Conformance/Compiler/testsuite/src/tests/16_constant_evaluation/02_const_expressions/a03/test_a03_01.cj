@@ -40,6 +40,7 @@ main() {
     const f64 = 1.0f64
     const b = true
     const u = ()
+    Assert.equals((), u)
     const c = '1'
     const s = "1"
 

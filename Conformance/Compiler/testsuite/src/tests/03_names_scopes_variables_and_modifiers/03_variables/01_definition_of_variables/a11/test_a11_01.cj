@@ -38,6 +38,8 @@ main() {
   
     var (ccc,ddd): (Bool, UInt8) = (true, 4)
     let (eee,fff): (Int64, UInt8) = (12, 4)
+    Assert.equals(12, eee)
+    Assert.equals(4u8, fff)
     Assert.equals(true, ccc)
     Assert.equals(4, ddd)
 

@@ -42,6 +42,8 @@ class A {
 class B {
   B(x: Int64, y: String) {
     global_indicator++
+    Assert.equals(1, [x].size)
+    Assert.equals(1, [y].size)
   }
 }
 
@@ -49,6 +51,8 @@ class B {
 class C {
   C(a!: Float64, b!: Rune = r'a') {
     global_indicator++
+    Assert.equals(1, [a].size)
+    Assert.equals(1, [b].size)
   }
 }
 
@@ -70,6 +74,8 @@ class E {
 class F {
   F(a: Int64, b!: Int64, var c!: Int64) {
     global_indicator++
+    Assert.equals(1, [a].size)
+    Assert.equals(1, [b].size)
   }
 }
 
@@ -77,20 +83,26 @@ main() {
   Assert.equals(0, global_indicator)
 
   var case1 = A()
+  Assert.equals(1, [case1].size)
   Assert.equals(1, global_indicator)
 
   var case2 = B(15, "")
+  Assert.equals(1, [case2].size)
   Assert.equals(2, global_indicator)
 
   var case3 = C(a: 12.5, b: r'a')
+  Assert.equals(1, [case3].size)
   Assert.equals(3, global_indicator)
 
   var case4 = D(98)
+  Assert.equals(1, [case4].size)
   Assert.equals(4, global_indicator)
 
   var case5 = E(x: "12", p:12)
+  Assert.equals(1, [case5].size)
   Assert.equals(5, global_indicator)
 
   var case6 = F(90, b:9, c:0)
+  Assert.equals(1, [case6].size)
   Assert.equals(6, global_indicator)
 }

@@ -32,6 +32,7 @@ class C<T> <: Equal<C<T>> & NotEqual<C<T>> where T <: Equal<T> {
     }
 
     operator func[](index: Int64, value!: T) {
+        Assert.equals(1, [index].size)
         x = value
     }
 

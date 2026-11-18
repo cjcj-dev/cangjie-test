@@ -26,6 +26,7 @@ import utils.assert.Assert
 
 class C {
     operator func[](index: Int64, value!: Int64): Unit {
+        Assert.equals(1, [index].size)
         x = value
     }
 

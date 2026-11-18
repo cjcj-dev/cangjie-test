@@ -35,16 +35,21 @@ class A {
 
   init(x: String) {
     const_id = 2
+    Assert.equals(1, [x].size)
   }
 
   init(a!: Int64, b!: Int64) {
     const_id = 3
+    Assert.equals(1, [a].size)
+    Assert.equals(1, [b].size)
   }
 }
 
 class B<T> {
   init(x: T, y: T) {
     const_id = 4
+    Assert.equals(1, [x].size)
+    Assert.equals(1, [y].size)
   }
 
   init() {
@@ -53,6 +58,9 @@ class B<T> {
 
   init(x: Int64, y: Int64, z: Int64) {
     const_id = 6
+    Assert.equals(1, [x].size)
+    Assert.equals(1, [y].size)
+    Assert.equals(1, [z].size)
   }
 }
 

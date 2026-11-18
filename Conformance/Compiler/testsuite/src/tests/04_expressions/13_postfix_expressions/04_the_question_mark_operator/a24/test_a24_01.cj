@@ -67,7 +67,9 @@ main() {
     let c1 = Option<C>.Some(c) 
     let c2 = Option<C>.None
     let r1 = c1?.item // r1 = Option<Int64>.Some(100)
+    Assert.isTrue(r1 == 100)
     let r2 = c2?.item // r2 = Option<Int64>.None
+    Assert.isNone(r2)
 
     func test1() {
         c1?.item = 200 // c.item = 200

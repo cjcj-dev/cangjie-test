@@ -36,6 +36,8 @@ import utils.assert.Assert
 
 class A {
     operator func [](arg1: Int64, arg2: String): Int64 {
+        Assert.equals(1, [arg1].size)
+        Assert.equals(1, [arg2].size)
         return 0
     }
 }

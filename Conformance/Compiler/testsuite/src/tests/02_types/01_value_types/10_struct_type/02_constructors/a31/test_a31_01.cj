@@ -39,121 +39,165 @@ struct Test<T> {
 
     init(x1: Int64) {
         id = 2
+        Assert.equals(1, [x1].size)
     }
 
     init(x1: Int64, x2: Int64) {
         id = 3
+        Assert.equals(1, [x1].size)
+        Assert.equals(1, [x2].size)
     }
 
     init(x1: Int64, x2: Int64, x3!: Int64) {
         id = 4
+        Assert.equals(1, [x1].size)
+        Assert.equals(1, [x2].size)
+        Assert.equals(1, [x3].size)
     }
 
     // Different types
     init(x: String) {
         id = 5
+        Assert.equals(1, [x].size)
     }
 
     init(x: Rune) {
         id = 6
+        Assert.equals(1, [x].size)
     }
 
     init(x: Bool) {
         id = 7
+        Assert.equals(1, [x].size)
     }
 
     init(x: Rune, y: String) {
         id = 8
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
     }
 
     init(x: String, y: Rune) {
         id = 9
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
     }
 
     init(x: String, y: String) {
         id = 10
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
     }
 
     init(x: Rune, y: Rune) {
         id = 11
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
     }
 
     // Different generic instantiations
     init(x: Array<Int64>) {
         id = 12
+        Assert.equals(1, [x].size)
     }
 
     init(x: Array<String>) {
         id = 13
+        Assert.equals(1, [x].size)
     }
 
     init(x: Array<Float64>) {
         id = 14
+        Assert.equals(1, [x].size)
     }
 
     // Satisfies overloading only in specific instantiations
     init(x: T) {
         id = 15
+        Assert.equals(1, [x].size)
     }
 
     init(x: T, y: T) {
         id = 16
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
     }
 
     Test(p1: Unit, p2: Unit, p3: Unit, p4: Unit) {
         id = 17
+        Assert.equals((), p1)
+        Assert.equals((), p2)
+        Assert.equals((), p3)
+        Assert.equals((), p4)
     }
 }
 
 main() {
     let case1 = Test<Unit>()
+    Assert.equals(1, [case1].size)
     Assert.equals(1, id)
 
     let case2 = Test<Unit>(1)
+    Assert.equals(1, [case2].size)
     Assert.equals(2, id)
 
     let case3 = Test<Unit>(1, 1)
+    Assert.equals(1, [case3].size)
     Assert.equals(3, id)
 
     let case4 = Test<Unit>(1, 1, x3: 1)
+    Assert.equals(1, [case4].size)
     Assert.equals(4, id)
 
     let case5 = Test<Unit>("")
+    Assert.equals(1, [case5].size)
     Assert.equals(5, id)
 
     let case6 = Test<Unit>(r'e')
+    Assert.equals(1, [case6].size)
     Assert.equals(6, id)
 
     let case7 = Test<Unit>(false)
+    Assert.equals(1, [case7].size)
     Assert.equals(7, id)
 
     let case8 = Test<Float16>(r'1', "1")
+    Assert.equals(1, [case8].size)
     Assert.equals(8, id)
 
     let case9 = Test<Float16>("1", r'1')
+    Assert.equals(1, [case9].size)
     Assert.equals(9, id)
 
     let case10 = Test<Float16>("1", "1")
+    Assert.equals(1, [case10].size)
     Assert.equals(10, id)
 
     let case11 = Test<Float16>(r'1', r'1')
+    Assert.equals(1, [case11].size)
     Assert.equals(11, id)
 
     let case12 = Test<Unit>([1, 0, 0, 0])
+    Assert.equals(1, [case12].size)
     Assert.equals(12, id)
 
     let case13 = Test<Unit>(["", "fasf", "eqd"])
+    Assert.equals(1, [case13].size)
     Assert.equals(13, id)
 
     let case14 = Test<Unit>([0.1, 0.01, 0.001])
+    Assert.equals(1, [case14].size)
     Assert.equals(14, id)
 
     let case15 = Test<(Int64, String)>((10, "10"))
+    Assert.equals(1, [case15].size)
     Assert.equals(15, id)
 
     let case16 = Test<(Int64, String)>((1, "one"), (2, "two"))
+    Assert.equals(1, [case16].size)
     Assert.equals(16, id)
 
     let case17 = Test<Unit>((), (), (), ())
+    Assert.equals(1, [case17].size)
     Assert.equals(17, id)
 }

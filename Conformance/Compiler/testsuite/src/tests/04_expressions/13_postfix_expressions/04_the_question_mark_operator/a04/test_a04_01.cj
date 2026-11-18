@@ -38,7 +38,8 @@ struct S {
     }
 
     func invoke2(fn: () -> Unit): Option<(() -> Unit) -> Int64> {
-        return Some<(() -> Unit) -> Int64>({ x => 1921 })
+        Assert.equals(1, [fn].size)
+        return Some<(() -> Unit) -> Int64>({ x => Assert.equals(1, [x].size); 1921 })
     }
 
     var x: Int64 = 3

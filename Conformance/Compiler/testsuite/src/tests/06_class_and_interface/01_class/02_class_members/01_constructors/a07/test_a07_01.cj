@@ -34,6 +34,8 @@ var constructor_counter = 0
 class Ru {
   Ru(x: Int64, y: Int64) {
     constructor_counter++
+    Assert.equals(1, [x].size)
+    Assert.equals(1, [y].size)
   }
 }
 
@@ -41,6 +43,7 @@ class Ru {
 class Rn {
   Rn(x!: String) {
     constructor_counter++
+    Assert.equals(1, [x].size)
   }
 }
 
@@ -62,6 +65,8 @@ class Cn {
 class RuRn {
   RuRn(x: Int64, y!: Int64) {
     constructor_counter++
+    Assert.equals(1, [x].size)
+    Assert.equals(1, [y].size)
   }
 }
 
@@ -76,6 +81,7 @@ class CuCn {
 class RuCuCn {
   RuCuCn(a: Rune, let b: String, var c!: Int64) {
     constructor_counter++
+    Assert.equals(1, [a].size)
   }
 }
 
@@ -83,6 +89,8 @@ class RuCuCn {
 class RuRnCn {
   RuRnCn(a: Int64, b!: Float64, let c!: Bool) {
     constructor_counter++
+    Assert.equals(1, [a].size)
+    Assert.equals(1, [b].size)
   }
 }
 
@@ -90,26 +98,34 @@ main() {
   Assert.equals(0, constructor_counter)
 
   var case1 = Ru(1, 2)
+  Assert.equals(1, [case1].size)
   Assert.equals(1, constructor_counter)
 
   var case2 = Rn(x: "AAAA")
+  Assert.equals(1, [case2].size)
   Assert.equals(2, constructor_counter)
 
   var case3 = Cu(20, r'1')
+  Assert.equals(1, [case3].size)
   Assert.equals(3, constructor_counter)
 
   var case4 = Cn(a: false, f: "")
+  Assert.equals(1, [case4].size)
   Assert.equals(4, constructor_counter)
 
   var case5 = RuRn(10, y: 20)
+  Assert.equals(1, [case5].size)
   Assert.equals(5, constructor_counter)
 
   var case6 = CuCn("", b: r'a')
+  Assert.equals(1, [case6].size)
   Assert.equals(6, constructor_counter)
 
   var case7 = RuCuCn(r'0', "0", c: 0)
+  Assert.equals(1, [case7].size)
   Assert.equals(7, constructor_counter)
 
   var case8 = RuRnCn(12, b:.5, c: true)
+  Assert.equals(1, [case8].size)
   Assert.equals(8, constructor_counter)
 }

@@ -55,18 +55,21 @@ struct C {
 struct D {
     func D(x: Int64) {
         constructor_counter++
+        Assert.equals(1, [x].size)
     }
 }
 
 struct E {
     public func E(b!: String = "1") {
         constructor_counter++
+        Assert.equals(1, [b].size)
     }
 }
 
 struct F {
     private func F(a: Int64) {
         constructor_counter++
+        Assert.equals(1, [a].size)
     }
 
     func check_private() {

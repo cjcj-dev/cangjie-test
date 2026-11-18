@@ -58,6 +58,7 @@ func iterateTupleArr(inArr: Array<MyArrItemTupleType>) {
     for( (x, _) in inArr) {
         print("${x}")
         var (xVar, yVar) = inArr[tmpCount]
+        Assert.equals(1, [yVar].size)
         Assert.equals(x, xVar)
         tmpCount++
     }

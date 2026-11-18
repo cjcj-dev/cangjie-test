@@ -39,6 +39,7 @@ struct A {
 struct B {
     B(x: Int64) {
         last_constructor = "B"
+        Assert.equals(1, [x].size)
     }
 }
 
@@ -53,19 +54,24 @@ struct C<T> {
 struct D<T> {
     D(x: T) {
         last_constructor = "D"
+        Assert.equals(1, [x].size)
     }
 }
 
 main() {
     let case1 = A()
+    Assert.equals(1, [case1].size)
     Assert.equals("A", last_constructor)
 
     let case2 = B(1)
+    Assert.equals(1, [case2].size)
     Assert.equals("B", last_constructor)
 
     let case3 = C<Bool>()
+    Assert.equals(1, [case3].size)
     Assert.equals("C", last_constructor)
 
     let case4 = D<String>("1")
+    Assert.equals(1, [case4].size)
     Assert.equals("D", last_constructor)
 }

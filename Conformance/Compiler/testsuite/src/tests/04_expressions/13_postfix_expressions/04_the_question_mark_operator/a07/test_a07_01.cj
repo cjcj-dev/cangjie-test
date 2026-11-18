@@ -37,6 +37,7 @@ class FunctionsSet {
     }
 
     operator func() (fn: () -> Unit) {
+        Assert.equals(1, [fn].size)
         return 9
     } 
 }

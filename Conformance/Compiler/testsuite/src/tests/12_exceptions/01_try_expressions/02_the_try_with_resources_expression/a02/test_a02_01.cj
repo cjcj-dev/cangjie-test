@@ -45,4 +45,5 @@ main() {
         Assert.isFalse(r2.isClosed())
         Assert.isFalse(r3.isClosed())
     }
+    Assert.equals((), e)
 }

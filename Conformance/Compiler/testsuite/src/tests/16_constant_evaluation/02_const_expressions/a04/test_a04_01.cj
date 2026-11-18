@@ -36,6 +36,7 @@ main() {
     
     const a2 : VArray<Int64, $3> = [1, 2, 3]
     const a4 : VArray<Int64, $3> = [f(), A.c, 3]
+    Assert.equals(3, a4[2])
 
     Assert.equals([1, 2, 3], Array(a2.size) { i => a2[i] })
     Assert.equals([1, 2, 3], Array(a4.size) { i => a2[i] })

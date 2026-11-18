@@ -39,6 +39,8 @@ class C1 {
 
 class C2 {
     operator func[](i1: Int64, i2: String) {
+        Assert.equals(1, [i1].size)
+        Assert.equals(1, [i2].size)
         (i, s)
     }
 

@@ -169,7 +169,7 @@ class MixedParams {
 }
 
 class MixedParamsRegular {
-  MixedParamsRegular(a: Int64, b: Float64, private let c: Rune, let d!: String, public let e!: Bool) {}
+  MixedParamsRegular(a: Int64, b: Float64, private let c: Rune, let d!: String, public let e!: Bool) { Assert.equals(1, [a].size); Assert.equals(1, [b].size) }
 
   // Check that variable created by class parameters
   // can be accessed through a class instance

@@ -30,6 +30,7 @@ class C<T> {
     }
 
     operator func[](index: Int64): T {
+        Assert.equals(1, [index].size)
         x
     }
 

@@ -169,7 +169,7 @@ struct MixedParams {
 }
 
 struct MixedParamsRegular {
-    MixedParamsRegular(a: Int64, b: Float64, private let c: Rune, let d!: String, public let e!: Bool) {}
+    MixedParamsRegular(a: Int64, b: Float64, private let c: Rune, let d!: String, public let e!: Bool) { Assert.equals(1, [a].size); Assert.equals(1, [b].size) }
 
     // Check that variable created by struct parameters
     // can be accessed through a struct instance

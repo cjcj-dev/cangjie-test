@@ -42,6 +42,7 @@ main() {
                 } finally {
                     no_exception()
                 }
+        Assert.equals((), e)
     } catch (_) {
         Assert.fail(reason : "unexpected exception")
     }

@@ -57,6 +57,7 @@ main() {
         print("end of the try-with-resources expression") 
         f_block = true
     }
+    Assert.equals((), e)
     Assert.isTrue(c_block) 
     Assert.isTrue(f_block) 
 }

@@ -54,9 +54,13 @@
   @Negative:    no
   @Structure:   single
 */
+import utils.assert.Assert
+
 main() {
     var b: Bool
     b = true
+    Assert.isTrue(b)
     b = false
+    Assert.isTrue(!b)
     return 0
 }

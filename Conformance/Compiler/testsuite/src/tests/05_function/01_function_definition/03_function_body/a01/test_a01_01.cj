@@ -70,6 +70,7 @@ struct myStruct <: myInterface {
 }
 
 main() {
+  Assert.equals((), f0())
   Assert.equals("AAA", f1())
   Assert.equals(2, f2(2))
   Assert.equals(31, f3(6))

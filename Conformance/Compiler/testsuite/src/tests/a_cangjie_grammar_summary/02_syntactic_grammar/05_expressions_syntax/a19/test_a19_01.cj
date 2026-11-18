@@ -23,6 +23,8 @@
   @Structure:   single
 */
 
+import utils.assert.Assert
+
 public func foo() {
     1.2
 }
@@ -33,6 +35,7 @@ class C1 {
 interface I1 { }
 
 main() {
+    Assert.equals(1.2, foo())
     if ({=> true}()) {
         {=> 2}()
     } else {

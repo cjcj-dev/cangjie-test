@@ -36,6 +36,7 @@ main() {
                     foo()
                 } catch (e: MyException) {
                 } finally {}
+        Assert.equals((), e)
     } catch (e: Exception) {
         Assert.isTrue(e is IndexOutOfBoundsException)
     }

@@ -28,56 +28,83 @@ import utils.assert.Assert
 
 class Test {
     static private func f1() {}
-    static private func f2(x: String) {}
+    static private func f2(x: String) {
+        Assert.equals(1, [x].size)
+    }
     static private func f3() {
         return 1
     }
     static private func f4(x: Float64, y: Bool) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 2
     }
 
     static protected func f5() {}
-    static protected func f6(x: Int64, y: Int64) {}
+    static protected func f6(x: Int64, y: Int64) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
+    }
     static protected func f7() {
         return 3
     }
     static protected func f8(a: Rune, b!: Rune) {
+        Assert.equals(1, [a].size)
+        Assert.equals(1, [b].size)
         return 4
     }
 
     static public func f9() {}
-    static public func f10(x: Bool) {}
+    static public func f10(x: Bool) {
+        Assert.equals(1, [x].size)
+    }
     static public func f11() {
         return 5
     }
     static public func f12(a: Array<Int64>) {
+        Assert.equals(1, [a].size)
         return 6
     }
 
     static private func f13<T>() {}
-    static private func f14<T>(a: Unit, b: Unit, c: Unit) {}
+    static private func f14<T>(a: Unit, b: Unit, c: Unit) {
+        Assert.equals((), a)
+        Assert.equals((), b)
+        Assert.equals((), c)
+    }
     static private func f15<T>() {
         return 7
     }
     static private func f16<T>(y!: Range<Int64>) {
+        Assert.equals(1, [y].size)
         return 8
     }
 
     static protected func f17<T>() {}
-    static protected func f18<T>(x: Rune, y: Bool) {}
+    static protected func f18<T>(x: Rune, y: Bool) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
+    }
     static protected func f19<T>() {
         return 9
     }
     static protected func f20<T>(x: String, y: UInt32) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 10
     }
 
     static public func f21<T>() {}
-    static public func f22<T>(a: Rune, b: Array<Rune>) {}
+    static public func f22<T>(a: Rune, b: Array<Rune>) {
+        Assert.equals(1, [a].size)
+        Assert.equals(1, [b].size)
+    }
     static public func f23<T>() {
         return 11
     }
     static public func f24<T>(x: Float16, y: Box<Float16>) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 12
     }
 

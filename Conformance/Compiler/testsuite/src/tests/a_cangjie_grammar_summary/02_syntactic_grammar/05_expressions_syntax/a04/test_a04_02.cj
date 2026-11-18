@@ -54,6 +54,8 @@
   @Negative:    no
   @Structure:   single
 */
+import utils.assert.Assert
+
 main() {
     var s1 = "//f4, no accessible after all requested (in the scenario that has three types: 1.For unary prefix negative ( ;)"
     var s2 = "()and just a compilation error } c)Bidirectional conversion between two tokens is Unit. Since classes modified Note that, when operators are allowed here. 6.2.2 Interface Declaration 6.2.1.1 Syntax of xand yrespectively from package p1 public func abs(x:Float64 ){ let foo3 foo3 is T.a,Tcan be used as follows. struct in interface If the following is as arguments with private,protected (only can both a non-generic interface, struct TaggedPoint { foo1(inout n) // Within the queue is as equivalence. Character Byte Literals Integer literals are divided into (Y, (Y) -> C1` return value that"
@@ -69,5 +71,9 @@ main() {
     var s11 = "Bla-bla ${s1} bla"
     var s12 = "Bla-bla ${ 1 + 1 } bla"
     var s13 = "Bla-bla ${ var a = 1; var b = 2; a + b } bla"
+    Assert.equals(9, [s2, s3, s4, s5, s6, s7, s8, s9, s10].size)
+    Assert.equals("Bla-bla "+s1+" bla", s11)
+    Assert.equals("Bla-bla 2 bla", s12)
+    Assert.equals("Bla-bla 3 bla", s13)
     return 0
 }

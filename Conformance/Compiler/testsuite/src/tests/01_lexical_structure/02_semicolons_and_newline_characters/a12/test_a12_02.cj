@@ -37,6 +37,7 @@ func myFunc1(a: Int32): Int32 {
 }
 
 main() {
+    Assert.equals(6, myFunc1(2))
     var myFunc0RetVal = myFunc0()
 
 

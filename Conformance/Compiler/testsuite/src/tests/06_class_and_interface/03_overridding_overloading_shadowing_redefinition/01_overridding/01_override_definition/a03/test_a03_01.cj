@@ -37,27 +37,45 @@ abstract class A {
     public func f1(p1: Float64, p2: String): Int64
     public func f2(p1!: Int64, p2!: Bool, p3!: Rune, p4!: Unit): Int64
     public open func f3(p1: Float64, p2: String) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
         return 0
     }
     public open func f4(p1!: Int64, p2!: Bool, p3!: Rune, p4!: Unit) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
+        Assert.equals(1, [p3].size)
+        Assert.equals((), p4)
         return 0
     }
 }
 
 open class B {
     public open func f1(p1: Float64, p2: String) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
         return 0
     }
     public open func f2(p1!: Int64, p2!: Bool, p3!: Rune, p4!: Unit) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
+        Assert.equals(1, [p3].size)
+        Assert.equals((), p4)
         return 0
     }
 }
 
 sealed abstract class C {
     public open func f1(p1: Float64, p2: String) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
         return 0
     }
     public open func f2(p1!: Int64, p2!: Bool, p3!: Rune, p4!: Unit) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
+        Assert.equals(1, [p3].size)
+        Assert.equals((), p4)
         return 0
     }
 }
@@ -66,57 +84,99 @@ interface I {
     func f1(p1: Float64, p2: String): Int64
     func f2(p1!: Int64, p2!: Bool, p3!: Rune, p4!: Unit): Int64
     func f3(p1: Float64, p2: String) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
         return 0
     }
     func f4(p1!: Int64, p2!: Bool, p3!: Rune, p4!: Unit) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
+        Assert.equals(1, [p3].size)
+        Assert.equals((), p4)
         return 0
     }
 }
 
 class T1 <: A {
     public override func f1(p1: Float64, p2: String) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
         return 11
     }
     public override func f2(p1!: Int64, p2!: Bool, p3!: Rune, p4!: Unit) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
+        Assert.equals(1, [p3].size)
+        Assert.equals((), p4)
         return 12
     }
     public override func f3(p1: Float64, p2: String) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
         return 13
     }
     public override func f4(p1!: Int64, p2!: Bool, p3!: Rune, p4!: Unit) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
+        Assert.equals(1, [p3].size)
+        Assert.equals((), p4)
         return 14
     }
 }
 
 class T2 <: B {
     public override func f1(p1: Float64, p2: String) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
         return 21
     }
     public override func f2(p1!: Int64, p2!: Bool, p3!: Rune, p4!: Unit) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
+        Assert.equals(1, [p3].size)
+        Assert.equals((), p4)
         return 22
     }
 }
 
 class T3 <: C {
     public override func f1(p1: Float64, p2: String) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
         return 31
     }
     public override func f2(p1!: Int64, p2!: Bool, p3!: Rune, p4!: Unit) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
+        Assert.equals(1, [p3].size)
+        Assert.equals((), p4)
         return 32
     }
 }
 
 class T4 <: I {
     public override func f1(p1: Float64, p2: String) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
         return 41
     }
     public override func f2(p1!: Int64, p2!: Bool, p3!: Rune, p4!: Unit) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
+        Assert.equals(1, [p3].size)
+        Assert.equals((), p4)
         return 42
     }
     public override func f3(p1: Float64, p2: String) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
         return 43
     }
     public override func f4(p1!: Int64, p2!: Bool, p3!: Rune, p4!: Unit) {
+        Assert.equals(1, [p1].size)
+        Assert.equals(1, [p2].size)
+        Assert.equals(1, [p3].size)
+        Assert.equals((), p4)
         return 44
     }
 }

@@ -57,6 +57,8 @@ class myClass1 <: myParentClass1 {
 }
 
 main() {
+    let value: myType = 4
+    Assert.equals(8, value.double(4))
     var myParentClass1Impl = myParentClass1()
     var myClass1Impl = myClass1()
 

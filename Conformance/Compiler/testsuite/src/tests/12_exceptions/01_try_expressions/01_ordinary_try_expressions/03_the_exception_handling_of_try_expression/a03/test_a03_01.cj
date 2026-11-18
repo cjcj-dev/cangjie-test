@@ -50,6 +50,7 @@ main() {
                             }
                         }
                     }
+        Assert.equals((), expr)
     } catch (e: Exception) {
         Assert.isTrue(e is IndexOutOfBoundsException)    
     }

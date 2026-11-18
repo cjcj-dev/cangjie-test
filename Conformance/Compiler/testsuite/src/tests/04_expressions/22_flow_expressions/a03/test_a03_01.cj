@@ -29,6 +29,8 @@
   @Negative: no
 */
 
+import utils.assert.Assert
+
 func sqr(x: Int64) {
     x * x
 }
@@ -85,5 +87,7 @@ main() {
     //                         logicDisjunctionExpression
     //            flowOperator = '~>'
     var f2 = addFive ~> sqr ~> addSix
+    Assert.equals(49, f1(2))
+    Assert.equals(54, f2(2))
 }
 

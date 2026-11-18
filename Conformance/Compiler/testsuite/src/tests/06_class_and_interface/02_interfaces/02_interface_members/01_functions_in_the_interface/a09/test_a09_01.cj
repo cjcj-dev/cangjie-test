@@ -32,16 +32,23 @@ interface I {
     static func f2() {
         return 1
     }
-    static func f3(x: String) {}
+    static func f3(x: String) {
+        Assert.equals(1, [x].size)
+    }
     static func f4(x: Rune, y!: Rune) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 2
     }
     static func f5<T>() {}
     static func f6<T>() {
         return 3
     }
-    static func f7<T>(x: Bool) {}
+    static func f7<T>(x: Bool) {
+        Assert.equals(1, [x].size)
+    }
     static func f8<T>(a: Int64) {
+        Assert.equals(1, [a].size)
         return 4
     }
 
@@ -60,16 +67,23 @@ interface J <: I {
     static func f10() {
         return 5
     }
-    static func f11(x: Float16) {}
+    static func f11(x: Float16) {
+        Assert.equals(1, [x].size)
+    }
     static func f12(u!: Unit) {
+        Assert.equals((), u)
         return 6
     }
     static func f13<T>() {}
     static func f14<T>() {
         return 7
     }
-    static func f15<T>(a: Rune, b: Rune) {}
+    static func f15<T>(a: Rune, b: Rune) {
+        Assert.equals(1, [a].size)
+        Assert.equals(1, [b].size)
+    }
     static func f16<T>(x: () -> Int64) {
+        Assert.equals(1, [x].size)
         return 8
     }
 }
@@ -79,16 +93,23 @@ interface K <: I {
     static func f2() {
         return 9
     }
-    static func f3(x: String) {}
+    static func f3(x: String) {
+        Assert.equals(1, [x].size)
+    }
     static func f4(x: Rune, y!: Rune) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 10
     }
     static func f5<T>() {}
     static func f6<T>() {
         return 11
     }
-    static func f7<T>(x: Bool) {}
+    static func f7<T>(x: Bool) {
+        Assert.equals(1, [x].size)
+    }
     static func f8<T>(a: Int64) {
+        Assert.equals(1, [a].size)
         return 12
     }
 }

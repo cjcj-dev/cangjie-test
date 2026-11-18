@@ -76,6 +76,8 @@ func Check(arg:Float16) {
 }
 
 main(ina :Array<String>) {
+    Check(IntNative(-5))
+    Check(UIntNative(5))
     var i8 : Int8    =0;
     var i16: Int16   =0;
     var i32: Int32   =0;

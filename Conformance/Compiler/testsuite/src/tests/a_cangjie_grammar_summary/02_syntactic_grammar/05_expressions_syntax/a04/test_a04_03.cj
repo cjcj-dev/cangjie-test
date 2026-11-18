@@ -54,6 +54,8 @@
   @Negative:    no
   @Structure:   single
 */
+import utils.assert.Assert
+
 main() {
     var s1 = """
         `a.fooAdj` as long as MONDAY = 8.0 let c1=Option <C>.Some(c) let
@@ -128,5 +130,6 @@ main() {
             a + b
         } bla"""
 
+    Assert.equals(9, [s2, s3, s4, s5, s6, s7, s8, s9, s10].size)
     return 0
 }

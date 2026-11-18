@@ -45,6 +45,7 @@ main() {
                     } finally {
                         f2()
                     }
+        Assert.equals((), expr)
     } catch (e: Exception) {
         Assert.isTrue(e is MyException)    
     }
@@ -56,6 +57,7 @@ main() {
                     } finally {
                         f2()
                     }
+        Assert.equals((), expr)
     } catch (e: Exception) {
         Assert.isTrue(e is MyException)    
     }

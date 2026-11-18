@@ -81,6 +81,7 @@ struct Type {
 }
 
 main() {
+    Assert.equals("unused", idFunc())
     let s = Type()
     s.test()
 }

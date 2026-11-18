@@ -52,6 +52,8 @@
   @Issue: 0006287 0006475 0006476
 */
 
+import utils.assert.Assert
+
 main() {
     var x = 15
     var y = 0
@@ -109,5 +111,6 @@ main() {
 
     // Rule: shiftingOperator = '<<' | '>>'
     y = x >> 1
+    Assert.equals(7, y)
 }
 

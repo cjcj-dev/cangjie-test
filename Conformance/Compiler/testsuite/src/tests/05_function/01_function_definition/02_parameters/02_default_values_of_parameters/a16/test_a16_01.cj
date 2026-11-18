@@ -43,6 +43,7 @@ func test() {
 } 
 
 main() {
+  Assert.equals(12, test())
   Assert.equals(10, f1(1, 2))
   Assert.equals(12, f1(1, 2, c: 5))
 }

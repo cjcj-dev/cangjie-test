@@ -23,6 +23,7 @@
 */
 
 import std.sync.*
+import utils.assert.Assert
 
 // synchronizedExpression
 func sync(m: Mutex) {
@@ -32,5 +33,6 @@ func sync(m: Mutex) {
 }
 
 main() {
+    Assert.equals(1, sync(Mutex()))
     return 0
 }

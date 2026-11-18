@@ -39,6 +39,7 @@ class C <: I {
 }
 
 main() {
+    Assert.equals(101, incr(100))
     let c = C()
     c.test()
 }

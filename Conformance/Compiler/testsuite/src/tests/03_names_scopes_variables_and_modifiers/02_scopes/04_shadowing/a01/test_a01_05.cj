@@ -67,6 +67,7 @@ class Test <: Type {
 }
 
 main() {
+    Assert.equals("unused", idFunc())
     let t = Test()
     Assert.equals("ok", t.idPackage())
     Assert.equals(false, t.idVar())

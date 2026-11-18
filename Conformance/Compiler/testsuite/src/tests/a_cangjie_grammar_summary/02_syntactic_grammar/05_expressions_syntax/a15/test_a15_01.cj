@@ -33,11 +33,16 @@
   @Structure:   single
 */
 
+import utils.assert.Assert
+
 main() {
     let l0: (Int8, Int8) -> Int8 = {a: Int8, b: Int8 => a + b }
     var l1: () -> Float32 = {
         => 4.6
     }
     let l2 = {a: Rune, b: Rune => String(a) + String(b)}
+    Assert.equals(Int8(3), l0(1, 2))
+    Assert.equals(Float32(4.6), l1())
+    Assert.equals("ab", l2(r'a', r'b'))
     return 0
 }

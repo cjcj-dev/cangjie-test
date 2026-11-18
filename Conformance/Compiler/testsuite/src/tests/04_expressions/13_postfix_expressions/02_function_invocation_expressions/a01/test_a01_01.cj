@@ -45,18 +45,23 @@ func f1() {
 }
 
 func f2(x: Int64) {
+    Assert.equals(1, [x].size)
     return 2
 }
 
 func f3(x: Int64, y: Int64) {
+    Assert.equals(1, [x].size)
+    Assert.equals(1, [y].size)
     return 3
 }
 
 func f4(name!: String) {
+    Assert.equals(1, [name].size)
     return 4
 }
 
 func f5(name: String) {
+    Assert.equals(1, [name].size)
     return 5
 }
 

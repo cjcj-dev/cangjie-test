@@ -54,6 +54,7 @@ main(){
     Assert.equals(checkingString_03, stringValue_03, 
         reason:"The multi-line raw string literal with 8 signs '#' has incorrect value (" + stringValue_04 +")");
 
+    Assert.equals(checkingString_04, stringValue_04);
     return 0;
 }
 

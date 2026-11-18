@@ -103,6 +103,7 @@ func anotherParentFunc(inVal:Int32):String{
 }
 
 main() {
+  Assert.equals((), f0())
   var myInt64Var: Int64 = 12
   var myUInt8Var: UInt8 = 7
   Assert.equals(f1(myInt64Var),"x is Int64")

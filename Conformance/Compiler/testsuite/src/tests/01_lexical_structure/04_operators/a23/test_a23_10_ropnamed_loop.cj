@@ -28,9 +28,10 @@
 import utils.assert.Assert
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     let carr:Array<Int32>=[0,1,2,3,4,5,6,7,8]
     var arr = Array<Int32>(3) {
-        i=>0
+        i=> Assert.equals(1, [i].size); 0
     }
 
     let rangearr: Range<Int64>  =  1..7:2

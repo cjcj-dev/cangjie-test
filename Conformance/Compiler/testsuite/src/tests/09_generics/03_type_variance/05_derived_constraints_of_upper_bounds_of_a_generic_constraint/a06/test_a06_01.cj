@@ -62,6 +62,8 @@ class Number <: Eq<Number> & Ord<Number> {
 main() {
     var n1 = Number(42)
     var n2 = Number(35)
+    Assert.equals(42, n1.get())
+    Assert.equals(35, n2.get())
     Assert.isTrue(n2.lt(n1))
     Assert.isFalse(n1.eq(n2))
     Assert.isFalse(foo<Number>(n1))

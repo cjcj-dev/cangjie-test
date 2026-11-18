@@ -80,6 +80,7 @@ class Type<idAlias> {
 }
 
 main() {
+    Assert.equals("unused", idFunc())
     let s = Type<Bool>()
     s.test(true)
 }

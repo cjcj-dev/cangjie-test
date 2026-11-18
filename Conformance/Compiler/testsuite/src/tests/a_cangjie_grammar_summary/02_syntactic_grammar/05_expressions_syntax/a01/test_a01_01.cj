@@ -47,6 +47,8 @@
   @Negative:    no
   @Structure:   single
 */
+
+import utils.assert.Assert
 public let l1 = 12 + 3
 public let l2: Int8 = 1 - 0
 public let l3 = (0x3, 'A')
@@ -71,6 +73,8 @@ main() {
     var v7 = my()
     let l7 = [1,2,3,4]
     var v8 = l7[1]
+    Assert.equals((), v7)
+    Assert.equals(2, v8)
 
     return 0
 }

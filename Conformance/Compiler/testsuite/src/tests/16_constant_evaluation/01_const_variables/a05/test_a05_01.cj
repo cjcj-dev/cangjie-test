@@ -36,6 +36,7 @@ const d = 0 // ok, the type of d is Int64
 func f(): Unit {}
 
 main() {
+    Assert.equals((), f())
     Assert.isTrue(a is Int64)
     Assert.equals(0, a)
     Assert.isTrue(d is Int64)

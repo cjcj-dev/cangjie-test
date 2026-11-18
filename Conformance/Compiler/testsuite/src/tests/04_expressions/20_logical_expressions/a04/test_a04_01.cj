@@ -38,6 +38,8 @@
   @Negative: no
 */
 
+import utils.assert.Assert
+
 main() {
     var b = true
     var x = false
@@ -69,5 +71,6 @@ main() {
 
     // Rule:  logicConjunctionExpression = rangeExpression ( '&&' rangeExpression)*
     x = b && true && false
+    Assert.isTrue(!x)
 }
 

@@ -30,6 +30,8 @@
   @Structure:   single
 */
 
+import utils.assert.Assert
+
 main() {
     //empty expressionOrDeclarations
 
@@ -55,6 +57,10 @@ main() {
         big /= x
     }
     var f1 = {a: Int8, b: Int8 => a + b }(1, 2)
+    Assert.equals(Int8(3), l0(1, 2))
+    Assert.equals(Float32(4.6), v0)
+    Assert.equals(4, unused)
+    Assert.equals(Int8(3), f1)
 
     return 0
 }

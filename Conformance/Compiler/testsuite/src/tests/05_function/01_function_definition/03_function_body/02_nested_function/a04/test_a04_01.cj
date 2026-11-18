@@ -45,4 +45,5 @@ func foo(): Unit {
 } 
 
 main() {
+  foo()
 }

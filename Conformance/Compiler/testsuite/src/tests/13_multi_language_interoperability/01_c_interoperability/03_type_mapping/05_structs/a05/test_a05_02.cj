@@ -29,6 +29,8 @@
 
 */
 
+import utils.assert.Assert
+
 @C
 struct ABC {
     var x: Int32
@@ -37,4 +39,6 @@ struct ABC {
 
 main() {
     let T1 = (12, ABC())
+    Assert.equals(12, T1[0])
+    Assert.equals(Int32(0), T1[1].x)
 }

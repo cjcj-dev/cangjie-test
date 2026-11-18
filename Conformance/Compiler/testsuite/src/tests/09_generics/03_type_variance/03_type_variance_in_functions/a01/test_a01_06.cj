@@ -32,7 +32,8 @@ open class A3 <: A2 {}
 main() {
     // Function type-subtype checking should be triggered here.
     var a1: (A2) -> A2 = {a: A2 => a}
-    var a2: (A2) -> A2 = {a: A1 => A3()}
+    Assert.equals(1, [a1].size)
+    var a2: (A2) -> A2 = {a: A1 => Assert.equals(1, [a].size); A3()}
     Assert.isTrue(a1 is (A2) -> A2)
     Assert.isTrue(a1 is (A3) -> A1)
     Assert.isTrue(a2 is (A2) -> A2)

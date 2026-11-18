@@ -37,6 +37,7 @@ interface I {
             10
         }
         set(v) {
+            Assert.equals(1, [v].size)
             set_sink++
         }
     }
@@ -52,6 +53,7 @@ interface I {
             true
         }
         set(v) {
+            Assert.equals(1, [v].size)
             set_sink++
         }
     }
@@ -71,6 +73,7 @@ interface I {
             local(5)
         }
         set(v) {
+            Assert.equals(1, [v].size)
             set_sink++
             var s = p5
             s++
@@ -93,6 +96,7 @@ interface I {
             x > y
         }
         set(v) {
+            Assert.equals(1, [v].size)
             set_sink++
             var f = { => var x = 0; x++}
             f()

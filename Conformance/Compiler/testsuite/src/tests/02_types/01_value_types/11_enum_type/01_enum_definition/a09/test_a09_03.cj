@@ -29,6 +29,7 @@ enum E {
     | F | D
     operator func ==(e: E) { 
         let r = count
+        Assert.equals(1, [e].size)
         count++
         return r
     }

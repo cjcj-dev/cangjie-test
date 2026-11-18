@@ -62,6 +62,7 @@ enum E {
 
 main() { 
     let e = X(1) // ok, X(1) is to call the constructor X(Int64).
+    Assert.equals(1, [e].size)
     Assert.equals("", check)
     X(1.0)     // ok, X(1.0) is to call the operator () overloading function. 
     Assert.equals("(Float64)", check)

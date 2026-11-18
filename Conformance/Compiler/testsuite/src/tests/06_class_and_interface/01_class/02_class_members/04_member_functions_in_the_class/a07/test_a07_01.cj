@@ -262,7 +262,7 @@ class Real <: Test {
         return { => () }
     }
     public func f49(): (Int64) -> Unit {
-        return { x: Int64 => () }
+        return { x: Int64 => Assert.equals(1, [x].size); () }
     }
     public func f50(): () -> Int64 {
         return { => 97 }
@@ -323,7 +323,7 @@ main() {
     test.f18((8, false, ("oo", r'o')))
     test.f19(1..17:2)
     test.f20({ => ()})
-    test.f21({x: Int64 => ()})
+    test.f21({x: Int64 => Assert.equals(1, [x].size); ()})
     test.f22({ => -100 })
     test.f23({x: Float64 => Int64(x)})
     test.f24(S(90))

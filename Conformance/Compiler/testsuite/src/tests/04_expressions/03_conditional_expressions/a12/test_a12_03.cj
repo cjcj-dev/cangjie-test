@@ -33,8 +33,10 @@ import utils.assert.Assert
 
 
 main(ina :Array<String>) {
+Assert.equals(1, [ina].size)
     let x: Int64 = 1
     var y: Int64 = x
+    Assert.equals(1, y)
     if (let y <- x) {
     } else {
         Assert.fail() 

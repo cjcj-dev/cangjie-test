@@ -32,6 +32,8 @@ main() {
     let f2 = Option<(Int64) -> Int64>.None
     let r3 = f1?(1) // r3 = Option<Int64>.Some(2)
     let r4 = f2?(1) // r4 = Option<Int64>.None
+    Assert.isSome(r3)
+    Assert.isNone(r4)
     Assert.isNone(f2)
     Assert.isSome(f1)
     return 0;

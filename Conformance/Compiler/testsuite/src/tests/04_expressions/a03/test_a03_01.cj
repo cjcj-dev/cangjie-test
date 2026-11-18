@@ -49,6 +49,7 @@ main() {
         k += item
     }
     Assert.equals(501, k)
+    Assert.equals((), unit)
 
     while (k > 5) {
         k = k - x

@@ -64,4 +64,5 @@ main() {
     Assert.equals("C", c.name)
 
     let s = S()
+    Assert.equals(1, [s].size)
 }

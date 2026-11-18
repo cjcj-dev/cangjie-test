@@ -28,6 +28,7 @@ import std.convert.*
 main(): Unit {
     // Bitwise Expressions
     var ci_b0 = quote($(!10))
+    Assert.equals(1, [ci_b0].size)
     var ci_b1 = quote($(10<<1))
     var ci_b2 = quote($(10 << 1 << 1))
     var ci_b3 = quote($(1 ^ 8 & 15 | 24))

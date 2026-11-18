@@ -55,27 +55,41 @@ class Test <: A {
         return 4
     }
     public func f5(x: Bool) {
+        Assert.equals(1, [x].size)
         return 5
     }
     public func f6(x: String) {
+        Assert.equals(1, [x].size)
         return 6
     }
     protected func f7(a: Float64) {
+        Assert.equals(1, [a].size)
         return 7
     }
     protected func f8(b: Rune) {
+        Assert.equals(1, [b].size)
         return 8
     }
     public func f9(a: Int64, b!: Int32) {
+        Assert.equals(1, [a].size)
+        Assert.equals(1, [b].size)
         return 9
     }
     public func f10(a: Rune, b: String, c!: Bool) {
+        Assert.equals(1, [a].size)
+        Assert.equals(1, [b].size)
+        Assert.equals(1, [c].size)
         return 10
     }
     protected func f11(x: Rune, y: Rune) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 11
     }
     protected func f12(h: String, u: Array<Bool>, y: Unit) {
+        Assert.equals(1, [h].size)
+        Assert.equals(1, [u].size)
+        Assert.equals((), y)
         return 12
     }
 }

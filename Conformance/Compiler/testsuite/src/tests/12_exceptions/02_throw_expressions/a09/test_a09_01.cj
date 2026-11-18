@@ -55,6 +55,7 @@ main() {
     func catchE() {
         var catch_block : Bool = false 
         let listTest = [0, 1, 2] 
+        Assert.equals(3, listTest.size)
         try { 
             throwE() // caught by catchE() 
         } catch (e: IndexOutOfBoundsException) { 
@@ -67,6 +68,7 @@ main() {
     // Terminate function is executed. 
     func notCatchE() { 
         let listTest = [0, 1, 2] 
+        Assert.equals(3, listTest.size)
         throwE() 
     } 
 

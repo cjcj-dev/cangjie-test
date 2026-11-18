@@ -25,5 +25,6 @@ import std.ast.*
 
 main(): Unit {
     var t1 = quote( )
+    Assert.equals(1, [t1].size)
     Assert.isTrue(t1 is Tokens, reason:"The quote expression is of the Tokens type")
 }

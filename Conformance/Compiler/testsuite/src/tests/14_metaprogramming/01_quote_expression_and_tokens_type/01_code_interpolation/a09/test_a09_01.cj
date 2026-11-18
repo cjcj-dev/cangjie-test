@@ -28,6 +28,7 @@ import std.ast.*
 main(): Unit {
     var t0 = Tokens()
     var t1 = quote(-)
+    Assert.equals(t1.toString(), t1.toTokens().toString())
     var t2 = quote($(2+5))
     var t3 = t2.toTokens()
 

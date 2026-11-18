@@ -92,9 +92,12 @@
   @Negative: no
 */
 
+import utils.assert.Assert
+
 open class A {}
 
 main() {
     var open = 0
+    Assert.equals(0, open)
 }
 

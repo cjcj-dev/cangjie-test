@@ -50,6 +50,7 @@ main() {
     }
 
     e
+    Assert.equals((), e)
 
     Assert.equals(400, res)
 }

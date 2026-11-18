@@ -92,11 +92,14 @@
   @Negative: no
 */
 
+import utils.assert.Assert
+
 class C {
     protected var x = 0
 }
 
 main() {
     var protected = 0
+    Assert.equals(0, protected)
 }
 

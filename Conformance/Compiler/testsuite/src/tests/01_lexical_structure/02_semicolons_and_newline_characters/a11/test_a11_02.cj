@@ -29,6 +29,7 @@
 import utils.assert.Assert
 main() {
     let v : Int32 = 0
+    Assert.equals(0, v)
     let p = """
 $
 {v}"""

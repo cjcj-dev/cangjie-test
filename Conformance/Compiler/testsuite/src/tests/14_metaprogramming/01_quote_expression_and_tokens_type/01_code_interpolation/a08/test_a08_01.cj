@@ -39,6 +39,7 @@ main(): Unit {
     let bool: Bool = true                   // Bool literal
     var str: String = "Cangjie"             // String literal
     let tuple = (1, 2i16)                   // Tuple<Int64, Int16>
+    Assert.equals(2i16, tuple[1])
 
     Assert.isTrue(uint8 is ToTokens)
     Assert.isTrue(int16 is ToTokens)

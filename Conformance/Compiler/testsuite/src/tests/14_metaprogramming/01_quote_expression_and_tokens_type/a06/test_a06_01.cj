@@ -29,6 +29,8 @@ main(): Unit {
     var t1: Tokens = quote("It's cool in space")
     var t2 = quote($t1)
     var t3: Tokens = quote($t2)
+    Assert.equals(1, [t].size)
+    Assert.equals(t2.toString(), t3.toString())
 
     Assert.isTrue(t is Tokens)
     Assert.isTrue(t1 is Tokens)

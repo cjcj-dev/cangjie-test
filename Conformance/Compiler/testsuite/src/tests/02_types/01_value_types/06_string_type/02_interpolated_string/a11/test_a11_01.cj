@@ -51,6 +51,7 @@ main() {
   Assert.isTrue(myInt8Var is ToString)
   myToStringVar = myInt8Var
   Assert.isTrue(myToStringVar is ToString)
+  Assert.equals(1, [myToStringVar].size)
 
   Assert.isTrue(myInt16Var is ToString)
   myToStringVar = myInt16Var

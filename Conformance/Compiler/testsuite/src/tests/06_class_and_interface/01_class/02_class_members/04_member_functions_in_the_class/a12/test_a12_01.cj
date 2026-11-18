@@ -61,6 +61,8 @@ class Bottom <: Middle {
         return x.size
     }
     public func t4(x: Bool, y!: Rune) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 4
     }
     public func t5(a: (Int64, Int64)) {
@@ -70,9 +72,13 @@ class Bottom <: Middle {
         return Int64(x(r'a'))
     }
     public func t7(x: Unit, y: Unit) {
+        Assert.equals((), x)
+        Assert.equals((), y)
         return  7
     }
     public func t8(a: Rune, b: Rune) {
+        Assert.equals(1, [a].size)
+        Assert.equals(1, [b].size)
         return 8
     }
     public func t9(x: Array<Bool>) {
@@ -115,7 +121,7 @@ main() {
     Assert.equals(3, obj.t3("abc"))
     Assert.equals(4, obj.t4(false, y: r'a'))
     Assert.equals(5, obj.t5((2, 3)))
-    Assert.equals(6, obj.t6({x: Rune => 6.13414}))
+    Assert.equals(6, obj.t6({x: Rune => Assert.equals(1, [x].size); 6.13414}))
     Assert.equals(7, obj.t7((), ()))
     Assert.equals(8, obj.t8(r'u', r'p'))
     Assert.equals(9, obj.t9([false, false, true, true, true, false, false, true, false]))

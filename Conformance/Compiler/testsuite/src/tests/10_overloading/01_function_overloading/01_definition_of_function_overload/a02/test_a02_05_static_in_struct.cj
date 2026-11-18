@@ -77,50 +77,64 @@ struct STRUCT {
     }
 
     func Check(arg:Int8) {
+        Assert.equals(1, [arg].size)
         SCheck(-1i8)
     }
     func Check(arg:Int16) {
+        Assert.equals(1, [arg].size)
         SCheck(-2i16)
     }
     func Check(arg:Int32) {
+        Assert.equals(1, [arg].size)
         SCheck(-3i32)
     }
     func Check(arg:Int64) {
+        Assert.equals(1, [arg].size)
         SCheck(-4i64)
     }
     func Check(arg:IntNative) {
+        Assert.equals(1, [arg].size)
         SCheck(IntNative(-5))
     }
     
     func Check(arg:UInt8) {
+        Assert.equals(1, [arg].size)
         SCheck(1u8)
     }
     func Check(arg:UInt16) {
+        Assert.equals(1, [arg].size)
         SCheck(2u16)
     }
     func Check(arg:UInt32) {
+        Assert.equals(1, [arg].size)
         SCheck(3u32)
     }
     func Check(arg:UInt64) {
+        Assert.equals(1, [arg].size)
         SCheck(4u64)
     }
     func Check(arg:UIntNative) {
+        Assert.equals(1, [arg].size)
         SCheck(UIntNative(5))
     }
     
     func Check(arg:Float64) {
+        Assert.equals(1, [arg].size)
         SCheck(0.10f64)
     }
     func Check(arg:Float32) {
+        Assert.equals(1, [arg].size)
         SCheck(0.2f32)
     }
     func Check(arg:Float16) {
+        Assert.equals(1, [arg].size)
         SCheck(0.3f16)
     }
 
 }
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     var kl:STRUCT = STRUCT();
     kl.Check(-1i8)
     kl.Check(-2i16)

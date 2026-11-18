@@ -30,6 +30,7 @@ main() {
 // test case #1
     try {
         let a = 0
+        Assert.equals(0, a)
         func foo() : Int32 {
             return 100
         }

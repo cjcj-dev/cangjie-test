@@ -98,8 +98,8 @@ class myClass1 <: myAClass {
     protected func myAProtectedFunc0(): Unit {}
     protected func myAProtectedFunc1(): Int32 { 16 }
     protected func myAProtectedFunc2(a: Int32): Int32 { a + 10}
-    protected func myAProtectedFunc3(a: Int32, b: Bool): String { "asfsdfds" }
-    protected func myAProtectedFunc4(a: Int32, b!: String): String { "segfsdgf" }
+    protected func myAProtectedFunc3(a: Int32, b: Bool): String { Assert.equals(1, [a].size); Assert.equals(1, [b].size); "asfsdfds" }
+    protected func myAProtectedFunc4(a: Int32, b!: String): String { Assert.equals(1, [a].size); Assert.equals(1, [b].size); "segfsdgf" }
 
     func checkProtectedFuncs() {
         Assert.isTrue(this.myAProtectedFunc0() is Unit)

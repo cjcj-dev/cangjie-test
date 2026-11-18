@@ -53,4 +53,5 @@ main() {
     u1 is Unit
 
     let u3 = u2 as C
+    Assert.equals(1, [u3].size)
 }

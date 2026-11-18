@@ -92,11 +92,14 @@
   @Negative: no
 */
 
+import utils.assert.Assert
+
 struct S {
     private S() {}
 }
 
 main() {
     var private = 0
+    Assert.equals(0, private)
 }
 

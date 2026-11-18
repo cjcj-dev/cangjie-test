@@ -57,43 +57,55 @@ enum ENUM {
     }
 
     private  func SCheck(arg:Int8) {
+        Assert.equals(1, [arg].size)
         Assert.isTrue(this == i8)
     }
     private  func SCheck(arg:Int16) {
+        Assert.equals(1, [arg].size)
         Assert.isTrue(this == i16)
     }
     private  func SCheck(arg:Int32) {
+        Assert.equals(1, [arg].size)
         Assert.isTrue(this == i32)
    }
     private  func SCheck(arg:Int64) {
+        Assert.equals(1, [arg].size)
         Assert.isTrue(this == i64)
     }
     
     private  func SCheck(arg:UInt8) {
+        Assert.equals(1, [arg].size)
         Assert.isTrue(this == u8)
     }
     private  func SCheck(arg:UInt16) {
+        Assert.equals(1, [arg].size)
         Assert.isTrue(this == u16)
     }
     private  func SCheck(arg:UInt32) {
+        Assert.equals(1, [arg].size)
         Assert.isTrue(this == u32)
    }
     private  func SCheck(arg:UInt64) {
+        Assert.equals(1, [arg].size)
         Assert.isTrue(this == u64)
     }
 
     private  func SCheck(arg:Float16) {
+        Assert.equals(1, [arg].size)
         Assert.isTrue(this == f16)
     }
     private  func SCheck(arg:Float32) {
+        Assert.equals(1, [arg].size)
         Assert.isTrue(this == f32)
    }
     private  func SCheck(arg:Float64) {
+        Assert.equals(1, [arg].size)
         Assert.isTrue(this == f64)
     }
 
 
     func Check(arg:Int8) {
+        Assert.equals(1, [arg].size)
         this.SCheck(0i8)             
     }
     func Check(arg:Int16) {
@@ -103,6 +115,7 @@ enum ENUM {
         this.SCheck(arg)
     }
     func Check(arg:Int64) {
+        Assert.equals(1, [arg].size)
         this.SCheck(1)
     }
     
@@ -134,6 +147,7 @@ enum ENUM {
 type Klass = ENUM
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     let ci8 : Int8    = -8i8     
     let ci16: Int16   = -16i16   
     let ci32: Int32   = -32i32   

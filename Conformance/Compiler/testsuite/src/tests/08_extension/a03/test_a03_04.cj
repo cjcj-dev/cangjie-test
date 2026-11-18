@@ -33,5 +33,6 @@ extend Int64 {
 
 main() {
     var x = 120
+    Assert.equals(120, x)
     Assert.equals("Int64", Int64.typeName())
 }

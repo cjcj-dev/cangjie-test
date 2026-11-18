@@ -31,6 +31,7 @@ open class A3 <: A2 {}
 main() {
     // Type-subtype checking should be triggered for function parameter.
     var a1: (A2, A2) = (A2(), A2())
+    Assert.equals(1, [a1].size)
     var a2: (A2, A2) = (A3(), A3())
     Assert.isTrue(a1 is (A1, A1))
     Assert.isTrue(a1 is (A1, A2))

@@ -37,4 +37,6 @@ main() {
         let v2 = -10
         Assert.equals(-10, v2)
     }
+    Assert.equals(5, v1)
+    Assert.equals(10, v2)
 }

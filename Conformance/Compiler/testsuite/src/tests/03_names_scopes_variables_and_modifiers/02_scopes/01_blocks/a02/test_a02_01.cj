@@ -59,6 +59,7 @@ main() {
 //  Test-case 3: function body can be an empty block
     
     var y03 = foo03()
+    Assert.equals((), y03)
     Assert.isTrue(y03 is Unit)
 
 //  Test-case 4: consider blocks in internal function body

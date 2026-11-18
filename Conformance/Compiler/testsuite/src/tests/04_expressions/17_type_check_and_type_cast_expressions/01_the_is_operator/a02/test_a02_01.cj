@@ -130,7 +130,7 @@ main() {
     Assert.isFalse(tuple is (D, B, C))
     // T1 and T2 are Function types, and the parameter type of T2 is the subtype of the parameter type of T1
     // and the return type of T1 is the subtype of the return type of T2 
-    let fn = { a : A, b : B => (A(), C()) }
+    let fn = { a : A, b : B => Assert.equals(1, [a].size); Assert.equals(1, [b].size); (A(), C()) }
     Assert.isFalse(fn is (A, A) -> (A, A))
     Assert.isFalse(fn is (A, A) -> (A, B))
     Assert.isTrue(fn is (A, C) -> (A, A))

@@ -51,6 +51,7 @@ func getUIntNativeSize
         size = 0;
     }
 
+    Assert.equals(1, [uintNativeVar].size)
     return size;
 }
 

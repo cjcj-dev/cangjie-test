@@ -76,6 +76,7 @@ func myParentFunc(){
     12
   }
   var myRetVal = myChildFunc()
+  Assert.equals(12, myRetVal)
   Assert.isTrue(myRetVal is Int64)
   "${myChildFunc()}"
 }

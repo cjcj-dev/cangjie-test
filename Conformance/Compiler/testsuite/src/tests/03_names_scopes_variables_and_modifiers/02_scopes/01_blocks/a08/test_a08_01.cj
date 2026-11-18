@@ -66,6 +66,7 @@ main() {
 //  Test-case 2: consider blocks in the else part of if_else operator
     var blockRes02 : Int64 = 0
     let negative = -10
+    Assert.equals(-10, negative)
     blockRes02 = if (myBoolFunc(10)) { 
             0
         } 

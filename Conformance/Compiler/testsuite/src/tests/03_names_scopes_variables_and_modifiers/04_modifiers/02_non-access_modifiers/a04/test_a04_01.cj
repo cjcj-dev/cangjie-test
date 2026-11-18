@@ -48,6 +48,7 @@ class C2 <: C1 & I  {
 
 main() {
     var obj2 = C2()
+    Assert.equals(1, [obj2].size)
     Assert.equals("redefined foo1", C2.foo1())
     Assert.equals("redefined foo2", C2.foo2())
 }

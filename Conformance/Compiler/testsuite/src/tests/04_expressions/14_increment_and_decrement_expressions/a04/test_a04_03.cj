@@ -31,11 +31,15 @@ main() {
 
     // Expression with multiple ++
     var x1: (Unit, Unit) = ((p++), (q++))
+    Assert.equals((), x1[0])
+    Assert.equals((), x1[1])
     Assert.equals(1, p)
     Assert.equals(1, q)
 
     // Expression with multiple --
     var x2: (Unit, Unit) = ((p--), (q--))
+    Assert.equals((), x2[0])
+    Assert.equals((), x2[1])
     Assert.equals(0, p)
     Assert.equals(0, q)
 }

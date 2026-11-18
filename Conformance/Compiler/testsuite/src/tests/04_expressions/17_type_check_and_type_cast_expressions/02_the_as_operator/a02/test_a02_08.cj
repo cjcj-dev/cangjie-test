@@ -41,7 +41,7 @@ class D <: A {
     init() { super() }
 }
 
-let fn = { a : A, b : B => (A(1), C(2)) }
+let fn = { a : A, b : B => Assert.equals(1, [a].size); Assert.equals(1, [b].size); (A(1), C(2)) }
 
 func isSome<T>(expected : Bool) {
     let o = fn as T
@@ -49,6 +49,7 @@ func isSome<T>(expected : Bool) {
         case None => Assert.isFalse(expected)
         case Some(_) => Assert.isTrue(expected)
     }
+    Assert.equals((), val)
 }
 
 main() {

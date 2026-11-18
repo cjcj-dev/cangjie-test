@@ -38,6 +38,7 @@ main() {
         case 2 => C()
         case _ => D()
     }
+    Assert.equals(1, [m1].size)
     println(m1 is A);
     Assert.isTrue(m1 is A)
 
@@ -47,6 +48,7 @@ main() {
         case r == 2 => C()
         case _ => D()
     }
+    Assert.equals(1, [m2].size)
     println(m2 is A);
     Assert.isTrue(m2 is A)
 

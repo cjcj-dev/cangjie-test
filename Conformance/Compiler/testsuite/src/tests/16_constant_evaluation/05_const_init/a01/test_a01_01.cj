@@ -65,6 +65,7 @@ open class D {
 
     init(x: Int64) {
         d2 = 9
+        Assert.equals(1, [x].size)
     }
 }
 

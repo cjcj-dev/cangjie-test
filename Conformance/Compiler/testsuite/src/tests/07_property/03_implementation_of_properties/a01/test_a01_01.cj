@@ -46,6 +46,7 @@ main() {
   var x = A()
   Assert.equals("", A.str)
   var y = x.val
+  Assert.equals(0, y)
   Assert.equals("g", A.str)
   x.val = 777
   Assert.equals("gs", A.str)

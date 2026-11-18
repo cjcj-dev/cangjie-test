@@ -71,14 +71,18 @@ class Sub <: Base {
 }
 
 func SCheck<T,TA>(a:T, b:TA) {
+    Assert.equals(1, [a].size)
+    Assert.equals(1, [b].size)
 }
 
 
 func SCheck<T, TA>(a:T,b!: Bool = false) {
     Assert.isTrue(b)
+    Assert.equals(1, [a].size)
 }
 main(ina :Array<String>) {
     var b32 : Base = Base(0x04030201i32)
+    Assert.equals(1, [ina].size)
     SCheck<Base,Int32>(b32,b32.i32)
     0
 }

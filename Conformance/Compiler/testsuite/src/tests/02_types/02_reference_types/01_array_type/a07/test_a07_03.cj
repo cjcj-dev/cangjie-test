@@ -28,6 +28,7 @@
   @Issue:        0006500
 
 */
+import utils.assert.Assert
 
 class A <:Equatable<A> {
     public var val: Int64
@@ -49,6 +50,7 @@ main(): Int64 {
     let a5: Array<A> = [A(1), A(2), A(3), A(4), A(5)]
     let a6: Array<A> = [A(1), A(2), A(3), A(4), A(5)]
     let b = a5 == a6
+    Assert.isTrue(b)
 
     return 0
 }

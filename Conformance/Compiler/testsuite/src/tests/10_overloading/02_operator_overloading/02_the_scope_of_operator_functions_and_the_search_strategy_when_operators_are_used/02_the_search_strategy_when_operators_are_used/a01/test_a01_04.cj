@@ -56,13 +56,17 @@ let f64: Float64 =  64.0f64
 
 interface IFI {
     operator func ()(arg: Int8) : Unit {
+        Assert.equals(1, [arg].size)
     }
     operator func ()(arg: Int16) : Unit {
+        Assert.equals(1, [arg].size)
     }
 
     operator func ()(arg:Int32) : Unit {
+        Assert.equals(1, [arg].size)
     }
      operator func ()(arg:Int64) : Unit {
+         Assert.equals(1, [arg].size)
     }
 }  
 
@@ -95,6 +99,7 @@ extend AuxTestA2202 {
 }
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     var klass : AuxTestA2202 = AuxTestA2202();
     klass(i8)
     klass(i16)

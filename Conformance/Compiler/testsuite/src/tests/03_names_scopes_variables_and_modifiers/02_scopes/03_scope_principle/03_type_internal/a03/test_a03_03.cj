@@ -48,6 +48,7 @@ enum Math {
 
 main() {
     var obj = add
+    Assert.equals(1, [obj].size)
     print(add.callSum())
     Assert.equals(2023, add.callSum())
     Assert.equals(2023, add(2023).callSum())

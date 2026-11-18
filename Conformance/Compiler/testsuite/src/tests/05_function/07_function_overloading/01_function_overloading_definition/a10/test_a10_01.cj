@@ -50,4 +50,5 @@ class C {
 
 main() {
     var classImpl = C()
+    Assert.equals(1, [classImpl].size)
 }

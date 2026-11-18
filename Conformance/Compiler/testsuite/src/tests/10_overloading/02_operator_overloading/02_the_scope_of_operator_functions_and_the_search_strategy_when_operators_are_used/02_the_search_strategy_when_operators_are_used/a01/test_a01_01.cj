@@ -40,6 +40,8 @@
 
 */
 
+import utils.assert.Assert
+
 let i8 : Int8    = -8i8     
 let i16: Int16   = -16i16   
 let i32: Int32   = -32i32   
@@ -54,34 +56,45 @@ let f64: Float64 =  64.0f64
 
 interface IFI {
     operator func ()(arg: Int8) : Unit {
+        Assert.equals(1, [arg].size)
     }
      operator func ()(arg: Int16) : Unit {
+         Assert.equals(1, [arg].size)
     }
 
     operator func ()(arg:Int32) : Unit {
+        Assert.equals(1, [arg].size)
     }
      operator func ()(arg:Int64) : Unit {
+         Assert.equals(1, [arg].size)
     }
 }  
 
 interface IFU {
   
     operator func ()(arg:UInt8) : Unit {
+        Assert.equals(1, [arg].size)
     }
     operator func ()(arg:UInt16) : Unit {
+        Assert.equals(1, [arg].size)
     }
     operator func ()(arg:UInt32) : Unit {
+        Assert.equals(1, [arg].size)
     }
     operator func ()(arg:UInt64) : Unit {
+        Assert.equals(1, [arg].size)
     }
 }  
 
 interface IFF {
     operator func ()(arg:Float64) : Unit {
+        Assert.equals(1, [arg].size)
     }
     operator func ()(arg:Float32) : Unit {
+        Assert.equals(1, [arg].size)
     }
     operator func ()(arg:Float16) : Unit {
+        Assert.equals(1, [arg].size)
     }
 }
 
@@ -91,6 +104,7 @@ class AuxTestA2202 <: IFI & IFU & IFF {
 
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     var klass : AuxTestA2202 = AuxTestA2202();
     klass(i8)
     klass(i16)

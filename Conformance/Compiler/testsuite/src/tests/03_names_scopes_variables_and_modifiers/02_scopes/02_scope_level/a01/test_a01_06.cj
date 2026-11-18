@@ -41,7 +41,7 @@ class A {
 }
 
 main() {
-    let f = { unused: Int64 => 67 }
+    let f = { unused: Int64 => Assert.equals(1, [unused].size); 67 }
     Assert.equals(67, f(5))
     Assert.equals(10, A.f(-6))
 }

@@ -41,6 +41,7 @@ main() {
     var t1: (Int64, String, Float16, Bool, Rune, (Int16, UInt16), Unit, Range<Int64>,
         () -> String, R1, HandGame, Array<Float16>, C1)
     t1 = (1, "2asd", 2.453, true, r'i', (-1, 1), (), 1..10, my, r1, HandGame.ROCK, [0.0, 0.1], c1)
+    Assert.equals("2asd", t1[1])
     Assert.isTrue(t1 is (Int64, String, Float16, Bool, Rune, (Int16, UInt16), Unit, Range<Int64>,
         () -> String, R1, HandGame, Array<Float16>, C1)
     )

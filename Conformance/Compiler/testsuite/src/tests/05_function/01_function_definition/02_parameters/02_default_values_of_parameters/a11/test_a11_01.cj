@@ -36,7 +36,7 @@ class myClass {
 
 func testF0(c!: Int32 = 1/myVar0) { c }
 
-func testF1(c!: myClass = myClass()) { "SSS" }
+func testF1(c!: myClass = myClass()) { Assert.equals(1, [c].size); "SSS" }
 
 main() {
   Assert.equals(1, testF0(c: 1))

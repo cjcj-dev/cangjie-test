@@ -50,6 +50,7 @@ struct myStruct1 {
 struct myGStruct<T> {
     public mut func myMutFunc(a: T): Unit { 
         var myVar: T = a 
+        Assert.equals(1, [myVar].size)
     } 
 }
 

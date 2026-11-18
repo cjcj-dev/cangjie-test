@@ -39,6 +39,7 @@ public class C2 {
     private var obj = C1()
 
     private func foo(p1: C1) {
+        Assert.equals(1, [p1].size)
         return C1()
     }
 
@@ -76,6 +77,7 @@ public struct S1 {
     private var obj = C1()
 
     private func foo(p1: C1) {
+        Assert.equals(1, [p1].size)
         return C1()
     }
 
@@ -110,6 +112,7 @@ public struct S2 {
 
 main() {
     var obj1 = C1()
+    Assert.equals(1, [obj1].size)
     Assert.isTrue(obj1 is C1)
 
     var obj2 = C2()

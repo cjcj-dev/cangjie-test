@@ -27,5 +27,6 @@
 import utils.assert.Assert
 main() {
   var myTupleVar  = ("segsd", true, 'S')
+  Assert.equals("segsd", myTupleVar[0])
   Assert.isFalse(myTupleVar is ToString)
 }

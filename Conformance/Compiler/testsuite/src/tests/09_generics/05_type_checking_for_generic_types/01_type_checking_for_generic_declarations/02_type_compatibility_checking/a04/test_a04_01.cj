@@ -46,6 +46,7 @@ interface Tr {
 
 func foo<T>(a: T) where T <: C & Tr {
     var b: C = a // OK, T is a sub type of C now
+    Assert.equals(1, [b].size)
     a.coo() // OK, T is a sub type of C, so it has coo member function
     a.bar() // OK, T is constrained by Tr
 }

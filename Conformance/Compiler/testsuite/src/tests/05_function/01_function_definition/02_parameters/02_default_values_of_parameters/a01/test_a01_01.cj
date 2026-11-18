@@ -27,7 +27,7 @@
 import utils.assert.Assert
 
 interface myInterface {
-  func myInterfaceFunc(b!: String ): String {"AAA"}
+  func myInterfaceFunc(b!: String ): String { Assert.equals(1, [b].size);"AAA"}
 }
 
 func myFuncWithDefaultValue(k!: String = "paramValue") {

@@ -36,6 +36,7 @@ main() {
         case 1 => B()
         case _ => C()
     }
+    Assert.equals(1, [m1].size)
 
     Assert.isTrue(m1 is A)
 

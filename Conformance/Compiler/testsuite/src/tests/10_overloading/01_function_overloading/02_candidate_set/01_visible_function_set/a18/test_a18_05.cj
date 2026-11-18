@@ -51,43 +51,55 @@ enum ENUM <T> {
 
 
     static public  func SCheck(this_value:ENUM<T>, arg:Int8) {
+        Assert.equals(1, [arg].size)
         Assert.equals(enuco(this_value), enuco(i8))
     }
     static public  func SCheck(this_value:ENUM<T>, arg:Int16) {
+        Assert.equals(1, [arg].size)
         Assert.equals(enuco(this_value), enuco(i16))
     }
     static public  func SCheck(this_value:ENUM<T>, arg:Int32) {
+        Assert.equals(1, [arg].size)
         Assert.equals(enuco(this_value), enuco(i32))
    }
     static public  func SCheck(this_value:ENUM<T>, arg:Int64) {
+        Assert.equals(1, [arg].size)
         Assert.equals(enuco(this_value), enuco(i64))
     }
     
     static public  func SCheck(this_value:ENUM<T>, arg:UInt8) {
+        Assert.equals(1, [arg].size)
         Assert.equals(enuco(this_value), enuco(u8))
     }
     static public  func SCheck(this_value:ENUM<T>, arg:UInt16) {
+        Assert.equals(1, [arg].size)
         Assert.equals(enuco(this_value), enuco(u16))
     }
     static public  func SCheck(this_value:ENUM<T>, arg:UInt32) {
+        Assert.equals(1, [arg].size)
         Assert.equals(enuco(this_value), enuco(u32))
    }
     static public  func SCheck(this_value:ENUM<T>, arg:UInt64) {
+        Assert.equals(1, [arg].size)
         Assert.equals(enuco(this_value), enuco(u64))
     }
 
     static public  func SCheck(this_value:ENUM<T>, arg:Float16) {
+        Assert.equals(1, [arg].size)
         Assert.equals(enuco(this_value), enuco(f16))
     }
     static public  func SCheck(this_value:ENUM<T>, arg:Float32) {
+        Assert.equals(1, [arg].size)
         Assert.equals(enuco(this_value), enuco(f32))
    }
     static public  func SCheck(this_value:ENUM<T>, arg:Float64) {
+        Assert.equals(1, [arg].size)
         Assert.equals(enuco(this_value), enuco(f64))
     }
 
 
     func Check(arg:Int8) {
+        Assert.equals(1, [arg].size)
         SCheck(this,0i8)             
     }
     func Check(arg:Int16) {
@@ -97,6 +109,7 @@ enum ENUM <T> {
         SCheck(this,arg)
     }
     func Check(arg:Int64) {
+        Assert.equals(1, [arg].size)
         SCheck(this,1)
     }
     
@@ -127,6 +140,7 @@ enum ENUM <T> {
 
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     let ci8 : Int8    = -8i8     
     let ci16: Int16   = -16i16   
     let ci32: Int32   = -32i32   

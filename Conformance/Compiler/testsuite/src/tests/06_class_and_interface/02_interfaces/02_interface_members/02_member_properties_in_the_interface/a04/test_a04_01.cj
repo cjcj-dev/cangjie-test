@@ -45,6 +45,7 @@ interface I {
             1
         }
         set(v) {
+            Assert.equals(1, [v].size)
             let x = this
             Assert.isTrue(x is I)
         }

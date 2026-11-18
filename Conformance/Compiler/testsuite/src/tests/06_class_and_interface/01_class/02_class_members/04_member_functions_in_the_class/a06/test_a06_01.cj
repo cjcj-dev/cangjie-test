@@ -39,12 +39,16 @@ abstract class Test {
         return 1
     }
     public      func f3(x: Int64) {
+        Assert.equals(1, [x].size)
         return 2
     }
     private     func f4<T>(x!: T) {
+        Assert.equals(1, [x].size)
         return 3
     }
     func f5(a: Bool, b: Rune) {
+        Assert.equals(1, [a].size)
+        Assert.equals(1, [b].size)
         return 4
     }
 
@@ -67,15 +71,19 @@ abstract class Test {
 class Child <: Test {
     public      func a1() {}
     protected   func a2(x: Int64) {
+        Assert.equals(1, [x].size)
         return 5
     }
     public func a3(x: Bool, y: String) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 6
     }
     protected   func a4() {
         return 7
     }
     public      func a5(x!: String) {
+        Assert.equals(1, [x].size)
         return 8
     }
 }

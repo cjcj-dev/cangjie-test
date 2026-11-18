@@ -34,6 +34,8 @@ main() {
     var y: String = "hello"
     Assert.isTrue((x = 5) is Unit)
     Assert.isTrue((y = "hi") is Unit)
+    Assert.equals(1, [x].size)
+    Assert.equals(1, [y].size)
     return
 }
 

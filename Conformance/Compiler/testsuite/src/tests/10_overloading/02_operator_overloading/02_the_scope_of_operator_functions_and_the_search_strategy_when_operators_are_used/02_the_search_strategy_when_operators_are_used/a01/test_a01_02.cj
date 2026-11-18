@@ -56,25 +56,33 @@ let f64: Float64 =  64.0f64
 
 interface IFI {
     operator func ()(arg: Int8) : Unit {
+        Assert.equals(1, [arg].size)
     }
      operator func ()(arg: Int16) : Unit {
+         Assert.equals(1, [arg].size)
     }
 
     operator func ()(arg:Int32) : Unit {
+        Assert.equals(1, [arg].size)
     }
      operator func ()(arg:Int64) : Unit {
+         Assert.equals(1, [arg].size)
     }
 }  
 
 interface IFU {
   
     operator func ()(arg:UInt8) : Unit {
+        Assert.equals(1, [arg].size)
     }
     operator func ()(arg:UInt16) : Unit {
+        Assert.equals(1, [arg].size)
     }
     operator func ()(arg:UInt32) : Unit {
+        Assert.equals(1, [arg].size)
     }
     operator func ()(arg:UInt64) : Unit {
+        Assert.equals(1, [arg].size)
     }
 }  
 
@@ -93,6 +101,7 @@ class AuxTestA2202 <: IFI & IFU  {
 
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     var klass : AuxTestA2202 = AuxTestA2202();
     klass(i8)
     klass(i16)

@@ -92,6 +92,8 @@
   @Negative: no
 */
 
+import utils.assert.Assert
+
 open class A {
     static func foo() {}
 }
@@ -102,5 +104,6 @@ class B <: A {
 
 main() {
     var redef = 0
+    Assert.equals(0, redef)
 }
 

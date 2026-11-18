@@ -79,6 +79,8 @@ struct myStruct {
   var myVarString: String = "vds  asfwae"
   let myLetString: String = "gyuilfcvgb"
   func checkValues(){
+    Assert.equals("H", myPrivateStaticVarString)
+    Assert.equals("2+6", myPrivateStaticLetString)
     Assert.equals("23)fdsv", this.myPrivateVarString)
     Assert.isTrue(this.myPrivateVarString is String)
     Assert.equals("ddd-dd2 y", this.myPrivateLetString)

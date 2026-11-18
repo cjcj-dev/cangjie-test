@@ -45,6 +45,7 @@ main() {
     let foo2 : (String) -> Unit = { s : String =>
         Assert.equals("bla-bla", s)
         let str = "foo2"        
+        Assert.equals("foo2", str)
     }
 
     foo2(str)

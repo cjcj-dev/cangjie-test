@@ -62,6 +62,7 @@ enum myEnum {
         let myLambda0: (Int64, Int64)->Int64 = {a: Int64, b: Int64 => a + b} 
         var myLambda1: () -> Int32 = { => 123 } 
         var myLambda2: () -> Float32 = { => 123.0 } 
+        Assert.equals(1, [myLambda2].size)
 
         Assert.isTrue(myLambda0 is (Int64, Int64)->Int64)
         Assert.isTrue(myLambda1 is ()->Int32)
@@ -76,6 +77,7 @@ main() {
     let myLambda0: (Int64, Int64)->Int64 = {a: Int64, b: Int64 => a + b} 
     var myLambda1: () -> Int32 = { => 123 } 
     var myLambda2: () -> Float32 = { => 123.0 } 
+    Assert.equals(1, [myLambda2].size)
 
     Assert.isTrue(myLambda0 is (Int64, Int64)->Int64)
     Assert.isTrue(myLambda1 is ()->Int32)

@@ -28,6 +28,7 @@ import utils.assert.Assert
 
 func foo01(a: Int64) { 
     var y01 : Int64 = a * 10
+    Assert.equals(1, [y01].size)
 }
 
 func myBoolFunc(i: Int64){
@@ -51,9 +52,11 @@ main() {
     var y02 : Int64 = 2 * x02
     if (myBoolFunc(0)) {
         var y02 : Int64 = 3 * x02
+        Assert.equals(300, y02)
     }
     else {
         var y02 : Int64 = -1000
+        Assert.equals(-1000, y02)
     }
     Assert.equals(200, y02)
     
@@ -64,9 +67,11 @@ main() {
     
     if (myBoolFunc(1)) {
         var y03 : Int64 = 1000
+        Assert.equals(1000, y03)
     }
     else {
         var y03 : Int64 = 4 * x03
+        Assert.equals(-400, y03)
     }
     Assert.equals(-300, y03)
 

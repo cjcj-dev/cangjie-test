@@ -37,6 +37,7 @@ main() {
     let t1: Object = Object()
     tst = t1
     Assert.isTrue(tst is Any)
+    Assert.equals(1, [tst].size)
 
     let t2: Int64 = 1
     tst = t2

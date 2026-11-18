@@ -43,28 +43,39 @@ let f64: Float64 =  64.0f64
 
 interface InterFace {
     func Verify(arg:Int8) :Unit {
+        Assert.equals(1, [arg].size)
     }
     func Verify(arg:Int16) :Unit {
+        Assert.equals(1, [arg].size)
     }
     func Verify(arg:Int32) :Unit {
+        Assert.equals(1, [arg].size)
     }
     func Verify(arg:Int64) :Unit {
+        Assert.equals(1, [arg].size)
     }
     
     func Verify(arg:UInt8) :Unit {
+        Assert.equals(1, [arg].size)
     }
     func Verify(arg:UInt16) :Unit {
+        Assert.equals(1, [arg].size)
     }
     func Verify(arg:UInt32) :Unit {
+        Assert.equals(1, [arg].size)
     }
     func Verify(arg:UInt64) :Unit {
+        Assert.equals(1, [arg].size)
     }
     
     func Verify(arg:Float64) :Unit {
+        Assert.equals(1, [arg].size)
     }
     func Verify(arg:Float32) :Unit {
+        Assert.equals(1, [arg].size)
     }
     func Verify(arg:Float16) :Unit {
+        Assert.equals(1, [arg].size)
     }
 
 }
@@ -191,6 +202,7 @@ class Klass <: Parent {
 
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     var kl:Klass = Klass();
     kl.Verify(i8+1)
     kl.Verify(i16+1)

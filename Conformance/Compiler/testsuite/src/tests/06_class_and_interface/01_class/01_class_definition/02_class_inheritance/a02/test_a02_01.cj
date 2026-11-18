@@ -52,34 +52,42 @@ class bbfhj <: peqnkmffhw<String> {}
 
 main() {
   var case1 = Urqfjqwlk()
+  Assert.equals(1, [case1].size)
   Assert.isTrue(case1 is _ofhk)
   Assert.isTrue(case1 is Urqfjqwlk)
 
   var case2 = nebqo()
+  Assert.equals(1, [case2].size)
   Assert.isTrue(case2 is _ieqjk)
   Assert.isTrue(case2 is nebqo)
 
   var case3 = e1oyr1()
+  Assert.equals(1, [case3].size)
   Assert.isTrue(case3 is uieqh<Bool>)
   Assert.isTrue(case3 is e1oyr1)
 
   var case4 = rj418o()
+  Assert.equals(1, [case4].size)
   Assert.isTrue(case4 is peqcma<Int64, Int64>)
   Assert.isTrue(case4 is rj418o)
 
   var case5 = hjrbhj()
+  Assert.equals(1, [case5].size)
   Assert.isTrue(case5 is Ufha)
   Assert.isTrue(case5 is hjrbhj)
 
   var case6 = rhkjfh291h()
+  Assert.equals(1, [case6].size)
   Assert.isTrue(case6 is _dfjwlh<Bool>)
   Assert.isTrue(case6 is rhkjfh291h)
 
   var case7 = _fqf_fjkl()
+  Assert.equals(1, [case7].size)
   Assert.isTrue(case7 is ruqpPFjl)
   Assert.isTrue(case7 is _fqf_fjkl)
 
   var case8 = bbfhj()
+  Assert.equals(1, [case8].size)
   Assert.isTrue(case8 is peqnkmffhw<String>)
   Assert.isTrue(case8 is bbfhj)
   

@@ -54,6 +54,7 @@ func countGlobalV1() {
     globalV1++ 
     C.a = 99 
     let g = C.foo     // OK 
+    Assert.equals(1, [g].size)
 } 
 
 func g(){ 

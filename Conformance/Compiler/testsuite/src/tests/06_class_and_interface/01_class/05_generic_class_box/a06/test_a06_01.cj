@@ -30,21 +30,26 @@ import utils.assert.Assert
 main() {
     let case1 = Box<Bool>(true)
     var access1 = case1
+    Assert.equals(1, [access1].size)
     Assert.isTrue(access1 is Box<Bool>)
 
     var case2 = Box<String>("")
     var access2 = case2
+    Assert.equals(1, [access2].size)
     Assert.isTrue(access2 is Box<String>)
 
     var case3 = Box<Int64>(1)
     var access3 = case3
+    Assert.equals(1, [access3].size)
     Assert.isTrue(access3 is Box<Int64>)
 
     var case4 = Box<Float64>(0.001)
     var access4 = case4
+    Assert.equals(1, [access4].size)
     Assert.isTrue(access4 is Box<Float64>)
 
     var case5 = Box<Unit>(())
     var access5 = case5
+    Assert.equals(1, [access5].size)
     Assert.isTrue(access5 is Box<Unit>)
 }

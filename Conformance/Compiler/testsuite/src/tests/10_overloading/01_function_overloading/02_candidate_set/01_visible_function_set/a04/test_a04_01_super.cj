@@ -70,38 +70,49 @@ open class Parent {
     }
 
     public open func Verify(arg:Int8) {
+        Assert.equals(1, [arg].size)
         SVerify(-1i8)
     }
     public open func Verify(arg:Int16) {
+        Assert.equals(1, [arg].size)
         SVerify(-2i16)
     }
     public open func Verify(arg:Int32) {
+        Assert.equals(1, [arg].size)
         SVerify(-3i32)
     }
     public open func Verify(arg:Int64) {
+        Assert.equals(1, [arg].size)
         SVerify(-4i64)
     }
     
     public open func Verify(arg:UInt8) {
+        Assert.equals(1, [arg].size)
         SVerify(1u8)
     }
     public open func Verify(arg:UInt16) {
+        Assert.equals(1, [arg].size)
         SVerify(2u16)
     }
     public open func Verify(arg:UInt32) {
+        Assert.equals(1, [arg].size)
         SVerify(3u32)
     }
     public open func Verify(arg:UInt64) {
+        Assert.equals(1, [arg].size)
         SVerify(4u64)
     }
     
     public open func Verify(arg:Float64) {
+        Assert.equals(1, [arg].size)
         SVerify(0.10f64)
     }
     public open func Verify(arg:Float32) {
+        Assert.equals(1, [arg].size)
         SVerify(0.2f32)
     }
     public open func Verify(arg:Float16) {
+        Assert.equals(1, [arg].size)
         SVerify(0.3f16)
     }
 
@@ -150,6 +161,7 @@ open class Klass <: Parent {
 
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     var kl:Klass = Klass();
     kl.Verify(1u8)
     kl.Verify(0.3f16)

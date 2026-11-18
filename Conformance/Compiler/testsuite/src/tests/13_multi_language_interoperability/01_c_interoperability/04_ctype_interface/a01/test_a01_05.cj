@@ -28,6 +28,10 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
     let Val: CType = -32000i16
+    let checkedCType = [Val]
+    Assert.equals(1, checkedCType.size)
 }

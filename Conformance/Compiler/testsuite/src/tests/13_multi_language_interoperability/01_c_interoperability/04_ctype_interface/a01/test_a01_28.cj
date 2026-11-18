@@ -24,14 +24,18 @@
 
   @Structure:    single
 
-  @Comment:      
+  @Comment:
 
   @Issue: 0006421
 */
+
+import utils.assert.Assert
 
 @C
 struct ABC {}
 
 main() {
     let Val: CType = ABC()
+    let checkedCType = [Val]
+    Assert.equals(1, checkedCType.size)
 }

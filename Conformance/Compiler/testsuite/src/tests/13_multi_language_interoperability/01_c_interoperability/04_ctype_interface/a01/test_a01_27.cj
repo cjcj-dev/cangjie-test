@@ -24,14 +24,18 @@
 
   @Structure:    single
 
-  @Comment:      
+  @Comment:
 
   @Issue: 0006421
 */
+
+import utils.assert.Assert
 
 @C func func_01(x: Int32): Int32 { x }
 
 main() {
     let FPtr: CFunc<(Int32)->Int32> = func_01
     let Val: CType = FPtr
+    let checkedCType = [Val]
+    Assert.equals(1, checkedCType.size)
 }

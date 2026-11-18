@@ -39,4 +39,5 @@ main() {
     Assert.isTrue(time6 is TimeUnit3<Int64, Float64>)
     var t2 = Hour(time5, (1,2), (2,3), (3,4))
     Assert.isTrue(t2 is TimeUnit3<TimeUnit3<String, Bool>, (Int64, Int64)>)
+    Assert.equals(1, [t2].size)
 }

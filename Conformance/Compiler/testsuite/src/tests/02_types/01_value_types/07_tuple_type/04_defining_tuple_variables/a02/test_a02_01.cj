@@ -34,5 +34,8 @@ main() {
     Assert.isTrue(pointTwo is (Int64, Int64, Int64))
     Assert.isTrue(pointThree is ((Int64, Int64), Int64))
 
+    Assert.equals(2.4, pointOne[0])
+    Assert.equals(4, pointTwo[2])
+    Assert.equals(3, pointThree[0][1])
     return 0
 }

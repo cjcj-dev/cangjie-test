@@ -50,6 +50,7 @@ import utils.assert.Assert
 
 class C {
     operator func>>(x: Int64) {
+        Assert.equals(1, [x].size)
         return this
     }
 }

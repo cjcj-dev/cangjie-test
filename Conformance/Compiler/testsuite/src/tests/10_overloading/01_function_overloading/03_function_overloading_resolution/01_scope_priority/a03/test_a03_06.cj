@@ -29,17 +29,20 @@ import utils.assert.Assert
 
 open class Parent {   
      public static func Verify(arg:Sub):Int64 {
+        Assert.equals(1, [arg].size)
         0
     }
 }
 
 open class Sub <: Parent {
     public static func Verify(arg:Parent):Int64 {
+        Assert.equals(1, [arg].size)
         1
     }
 }
 
 main(ina :Array<String>) {
+    Assert.isTrue(ina.size >= 0)
     Assert.equals(0,Sub.Verify(Sub()))
     Assert.equals(0,Parent.Verify(Sub()))
     0

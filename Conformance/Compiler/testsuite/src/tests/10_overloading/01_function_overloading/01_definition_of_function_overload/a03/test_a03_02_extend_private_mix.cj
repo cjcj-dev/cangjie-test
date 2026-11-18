@@ -79,38 +79,49 @@ class Klass {
     }
 
     func Check(arg:Int8) {
+        Assert.equals(-1i8, arg)
         SCheck(-1i8)
     }
     func Check(arg:Int16) {
+        Assert.equals(-2i16, arg)
         SCheck(-2i16)
     }
     func Check(arg:Int32) {
+        Assert.equals(-3i32, arg)
         SCheck(-3i32)
     }
     func Check(arg:Int64) {
+        Assert.equals(-4i64, arg)
         SCheck(-4i64)
     }
     
     func Check(arg:UInt8) {
+        Assert.equals(1u8, arg)
         SCheck(1u8)
     }
     func Check(arg:UInt16) {
+        Assert.equals(2u16, arg)
         SCheck(2u16)
     }
     func Check(arg:UInt32) {
+        Assert.equals(3u32, arg)
         SCheck(3u32)
     }
     func Check(arg:UInt64) {
+        Assert.equals(4u64, arg)
         SCheck(4u64)
     }
     
     func Check(arg:Float64) {
+        Assert.equals(0.10f64, arg)
         SCheck(0.10f64)
     }
     func Check(arg:Float32) {
+        Assert.equals(0.2f32, arg)
         SCheck(0.2f32)
     }
     func Check(arg:Float16) {
+        Assert.equals(0.3f16, arg)
         SCheck(0.3f16)
     }
 
@@ -120,6 +131,7 @@ extend Klass {
         Assert.equals(-5, arg)
     }
     func Check(arg:IntNative) {
+        Assert.equals(IntNative(-5), arg)
         SCheck(IntNative(-5))
     }
 }
@@ -129,11 +141,13 @@ extend Klass {
         Assert.equals(5, arg)
     }
     func Check(arg:UIntNative) {
+        Assert.equals(UIntNative(5), arg)
         SCheck(UIntNative(5))
     }
 }
 
 main(ina :Array<String>) {
+    Assert.isTrue(ina.size >= 0)
     var kl:Klass = Klass(0);
     kl.Check(-1i8)
     kl.Check(-2i16)

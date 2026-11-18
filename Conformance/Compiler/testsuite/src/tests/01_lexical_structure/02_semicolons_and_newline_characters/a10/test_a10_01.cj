@@ -85,4 +85,6 @@ main() {
     let arr11: Array<Int64> = arr9[..]
     arr11[0] = -1
     Assert.equals(-1, arr11[0])
+    Assert.equals(3, arr7[1][1])
+    Assert.equals(0, arr8.size)
 }

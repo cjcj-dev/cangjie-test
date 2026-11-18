@@ -43,4 +43,5 @@ main(): Unit {
     Assert.isTrue(a2 is E)
     Assert.isTrue(a3 is C)
     Assert.isTrue(a3 is I)
+    Assert.equals(1, [a2].size)
 }

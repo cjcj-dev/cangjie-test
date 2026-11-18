@@ -198,4 +198,5 @@ main() {
     Assert.equals('D', aaa.charVar)
 
     let myEnumLetVar = Week.Other("dd")
+    Assert.equals(1, [myEnumLetVar].size)
 }

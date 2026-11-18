@@ -22,6 +22,9 @@
 
 */
 
+import utils.assert.Assert
+
+
 func range<T>(a: T, b: T): Range<T> where T <: Countable<T> & Comparable<T> {
   a..b
 }
@@ -30,5 +33,8 @@ main() {
   let a1 = range(0, 10)
   let a2 = range(0u8, 10u8)
   let a3 = range(0i16, 10i16)
+  Assert.equals(1, [a1].size)
+  Assert.equals(1, [a2].size)
+  Assert.equals(1, [a3].size)
   return 0
 }

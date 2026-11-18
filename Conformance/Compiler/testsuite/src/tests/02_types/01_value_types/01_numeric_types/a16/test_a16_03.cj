@@ -36,6 +36,7 @@ main() {
     try {
         // Expected: "OverflowException: Casting NaN value to integer."
         var i16: Int16 = Int16(f16Var01);
+        Assert.equals(1, [i16].size);
 
     } catch (e: OverflowException) {
         isNaN01 = e.toString()[19..35] == "Casting Infinite";
@@ -54,6 +55,7 @@ has value different from expected Float16.NaN.
     var isNaN02: Bool = false;
     try {
         var i16: Int16 = Int16(f16Var02);
+        Assert.equals(1, [i16].size);
 
     } catch (e: OverflowException) {
         isNaN02 = e.toString()[19..35] == "Casting Infinite";
@@ -72,6 +74,7 @@ from expected Float16.NaN.
     var isNaN03: Bool = false;
     try {
         var i16: Int16 = Int16(f16Var03);
+        Assert.equals(1, [i16].size);
 
     } catch (e: OverflowException) {
         isNaN03 = e.toString()[19..35] == "Casting Infinite";

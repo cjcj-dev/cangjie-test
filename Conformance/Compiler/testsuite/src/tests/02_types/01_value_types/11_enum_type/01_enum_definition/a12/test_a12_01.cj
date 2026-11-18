@@ -20,6 +20,9 @@
   @Comment:
 
 */
+
+import utils.assert.Assert
+
 enum E {
     E1 | E1(E) | E1(E, E)
 }
@@ -28,4 +31,5 @@ main() {
     let a = E1
     var b = E1(a)
     var c = E1(b,a)
+    Assert.equals(1, [c].size)
 }

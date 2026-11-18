@@ -45,4 +45,5 @@ main() {
     f = F1
     b2 = f(false)
     Assert.isTrue(b2 is A)
+    Assert.equals(1, [b2].size)
  }

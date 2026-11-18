@@ -89,5 +89,6 @@ main() {
     var obj7 = E1.FirstVal(obj1)
     Assert.isTrue(obj7 is E1)
 
+    Assert.equals(1, [obj7].size)
     return 0
 }

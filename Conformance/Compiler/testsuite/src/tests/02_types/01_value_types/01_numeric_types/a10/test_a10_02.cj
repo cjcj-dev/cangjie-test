@@ -32,6 +32,7 @@ func getIntNativeSize(): Int64 {
     try {
         var intVar64: Int64 = -128;
         var intVarNative: IntNative = IntNative(intVar64);
+        Assert.equals(-128, Int64(intVarNative));
         size = 8;
 
         intVar64 = -32768; 

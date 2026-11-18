@@ -21,6 +21,9 @@
 
 */
 
+import utils.assert.Assert
+
+
 enum E {
     E1 | E1(Q) | E1(E, Q)
 }
@@ -33,4 +36,6 @@ main() {
     let a = E1
     var b = E1(QAZ)
     var c = QWERT(a, QAZ)
+    Assert.equals(1, [b].size)
+    Assert.equals(1, [c].size)
 }

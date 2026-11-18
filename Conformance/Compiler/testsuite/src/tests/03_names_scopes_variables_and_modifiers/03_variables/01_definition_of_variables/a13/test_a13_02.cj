@@ -192,4 +192,5 @@ main() {
     Assert.equals(r'D', aaa.charVar)
 
     var qwert = MyEnym.B(1.0, r'C')
+    Assert.equals(1, [qwert].size)
 }

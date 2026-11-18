@@ -26,6 +26,9 @@ a function type, it can still be overloaded with other constructors).
 
 */
 
+import utils.assert.Assert
+
+
 enum E {
     | F | F(Unit) | F(Rune, E) | F(() -> String, String, (String, String)) | F(Bool, Int8, Int16, Int32)
 }
@@ -38,4 +41,9 @@ main() {
     let c = F(r'a', F)
     let d = F(S, "bar", ("boo", "biuz"))
     let e = F(true, 1, 2, 3)
+    Assert.equals(1, [a].size)
+    Assert.equals(1, [b].size)
+    Assert.equals(1, [c].size)
+    Assert.equals(1, [d].size)
+    Assert.equals(1, [e].size)
 }

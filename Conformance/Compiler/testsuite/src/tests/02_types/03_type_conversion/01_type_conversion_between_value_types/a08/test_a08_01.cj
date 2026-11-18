@@ -37,4 +37,7 @@ main(): Unit {
     Assert.isTrue(a3 is IntNative)
     Assert.isTrue(f_i8() is UInt8)
     Assert.isTrue(f_uN() is UIntNative)
+    Assert.equals(8i8, a1)
+    Assert.equals(8735u16, a2)
+    Assert.equals(IntNative(8735890), a3)
 }

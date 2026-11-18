@@ -54,6 +54,7 @@ var evalOrderB = 0
 
 class A {
     operator func>>(x: Int64) {
+        Assert.equals(1, [x].size)
         evalOrderCounter++
         evalOrderA = evalOrderCounter
 
@@ -63,6 +64,7 @@ class A {
 
 class B {
     operator func>>(x: Int64) {
+        Assert.equals(1, [x].size)
         evalOrderCounter++
         evalOrderB = evalOrderCounter
 

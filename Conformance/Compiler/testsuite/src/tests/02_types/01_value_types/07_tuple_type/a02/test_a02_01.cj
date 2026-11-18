@@ -23,5 +23,6 @@ import utils.assert.Assert
 main() {
     var t1: (Int64, String, Float16) = (123, "qwe", 2.3)
     Assert.isTrue(t1 is (Int64, String, Float16))
+    Assert.equals(123, t1[0])
     return 0
 }

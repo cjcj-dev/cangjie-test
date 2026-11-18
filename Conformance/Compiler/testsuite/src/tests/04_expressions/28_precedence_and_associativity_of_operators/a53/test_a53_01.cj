@@ -30,14 +30,17 @@ class C {
     var x: Int64 = 5
 
     operator func[](index: Int64) {
+        Assert.equals(1, [index].size)
         return 6
     }
 
     operator func()(arg: Int64) {
+        Assert.equals(1, [arg].size)
         return 7
     }
 
     operator func()(fn: () -> Int64) {
+        Assert.equals(1, [fn].size)
         return 8
     }
 }

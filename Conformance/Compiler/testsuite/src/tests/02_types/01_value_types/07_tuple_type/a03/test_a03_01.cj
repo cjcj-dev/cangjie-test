@@ -51,5 +51,8 @@ main() {
     Assert.isTrue(t4 is (Unit, Range<Int64>))
     Assert.isTrue(t5 is (() -> String, R1))
     Assert.isTrue(t6 is (HandGame, Array<Float16>, C1))
+    Assert.equals(54, t1[0])
+    Assert.equals(r'y', t3[0])
+    Assert.equals(1, [t5].size)
     return 0
 }

@@ -35,6 +35,7 @@ var accessBOrder = 0
 
 class A {
     operator func[](index: Int64) {
+        Assert.equals(1, [index].size)
         accessAOrder = evalOrderCounter
         evalOrderCounter++
 
@@ -44,6 +45,7 @@ class A {
 
 class B {
     operator func[](index: Int64) {
+        Assert.equals(1, [index].size)
         accessBOrder = evalOrderCounter
         evalOrderCounter++
 

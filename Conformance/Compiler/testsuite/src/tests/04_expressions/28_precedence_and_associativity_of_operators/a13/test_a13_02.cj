@@ -39,6 +39,8 @@ main() {
     var y = 2.0 ** 3
     Assert.isTrue(x is Int64)
     Assert.isTrue(y is Float64)
+    Assert.equals(8, x)
+    Assert.equals(8.0, y)
     return
 }
 

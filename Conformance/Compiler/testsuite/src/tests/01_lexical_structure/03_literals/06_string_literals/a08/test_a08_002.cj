@@ -25,12 +25,16 @@
 
 */
 
+import utils.assert.Assert
+
+
 main(){
     let stringValue:String = """
 1
 2
 
 """
+    Assert.isTrue(stringValue.size > 0)
     return 0;
 }
 

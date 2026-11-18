@@ -23,6 +23,9 @@
 
 */
 
+import utils.assert.Assert
+
+
 struct St {
     var i = 575
 }
@@ -57,4 +60,14 @@ main() {
       3259474326432644u64, UIntNative(233432434), 24.434f16, 23442334.34435454f32, 5543543566.323423423,
       true, r'd', (), "asaskhehi", (21i8, 555i16, 5634534i32, 34534545, IntNative(25324324)), (343..34454),
       { f: Float32 => Int64(f) - 2234667 }, St(), Some(B2()), [A2(), B2(), A2()], B2(), A2(), B2()/**/)
+    Assert.equals(1, [a].size)
+    Assert.equals(1, [b].size)
+    Assert.equals(1, [c].size)
+    Assert.equals(1, [d].size)
+    Assert.equals(1, [e].size)
+    Assert.equals(1, [f].size)
+    Assert.equals(1, [g].size)
+    Assert.equals(1, [h].size)
+    Assert.equals(1, [s].size)
+    Assert.equals(1, [z].size)
 }

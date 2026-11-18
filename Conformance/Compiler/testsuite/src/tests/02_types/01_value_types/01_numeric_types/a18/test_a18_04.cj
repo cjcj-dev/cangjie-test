@@ -36,6 +36,7 @@ main() {
     try {
         // Expected: "OverflowException: Casting NaN value to integer."
         var i64: Int64 = Int64(f64Var01);
+        Assert.equals(1, [i64].size);
     } catch (e: OverflowException) {
         isNaN01 = e.toString()[19..35] == "Casting Infinite";
     } catch (e: Exception) {
@@ -53,6 +54,7 @@ from expected Float64.NaN.
     var isNaN02: Bool = false;
     try {
         var i64: Int64 = Int64(f64Var02);
+        Assert.equals(1, [i64].size);
     } catch (e: OverflowException) {
         isNaN02 = e.toString()[19..35] == "Casting Infinite";
     } catch (e: Exception) {
@@ -71,6 +73,7 @@ from expected Float64.NaN.
     var isNaN03: Bool = false;
     try {
         var i64: Int64 = Int64(f64Var03);
+        Assert.equals(1, [i64].size);
     } catch (e: OverflowException) {
         isNaN03 = e.toString()[19..35] == "Casting Infinite";
     } catch (e: Exception) {
@@ -88,6 +91,7 @@ from expected Float64.NaN.
     var isNaN04: Bool = false;
     try {
         var i64: Int64 = Int64(f64Var04);
+        Assert.equals(1, [i64].size);
     } catch (e: OverflowException) {
         isNaN04 = e.toString()[19..35] == "Casting Infinite";
     } catch (e: Exception) {

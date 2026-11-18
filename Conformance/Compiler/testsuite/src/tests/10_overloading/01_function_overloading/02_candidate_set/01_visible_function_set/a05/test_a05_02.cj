@@ -45,7 +45,7 @@ struct Struct {
 }
 
 
-main(ina :Array<String>) {
+main() {
     var kl:Struct = Struct();
     Assert.equals(0.0f32, kl.f32)
     0

@@ -55,11 +55,17 @@ class FTheThird<x, y, z> <: FJunior<x, y, z> {}
 
 main() {
   var aa = ATheThird()
+  let constructedValue0 = [aa]; Assert.equals(1, constructedValue0.size);
   var bb = BTheThird()
+  let constructedValue1 = [bb]; Assert.equals(1, constructedValue1.size);
   var cc = CTheThird()
+  let constructedValue2 = [cc]; Assert.equals(1, constructedValue2.size);
   var dd = DTheThird<Bool>()
+  let constructedValue3 = [dd]; Assert.equals(1, constructedValue3.size);
   var ee = ETheThird<AJunior, A>()
+  let constructedValue4 = [ee]; Assert.equals(1, constructedValue4.size);
   var ff = FTheThird<Int32, Int32, Int32>()
+  let constructedValue5 = [ff]; Assert.equals(1, constructedValue5.size);
 
   Assert.isTrue(aa is A)
   Assert.isTrue(aa is AJunior)

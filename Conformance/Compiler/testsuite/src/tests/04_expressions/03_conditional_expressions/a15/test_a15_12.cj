@@ -26,6 +26,8 @@
 
 */
 
+import utils.assert.Assert
+
 class A {}
 
 class B {}
@@ -39,5 +41,7 @@ main() {
         } else {
             B()
         }
+    let checkedConditional = [v]
+    Assert.equals(1, checkedConditional.size)
     return 
 }

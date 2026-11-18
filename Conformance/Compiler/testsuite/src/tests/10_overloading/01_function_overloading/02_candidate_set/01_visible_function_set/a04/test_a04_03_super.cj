@@ -144,7 +144,7 @@ open class Klass <: Parent {
 }
 
 
-main(ina :Array<String>) {
+main() {
     var kl:Klass = Klass(0.15f32);
     var klu:Klass = Klass(64u64)
     var kli16 = Klass(16i16)

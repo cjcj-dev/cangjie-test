@@ -36,29 +36,29 @@ import utils.assert.Assert
 class Test {
     func f1() {}
 
-    func f2(x: Int64) {}
+    func f2(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
-    func f3(x: Test) {}
+    func f3(x: Test) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     func f4() {
         return this
     }
 
-    func f5(x: Test) {
+    func f5(x: Test) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return this
     }
 
     func g1<T>() {}
 
-    func g2<T>(x: Int64) {}
+    func g2<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
-    func g3<T>(x: Test) {}
+    func g3<T>(x: Test) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     func g4<T>() {
         return this
     }
 
-    func g5<T>(x: Test) {
+    func g5<T>(x: Test) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return this
     }
 

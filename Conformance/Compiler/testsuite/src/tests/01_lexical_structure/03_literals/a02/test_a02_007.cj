@@ -44,6 +44,8 @@ main(){
     isExpectedType = mutable_var is Int64;
     Assert.isTrue(isExpectedType);
 
+    Assert.equals(9920000i64, mutable_var);
+
     return 0;
 }
 

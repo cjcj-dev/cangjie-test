@@ -34,4 +34,5 @@ main() {
         let tmp : Int32 = item
         Assert.equals(item, tmp)
     }
+    Assert.equals(-1, tmp)
 }

@@ -39,23 +39,23 @@ open class D <: C {}
 
 open class E {}
 
-func foo<T1, T2>(x1: T1, x2: T2) where T1 <: A, T2 <: C {
+func foo<T1, T2>(x1: T1, x2: T2) where T1 <: A, T2 <: C { let observedArgument0 = [x1]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [x2]; Assert.equals(1, observedArgument1.size);
     return 1
 }
 
-func foo(x1 : E, x2: E) {
+func foo(x1 : E, x2: E) { let observedArgument0 = [x1]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [x2]; Assert.equals(1, observedArgument1.size);
     return 2
 }
 
-func foo(x1: E) {
+func foo(x1: E) { let observedArgument0 = [x1]; Assert.equals(1, observedArgument0.size);
     return 3
 }
 
-func bar<T>(x1: T, x2: T) where T <: A {
+func bar<T>(x1: T, x2: T) where T <: A { let observedArgument0 = [x1]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [x2]; Assert.equals(1, observedArgument1.size);
     return 4
 }
 
-func bar(x1: A, x2: B) {
+func bar(x1: A, x2: B) { let observedArgument0 = [x1]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [x2]; Assert.equals(1, observedArgument1.size);
     return 5
 }
 

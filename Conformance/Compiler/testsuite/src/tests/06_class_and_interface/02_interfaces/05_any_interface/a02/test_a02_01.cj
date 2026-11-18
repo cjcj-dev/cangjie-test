@@ -44,6 +44,7 @@ enum C { D }
 
 main() {
     var i: Any = A() // ok
+    let constructedValue0 = [i]; Assert.equals(1, constructedValue0.size);
     Assert.isTrue(i is Any)
     i = B() // ok
     Assert.isTrue(i is Any)

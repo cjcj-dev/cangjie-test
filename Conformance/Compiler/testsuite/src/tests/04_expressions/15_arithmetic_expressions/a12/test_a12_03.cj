@@ -23,9 +23,7 @@
 
 import utils.assert.Assert
 import std.random.Random
-import std.math.*
 import std.time.DateTime
-import std.convert.*
 
 main() {
     var seed:UInt64 = UInt64(DateTime.now().toUnixTimeStamp().toMilliseconds())

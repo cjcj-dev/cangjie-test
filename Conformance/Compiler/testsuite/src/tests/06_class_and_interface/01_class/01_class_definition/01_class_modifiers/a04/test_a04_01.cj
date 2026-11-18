@@ -55,11 +55,17 @@ class F_III<x, y, z> <: F_junior<x, y, z> {}
 
 main() {
   var a = A_junior()
+  let constructedValue0 = [a]; Assert.equals(1, constructedValue0.size);
   var b = B_junior()
+  let constructedValue1 = [b]; Assert.equals(1, constructedValue1.size);
   var c = C_junior()
+  let constructedValue2 = [c]; Assert.equals(1, constructedValue2.size);
   var d = D_junior<Bool>()
+  let constructedValue3 = [d]; Assert.equals(1, constructedValue3.size);
   var e = E_junior<A_junior, A>()
+  let constructedValue4 = [e]; Assert.equals(1, constructedValue4.size);
   var f = F_junior<Int32, Int32, Int32>()
+  let constructedValue5 = [f]; Assert.equals(1, constructedValue5.size);
 
   Assert.isTrue(a is A)
   Assert.isTrue(a is A_junior)
@@ -75,11 +81,17 @@ main() {
   Assert.isTrue(f is F_junior<Int32, Int32, Int32>)
 
   var aa = A_III()
+  let constructedValue6 = [aa]; Assert.equals(1, constructedValue6.size);
   var bb = B_III()
+  let constructedValue7 = [bb]; Assert.equals(1, constructedValue7.size);
   var cc = C_III()
+  let constructedValue8 = [cc]; Assert.equals(1, constructedValue8.size);
   var dd = D_III<Bool>()
+  let constructedValue9 = [dd]; Assert.equals(1, constructedValue9.size);
   var ee = E_III<A_junior, A>()
+  let constructedValue10 = [ee]; Assert.equals(1, constructedValue10.size);
   var ff = F_III<Int32, Int32, Int32>()
+  let constructedValue11 = [ff]; Assert.equals(1, constructedValue11.size);
 
   Assert.isTrue(aa is A)
   Assert.isTrue(aa is A_junior)

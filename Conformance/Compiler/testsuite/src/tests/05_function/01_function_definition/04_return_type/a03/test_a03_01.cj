@@ -27,7 +27,7 @@
 */
 import utils.assert.Assert
 
-func returnAdd(a: Int32, b: Int32): (Int32, Int32) -> Int32 { 
+func returnAdd(a: Int32, b: Int32): (Int32, Int32) -> Int32 { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [b]; Assert.equals(1, observedArgument1.size);
   return {a, b => a + b}         // Return a lambda expression. 
 } 
 

@@ -32,6 +32,7 @@ class B <: A {}
 
 func checkCase1() {
   var b = B()
+  let constructedValue0 = [b]; Assert.equals(1, constructedValue0.size);
   Assert.isTrue(b is A)
   Assert.isTrue(b is B)
 }

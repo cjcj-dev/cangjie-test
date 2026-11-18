@@ -26,18 +26,20 @@
 
 */
 
+import utils.assert.Assert
+
 extend Int8 {
-    public operator func +(x : Unit) { 1i8 }
-    public operator func -(x : Unit) { 1i8 }
-    public operator func *(x : Unit) { 1i8 }
-    public operator func **(x : Unit) { 1i8 }
-    public operator func /(x : Unit) { 1i8 }
-    public operator func %(x : Unit) { 1i8 }
-    public operator func &(x : Unit) { 1i8 }
-    public operator func |(x : Unit) { 1i8 }
-    public operator func ^(x : Unit) { 1i8 }
-    public operator func <<(x : Unit) { 1i8 }
-    public operator func >>(x : Unit) { 1i8 }
+    public operator func +(x : Unit) { Assert.equals((), x); 1i8 }
+    public operator func -(x : Unit) { Assert.equals((), x); 1i8 }
+    public operator func *(x : Unit) { Assert.equals((), x); 1i8 }
+    public operator func **(x : Unit) { Assert.equals((), x); 1i8 }
+    public operator func /(x : Unit) { Assert.equals((), x); 1i8 }
+    public operator func %(x : Unit) { Assert.equals((), x); 1i8 }
+    public operator func &(x : Unit) { Assert.equals((), x); 1i8 }
+    public operator func |(x : Unit) { Assert.equals((), x); 1i8 }
+    public operator func ^(x : Unit) { Assert.equals((), x); 1i8 }
+    public operator func <<(x : Unit) { Assert.equals((), x); 1i8 }
+    public operator func >>(x : Unit) { Assert.equals((), x); 1i8 }
 }
 
 main() {

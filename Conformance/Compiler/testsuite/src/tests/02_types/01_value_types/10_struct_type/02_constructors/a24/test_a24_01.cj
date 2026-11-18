@@ -132,10 +132,14 @@ struct D {
 
 main() {
     let case1 = A(1, true)
+    let constructedValue0 = [case1]; Assert.equals(1, constructedValue0.size);
 
     let case2 = B()
+    let constructedValue1 = [case2]; Assert.equals(1, constructedValue1.size);
 
     let case3 = C()
+    let constructedValue2 = [case3]; Assert.equals(1, constructedValue2.size);
 
     let case4 = D(10)
+    let constructedValue3 = [case4]; Assert.equals(1, constructedValue3.size);
 }

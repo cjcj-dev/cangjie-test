@@ -43,7 +43,6 @@
 
 */
 
-import std.sync.*  // Multithreading
 
 let tlv = ThreadLocal<Int64>() // Define a thread-local variable
 

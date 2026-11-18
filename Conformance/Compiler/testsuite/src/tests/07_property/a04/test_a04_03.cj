@@ -50,7 +50,7 @@ class A {
   }
 }
 
-func foo(a: Int64) {
+func foo(a: Int64) { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size);
 }
 
 main() {

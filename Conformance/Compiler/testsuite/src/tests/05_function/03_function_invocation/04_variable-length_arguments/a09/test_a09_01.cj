@@ -28,33 +28,33 @@
 import utils.assert.Assert
 
 class myClass {
-    func f(arr: Array<Rune>): String { "f0" }
-    func f(a: Rune): String { "f1" }
-    func f(a: Rune, b: Rune): String { "f2" }
-    func f(a: Rune, b: Rune, c: Rune): String { "f3" }
+    func f(arr: Array<Rune>): String { let observedArgument0 = [arr]; Assert.equals(1, observedArgument0.size); "f0" }
+    func f(a: Rune): String { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); "f1" }
+    func f(a: Rune, b: Rune): String { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [b]; Assert.equals(1, observedArgument1.size); "f2" }
+    func f(a: Rune, b: Rune, c: Rune): String { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [b]; Assert.equals(1, observedArgument1.size); let observedArgument2 = [c]; Assert.equals(1, observedArgument2.size); "f3" }
 }
 
 struct myStruct {
-    func f(arr: Array<Rune>): String { "f0" }
-    func f(a: Rune): String { "f1" }
-    func f(a: Rune, b: Rune): String { "f2" }
-    func f(a: Rune, b: Rune, c: Rune): String { "f3" }
+    func f(arr: Array<Rune>): String { let observedArgument0 = [arr]; Assert.equals(1, observedArgument0.size); "f0" }
+    func f(a: Rune): String { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); "f1" }
+    func f(a: Rune, b: Rune): String { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [b]; Assert.equals(1, observedArgument1.size); "f2" }
+    func f(a: Rune, b: Rune, c: Rune): String { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [b]; Assert.equals(1, observedArgument1.size); let observedArgument2 = [c]; Assert.equals(1, observedArgument2.size); "f3" }
 }
 
 enum myEnum {
 
     S
 
-    func f(arr: Array<Rune>): String { "f0" }
-    func f(a: Rune): String { "f1" }
-    func f(a: Rune, b: Rune): String { "f2" }
-    func f(a: Rune, b: Rune, c: Rune): String { "f3" }
+    func f(arr: Array<Rune>): String { let observedArgument0 = [arr]; Assert.equals(1, observedArgument0.size); "f0" }
+    func f(a: Rune): String { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); "f1" }
+    func f(a: Rune, b: Rune): String { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [b]; Assert.equals(1, observedArgument1.size); "f2" }
+    func f(a: Rune, b: Rune, c: Rune): String { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [b]; Assert.equals(1, observedArgument1.size); let observedArgument2 = [c]; Assert.equals(1, observedArgument2.size); "f3" }
 }
 
-func f(arr: Array<Rune>): String { "f0" }
-func f(a: Rune): String { "f1" }
-func f(a: Rune, b: Rune): String { "f2" }
-func f(a: Rune, b: Rune, c: Rune): String { "f3" }
+func f(arr: Array<Rune>): String { let observedArgument0 = [arr]; Assert.equals(1, observedArgument0.size); "f0" }
+func f(a: Rune): String { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); "f1" }
+func f(a: Rune, b: Rune): String { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [b]; Assert.equals(1, observedArgument1.size); "f2" }
+func f(a: Rune, b: Rune, c: Rune): String { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [b]; Assert.equals(1, observedArgument1.size); let observedArgument2 = [c]; Assert.equals(1, observedArgument2.size); "f3" }
 
 
 main() {

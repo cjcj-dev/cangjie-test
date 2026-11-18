@@ -51,7 +51,7 @@ interface I2 {
     static func f() {
         return Parent(0)
     }
-    static func g<T>(x: Int64) {
+    static func g<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Parent(0)
     }
 }
@@ -60,7 +60,7 @@ interface I3 {
     static func f() {
         return Parent(0)
     }
-    static func g<T>(x: Int64) {
+    static func g<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Parent(0)
     }
 }
@@ -69,7 +69,7 @@ abstract class A {
     public static func f() {
         return Parent(0)
     }
-    public static func g<T>(x: Int64) {
+    public static func g<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Parent(0)
     }
 }
@@ -78,7 +78,7 @@ open class B {
     public static func f() {
         return Parent(0)
     }
-    public static func g<T>(x: Int64) {
+    public static func g<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Parent(0)
     }
 }
@@ -87,7 +87,7 @@ sealed abstract class C {
     static func f() {
         return Parent(0)
     }
-    static func g<T>(x: Int64) {
+    static func g<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Parent(0)
     }
 }
@@ -97,7 +97,7 @@ class T1 <: I1 & I2 {
     public redef static func f(): Child {
         return Child(11)
     }
-    public redef static func g<T>(x: Int64): Child {
+    public redef static func g<T>(x: Int64): Child { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Child(12)
     }
 }
@@ -107,7 +107,7 @@ class T2 <: I2 & I3 {
     public redef static func f(): Child {
         return Child(21)
     }
-    public redef static func g<T>(x: Int64): Child {
+    public redef static func g<T>(x: Int64): Child { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Child(22)
     }
 }
@@ -117,7 +117,7 @@ class T3 <: A & I1 {
     public redef static func f(): Child {
         return Child(31)
     }
-    public redef static func g<T>(x: Int64): Child {
+    public redef static func g<T>(x: Int64): Child { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Child(32)
     }
 }
@@ -127,7 +127,7 @@ class T4 <: A & I1 & I2 & I3 {
     public redef static func f(): Child {
         return Child(41)
     }
-    public redef static func g<T>(x: Int64): Child {
+    public redef static func g<T>(x: Int64): Child { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Child(42)
     }
 }
@@ -136,7 +136,7 @@ class T5 <: B & I1 & I2 & I3 {
     public redef static func f(): Child {
         return Child(51)
     }
-    public redef static func g<T>(x: Int64): Child {
+    public redef static func g<T>(x: Int64): Child { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Child(52)
     }
 }
@@ -145,7 +145,7 @@ class T6 <: C & I1 & I2 & I3 {
     public redef static func f(): Child {
         return Child(61)
     }
-    public redef static func g<T>(x: Int64): Child {
+    public redef static func g<T>(x: Int64): Child { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Child(62)
     }
 }

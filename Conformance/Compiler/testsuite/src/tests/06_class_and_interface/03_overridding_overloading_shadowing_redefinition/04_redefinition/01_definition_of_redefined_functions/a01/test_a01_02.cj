@@ -37,8 +37,8 @@ open class A {
     public static func f2() {
         return 0
     }
-    public static func f3(x: String) {}
-    public static func f4(x: String) {
+    public static func f3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public static func f4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 
@@ -46,8 +46,8 @@ open class A {
     public static func g2<T>() {
         return 0
     }
-    public static func g3<T>(x: String) {}
-    public static func g4<T>(x: String) {
+    public static func g3<T>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public static func g4<T>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 }
@@ -57,8 +57,8 @@ interface I {
     static func i2() {
         return 0
     }
-    static func i3(x: String) {}
-    static func i4(x: String) {
+    static func i3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    static func i4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 
@@ -71,8 +71,8 @@ interface I {
     static func k2<T>() {
         return 0
     }
-    static func k3<T>(x: String) {}
-    static func k4<T>(x: String) {
+    static func k3<T>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    static func k4<T>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 
@@ -87,8 +87,8 @@ class C1<U> <: A & I {
     public redef static func f2() {
         return 21
     }
-    public redef static func f3(x: String) {}
-    public redef static func f4(x: String) {
+    public redef static func f3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public redef static func f4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 22
     }
 
@@ -96,8 +96,8 @@ class C1<U> <: A & I {
     public redef static func g2<T>() {
         return 23
     }
-    public redef static func g3<T>(x: String) {}
-    public redef static func g4<T>(x: String) {
+    public redef static func g3<T>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public redef static func g4<T>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 24
     }
 
@@ -105,8 +105,8 @@ class C1<U> <: A & I {
     public redef static func i2() {
         return 25
     }
-    public redef static func i3(x: String) {}
-    public redef static func i4(x: String) {
+    public redef static func i3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public redef static func i4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 26
     }
 
@@ -114,8 +114,8 @@ class C1<U> <: A & I {
     public redef static func j2() {
         return 27
     }
-    public redef static func j3(x: String) {}
-    public redef static func j4(x: String) {
+    public redef static func j3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public redef static func j4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 28
     }
 
@@ -123,8 +123,8 @@ class C1<U> <: A & I {
     public redef static func k2<T>() {
         return 29
     }
-    public redef static func k3<T>(x: String) {}
-    public redef static func k4<T>(x: String) {
+    public redef static func k3<T>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public redef static func k4<T>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 30
     }
 
@@ -132,8 +132,8 @@ class C1<U> <: A & I {
     public redef static func l2<T>() {
         return 31
     }
-    public redef static func l3<T>(x: String) {}
-    public redef static func l4<T>(x: String) {
+    public redef static func l3<T>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public redef static func l4<T>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 32
     }
 
@@ -170,8 +170,8 @@ class C2<U> <: A & I {
     public static func f2() {
         return 31
     }
-    public static func f3(x: String) {}
-    public static func f4(x: String) {
+    public static func f3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public static func f4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 32
     }
 
@@ -179,8 +179,8 @@ class C2<U> <: A & I {
     public static func g2<T>() {
         return 33
     }
-    public static func g3<T>(x: String) {}
-    public static func g4<T>(x: String) {
+    public static func g3<T>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public static func g4<T>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 34
     }
 
@@ -188,8 +188,8 @@ class C2<U> <: A & I {
     public static func i2() {
         return 35
     }
-    public static func i3(x: String) {}
-    public static func i4(x: String) {
+    public static func i3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public static func i4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 36
     }
 
@@ -197,8 +197,8 @@ class C2<U> <: A & I {
     public static func j2() {
         return 37
     }
-    public static func j3(x: String) {}
-    public static func j4(x: String) {
+    public static func j3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public static func j4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 38
     }
 
@@ -206,8 +206,8 @@ class C2<U> <: A & I {
     public static func k2<T>() {
         return 39
     }
-    public static func k3<T>(x: String) {}
-    public static func k4<T>(x: String) {
+    public static func k3<T>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public static func k4<T>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 40
     }
 
@@ -215,8 +215,8 @@ class C2<U> <: A & I {
     public static func l2<T>() {
         return 41
     }
-    public static func l3<T>(x: String) {}
-    public static func l4<T>(x: String) {
+    public static func l3<T>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public static func l4<T>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 42
     }
 

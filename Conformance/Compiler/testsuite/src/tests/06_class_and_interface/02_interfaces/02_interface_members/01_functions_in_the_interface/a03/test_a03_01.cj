@@ -37,20 +37,20 @@ interface I {
     static func f7(x!: Int64, y!: Int64): Unit
     static func f8(x!: Int64, y!: Int64): String
 
-    func f9(x: Int64, y!: Int64) {}
+    func f9(x: Int64, y!: Int64) { let testedArgument0 = [x]; Assert.equals(1, testedArgument0.size); let testedArgument1 = [y]; Assert.equals(1, testedArgument1.size) }
     func f10(x: Int64, y!: Int64) {
         return "f10: ${x}, ${y}"
     }
-    func f11(x!: Int64, y!: Int64) {}
+    func f11(x!: Int64, y!: Int64) { let testedArgument0 = [x]; Assert.equals(1, testedArgument0.size); let testedArgument1 = [y]; Assert.equals(1, testedArgument1.size) }
     func f12(x!: Int64, y!: Int64) {
         return "f12: ${x}, ${y}"
     }
 
-    static func f13(x: Int64, y!: Int64) {}
+    static func f13(x: Int64, y!: Int64) { let testedArgument0 = [x]; Assert.equals(1, testedArgument0.size); let testedArgument1 = [y]; Assert.equals(1, testedArgument1.size) }
     static func f14(x: Int64, y!: Int64) {
         return "f14: ${x}, ${y}"
     }
-    static func f15(x!: Int64, y!: Int64) {}
+    static func f15(x!: Int64, y!: Int64) { let testedArgument0 = [x]; Assert.equals(1, testedArgument0.size); let testedArgument1 = [y]; Assert.equals(1, testedArgument1.size) }
     static func f16(x!: Int64, y!: Int64){
         return "f16: ${x}, ${y}"
     }
@@ -79,20 +79,20 @@ interface I {
 }
 
 class A <: I {
-    override public func f1(x: Int64, y!: Int64) {}
+    override public func f1(x: Int64, y!: Int64) { let testedArgument0 = [x]; Assert.equals(1, testedArgument0.size); let testedArgument1 = [y]; Assert.equals(1, testedArgument1.size) }
     override public func f2(x: Int64, y!: Int64) {
         return "f2: ${x}, ${y}"
     }
-    override public func f3(x!: Int64, y!: Int64) {}
+    override public func f3(x!: Int64, y!: Int64) { let testedArgument0 = [x]; Assert.equals(1, testedArgument0.size); let testedArgument1 = [y]; Assert.equals(1, testedArgument1.size) }
     override public func f4(x!: Int64, y!: Int64) {
         return "f4: ${x}, ${y}"
     }
 
-    redef public static func f5(x: Int64, y!: Int64) {}
+    redef public static func f5(x: Int64, y!: Int64) { let testedArgument0 = [x]; Assert.equals(1, testedArgument0.size); let testedArgument1 = [y]; Assert.equals(1, testedArgument1.size) }
     redef public static func f6(x: Int64, y!: Int64) {
         return "f6: ${x}, ${y}"
     }
-    redef public static func f7(x!: Int64, y!: Int64) {}
+    redef public static func f7(x!: Int64, y!: Int64) { let testedArgument0 = [x]; Assert.equals(1, testedArgument0.size); let testedArgument1 = [y]; Assert.equals(1, testedArgument1.size) }
     redef public static func f8(x!: Int64, y!: Int64) {
         return "f8: ${x}, ${y}"
     }

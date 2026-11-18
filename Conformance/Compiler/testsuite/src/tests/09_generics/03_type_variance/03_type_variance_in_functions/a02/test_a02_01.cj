@@ -41,19 +41,19 @@ func applyToDerived(arg: DerivedB, fn: (DerivedB) -> A): A {
     return fn(arg)
 }
 
-func convertBaseToBase(x: B): A {
+func convertBaseToBase(x: B): A { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size);
     return A()
 }
 
-func convertBaseToDerived(x: B): DerivedA {
+func convertBaseToDerived(x: B): DerivedA { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size);
     return DerivedA()
 }
 
-func convertDerivedToBase(x: DerivedB): A {
+func convertDerivedToBase(x: DerivedB): A { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size);
     return A()
 }
 
-func convertDerivedToDerived(x: DerivedB): DerivedA {
+func convertDerivedToDerived(x: DerivedB): DerivedA { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size);
     return DerivedA()
 }
 

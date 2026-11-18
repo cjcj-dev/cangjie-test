@@ -37,6 +37,7 @@ class C3<T> <: I2<T> & I2<Int32> {} // ok
 
 main() {
   var c3 = C3<Rune>()
+  let constructedValue0 = [c3]; Assert.equals(1, constructedValue0.size);
   Assert.isTrue(c3 is C3<Rune>)
   Assert.isTrue(c3 is I2<Rune>)
   Assert.isTrue(c3 is I2<Int32>)

@@ -26,18 +26,20 @@
 
 */
 
+import utils.assert.Assert
+
 extend String {
-    public operator func +(x : Unit) { "1" }
-    public operator func -(x : Unit) { "1" }
-    public operator func *(x : Unit) { "1" }
-    public operator func **(x : Unit) { "1" }
-    public operator func /(x : Unit) { "1" }
-    public operator func %(x : Unit) { "1" }
-    public operator func &(x : Unit) { "1" }
-    public operator func |(x : Unit) { "1" }
-    public operator func ^(x : Unit) { "1" }
-    public operator func <<(x : Unit) { "1" }
-    public operator func >>(x : Unit) { "1" }
+    public operator func +(x : Unit) { Assert.equals((), x); "1" }
+    public operator func -(x : Unit) { Assert.equals((), x); "1" }
+    public operator func *(x : Unit) { Assert.equals((), x); "1" }
+    public operator func **(x : Unit) { Assert.equals((), x); "1" }
+    public operator func /(x : Unit) { Assert.equals((), x); "1" }
+    public operator func %(x : Unit) { Assert.equals((), x); "1" }
+    public operator func &(x : Unit) { Assert.equals((), x); "1" }
+    public operator func |(x : Unit) { Assert.equals((), x); "1" }
+    public operator func ^(x : Unit) { Assert.equals((), x); "1" }
+    public operator func <<(x : Unit) { Assert.equals((), x); "1" }
+    public operator func >>(x : Unit) { Assert.equals((), x); "1" }
 }
 
 main() {

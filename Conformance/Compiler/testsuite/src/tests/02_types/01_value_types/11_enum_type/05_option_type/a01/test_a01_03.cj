@@ -24,6 +24,9 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
     let a = Some(100) == None<Int64>
+    Assert.equals(false, a)
 }

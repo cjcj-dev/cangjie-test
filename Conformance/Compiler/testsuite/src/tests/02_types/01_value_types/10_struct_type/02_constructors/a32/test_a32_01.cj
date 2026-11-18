@@ -82,6 +82,9 @@ struct DefaultUnused {
 
 main() {
     let case1 = TestNoDefault(p1:10, p2: 20, p3: 30, p4: 40, p5: 50, p6: 60)
+    let constructedValue0 = [case1]; Assert.equals(1, constructedValue0.size);
     let case2 = Default()
+    let constructedValue1 = [case2]; Assert.equals(1, constructedValue1.size);
     let case3 = DefaultUnused(p1:100, p2: 200, p3: 300, p4: 400, p5: 500, p6: 600)
+    let constructedValue2 = [case3]; Assert.equals(1, constructedValue2.size);
 }

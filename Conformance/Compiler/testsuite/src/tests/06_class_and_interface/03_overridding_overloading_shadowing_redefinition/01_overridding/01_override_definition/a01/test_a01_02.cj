@@ -36,13 +36,13 @@ abstract class A {
     public open func f() {
         return 0
     }
-    public open func f(x: Int64) {
+    public open func f(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
-    public open func f(x: String) {
+    public open func f(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
-    public open func f(a: Rune, b: Unit, c: Bool) {
+    public open func f(a: Rune, b: Unit, c: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); Assert.equals((), b); let checkedArgument2 = [c]; Assert.equals(1, checkedArgument2.size);
         return 0
     }
 
@@ -56,13 +56,13 @@ interface I {
     func i() {
         return 0
     }
-    func i(x: Int64) {
+    func i(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
-    func i(x: String) {
+    func i(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
-    func i(a: Rune, b: Unit, c: Bool) {
+    func i(a: Rune, b: Unit, c: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); Assert.equals((), b); let checkedArgument2 = [c]; Assert.equals(1, checkedArgument2.size);
         return 0
     }
 
@@ -76,52 +76,52 @@ class C1 <: A & I {
     public override func f() {
         return 101
     }
-    public override func f(x: Int64) {
+    public override func f(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 102
     }
-    public override func f(x: String) {
+    public override func f(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 103
     }
-    public override func f(a: Rune, b: Unit, c: Bool) {
+    public override func f(a: Rune, b: Unit, c: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); Assert.equals((), b); let checkedArgument2 = [c]; Assert.equals(1, checkedArgument2.size);
         return 104
     }
 
     public override func g() {
         return 105
     }
-    public override func g(x: Int64) {
+    public override func g(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 106
     }
-    public override func g(x: String) {
+    public override func g(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 107
     }
-    public override func g(a: Rune, b: Unit, c: Bool) {
+    public override func g(a: Rune, b: Unit, c: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); Assert.equals((), b); let checkedArgument2 = [c]; Assert.equals(1, checkedArgument2.size);
         return 108
     }
 
     public override func i() {
         return 109
     }
-    public override func i(x: Int64) {
+    public override func i(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 110
     }
-    public override func i(x: String) {
+    public override func i(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 111
     }
-    public override func i(a: Rune, b: Unit, c: Bool) {
+    public override func i(a: Rune, b: Unit, c: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); Assert.equals((), b); let checkedArgument2 = [c]; Assert.equals(1, checkedArgument2.size);
         return 112
     }
 
     public override func j() {
         return 113
     }
-    public override func j(x: Int64) {
+    public override func j(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 114
     }
-    public override func j(x: String) {
+    public override func j(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 115
     }
-    public override func j(a: Rune, b: Unit, c: Bool) {
+    public override func j(a: Rune, b: Unit, c: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); Assert.equals((), b); let checkedArgument2 = [c]; Assert.equals(1, checkedArgument2.size);
         return 116
     }
 }
@@ -130,52 +130,52 @@ class C2 <: A & I {
     public func f() {
         return 201
     }
-    public func f(x: Int64) {
+    public func f(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 202
     }
-    public func f(x: String) {
+    public func f(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 203
     }
-    public func f(a: Rune, b: Unit, c: Bool) {
+    public func f(a: Rune, b: Unit, c: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); Assert.equals((), b); let checkedArgument2 = [c]; Assert.equals(1, checkedArgument2.size);
         return 204
     }
 
     public func g() {
         return 205
     }
-    public func g(x: Int64) {
+    public func g(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 206
     }
-    public func g(x: String) {
+    public func g(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 207
     }
-    public func g(a: Rune, b: Unit, c: Bool) {
+    public func g(a: Rune, b: Unit, c: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); Assert.equals((), b); let checkedArgument2 = [c]; Assert.equals(1, checkedArgument2.size);
         return 208
     }
 
     public func i() {
         return 209
     }
-    public func i(x: Int64) {
+    public func i(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 210
     }
-    public func i(x: String) {
+    public func i(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 211
     }
-    public func i(a: Rune, b: Unit, c: Bool) {
+    public func i(a: Rune, b: Unit, c: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); Assert.equals((), b); let checkedArgument2 = [c]; Assert.equals(1, checkedArgument2.size);
         return 212
     }
 
     public func j() {
         return 213
     }
-    public func j(x: Int64) {
+    public func j(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 214
     }
-    public func j(x: String) {
+    public func j(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 215
     }
-    public func j(a: Rune, b: Unit, c: Bool) {
+    public func j(a: Rune, b: Unit, c: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); Assert.equals((), b); let checkedArgument2 = [c]; Assert.equals(1, checkedArgument2.size);
         return 216
     }
 }
@@ -184,52 +184,52 @@ class C3<T> <: A & I {
     public override func f() {
         return 301
     }
-    public override func f(x: Int64) {
+    public override func f(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 302
     }
-    public override func f(x: String) {
+    public override func f(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 303
     }
-    public override func f(a: Rune, b: Unit, c: Bool) {
+    public override func f(a: Rune, b: Unit, c: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); Assert.equals((), b); let checkedArgument2 = [c]; Assert.equals(1, checkedArgument2.size);
         return 304
     }
 
     public override func g() {
         return 305
     }
-    public override func g(x: Int64) {
+    public override func g(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 306
     }
-    public override func g(x: String) {
+    public override func g(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 307
     }
-    public override func g(a: Rune, b: Unit, c: Bool) {
+    public override func g(a: Rune, b: Unit, c: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); Assert.equals((), b); let checkedArgument2 = [c]; Assert.equals(1, checkedArgument2.size);
         return 308
     }
 
     public override func i() {
         return 309
     }
-    public override func i(x: Int64) {
+    public override func i(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 310
     }
-    public override func i(x: String) {
+    public override func i(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 311
     }
-    public override func i(a: Rune, b: Unit, c: Bool) {
+    public override func i(a: Rune, b: Unit, c: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); Assert.equals((), b); let checkedArgument2 = [c]; Assert.equals(1, checkedArgument2.size);
         return 312
     }
 
     public override func j() {
         return 313
     }
-    public override func j(x: Int64) {
+    public override func j(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 314
     }
-    public override func j(x: String) {
+    public override func j(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 315
     }
-    public override func j(a: Rune, b: Unit, c: Bool) {
+    public override func j(a: Rune, b: Unit, c: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); Assert.equals((), b); let checkedArgument2 = [c]; Assert.equals(1, checkedArgument2.size);
         return 316
     }
 }
@@ -238,52 +238,52 @@ class C4<T> <: A & I {
     public func f() {
         return 401
     }
-    public func f(x: Int64) {
+    public func f(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 402
     }
-    public func f(x: String) {
+    public func f(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 403
     }
-    public func f(a: Rune, b: Unit, c: Bool) {
+    public func f(a: Rune, b: Unit, c: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); Assert.equals((), b); let checkedArgument2 = [c]; Assert.equals(1, checkedArgument2.size);
         return 404
     }
 
     public func g() {
         return 405
     }
-    public func g(x: Int64) {
+    public func g(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 406
     }
-    public func g(x: String) {
+    public func g(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 407
     }
-    public func g(a: Rune, b: Unit, c: Bool) {
+    public func g(a: Rune, b: Unit, c: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); Assert.equals((), b); let checkedArgument2 = [c]; Assert.equals(1, checkedArgument2.size);
         return 408
     }
 
     public func i() {
         return 409
     }
-    public func i(x: Int64) {
+    public func i(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 410
     }
-    public func i(x: String) {
+    public func i(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 411
     }
-    public func i(a: Rune, b: Unit, c: Bool) {
+    public func i(a: Rune, b: Unit, c: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); Assert.equals((), b); let checkedArgument2 = [c]; Assert.equals(1, checkedArgument2.size);
         return 412
     }
 
     public func j() {
         return 413
     }
-    public func j(x: Int64) {
+    public func j(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 414
     }
-    public func j(x: String) {
+    public func j(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 415
     }
-    public func j(a: Rune, b: Unit, c: Bool) {
+    public func j(a: Rune, b: Unit, c: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); Assert.equals((), b); let checkedArgument2 = [c]; Assert.equals(1, checkedArgument2.size);
         return 416
     }
 }

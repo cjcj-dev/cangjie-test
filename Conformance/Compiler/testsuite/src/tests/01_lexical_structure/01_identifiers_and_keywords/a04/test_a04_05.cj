@@ -21,6 +21,10 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
     let 〇 = 0
+
+    Assert.equals(0, 〇)
 }

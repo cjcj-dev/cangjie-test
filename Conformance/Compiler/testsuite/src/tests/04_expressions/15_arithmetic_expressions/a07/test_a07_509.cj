@@ -21,9 +21,12 @@
   @CompileWarning: no
 */
 
+import utils.assert.Assert
+
 main() {
     var v1 : Int32 = 1
     var v2 : Int32 = 1
     let v3 = v1 - v2
+    Assert.equals(0, v3)
 }
 

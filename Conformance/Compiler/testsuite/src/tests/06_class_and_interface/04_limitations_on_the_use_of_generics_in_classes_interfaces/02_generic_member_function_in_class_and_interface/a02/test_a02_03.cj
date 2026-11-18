@@ -36,8 +36,10 @@
 
 */
 
+import utils.assert.Assert
+
 abstract class Foo {
-    public open func goo<T>(a: T) {} // OK
+    public open func goo<T>(a: T) { let testedArgument0 = [a]; Assert.equals(1, testedArgument0.size) } // OK
 }
 
 main() {

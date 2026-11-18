@@ -24,6 +24,8 @@
   @Negative: no
 */
 
+import utils.assert.Assert
+
 class GenericClass1<T1> {
 }
 
@@ -85,11 +87,11 @@ func genericFunction1<T1>(x1: T1): T1 {
     return x1
 }
 
-func genericFunction2<T1, T2>(x1: T1, x2: T2): T1 {
+func genericFunction2<T1, T2>(x1: T1, x2: T2): T1 { let observedArgument0 = [x2]; Assert.equals(1, observedArgument0.size);
     return x1
 }
 
-func genericFunction3<T1, T2, T3>(x1: T1, x2: T2, x3: T3): T1 {
+func genericFunction3<T1, T2, T3>(x1: T1, x2: T2, x3: T3): T1 { let observedArgument0 = [x2]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [x3]; Assert.equals(1, observedArgument1.size);
     return x1
 }
 

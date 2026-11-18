@@ -30,11 +30,11 @@ import utils.assert.Assert
 
 class C<T> {
     // Function foo is partially instantiated after T type is known on C<T> instantiation.
-    func foo<T, U>(x: T, u: U) {
+    func foo<T, U>(x: T, u: U) { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [u]; Assert.equals(1, observedArgument1.size);
         return 1
     }
 
-    func foo(x: Int64, y: Int64) {
+    func foo(x: Int64, y: Int64) { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [y]; Assert.equals(1, observedArgument1.size);
         return 2
     }
 }

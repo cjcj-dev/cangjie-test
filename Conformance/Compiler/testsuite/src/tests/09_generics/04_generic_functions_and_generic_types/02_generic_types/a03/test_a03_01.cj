@@ -44,7 +44,7 @@ interface I<T1> {
 
 type BinaryOperator<T> = (T, T) -> T
 
-func getFirst<T>(x: T, y: T): T {
+func getFirst<T>(x: T, y: T): T { let observedArgument0 = [y]; Assert.equals(1, observedArgument0.size);
     return x
 }
 

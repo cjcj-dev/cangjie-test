@@ -25,6 +25,8 @@
 
 */
 
+import utils.assert.Assert
+
 class A {}
 
 var x = 0
@@ -36,5 +38,7 @@ main() {
         } else {
             A()
         }
+    let checkedConditional = [v]
+    Assert.equals(1, checkedConditional.size)
     return 
 }

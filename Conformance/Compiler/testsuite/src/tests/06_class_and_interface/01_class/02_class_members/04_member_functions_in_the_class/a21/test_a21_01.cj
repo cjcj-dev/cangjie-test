@@ -36,16 +36,16 @@ abstract class Abstract {
     static func f2<T>() {
         return 2
     }
-    static func f3(p: Int64) {
+    static func f3(p: Int64) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
         return 3
     }
-    static func f4<T>(p: T) {
+    static func f4<T>(p: T) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
         return 4
     }
     static func f5() {}
     static func f6<T, U>() {}
-    static func f7(x: Bool, y: Rune) {}
-    static func f8<T>(x: T, y: T) {}
+    static func f7(x: Bool, y: Rune) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);}
+    static func f8<T>(x: T, y: T) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);}
 }
 
 open class Open {
@@ -55,16 +55,16 @@ open class Open {
     static func f2<T>() {
         return 6
     }
-    static func f3(p: Int64) {
+    static func f3(p: Int64) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
         return 7
     }
-    static func f4<T>(p: T) {
+    static func f4<T>(p: T) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
         return 8
     }
     static func f5() {}
     static func f6<T, U>() {}
-    static func f7(x: Bool, y: Rune) {}
-    static func f8<T>(x: T, y: T) {}
+    static func f7(x: Bool, y: Rune) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);}
+    static func f8<T>(x: T, y: T) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);}
 }
 
 sealed abstract class Sealed {
@@ -74,16 +74,16 @@ sealed abstract class Sealed {
     static func f2<T>() {
         return 10
     }
-    static func f3(p: Int64) {
+    static func f3(p: Int64) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
         return 11
     }
-    static func f4<T>(p: T) {
+    static func f4<T>(p: T) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
         return 12
     }
     static func f5() {}
     static func f6<T, U>() {}
-    static func f7(x: Bool, y: Rune) {}
-    static func f8<T>(x: T, y: T) {}
+    static func f7(x: Bool, y: Rune) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);}
+    static func f8<T>(x: T, y: T) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);}
 }
 
 class Regular {
@@ -93,16 +93,16 @@ class Regular {
     static func f2<T>() {
         return 14
     }
-    static func f3(p: Int64) {
+    static func f3(p: Int64) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
         return 15
     }
-    static func f4<T>(p: T) {
+    static func f4<T>(p: T) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
         return 16
     }
     static func f5() {}
     static func f6<T, U>() {}
-    static func f7(x: Bool, y: Rune) {}
-    static func f8<T>(x: T, y: T) {}
+    static func f7(x: Bool, y: Rune) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);}
+    static func f8<T>(x: T, y: T) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);}
 }
 
 main() {

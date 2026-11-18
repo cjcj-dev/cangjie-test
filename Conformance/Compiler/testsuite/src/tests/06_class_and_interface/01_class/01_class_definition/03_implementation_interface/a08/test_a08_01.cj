@@ -66,32 +66,38 @@ class GE<T1, T2> <: GD & GTriple & GDouble & GOnce {}
 
 main() {
   var a = A()
+  let constructedValue0 = [a]; Assert.equals(1, constructedValue0.size);
   Assert.isTrue(a is A)
   Assert.isTrue(a is I1)
   Assert.isTrue(a is I2)
   Assert.isTrue(a is I3)
 
   var c = C()
+  let constructedValue1 = [c]; Assert.equals(1, constructedValue1.size);
   Assert.isTrue(c is C)
   Assert.isTrue(c is I)
 
   var e = E()
+  let constructedValue2 = [e]; Assert.equals(1, constructedValue2.size);
   Assert.isTrue(e is E)
   Assert.isTrue(e is Triple)
   Assert.isTrue(e is Double)
   Assert.isTrue(e is Once)
 
   var ga = GA<Bool>()
+  let constructedValue3 = [ga]; Assert.equals(1, constructedValue3.size);
   Assert.isTrue(ga is GA<Bool>)
   Assert.isTrue(ga is FG1)
   Assert.isTrue(ga is FG2)
   Assert.isTrue(ga is FG3)
 
   var gc = GC<String>()
+  let constructedValue4 = [gc]; Assert.equals(1, constructedValue4.size);
   Assert.isTrue(gc is GC<String>)
   Assert.isTrue(gc is FG)
 
   var ge = GE<Unit, Unit>()
+  let constructedValue5 = [ge]; Assert.equals(1, constructedValue5.size);
   Assert.isTrue(ge is GE<Unit, Unit>)
   Assert.isTrue(ge is GTriple)
   Assert.isTrue(ge is GDouble)

@@ -95,6 +95,7 @@ class J<T1, T2> <: GD & GTriple<T2, T2, T2> & GDouble<T1, T2> & GOnce<T2> {}
 
 main() {
   var a = A()
+  let constructedValue0 = [a]; Assert.equals(1, constructedValue0.size);
   Assert.isTrue(a is A)
   Assert.isTrue(a is Same<Bool>)
   Assert.isTrue(a is Same<Rune>)
@@ -102,6 +103,7 @@ main() {
   Assert.isTrue(a is Same<Any>)
 
   var b = B()
+  let constructedValue1 = [b]; Assert.equals(1, constructedValue1.size);
   Assert.isTrue(b is B)
   Assert.isTrue(b is SameWithSuperClass<Bool, Bool>)
   Assert.isTrue(b is SameWithSuperClass<Bool, Rune>)
@@ -109,6 +111,7 @@ main() {
   Assert.isTrue(b is SameWithSuperClass<Rune, Rune>)
 
   var c = C()
+  let constructedValue2 = [c]; Assert.equals(1, constructedValue2.size);
   Assert.isTrue(c is C)
   Assert.isTrue(c is I1<Unit>)
   Assert.isTrue(c is I1<Bool>)
@@ -118,11 +121,13 @@ main() {
   Assert.isTrue(c is I3<Object>)
 
   var d = D()
+  let constructedValue3 = [d]; Assert.equals(1, constructedValue3.size);
   Assert.isTrue(d is D)
   Assert.isTrue(d is II<String, Rune>)
   Assert.isTrue(d is II<Rune, String>)
 
   var e = E()
+  let constructedValue4 = [e]; Assert.equals(1, constructedValue4.size);
   Assert.isTrue(e is E)
   Assert.isTrue(e is Triple<A>)
   Assert.isTrue(e is Triple<B>)
@@ -133,6 +138,7 @@ main() {
   Assert.isTrue(e is Once<D>)
 
   var f = F<Int32, Int64>()
+  let constructedValue5 = [f]; Assert.equals(1, constructedValue5.size);
   Assert.isTrue(f is F<Int32, Int64>)
   Assert.isTrue(f is SameForG<Object>)
   Assert.isTrue(f is SameForG<Rune>)
@@ -140,6 +146,7 @@ main() {
   Assert.isTrue(f is SameForG<Int64>)
 
   var g = G<()->Int32>()
+  let constructedValue6 = [g]; Assert.equals(1, constructedValue6.size);
   Assert.isTrue(g is G<()->Int32>)
   Assert.isTrue(g is DoubleParam<Bool, Bool>)
   Assert.isTrue(g is DoubleParam<Bool, Rune>)
@@ -147,6 +154,7 @@ main() {
   Assert.isTrue(g is DoubleParam<Rune, Rune>)
 
   var h = H<(Rune, Rune)>()
+  let constructedValue7 = [h]; Assert.equals(1, constructedValue7.size);
   Assert.isTrue(h is H<(Rune, Rune)>)
   Assert.isTrue(h is FG1<Int32>)
   Assert.isTrue(h is FG1<Float32>)
@@ -156,11 +164,13 @@ main() {
   Assert.isTrue(h is FG3<Float32>)
 
   var i = I<Int32>()
+  let constructedValue8 = [i]; Assert.equals(1, constructedValue8.size);
   Assert.isTrue(i is I<Int32>)
   Assert.isTrue(i is FG<Int32, Int32>)
   Assert.isTrue(i is FG<Int32, Any>)
 
   var j = J<Rune, String>()
+  let constructedValue9 = [j]; Assert.equals(1, constructedValue9.size);
   Assert.isTrue(j is J<Rune, String>)
   Assert.isTrue(j is GTriple<Int64, Int64, Int64>)
   Assert.isTrue(j is GTriple<String, String, String>)

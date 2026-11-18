@@ -44,6 +44,8 @@ main(){
     isExpectedType = mutable_var is Float32;
     Assert.isTrue(isExpectedType, reason: "Test case 3 failed.");
 
+    Assert.equals(300.5f32, mutable_var);
+
     return 0;
 }
 

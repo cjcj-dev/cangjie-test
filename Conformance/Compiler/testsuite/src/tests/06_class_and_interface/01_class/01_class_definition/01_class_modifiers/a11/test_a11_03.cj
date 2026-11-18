@@ -121,51 +121,51 @@ abstract class Child <: Super {
     return []
   }
 
-  public func f_int(p: Int32) {
+  public func f_int(p: Int32) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
     return 1i32
   }
 
-  public func f_char(p: Rune) {
+  public func f_char(p: Rune) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
     return 2i32
   }
 
-  public func f_bool(p: Bool) {
+  public func f_bool(p: Bool) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
     return 3i32
   }
 
-  public func f_string(p: String) {
+  public func f_string(p: String) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
     return 4i32
   }
 
-  public func f_tuple(p: (Int32, Float32, Rune, Super)) {
+  public func f_tuple(p: (Int32, Float32, Rune, Super)) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
     return 5i32
   }
 
-  public func f_range(p: Range<Int64>) {
+  public func f_range(p: Range<Int64>) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
     return 6i32
   }
 
-  public func f_func(p: () -> Int32) {
+  public func f_func(p: () -> Int32) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
     return 7i32
   }
 
-  public func f_struct(p: S) {
+  public func f_struct(p: S) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
     return 8i32
   }
 
-  public func f_enum(p: E) {
+  public func f_enum(p: E) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
     return 9i32
   }
 
-  public func f_class(p: Super) {
+  public func f_class(p: Super) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
     return 11i32
   }
 
-  public func f_interface(p: I) {
+  public func f_interface(p: I) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
     return 12i32
   }
 
-  public func f_array(p: Array<Int32>) {
+  public func f_array(p: Array<Int32>) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
     return 13i32
   }
 }

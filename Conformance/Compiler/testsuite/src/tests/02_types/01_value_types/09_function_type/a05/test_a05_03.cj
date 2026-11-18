@@ -40,12 +40,12 @@ import utils.assert.*
 type funcType1 = (Int32, Int32, Float32) -> (Int32, Int32);
 type funcType2 = (Int32, Int32, Float32) -> Unit;
 
-func testFunc1(par1: Int32, par2: Int32, par3: Float32): (Int32, Int32) {
+func testFunc1(par1: Int32, par2: Int32, par3: Float32): (Int32, Int32) { let observedArgument0 = [par3]; Assert.equals(1, observedArgument0.size);
     var result: (Int32, Int32) = (par1, par2); 
     return result;
 }
 
-func testFunc2(par1: Int32, par2: Int32, par3: Float32): Unit {
+func testFunc2(par1: Int32, par2: Int32, par3: Float32): Unit { let observedArgument0 = [par1]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [par2]; Assert.equals(1, observedArgument1.size); let observedArgument2 = [par3]; Assert.equals(1, observedArgument2.size);
 }
 
 main() {

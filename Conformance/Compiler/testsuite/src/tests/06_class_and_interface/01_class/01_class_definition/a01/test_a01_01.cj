@@ -55,10 +55,15 @@ class BigClass {
 
 main() {
   var a : A = A()
+  let constructedValue0 = [a]; Assert.equals(1, constructedValue0.size);
   var b : B = B()
+  let constructedValue1 = [b]; Assert.equals(1, constructedValue1.size);
   var emptyClass : EmptyClass = EmptyClass()
+  let constructedValue2 = [emptyClass]; Assert.equals(1, constructedValue2.size);
   var staticClass : StaticClass = StaticClass()
+  let constructedValue3 = [staticClass]; Assert.equals(1, constructedValue3.size);
   var bc : BigClass = BigClass()
+  let constructedValue4 = [bc]; Assert.equals(1, constructedValue4.size);
 
   Assert.isTrue(a is A)
   Assert.isTrue(b is B)

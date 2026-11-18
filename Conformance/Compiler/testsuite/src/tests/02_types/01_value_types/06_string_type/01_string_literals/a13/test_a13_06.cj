@@ -26,8 +26,11 @@
   @Issue: 0006092
 
 */
+import utils.assert.Assert
+
 main() {
   var myVar = "opweifhse"
   let myVarCopy = myVar + "asgfsd"
   var compareResult = (myVar < myVarCopy)
+  Assert.equals(true, compareResult)
 }

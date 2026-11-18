@@ -20,7 +20,9 @@
   @Comment:         CompilerBug, fixed in v0.37.2
 */
 
-func f<T>(a: Option<T>) {}
+import utils.assert.Assert
+
+func f<T>(a: Option<T>) { let testedArgument0 = [a]; Assert.equals(1, testedArgument0.size) }
 
 main() {
     f(Option<Nothing>.None)

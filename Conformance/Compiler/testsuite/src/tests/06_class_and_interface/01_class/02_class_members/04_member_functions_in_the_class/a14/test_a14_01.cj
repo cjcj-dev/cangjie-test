@@ -32,52 +32,52 @@ class Test {
     static func f1() {
         return 1
     }
-    static func f2(x: Int64) {
+    static func f2(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 2
     }
     static func f3<T>() {
         return 3
     }
-    static func f4<T>(x: Bool) {
+    static func f4<T>(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 4
     }
 
     public static func f5() {
         return 5
     }
-    public static func f6(x: Float64) {
+    public static func f6(x: Float64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 6
     }
     public static func f7<T>() {
         return 7
     }
-    public static func f8<T>(x: String) {
+    public static func f8<T>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 8
     }
 
     protected static func f9() {
         return 9
     }
-    protected static func f10(x: Rune) {
+    protected static func f10(x: Rune) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 10
     }
     protected static func f11<T>() {
         return 11
     }
-    protected static func f12<T>(x: Unit) {
+    protected static func f12<T>(x: Unit) { Assert.equals((), x);
         return 12
     }
 
     private static func f13() {
         return 13
     }
-    private static func f14(x: Object) {
+    private static func f14(x: Object) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 14
     }
     private static func f15<T>() {
         return 15
     }
-    private static func f16<T>(x: (String, UInt64)) {
+    private static func f16<T>(x: (String, UInt64)) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 16
     }
 

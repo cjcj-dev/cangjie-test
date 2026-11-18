@@ -27,7 +27,6 @@
   @Structure:    single
 
 */
-import std.io.*
 
 class MyResource <: Resource {
     var flag = false

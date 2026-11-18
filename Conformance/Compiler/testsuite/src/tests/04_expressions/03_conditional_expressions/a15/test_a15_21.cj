@@ -25,6 +25,8 @@
 
 */
 
+import utils.assert.Assert
+
 struct A {}
 
 struct B {}
@@ -38,5 +40,7 @@ main() {
         } else {
             B()
         }
+    let checkedConditional = [v]
+    Assert.equals(1, checkedConditional.size)
     return 
 }

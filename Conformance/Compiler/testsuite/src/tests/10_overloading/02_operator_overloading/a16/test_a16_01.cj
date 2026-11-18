@@ -78,7 +78,7 @@ struct IRange {
 }
 
 
-main(ina :Array<String>) {
+main() {
     var v1:IRange = IRange(10)
     var v2:IRange = IRange(-2)
     var v3:IRange = IRange(3)

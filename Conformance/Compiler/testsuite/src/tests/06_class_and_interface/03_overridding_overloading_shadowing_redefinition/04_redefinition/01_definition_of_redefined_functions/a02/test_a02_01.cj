@@ -35,13 +35,13 @@ abstract class A {
     public static func f1() {
         return 0
     }
-    public static func f2(x: Bool) {
+    public static func f2(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
     public static func f3<T>() {
         return 0
     }
-    public static func f4<T>(x: Bool) {
+    public static func f4<T>(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 }
@@ -50,13 +50,13 @@ open class B {
     public static func f1() {
         return 0
     }
-    public static func f2(x: Bool) {
+    public static func f2(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
     public static func f3<T>() {
         return 0
     }
-    public static func f4<T>(x: Bool) {
+    public static func f4<T>(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 }
@@ -65,13 +65,13 @@ open class C {
     public static func f1() {
         return 0
     }
-    public static func f2(x: Bool) {
+    public static func f2(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
     public static func f3<T>() {
         return 0
     }
-    public static func f4<T>(x: Bool) {
+    public static func f4<T>(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 }
@@ -82,7 +82,7 @@ interface I {
     static func f3() {
         return 0
     }
-    static func f4(x: Bool) {
+    static func f4(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
     static func f5<T>(): Int64
@@ -90,7 +90,7 @@ interface I {
     static func f7<T>() {
         return 0
     }
-    static func f8<T>(x: Bool) {
+    static func f8<T>(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 }
@@ -99,13 +99,13 @@ class T1 <: A {
     public redef static func f1() {
         return 11
     }
-    public redef static func f2(x: Bool) {
+    public redef static func f2(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 12
     }
     public redef static func f3<T>() {
         return 13
     }
-    public redef static func f4<T>(x: Bool) {
+    public redef static func f4<T>(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 14
     }
 }
@@ -114,13 +114,13 @@ class T2 <: B {
     public redef static func f1() {
         return 21
     }
-    public redef static func f2(x: Bool) {
+    public redef static func f2(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 22
     }
     public redef static func f3<T>() {
         return 23
     }
-    public redef static func f4<T>(x: Bool) {
+    public redef static func f4<T>(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 24
     }
 }
@@ -129,13 +129,13 @@ class T3 <: C {
     public redef static func f1() {
         return 31
     }
-    public redef static func f2(x: Bool) {
+    public redef static func f2(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 32
     }
     public redef static func f3<T>() {
         return 33
     }
-    public redef static func f4<T>(x: Bool) {
+    public redef static func f4<T>(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 34
     }
 }
@@ -144,25 +144,25 @@ class T4 <: I {
     public redef static func f1() {
         return 41
     }
-    public redef static func f2(x: Bool) {
+    public redef static func f2(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 42
     }
     public redef static func f3() {
         return 43
     }
-    public redef static func f4(x: Bool) {
+    public redef static func f4(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 44
     }
     public redef static func f5<T>() {
         return 45
     }
-    public redef static func f6<T>(x: Bool) {
+    public redef static func f6<T>(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 46
     }
     public redef static func f7<T>() {
         return 47
     }
-    public redef static func f8<T>(x: Bool) {
+    public redef static func f8<T>(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 48
     }
 }

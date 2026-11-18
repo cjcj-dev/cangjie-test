@@ -21,9 +21,12 @@
   @CompileWarning: no
 */
 
+import utils.assert.Assert
+
 main() {
     var v1 : Float64 = 1.0
     var v2 : Float64 = 1.0
     let v3 = v1 + v2
+    Assert.equals(2.0, v3)
 }
 

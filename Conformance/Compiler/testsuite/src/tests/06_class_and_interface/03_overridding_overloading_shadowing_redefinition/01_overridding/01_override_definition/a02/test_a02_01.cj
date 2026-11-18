@@ -37,7 +37,7 @@ abstract class A {
     public open func f3() {
         return 0
     }
-    public open func f4(x: Bool) {
+    public open func f4(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 }
@@ -46,7 +46,7 @@ open class B {
     public open func f1() {
         return 0
     }
-    public open func f2(x: Bool) {
+    public open func f2(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 }
@@ -55,7 +55,7 @@ sealed abstract class C {
     public open func f1() {
         return 0
     }
-    public open func f2(x: Bool) {
+    public open func f2(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 }
@@ -66,7 +66,7 @@ interface I {
     func f3() {
         return 0
     }
-    func f4(x: Bool) {
+    func f4(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 }
@@ -75,13 +75,13 @@ class T1 <: A {
     public override func f1() {
         return 11
     }
-    public override func f2(x: Bool) {
+    public override func f2(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 12
     }
     public override func f3() {
         return 13
     }
-    public override func f4(x: Bool) {
+    public override func f4(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 14
     }
 }
@@ -90,7 +90,7 @@ class T2 <: B {
     public override func f1() {
         return 21
     }
-    public override func f2(x: Bool) {
+    public override func f2(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 22
     }
 }
@@ -99,7 +99,7 @@ class T3 <: C {
     public override func f1() {
         return 31
     }
-    public override func f2(x: Bool) {
+    public override func f2(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 32
     }
 }
@@ -108,13 +108,13 @@ class T4 <: I {
     public override func f1() {
         return 41
     }
-    public override func f2(x: Bool) {
+    public override func f2(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 42
     }
     public override func f3() {
         return 43
     }
-    public override func f4(x: Bool) {
+    public override func f4(x: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 44
     }
 }

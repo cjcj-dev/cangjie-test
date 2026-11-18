@@ -26,18 +26,20 @@
 
 */
 
+import utils.assert.Assert
+
 extend Bool {
-    public operator func +(x : Unit) { true }
-    public operator func -(x : Unit) { true }
-    public operator func *(x : Unit) { true }
-    public operator func **(x : Unit) { true }
-    public operator func /(x : Unit) { true }
-    public operator func %(x : Unit) { true }
-    public operator func &(x : Unit) { true }
-    public operator func |(x : Unit) { true }
-    public operator func ^(x : Unit) { true }
-    public operator func <<(x : Unit) { true }
-    public operator func >>(x : Unit) { true }
+    public operator func +(x : Unit) { Assert.equals((), x); true }
+    public operator func -(x : Unit) { Assert.equals((), x); true }
+    public operator func *(x : Unit) { Assert.equals((), x); true }
+    public operator func **(x : Unit) { Assert.equals((), x); true }
+    public operator func /(x : Unit) { Assert.equals((), x); true }
+    public operator func %(x : Unit) { Assert.equals((), x); true }
+    public operator func &(x : Unit) { Assert.equals((), x); true }
+    public operator func |(x : Unit) { Assert.equals((), x); true }
+    public operator func ^(x : Unit) { Assert.equals((), x); true }
+    public operator func <<(x : Unit) { Assert.equals((), x); true }
+    public operator func >>(x : Unit) { Assert.equals((), x); true }
 }
 
 main() {

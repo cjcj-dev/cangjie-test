@@ -34,10 +34,10 @@
     import utils.assert.Assert
     open class Base {}
     class Sub <: Base {}
-    func f<X, Y>(a: X, b: Y):Int64 {         // f1, number of type parameters is not matched
+    func f<X, Y>(a: X, b: Y):Int64 { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [b]; Assert.equals(1, observedArgument1.size);         // f1, number of type parameters is not matched
         return -1
     }
-    func f<X>(a: Base, b: X):Int64 where X <: Sub { // f2
+    func f<X>(a: Base, b: X):Int64 where X <: Sub { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [b]; Assert.equals(1, observedArgument1.size); // f2
         return 1
     }
     func test():Int64 {

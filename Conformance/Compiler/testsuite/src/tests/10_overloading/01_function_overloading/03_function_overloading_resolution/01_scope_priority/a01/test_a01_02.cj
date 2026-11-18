@@ -78,7 +78,7 @@ func SCheck(arg:Int32) {
 }
 
 
-main(ina :Array<String>) {
+main() {
     SCheck(0x04030201i32)
     SCheck(0x6111111160006B0Ai64)
     0

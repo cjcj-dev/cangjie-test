@@ -26,8 +26,10 @@
 
 */
 
-func f<X,Y>(a:X,b:Y){}
-func f<Y,X>(a:X,b:Y){}
+import utils.assert.Assert
+
+func f<X,Y>(a:X,b:Y){ let testedArgument0 = [a]; Assert.equals(1, testedArgument0.size); let testedArgument1 = [b]; Assert.equals(1, testedArgument1.size) }
+func f<Y,X>(a:X,b:Y){ let testedArgument0 = [a]; Assert.equals(1, testedArgument0.size); let testedArgument1 = [b]; Assert.equals(1, testedArgument1.size) }
 
 main() {
 }

@@ -49,7 +49,7 @@ public interface I2 {
     func f() {
         return Parent(0)
     }
-    func g(x: Int64) {
+    func g(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Parent(0)
     }
 }
@@ -58,7 +58,7 @@ public interface I3 {
     func f() {
         return Parent(0)
     }
-    func g(x: Int64) {
+    func g(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Parent(0)
     }
 }
@@ -67,7 +67,7 @@ abstract class A {
     public open func f() {
         return Parent(0)
     }
-    public open func g(x: Int64) {
+    public open func g(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Parent(0)
     }
 }
@@ -81,7 +81,7 @@ open class C {
     public open func f() {
         return Parent(0)
     }
-    public open func g(x: Int64) {
+    public open func g(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Parent(0)
     }
 }
@@ -90,7 +90,7 @@ sealed abstract class D {
     public open func f() {
         return Parent(0)
     }
-    public open func g(x: Int64) {
+    public open func g(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Parent(0)
     }
 }
@@ -100,7 +100,7 @@ class T1 <: A & I1 {
     public override func f(): Child {
         return Child(11)
     }
-    public override func g(x: Int64): Child {
+    public override func g(x: Int64): Child { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Child(12)
     }
 }
@@ -110,7 +110,7 @@ class T2 <: I2 & I3 {
     public override func f(): Child {
         return Child(21)
     }
-    public override func g(x: Int64): Child {
+    public override func g(x: Int64): Child { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Child(22)
     }
 }
@@ -120,7 +120,7 @@ class T3 <: B & I1 {
     public override func f(): Child {
         return Child(31)
     }
-    public override func g(x: Int64): Child {
+    public override func g(x: Int64): Child { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Child(32)
     }
 }
@@ -130,7 +130,7 @@ class T4 <: A & I1 & I2 & I3 {
     public override func f(): Child {
         return Child(41)
     }
-    public override func g(x: Int64): Child {
+    public override func g(x: Int64): Child { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Child(42)
     }
 }
@@ -139,7 +139,7 @@ class T5 <: B & I1 & I2 & I3 {
     public override func f(): Child {
         return Child(51)
     }
-    public override func g(x: Int64): Child {
+    public override func g(x: Int64): Child { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Child(52)
     }
 }
@@ -148,7 +148,7 @@ class T6 <: C & I1 & I2 & I3 {
     public override func f(): Child {
         return Child(61)
     }
-    public override func g(x: Int64): Child {
+    public override func g(x: Int64): Child { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Child(62)
     }
 }
@@ -157,7 +157,7 @@ class T7 <: D & I1 & I2 & I3 {
     public override func f(): Child {
         return Child(71)
     }
-    public override func g(x: Int64): Child {
+    public override func g(x: Int64): Child { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return Child(72)
     }
 }

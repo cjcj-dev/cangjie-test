@@ -42,6 +42,8 @@
   @Structure:       single
 */
 
+import utils.assert.Assert
+
 main() {
     let _aa = 0
     let _a_ = 0
@@ -94,4 +96,53 @@ main() {
     let `__aa6a` = 0
     let `__aa6_` = 0
     let `__aa60` = 0
+
+    Assert.equals(0, _aa)
+    Assert.equals(0, _a_)
+    Assert.equals(0, _a1)
+    Assert.equals(0, _aBC)
+    Assert.equals(0, _ah_)
+    Assert.equals(0, _ah5)
+    Assert.equals(0, _a_p)
+    Assert.equals(0, _a__)
+    Assert.equals(0, _a_0)
+    Assert.equals(0, _a6a)
+    Assert.equals(0, _a6_)
+    Assert.equals(0, _a60)
+    Assert.equals(0, __aa)
+    Assert.equals(0, __a_)
+    Assert.equals(0, __a1)
+    Assert.equals(0, __aBC)
+    Assert.equals(0, __ah_)
+    Assert.equals(0, __ah5)
+    Assert.equals(0, __a_p)
+    Assert.equals(0, __a__)
+    Assert.equals(0, __a_0)
+    Assert.equals(0, __a6a)
+    Assert.equals(0, __a6_)
+    Assert.equals(0, __a60)
+    Assert.equals(0, `_aaa`)
+    Assert.equals(0, `_aa_`)
+    Assert.equals(0, `_aa1`)
+    Assert.equals(0, `_aaBC`)
+    Assert.equals(0, `_aah_`)
+    Assert.equals(0, `_aah5`)
+    Assert.equals(0, `_aa_p`)
+    Assert.equals(0, `_aa__`)
+    Assert.equals(0, `_aa_0`)
+    Assert.equals(0, `_aa6a`)
+    Assert.equals(0, `_aa6_`)
+    Assert.equals(0, `_aa60`)
+    Assert.equals(0, `__aaa`)
+    Assert.equals(0, `__aa_`)
+    Assert.equals(0, `__aa1`)
+    Assert.equals(0, `__aaBC`)
+    Assert.equals(0, `__aah_`)
+    Assert.equals(0, `__aah5`)
+    Assert.equals(0, `__aa_p`)
+    Assert.equals(0, `__aa__`)
+    Assert.equals(0, `__aa_0`)
+    Assert.equals(0, `__aa6a`)
+    Assert.equals(0, `__aa6_`)
+    Assert.equals(0, `__aa60`)
 }

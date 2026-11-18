@@ -52,7 +52,7 @@ enum Klass  {
 }
 
 
-main(ina :Array<String>) {
+main() {
     var klass : Klass = THREE(i16);
     klass(i8)
     klass(i16)

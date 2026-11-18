@@ -28,7 +28,7 @@ import utils.assert.Assert
 // Checker for a type parameter to be instantiated.
 class A<T> {}
 
-func genericFunction<T1, T2>(x1: T1, x2: T2) {
+func genericFunction<T1, T2>(x1: T1, x2: T2) { let observedArgument0 = [x2]; Assert.equals(1, observedArgument0.size);
     return x1
 }
 

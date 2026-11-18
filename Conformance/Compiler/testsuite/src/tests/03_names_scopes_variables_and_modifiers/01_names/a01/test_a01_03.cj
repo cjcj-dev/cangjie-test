@@ -23,6 +23,10 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
     let _a: Int64
+    _a = 0
+    Assert.equals(0, _a)
 }

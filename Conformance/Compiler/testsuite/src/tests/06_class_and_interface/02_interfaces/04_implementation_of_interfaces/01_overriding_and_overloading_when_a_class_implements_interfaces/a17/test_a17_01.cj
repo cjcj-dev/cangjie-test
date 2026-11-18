@@ -47,7 +47,7 @@ interface I2 {
 }
 class C <: I1 & I2 {
     public func f(): Unit {} // The f in I1 needs to be implemented.
-    public func f(a: Int32): Unit {} // The f in I2 needs to be implemented.
+    public func f(a: Int32): Unit { let testedArgument0 = [a]; Assert.equals(1, testedArgument0.size) } // The f in I2 needs to be implemented.
 }
 
 main() {

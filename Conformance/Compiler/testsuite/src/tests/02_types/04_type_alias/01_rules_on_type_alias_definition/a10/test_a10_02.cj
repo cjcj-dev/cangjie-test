@@ -32,6 +32,8 @@
 
 */
 
+import utils.assert.Assert
+
 interface MyTrait {}
 class GenericClassA<K, V> {}
 class GenericClassB<K, V> {}
@@ -39,7 +41,7 @@ class GenericClassC<K, V> {}
 
 type Class3<V> = GenericClassC<Int64, V>
 
-func foo<V> (p: Class3<V>) where V <: MyTrait { // add generic constraints when 'Class3<V>' is used
+func foo<V> (p: Class3<V>) where V <: MyTrait { let observedArgument0 = [p]; Assert.equals(1, observedArgument0.size); // add generic constraints when 'Class3<V>' is used
 }
 
 class ClassWithLongName<T> where T<:MyTrait {}

@@ -51,25 +51,25 @@ public interface I8<T> {
 }
 
 interface I9 {
-    func f(x: Int64) {
+    func f(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 1
     }
 }
 
 interface I10<T> {
-    func f(x: Int64) {
+    func f(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 1
     }
 }
 
 public interface I11 {
-    func f(x: Int64) {
+    func f(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 1
     }
 }
 
 public interface I12<T> {
-    func f(x: Int64) {
+    func f(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 1
     }
 }

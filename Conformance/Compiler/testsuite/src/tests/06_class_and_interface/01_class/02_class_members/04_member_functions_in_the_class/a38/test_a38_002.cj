@@ -51,25 +51,25 @@ abstract class Abstract {
 class Test1 <: Abstract {
     public override func f1() {}
 
-    public override func f2(x: Int64) {}
+    public override func f2(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     public override func f3() {
         return 1
     }
 
-    public override func f4(x: Int64) {
+    public override func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 2
     }
 
     protected override func f5() {}
 
-    protected override func f6(x: Int64) {}
+    protected override func f6(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     protected override func f7() {
         return 3
     }
 
-    protected override func f8(x: Int64) {
+    protected override func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 4
     }
 }
@@ -77,25 +77,25 @@ class Test1 <: Abstract {
 class Test2 <: Abstract {
     public func f1() {}
 
-    public func f2(x: Int64) {}
+    public func f2(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     public func f3() {
         return 10
     }
 
-    public func f4(x: Int64) {
+    public func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 20
     }
 
     protected func f5() {}
 
-    protected func f6(x: Int64) {}
+    protected func f6(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     protected func f7() {
         return 30
     }
 
-    protected func f8(x: Int64) {
+    protected func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 40
     }
 }

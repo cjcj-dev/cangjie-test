@@ -46,6 +46,7 @@ struct Test {
 
     static func test() {
         let tst = Test()
+        let constructedValue0 = [tst]; Assert.equals(1, constructedValue0.size);
     }
 }
 

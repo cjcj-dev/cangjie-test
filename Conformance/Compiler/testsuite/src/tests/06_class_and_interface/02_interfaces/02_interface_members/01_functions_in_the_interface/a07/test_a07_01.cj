@@ -47,8 +47,8 @@ interface I {
     static func f10() {
         return 5
     }
-    static func f11(x: Int64) {}
-    static func f12(x: Int64) {
+    static func f11(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    static func f12(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 6
     }
 
@@ -56,8 +56,8 @@ interface I {
     static func f14<T>() {
         return 7
     }
-    static func f15<T>(x: Int64) {}
-    static func f16<T>(x: Int64) {
+    static func f15<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    static func f16<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 8
     }
 
@@ -89,8 +89,8 @@ class Impl <: I {
     redef public static func f2() {
         return 1
     }
-    redef public static func f3(x: Int64) {}
-    redef public static func f4(x: Int64) {
+    redef public static func f3(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    redef public static func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 2
     }
 
@@ -98,8 +98,8 @@ class Impl <: I {
     redef public static func f6<T>() {
         return 3
     }
-    redef public static func f7<T>(x: Int64) {}
-    redef public static func f8<T>(x: Int64) {
+    redef public static func f7<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    redef public static func f8<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 4
     }
 }

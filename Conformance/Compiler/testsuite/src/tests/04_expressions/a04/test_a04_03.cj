@@ -45,7 +45,7 @@ func f5(x: Int64): Int64 {
     x
 }
 
-func f6(ff: (Int64) -> Int64, x: Int64): Int64 {
+func f6(ff: (Int64) -> Int64, x: Int64): Int64 { let observedArgument0 = [ff]; Assert.equals(1, observedArgument0.size);
     f5(x) 
 }
 

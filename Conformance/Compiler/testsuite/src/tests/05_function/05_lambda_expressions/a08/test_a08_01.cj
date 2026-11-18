@@ -39,14 +39,14 @@ import utils.assert.Assert
 
 func BuildDetail() {}
 func BuildCalendar() {}
-func width(a: Int32) {}
-func height(a: Int32) {}
-func backgroundColor(a: String) {
+func width(a: Int32) { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size);}
+func height(a: Int32) { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size);}
+func backgroundColor(a: String) { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size);
 
 }
 
-func Column(c: () -> Unit) {} 
-func Row(r: () -> Unit) {} 
+func Column(c: () -> Unit) { let observedArgument0 = [c]; Assert.equals(1, observedArgument0.size);}
+func Row(r: () -> Unit) { let observedArgument0 = [r]; Assert.equals(1, observedArgument0.size);}
 func Build():Unit { 
     Column { 
         Row { 

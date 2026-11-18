@@ -24,6 +24,8 @@
 
 */
 
+import utils.assert.Assert
+
 struct S {}
 
 enum E {
@@ -141,56 +143,56 @@ abstract class ARRAY_F <: Super {
 }
 
 abstract class F_INT <: Super {
-  public func f_int(p: Int32) {}
+  public func f_int(p: Int32) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);}
 }
 
 abstract class F_CHAR <: Super {
-  public func f_char(p: Rune) {}
+  public func f_char(p: Rune) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);}
 }
 
 abstract class F_BOOL <: Super {
-  public func f_bool(p: Bool) {}
+  public func f_bool(p: Bool) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);}
 }
 
 abstract class F_STRING <: Super {
-  public func f_string(p: String) {}
+  public func f_string(p: String) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);}
 }
 
 abstract class F_TUPLE <: Super {
-  public func f_tuple(p: (Int32, Float32, Rune, Super)) {}
+  public func f_tuple(p: (Int32, Float32, Rune, Super)) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);}
 }
 
 abstract class F_RANGE <: Super {
-  public func f_range(p: Range<Int64>) {}
+  public func f_range(p: Range<Int64>) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);}
 }
 
 abstract class F_FUNC <: Super {
-  public func f_func(p: () -> Int32) {}
+  public func f_func(p: () -> Int32) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);}
 }
 
 abstract class F_STRUCT <: Super {
-  public func f_struct(p: S) {}
+  public func f_struct(p: S) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);}
 }
 
 abstract class F_ENUM <: Super {
-  public func f_enum(p: E) {}
+  public func f_enum(p: E) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);}
 }
 
 abstract class F_CLASS <: Super {
-  public func f_class(p: Super) {}
+  public func f_class(p: Super) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);}
 }
 
 abstract class F_INTERFACE <: Super {
-  public func f_interface(p: I) {}
+  public func f_interface(p: I) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);}
 }
 
 abstract class F_ARRAY <: Super {
-  public func f_array(p: Array<Int32>) {}
+  public func f_array(p: Array<Int32>) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);}
 }
 
 // Classes that define some combination of abstract functions
 abstract class SomeClass <: Super {
-  public func f_char(p: Rune) {
+  public func f_char(p: Rune) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
     print("1")
   }
 

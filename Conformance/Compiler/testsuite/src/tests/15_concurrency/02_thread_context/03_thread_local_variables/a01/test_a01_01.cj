@@ -23,7 +23,6 @@
 
 */
 
-import std.sync.*  // Multithreading
 import utils.assert.Assert
 
 let a = ThreadLocal<Int32>()

@@ -34,6 +34,7 @@ class B <: A {}
 
 func checkCase1() {
   var b = B()
+  let constructedValue0 = [b]; Assert.equals(1, constructedValue0.size);
   Assert.isTrue(b is A)
   Assert.isTrue(b is B)
 }
@@ -45,6 +46,7 @@ class E <: D {}
 
 func checkCase2() {
   var e = E()
+  let constructedValue1 = [e]; Assert.equals(1, constructedValue1.size);
   Assert.isTrue(e is C)
   Assert.isTrue(e is D)
   Assert.isTrue(e is E)
@@ -56,6 +58,7 @@ class G <: F {}
 
 func checkCase3() {
   var g = G()
+  let constructedValue2 = [g]; Assert.equals(1, constructedValue2.size);
   Assert.isTrue(g is F)
   Assert.isTrue(g is G)
 }
@@ -67,6 +70,7 @@ class J <: I {}
 
 func checkCase4() {
   var j = J()
+  let constructedValue3 = [j]; Assert.equals(1, constructedValue3.size);
   Assert.isTrue(j is H)
   Assert.isTrue(j is I)
   Assert.isTrue(j is J)
@@ -78,6 +82,7 @@ class L <: K<Int64> {}
 
 func checkCase5() {
   var l = L()
+  let constructedValue4 = [l]; Assert.equals(1, constructedValue4.size);
   Assert.isTrue(l is K<Int64>)
   Assert.isTrue(l is L)
 }
@@ -88,6 +93,7 @@ class N <: M<Rune, Bool> {}
 
 func checkCase6() {
   var n = N()
+  let constructedValue5 = [n]; Assert.equals(1, constructedValue5.size);
   Assert.isTrue(n is M<Rune, Bool>)
   Assert.isTrue(n is N)
 }

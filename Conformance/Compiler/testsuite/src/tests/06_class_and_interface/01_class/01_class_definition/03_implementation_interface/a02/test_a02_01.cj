@@ -58,6 +58,7 @@ class WQI<fjsl, nfiw> <: QAX & fn8239<fjsl> & f3oir2<nfiw> {}
 
 main() {
   var c1 = HFljl()
+  let constructedValue0 = [c1]; Assert.equals(1, constructedValue0.size);
   Assert.isTrue(c1 is HFljl)
   Assert.isTrue(c1 is _fajkf)
   Assert.isTrue(c1 is jfkanu)
@@ -65,6 +66,7 @@ main() {
   Assert.isTrue(c1 is nffeof)
 
   var c2 = NFHBO()
+  let constructedValue1 = [c2]; Assert.equals(1, constructedValue1.size);
   Assert.isTrue(c2 is NFHBO)
   Assert.isTrue(c2 is _fajkf)
   Assert.isTrue(c2 is jfkanu)
@@ -72,23 +74,27 @@ main() {
   Assert.isTrue(c2 is nffeof)
 
   var c3 = NFIE()
+  let constructedValue2 = [c3]; Assert.equals(1, constructedValue2.size);
   Assert.isTrue(c3 is NFIE)
   Assert.isTrue(c3 is NFKA<Rune, Rune>)
   Assert.isTrue(c3 is FB28a<Bool, Bool>)
   Assert.isTrue(c3 is NAkdhq_<String>)
 
   var c4 = FJ4214_()
+  let constructedValue3 = [c4]; Assert.equals(1, constructedValue3.size);
   Assert.isTrue(c4 is FJ4214_)
   Assert.isTrue(c4 is NFKA<Int32, Int32>)
   Assert.isTrue(c4 is FB28a<Bool, Rune>)
   Assert.isTrue(c4 is NAkdhq_<Unit>)
 
   var c5 = Nflks3<String>()
+  let constructedValue4 = [c5]; Assert.equals(1, constructedValue4.size);
   Assert.isTrue(c5 is Nflks3<String>)
   Assert.isTrue(c5 is fn8239<Rune>)
   Assert.isTrue(c5 is f3oir2<String>)
 
   var c6 = WQI<Int16, Int8>()
+  let constructedValue5 = [c6]; Assert.equals(1, constructedValue5.size);
   Assert.isTrue(c6 is WQI<Int16, Int8>)
   Assert.isTrue(c6 is fn8239<Int16>)
   Assert.isTrue(c6 is f3oir2<Int8>)

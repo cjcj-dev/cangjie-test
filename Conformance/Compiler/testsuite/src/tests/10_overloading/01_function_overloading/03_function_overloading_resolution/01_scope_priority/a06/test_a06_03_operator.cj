@@ -46,7 +46,7 @@ extend Klass {
     }
 }
 
-main(ina :Array<String>) {
+main() {
     var kl:Klass = Klass(1)
     Assert.isTrue((kl + IntNative(1)) == IntNative(2))
     var kl2:Klass = Klass(2)

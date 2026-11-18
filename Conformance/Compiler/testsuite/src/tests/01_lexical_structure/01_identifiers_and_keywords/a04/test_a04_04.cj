@@ -24,6 +24,10 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
     var A١٢٣٤٥٦٧٨٩	: Int32 = 0
+
+    Assert.equals(0, A١٢٣٤٥٦٧٨٩)
 }

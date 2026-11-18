@@ -29,40 +29,40 @@ import utils.assert.Assert
 
 class Test {
     static func f1<T>() {}
-    static func f2<U, V>(x: U, y: V) {}
+    static func f2<U, V>(x: U, y: V) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);}
     static func f3<T>() {
         return 1
     }
-    static func f4<T1, T2>(x: T1, y: Int64) {
+    static func f4<T1, T2>(x: T1, y: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return y
     }
 
     static func f5<T, U>() {}
-    static func f6<U, V>(x: U, y: V) where U <: ToString, V <: ToString {}
+    static func f6<U, V>(x: U, y: V) where U <: ToString, V <: ToString { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);}
     static func f7<T>() {
         return 1
     }
-    static func f8<T1, T2>(x: T1, y: Int64) where T1 <: ToString {
+    static func f8<T1, T2>(x: T1, y: Int64) where T1 <: ToString { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return "{$x}"
     }
 }
 
 class TestG<A, B,C> {
     static func f1<T>() {}
-    static func f2<U, V>(x: U, y: V) {}
+    static func f2<U, V>(x: U, y: V) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);}
     static func f3<T>() {
         return 1
     }
-    static func f4<T1, T2>(x: T1, y: Int64) {
+    static func f4<T1, T2>(x: T1, y: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return y
     }
 
     static func f5<T, U>(){}
-    static func f6<U, V>(x: U, y: V) where U <: ToString, V <: ToString {}
+    static func f6<U, V>(x: U, y: V) where U <: ToString, V <: ToString { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);}
     static func f7<T>(){
         return 1
     }
-    static func f8<T1, T2>(x: T1, y: Int64) where T1 <: ToString {
+    static func f8<T1, T2>(x: T1, y: Int64) where T1 <: ToString { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return "{$x}"
     }
 }

@@ -38,5 +38,6 @@ main() {
     let arr1: VArray<Int64, $3> = [13, 4, 5]
     var arr0: VArray<Int64, $3> = arr1;
     Assert.equals(3, arr0.size)
+    Assert.equals(13, arr0[0])
     0
 }

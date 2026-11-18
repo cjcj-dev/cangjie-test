@@ -60,12 +60,12 @@ interface Base {
 }
 
 class E <: Base {
-    public redef static func f<T>(a: T): Unit where T <: A {} // OK, looser constraint
+    public redef static func f<T>(a: T): Unit where T <: A { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size);} // OK, looser constraint
     public redef static func g<T>(): Unit where T <: A {} // OK, looser constraint
 }
 
 class F <: Base {
-    public redef static func f<T>(a: T): Unit where T <: B {} // OK￿same constraint
+    public redef static func f<T>(a: T): Unit where T <: B { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size);} // OK￿same constraint
     public redef static func g<T>(): Unit where T <: B {} // OK￿same constraint
 }
 

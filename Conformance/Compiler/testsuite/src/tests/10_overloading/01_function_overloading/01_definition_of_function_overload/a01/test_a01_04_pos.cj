@@ -74,7 +74,7 @@ func Check(arg:Float16) {
     Assert.equals(0.3f16, arg)
 }
 
-main(ina :Array<String>) {
+main() {
     Check(-1i8)
     Check(-2i16)
     Check(-3i32)

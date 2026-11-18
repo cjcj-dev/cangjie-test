@@ -32,7 +32,6 @@
 */
 
 import std.sync.*  // Concurrency
-import std.time.* // Duration
 
 
 const MAX_TIMEOUT_NS: Int64 = 0x7FFF_FFFF_FFFF_FFFF

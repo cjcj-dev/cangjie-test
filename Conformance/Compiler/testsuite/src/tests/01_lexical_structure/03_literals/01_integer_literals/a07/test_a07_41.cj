@@ -182,4 +182,5 @@ main() {
     Assert.equals(15, 0Xf__)
     Assert.equals(255, 0Xf_F_)
     Assert.equals(4081, 0Xf_F_1)
+    Assert.equals(4081, a)
 }

@@ -42,26 +42,32 @@ class GenericFromSealed<U, V> <: Sealed<Rune> {}
 
 main() {
   var fo = FromOpen()
+  let constructedValue0 = [fo]; Assert.equals(1, constructedValue0.size);
   Assert.isTrue(fo is Open<Float32, Float32>)
   Assert.isTrue(fo is FromOpen)
 
   var gfo = GenericFromOpen<Int32, Unit, Unit>()
+  let constructedValue1 = [gfo]; Assert.equals(1, constructedValue1.size);
   Assert.isTrue(gfo is Open<Int32, Bool>)
   Assert.isTrue(gfo is GenericFromOpen<Int32, Unit, Unit>)
 
   var fa = FromAbstract()
+  let constructedValue2 = [fa]; Assert.equals(1, constructedValue2.size);
   Assert.isTrue(fa is Abstract<Rune>)
   Assert.isTrue(fa is FromAbstract)
 
   var gfa = GenericFromAbstract<Bool>()
+  let constructedValue3 = [gfa]; Assert.equals(1, constructedValue3.size);
   Assert.isTrue(gfa is Abstract<Bool>)
   Assert.isTrue(gfa is GenericFromAbstract<Bool>)
 
   var fs = FromSealed()
+  let constructedValue4 = [fs]; Assert.equals(1, constructedValue4.size);
   Assert.isTrue(fs is Sealed<Array<Bool>>)
   Assert.isTrue(fs is FromSealed)
 
   var gfs = GenericFromSealed<Object, Object>()
+  let constructedValue5 = [gfs]; Assert.equals(1, constructedValue5.size);
   Assert.isTrue(gfs is Sealed<Rune>)
   Assert.isTrue(gfs is GenericFromSealed<Object, Object>)
 }

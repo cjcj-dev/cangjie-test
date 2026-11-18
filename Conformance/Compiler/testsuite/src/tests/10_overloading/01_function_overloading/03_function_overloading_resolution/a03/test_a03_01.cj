@@ -90,7 +90,7 @@ extend Klass {
 }
 
 
-main(ina :Array<String>) {
+main() {
     Klass.SVerify(i16)
     Klass.SVerify(i32)
     Klass.SVerify(i64)

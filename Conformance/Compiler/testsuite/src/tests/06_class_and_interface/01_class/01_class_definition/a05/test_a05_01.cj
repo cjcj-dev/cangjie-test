@@ -45,6 +45,7 @@ class C<U> <: B & I1<U> & I2 where U <: A {}
 
 main() {
   var c : C<B> = C<B>()
+  let constructedValue0 = [c]; Assert.equals(1, constructedValue0.size);
   Assert.isTrue(c is C<B>)
   Assert.isTrue(c is B)
   Assert.isTrue(c is A)

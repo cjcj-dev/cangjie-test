@@ -37,7 +37,7 @@ abstract class A {
 
     public func f(x: Int64): Int64
 
-    public func f(x: String) {
+    public func f(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 3
     }
 
@@ -45,17 +45,17 @@ abstract class A {
 }
 
 class B <: A {
-    public func f(x: Int64) {
+    public func f(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 2
     }
-    public func f(x: Rune, y: Rune) {
+    public func f(x: Rune, y: Rune) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 4
     }
 
-    public func f(x: Unit) {
+    public func f(x: Unit) { Assert.equals((), x);
         return 5
     }
-    public func f(x: Int64, y: Rune) {
+    public func f(x: Int64, y: Rune) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 6
     }
 }
@@ -67,7 +67,7 @@ abstract class AG<T> {
 
     public func f(x: Int64): Int64
 
-    public func f(x: T) {
+    public func f(x: T) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 13
     }
 
@@ -75,17 +75,17 @@ abstract class AG<T> {
 }
 
 class BG<T> <: AG<T> {
-    public func f(x: Int64) {
+    public func f(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 12
     }
-    public func f(x: Rune, y: Rune) {
+    public func f(x: Rune, y: Rune) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 14
     }
 
-    public func f(x: Unit) {
+    public func f(x: Unit) { Assert.equals((), x);
         return 15
     }
-    public func f(x: Int64, y: Rune) {
+    public func f(x: Int64, y: Rune) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 16
     }
 }

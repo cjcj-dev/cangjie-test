@@ -22,8 +22,6 @@
 
 import utils.assert.Assert
 import std.random.Random
-import std.ast.*
-import std.math.*
 
 main() {
     let rnd = Random(123)

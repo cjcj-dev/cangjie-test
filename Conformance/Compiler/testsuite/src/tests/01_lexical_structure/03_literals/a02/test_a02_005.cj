@@ -44,6 +44,8 @@ main(){
     isExpectedType = mutable_var is Int32;
     Assert.isTrue(isExpectedType, reason: "Test case 3 failed.");
 
+    Assert.equals(10000i32, mutable_var);
+
     return 0;
 }
 

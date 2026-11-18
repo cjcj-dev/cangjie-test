@@ -53,7 +53,7 @@ class IRange {
 }
 
 
-main(ina :Array<String>) {
+main() {
     var otr1:IRange = IRange(0,7)
     var ib:Int64 = otr1 + 15
     Assert.equals(otr1.upper, ib)    

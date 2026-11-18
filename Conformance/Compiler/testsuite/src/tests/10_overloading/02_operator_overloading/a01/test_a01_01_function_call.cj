@@ -44,7 +44,7 @@ func mul(p1: Int64, p2: Int64):Int64
     p1 * p2 
 }
 
-main(ina :Array<String>) {
+main() {
     Assert.equals(add(2,3),5)
     Assert.equals(mul(7,3),21)
     return 0;

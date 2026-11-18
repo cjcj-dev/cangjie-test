@@ -76,7 +76,7 @@ open class Klass {
     }
 }
 
-main(ina :Array<String>) {
+main() {
     var kl:Klass = Klass(0);
     kl.Check(-1i8)
     kl.Check(-2i16)

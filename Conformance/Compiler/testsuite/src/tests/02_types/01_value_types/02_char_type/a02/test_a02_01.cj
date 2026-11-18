@@ -23,7 +23,10 @@
  
 */
 
+import utils.assert.Assert
+
 main() {
   var a: Rune
   a = 'C'
+  Assert.equals(r'C', a)
 }

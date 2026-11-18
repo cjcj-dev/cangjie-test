@@ -45,6 +45,8 @@ main(){
     Assert.equals(true, isExpectedType, 
         reason:"mutable variable, assigned by literal of type Rune, has type different from Rune.");
 
+    Assert.equals(r'C', mutable_var);
+
     return 0;
 }
 

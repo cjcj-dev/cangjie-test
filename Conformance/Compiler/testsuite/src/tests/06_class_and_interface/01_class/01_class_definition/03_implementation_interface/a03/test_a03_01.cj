@@ -61,6 +61,7 @@ class RandomMix<T1, T2, T3> <: GenericInterface2<T1, T2> & OrdinaryInterface3 & 
 
 main() {
   var c1 = OnlySimpleInterfaces()
+  let constructedValue0 = [c1]; Assert.equals(1, constructedValue0.size);
   Assert.isTrue(c1 is OnlySimpleInterfaces)
   Assert.isTrue(c1 is OrdinaryInterface1)
   Assert.isTrue(c1 is OrdinaryInterface2)
@@ -68,18 +69,21 @@ main() {
   Assert.isTrue(c1 is OrdinaryInterface4)
 
   var c2 = OnlyGenerics()
+  let constructedValue1 = [c2]; Assert.equals(1, constructedValue1.size);
   Assert.isTrue(c2 is OnlyGenerics)
   Assert.isTrue(c2 is GenericInterface1<Rune>)
   Assert.isTrue(c2 is GenericInterface2<Rune, Rune>)
   Assert.isTrue(c2 is GenericInterface3<Rune, Rune, Rune>)
 
   var c3 = OnlyMods()
+  let constructedValue2 = [c3]; Assert.equals(1, constructedValue2.size);
   Assert.isTrue(c3 is OnlyMods)
   Assert.isTrue(c3 is InterfaceWithMods1)
   Assert.isTrue(c3 is InterfaceWithMods2)
   Assert.isTrue(c3 is InterfaceWithMods3)
 
   var c4 = IWantEverything()
+  let constructedValue3 = [c4]; Assert.equals(1, constructedValue3.size);
   Assert.isTrue(c4 is IWantEverything)
   Assert.isTrue(c4 is OrdinaryInterface1)
   Assert.isTrue(c4 is OrdinaryInterface2)
@@ -93,6 +97,7 @@ main() {
   Assert.isTrue(c4 is InterfaceWithMods3)
 
   var c5 = GenericWithSimpleInterfaces<String>()
+  let constructedValue4 = [c5]; Assert.equals(1, constructedValue4.size);
   Assert.isTrue(c5 is GenericWithSimpleInterfaces<String>)
   Assert.isTrue(c5 is OrdinaryInterface1)
   Assert.isTrue(c5 is OrdinaryInterface2)
@@ -100,6 +105,7 @@ main() {
   Assert.isTrue(c5 is OrdinaryInterface4)
 
   var c6 = GenericWithGenerics<Unit>()
+  let constructedValue5 = [c6]; Assert.equals(1, constructedValue5.size);
   Assert.isTrue(c6 is GenericWithGenerics<Unit>)
   Assert.isTrue(c6 is GenericInterface1<Unit>)
   Assert.isTrue(c6 is GenericInterface1<Bool>)
@@ -109,12 +115,14 @@ main() {
   Assert.isTrue(c6 is GenericInterface1<Any>)
 
   var c7 = GenericWithMods<Object, Object>()
+  let constructedValue6 = [c7]; Assert.equals(1, constructedValue6.size);
   Assert.isTrue(c7 is GenericWithMods<Object, Object>)
   Assert.isTrue(c7 is InterfaceWithMods1)
   Assert.isTrue(c7 is InterfaceWithMods2)
   Assert.isTrue(c7 is InterfaceWithMods3)
 
   var c8 = RandomMix<String, String, String>()
+  let constructedValue7 = [c8]; Assert.equals(1, constructedValue7.size);
   Assert.isTrue(c8 is RandomMix<String, String, String>)
   Assert.isTrue(c8 is GenericInterface2<String, String>)
   Assert.isTrue(c8 is OrdinaryInterface3)

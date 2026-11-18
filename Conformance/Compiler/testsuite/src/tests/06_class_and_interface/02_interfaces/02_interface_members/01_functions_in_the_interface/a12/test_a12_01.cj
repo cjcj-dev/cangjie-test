@@ -38,8 +38,8 @@ interface I {
     func f6() {
         return 0
     }
-    func f7(x: Int64) {}
-    func f8(x: Int64) {
+    func f7(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 
@@ -52,8 +52,8 @@ interface I {
     func f14() {
         return 0
     }
-    func f15(x: Int64) {}
-    func f16(x: Int64) {
+    func f15(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    func f16(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 }
@@ -63,8 +63,8 @@ interface J <: I {
     override func f2() {
         return 1
     }
-    override func f3(x: Int64) {}
-    override func f4(x: Int64) {
+    override func f3(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    override func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 2
     }
 
@@ -72,8 +72,8 @@ interface J <: I {
     override func f6() {
         return 3
     }
-    override func f7(x: Int64) {}
-    override func f8(x: Int64) {
+    override func f7(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    override func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 4
     }
 
@@ -81,8 +81,8 @@ interface J <: I {
     override func f10() {
         return 5
     }
-    override func f11(x: Int64) {}
-    override func f12(x: Int64) {
+    override func f11(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    override func f12(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 6
     }
 
@@ -90,8 +90,8 @@ interface J <: I {
     override func f14() {
         return 7
     }
-    override func f15(x: Int64) {}
-    override func f16(x: Int64) {
+    override func f15(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    override func f16(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 8
     }
 }
@@ -103,8 +103,8 @@ class C <: I {
     public override func f2() {
         return 10
     }
-    public override func f3(x: Int64) {}
-    public override func f4(x: Int64) {
+    public override func f3(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 20
     }
 
@@ -112,8 +112,8 @@ class C <: I {
     public override func f6() {
         return 30
     }
-    public override func f7(x: Int64) {}
-    public override func f8(x: Int64) {
+    public override func f7(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 40
     }
 
@@ -121,8 +121,8 @@ class C <: I {
     public override func f10() {
         return 50
     }
-    public override func f11(x: Int64) {}
-    public override func f12(x: Int64) {
+    public override func f11(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func f12(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 60
     }
 
@@ -130,8 +130,8 @@ class C <: I {
     public override func f14() {
         return 70
     }
-    public override func f15(x: Int64) {}
-    public override func f16(x: Int64) {
+    public override func f15(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func f16(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 80
     }
 }
@@ -141,8 +141,8 @@ struct S <: I {
     public override func f2() {
         return 100
     }
-    public override func f3(x: Int64) {}
-    public override func f4(x: Int64) {
+    public override func f3(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 200
     }
 
@@ -150,8 +150,8 @@ struct S <: I {
     public override func f6() {
         return 300
     }
-    public override func f7(x: Int64) {}
-    public override func f8(x: Int64) {
+    public override func f7(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 400
     }
 
@@ -159,8 +159,8 @@ struct S <: I {
     public override func f10() {
         return 500
     }
-    public override func f11(x: Int64) {}
-    public override func f12(x: Int64) {
+    public override func f11(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func f12(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 600
     }
 
@@ -168,8 +168,8 @@ struct S <: I {
     public override func f14() {
         return 700
     }
-    public override func f15(x: Int64) {}
-    public override func f16(x: Int64) {
+    public override func f15(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func f16(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 800
     }
 }
@@ -180,8 +180,8 @@ enum E <: I {
     public override func f2() {
         return 1000
     }
-    public override func f3(x: Int64) {}
-    public override func f4(x: Int64) {
+    public override func f3(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 2000
     }
 
@@ -189,8 +189,8 @@ enum E <: I {
     public override func f6() {
         return 3000
     }
-    public override func f7(x: Int64) {}
-    public override func f8(x: Int64) {
+    public override func f7(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 4000
     }
 
@@ -198,8 +198,8 @@ enum E <: I {
     public override func f10() {
         return 5000
     }
-    public override func f11(x: Int64) {}
-    public override func f12(x: Int64) {
+    public override func f11(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func f12(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 6000
     }
 
@@ -207,8 +207,8 @@ enum E <: I {
     public override func f14() {
         return 7000
     }
-    public override func f15(x: Int64) {}
-    public override func f16(x: Int64) {
+    public override func f15(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func f16(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 8000
     }
 }

@@ -42,31 +42,31 @@ interface myInterface {
 
 class myClass {
     func myFunc0(): Unit {}
-    func myFunc1(x: Int32, y: Bool): String { "sdegflih" }
+    func myFunc1(x: Int32, y: Bool): String { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [y]; Assert.equals(1, observedArgument1.size); "sdegflih" }
     func myFunc2(k: Int32, l: Int32): (Int32, Int32) { (k, l) }
-    func myFunc3(s: Float32, t: Float32): (Float32, Float32) -> Float32 { {s, t => s + t} }
+    func myFunc3(s: Float32, t: Float32): (Float32, Float32) -> Float32 { let observedArgument0 = [s]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [t]; Assert.equals(1, observedArgument1.size); {s, t => s + t} }
 }
 
 struct myStruct {
     func myFunc0(): Unit {}
-    func myFunc1(x: Int32, y: Bool): String { "sdegflih" }
+    func myFunc1(x: Int32, y: Bool): String { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [y]; Assert.equals(1, observedArgument1.size); "sdegflih" }
     func myFunc2(k: Int32, l: Int32): (Int32, Int32) { (k, l) }
-    func myFunc3(s: Float32, t: Float32): (Float32, Float32) -> Float32 { {s, t => s - t} }
+    func myFunc3(s: Float32, t: Float32): (Float32, Float32) -> Float32 { let observedArgument0 = [s]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [t]; Assert.equals(1, observedArgument1.size); {s, t => s - t} }
 }
 
 enum myEnum {
     B
 
     func myFunc0(): Unit {}
-    func myFunc1(x: Int32, y: Bool): String { "sdegflih" }
+    func myFunc1(x: Int32, y: Bool): String { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [y]; Assert.equals(1, observedArgument1.size); "sdegflih" }
     func myFunc2(k: Int32, l: Int32): (Int32, Int32) { (k, l) }
-    func myFunc3(s: Float32, t: Float32): (Float32, Float32) -> Float32 { {s, t => s * t} }
+    func myFunc3(s: Float32, t: Float32): (Float32, Float32) -> Float32 { let observedArgument0 = [s]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [t]; Assert.equals(1, observedArgument1.size); {s, t => s * t} }
 }
 
 func myFunc0(): Unit {}
-func myFunc1(x: Int32, y: Bool): String { "sdegflih" }
+func myFunc1(x: Int32, y: Bool): String { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [y]; Assert.equals(1, observedArgument1.size); "sdegflih" }
 func myFunc2(k: Int32, l: Int32): (Int32, Int32) { (k, l) }
-func myFunc3(s: Float32, t: Float32): (Float32, Float32) -> Float32 { {s, t => s / t} }
+func myFunc3(s: Float32, t: Float32): (Float32, Float32) -> Float32 { let observedArgument0 = [s]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [t]; Assert.equals(1, observedArgument1.size); {s, t => s / t} }
 
 main() {
     Assert.isTrue(myFunc0 is myFuncType0)

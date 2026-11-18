@@ -43,10 +43,12 @@ class C2 <: C1 & I1 & I2 {}
 
 main() {
   var c1 = C1()
+  let constructedValue0 = [c1]; Assert.equals(1, constructedValue0.size);
   Assert.isTrue(c1 is C1)
   Assert.isTrue(c1 is I1)
 
   var c2 = C2()
+  let constructedValue1 = [c2]; Assert.equals(1, constructedValue1.size);
   Assert.isTrue(c2 is C2)
   Assert.isTrue(c2 is C1)
   Assert.isTrue(c2 is I1)

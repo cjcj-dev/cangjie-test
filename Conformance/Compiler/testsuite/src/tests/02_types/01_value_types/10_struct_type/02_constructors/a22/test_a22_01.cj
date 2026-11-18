@@ -112,25 +112,36 @@ struct ClassNamed {
 
 main() {
     let case1 = RegularUnnamedBeforeRegularNamedClassNamed(1, b:2 , c:3)
+    let constructedValue0 = [case1]; Assert.equals(1, constructedValue0.size);
 
     let case2 = RegularUnnamedBeforeClassUnnamedClassNamed(10, 20, c: 30)
+    let constructedValue1 = [case2]; Assert.equals(1, constructedValue1.size);
 
     let case3 = RegularUnnamedBeforeClassUnnamed(3, 2)
+    let constructedValue2 = [case3]; Assert.equals(1, constructedValue2.size);
 
     var case4 = RegularUnnamedBeforeClassNamed(1, b: 0)
+    let constructedValue3 = [case4]; Assert.equals(1, constructedValue3.size);
 
     var case5 = RegularNamedBeforeClassNamed(a: -1, b: -2)
+    let constructedValue4 = [case5]; Assert.equals(1, constructedValue4.size);
 
     var case6 = JustRegular(-10, b: -20)
+    let constructedValue5 = [case6]; Assert.equals(1, constructedValue5.size);
 
     var case7 = JustClass(5, b: 25)
+    let constructedValue6 = [case7]; Assert.equals(1, constructedValue6.size);
 
     var case8 = RegularUnnamed(7, 17)
+    let constructedValue7 = [case8]; Assert.equals(1, constructedValue7.size);
 
     var case9 = RegularNamed(a: -5, b: -6)
+    let constructedValue8 = [case9]; Assert.equals(1, constructedValue8.size);
 
     var case10 = ClassUnnamed(9, 10)
+    let constructedValue9 = [case10]; Assert.equals(1, constructedValue9.size);
 
     var case11 = ClassNamed(a: 3, b: 33)
+    let constructedValue10 = [case11]; Assert.equals(1, constructedValue10.size);
 }
 

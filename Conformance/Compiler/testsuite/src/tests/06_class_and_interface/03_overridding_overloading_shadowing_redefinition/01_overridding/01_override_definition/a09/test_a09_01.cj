@@ -52,7 +52,7 @@ class C1 <: A {
 }
 
 open class B {
-    private func f(a: Rune, b: String) {
+    private func f(a: Rune, b: String) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [b]; Assert.equals(1, checkedArgument1.size);
         return 1
     }
 
@@ -66,13 +66,13 @@ open class B {
 }
 
 class C2 <: B {
-    func f(a: Rune, b: String) {
+    func f(a: Rune, b: String) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [b]; Assert.equals(1, checkedArgument1.size);
         return 2
     }
 }
 
 sealed abstract class C<T> {
-    private func f(x: T) {
+    private func f(x: T) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 1
     }
 
@@ -86,7 +86,7 @@ sealed abstract class C<T> {
 }
 
 class C3<T> <: C<T> {
-    func f(x: T) {
+    func f(x: T) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 2
     }
 }

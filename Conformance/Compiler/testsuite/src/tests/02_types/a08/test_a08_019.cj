@@ -41,7 +41,7 @@ func test_func_1(function:func_type, int16_param: Int16): Int16 { return functio
 func check_func_1(param: Int16): Int16{ return param; }
 func check_func_2(param: Int16): Int16{ return param + 1; }
 
-func dummy_func(param: Int16): Int16{ return 0; }
+func dummy_func(param: Int16): Int16{ let observedArgument0 = [param]; Assert.equals(1, observedArgument0.size); return 0; }
 var func_param_copy:func_type = dummy_func;
 
 func test_func_2(param:func_type, to_do: Int8): Bool{

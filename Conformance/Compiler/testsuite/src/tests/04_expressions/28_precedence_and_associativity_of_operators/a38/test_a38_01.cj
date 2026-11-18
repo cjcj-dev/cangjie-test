@@ -32,17 +32,17 @@
 
 import utils.assert.Assert
 
-func f(x: String) {
+func f(x: String) { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size);
     return 5.0
 }
 
-func g(x: Int64) {
+func g(x: Int64) { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size);
     return "hi"
 }
 
 class C {}
 
-func h(x: String) {
+func h(x: String) { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size);
     return C() 
 }
 

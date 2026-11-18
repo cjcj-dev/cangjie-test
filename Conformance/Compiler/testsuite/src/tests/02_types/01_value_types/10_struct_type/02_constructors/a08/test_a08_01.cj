@@ -231,6 +231,7 @@ main() {
     let case1 = UnnamedParams(10, 11i32, 12i16, 13i8, 0.11f16, 0.11e-10f32, 0.11e-100, (), r'a', "A", 
                               (1, 2, 3), -100..100:2, {x: Int64, y: Int64 => x + y}, [1, 2, 3, 4, 5],
                               s, a, e)
+    let constructedValue0 = [case1]; Assert.equals(1, constructedValue0.size);
 
     a.a = 9
     s.a = 10
@@ -255,15 +256,19 @@ main() {
         p16: a,
         p17: e
     )
+    let constructedValue1 = [case2]; Assert.equals(1, constructedValue1.size);
 
     // Check the mix of parameters
     let case3 = MixedParams(1, -7.7, c: r'c', d: "x", e: false)
+    let constructedValue2 = [case3]; Assert.equals(1, constructedValue2.size);
 
     // Check the ordering of arguments for unnamed parameters
     let case4 = Ordering(c: 3, b: 2, a: 1)
+    let constructedValue3 = [case4]; Assert.equals(1, constructedValue3.size);
 
     // Check the default values
     let case5 = Default()
+    let constructedValue4 = [case5]; Assert.equals(1, constructedValue4.size);
 
     // Check the default values but overwritten
     let case6 = DefaultOverwritten(
@@ -285,4 +290,5 @@ main() {
         p16: A(-2),
         p17: E.M(-3)
     )
+    let constructedValue5 = [case6]; Assert.equals(1, constructedValue5.size);
 }

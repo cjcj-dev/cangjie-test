@@ -26,8 +26,11 @@
   @Issue: 0006092
 
 */
+import utils.assert.Assert
+
 main() {
   var myVar0 = "opweifhse"
   let myVar1 = "asgfsd"
   var compareResult = (myVar0 <= myVar1)
+  Assert.equals(false, compareResult)
 }

@@ -84,13 +84,13 @@ import utils.assert.Assert
 
 // case 5
 interface I1 {
-    func f(a: Int): Unit {}
+    func f(a: Int): Unit { let testedArgument0 = [a]; Assert.equals(1, testedArgument0.size) }
 }
 interface I2 {
-    func f(a: Int): Unit {}
+    func f(a: Int): Unit { let testedArgument0 = [a]; Assert.equals(1, testedArgument0.size) }
 }
 open class A {
-    public open func f(a: Int): Unit {}
+    public open func f(a: Int): Unit { let testedArgument0 = [a]; Assert.equals(1, testedArgument0.size) }
 }
 open class B <: A & I1 & I2{ // ok, f from A
 }

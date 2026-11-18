@@ -27,7 +27,11 @@
 
 */
 
+import utils.assert.Assert
+
 main(p1: Array<String>): Unit {
+    let receivedArguments = [p1]
+    Assert.equals(1, receivedArguments.size)
 
 }
 

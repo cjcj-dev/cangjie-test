@@ -25,6 +25,8 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
     var `abstract` : Int32 = 1
     var `open` : Int32 = 2
@@ -36,4 +38,15 @@ main() {
     var `get` : Int32 = 8
     var `set` : Int32 = 9
     var `sealed` : Int32 = 10
+
+    Assert.equals(1, `abstract`)
+    Assert.equals(2, `open`)
+    Assert.equals(3, `override`)
+    Assert.equals(4, `private`)
+    Assert.equals(5, `protected`)
+    Assert.equals(6, `public`)
+    Assert.equals(7, `redef`)
+    Assert.equals(8, `get`)
+    Assert.equals(9, `set`)
+    Assert.equals(10, `sealed`)
 }

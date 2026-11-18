@@ -40,16 +40,26 @@ open public class J<T> {}
 
 main() {
   var a = A()
+  let constructedValue0 = [a]; Assert.equals(1, constructedValue0.size);
   var b = B()
+  let constructedValue1 = [b]; Assert.equals(1, constructedValue1.size);
   var c = C()
+  let constructedValue2 = [c]; Assert.equals(1, constructedValue2.size);
   var d = D()
+  let constructedValue3 = [d]; Assert.equals(1, constructedValue3.size);
   var e = E()
+  let constructedValue4 = [e]; Assert.equals(1, constructedValue4.size);
 
   var f = F<Bool>()
+  let constructedValue5 = [f]; Assert.equals(1, constructedValue5.size);
   var g = G<Rune>()
+  let constructedValue6 = [g]; Assert.equals(1, constructedValue6.size);
   var h = H<A>()
+  let constructedValue7 = [h]; Assert.equals(1, constructedValue7.size);
   var i = I<B>()
+  let constructedValue8 = [i]; Assert.equals(1, constructedValue8.size);
   var j = J<Unit>()
+  let constructedValue9 = [j]; Assert.equals(1, constructedValue9.size);
 
   Assert.isTrue(a is A)
   Assert.isTrue(b is B)

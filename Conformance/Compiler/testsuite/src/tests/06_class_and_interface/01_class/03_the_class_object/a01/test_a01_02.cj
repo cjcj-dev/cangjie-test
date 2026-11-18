@@ -33,9 +33,7 @@ import std.io.ByteBuffer
 import std.regex.Regex
 import std.sync.AtomicReference
 import std.random.Random
-import std.net.*
 import std.fs.Directory
-import std.env.*
 
 main() {
     let box = Box<Rune>(r'c')

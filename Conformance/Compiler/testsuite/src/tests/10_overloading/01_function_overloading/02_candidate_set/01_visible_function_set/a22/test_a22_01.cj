@@ -82,7 +82,7 @@ class AuxTestA2202 <: IF {
 }
 
 
-main(ina :Array<String>) {
+main() {
     var klass : AuxTestA2202 = AuxTestA2202();
     klass(i8)
     klass(i16)

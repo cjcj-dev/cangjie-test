@@ -32,7 +32,7 @@
 import utils.assert.Assert
 
 class C<T> {
-    static func foo<U>(a: U, b: T): U { a }
+    static func foo<U>(a: U, b: T): U { let checkedArgument0 = [b]; Assert.equals(1, checkedArgument0.size); a }
 }
 var a: Bool = C<Int32>.foo<Bool>(true, 1)
 var b: String = C<Bool>.foo<String>("hello", false)

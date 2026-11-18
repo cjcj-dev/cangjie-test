@@ -37,7 +37,7 @@ interface I {
 
     func f(x: Int64): Int64
 
-    func f(x: String) {
+    func f(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 3
     }
 
@@ -45,21 +45,21 @@ interface I {
 }
 
 interface J <: I {
-    func f(x: Int64) {
+    func f(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 2
     }
-    func f(x: Rune, y: Rune) {
+    func f(x: Rune, y: Rune) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 4
     }
 
-    func f(x: Unit) {
+    func f(x: Unit) { Assert.equals((), x);
         return 5
     }
     func f(x: Int64, y: Rune): Int64
 }
 
 class JImpl <: J {
-    public func f(x: Int64, y: Rune) {
+    public func f(x: Int64, y: Rune) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 6
     }
 }
@@ -71,7 +71,7 @@ interface IG<T> {
 
     func f(x: Int64): Int64
 
-    func f(x: T) {
+    func f(x: T) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 13
     }
 
@@ -79,21 +79,21 @@ interface IG<T> {
 }
 
 interface JG<T> <: IG<T> {
-    func f(x: Int64) {
+    func f(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 12
     }
-    func f(x: Rune, y: Rune) {
+    func f(x: Rune, y: Rune) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 14
     }
 
-    func f(x: Unit) {
+    func f(x: Unit) { Assert.equals((), x);
         return 15
     }
     func f(x: Int64, y: Rune): Int64
 }
 
 class JGImpl<T> <: JG<T> {
-    public func f(x: Int64, y: Rune) {
+    public func f(x: Int64, y: Rune) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 16
     }
 }

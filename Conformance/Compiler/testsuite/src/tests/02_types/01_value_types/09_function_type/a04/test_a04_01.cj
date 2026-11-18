@@ -30,7 +30,7 @@ import utils.assert.*
 
 type funcType2 = () -> Float32;
 
-func testFunc1(par1: Int8, par2: String): Int8 {
+func testFunc1(par1: Int8, par2: String): Int8 { let observedArgument0 = [par2]; Assert.equals(1, observedArgument0.size);
     return par1;
 }
 

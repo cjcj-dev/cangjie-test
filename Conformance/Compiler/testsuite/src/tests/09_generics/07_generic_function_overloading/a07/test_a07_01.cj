@@ -43,11 +43,11 @@ open class A {}
 open class B <: A {}
 open class C <: B {}
 
-func foo<T>(x: T) where T <: A {
+func foo<T>(x: T) where T <: A { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size);
     return 1
 }
 
-func foo(x: C) {
+func foo(x: C) { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size);
     return 2
 }
 

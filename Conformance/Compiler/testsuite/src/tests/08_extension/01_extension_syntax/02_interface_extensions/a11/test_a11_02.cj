@@ -25,16 +25,18 @@
 
 */
 
+import utils.assert.Assert
+
 interface I<T> {
     func foo(i: T): String
 }
 
 class Foo <: I<String> {
-    public func foo(i: String): String { "a" }
+    public func foo(i: String): String { let observedArgument0 = [i]; Assert.equals(1, observedArgument0.size); "a" }
 }
 
 extend Foo <: I<Int64> {
-    public func foo(i: Int64): String { "b" }
+    public func foo(i: Int64): String { let observedArgument0 = [i]; Assert.equals(1, observedArgument0.size); "b" }
 }
 
 main() { }

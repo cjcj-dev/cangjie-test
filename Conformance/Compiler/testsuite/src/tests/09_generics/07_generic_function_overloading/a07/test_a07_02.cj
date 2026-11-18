@@ -44,7 +44,7 @@ open class B <: A {}
 open class C <: B {}
 
 // foo1
-func foo<T>(x: T): B where T <: A {
+func foo<T>(x: T): B where T <: A { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size);
     return B()
 }
 

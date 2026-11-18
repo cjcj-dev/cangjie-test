@@ -46,6 +46,7 @@ public struct Public {
 
     static func check_inside() {
         let t = Public()
+        let constructedValue0 = [t]; Assert.equals(1, constructedValue0.size);
         Assert.equals(1, constructor_counter)
     }
 }
@@ -57,6 +58,7 @@ public struct PublicGeneric<T> {
 
     static func check_inside() {
         let t = PublicGeneric<Float32>()
+        let constructedValue1 = [t]; Assert.equals(1, constructedValue1.size);
         Assert.equals(2, constructor_counter)
     }
 }
@@ -68,6 +70,7 @@ public struct PublicWithParams {
 
     static func check_inside() {
         let t = PublicWithParams(10)
+        let constructedValue2 = [t]; Assert.equals(1, constructedValue2.size);
         Assert.equals(12, constructor_counter)
     }
 }
@@ -79,6 +82,7 @@ public struct Private {
 
     static func check_inside() {
         let t = Private()
+        let constructedValue3 = [t]; Assert.equals(1, constructedValue3.size);
         Assert.equals(13, constructor_counter)
     }
 }
@@ -90,6 +94,7 @@ public struct PrivateGeneric<T> {
 
     static func check_inside() {
         let t = PrivateGeneric<Rune>()
+        let constructedValue4 = [t]; Assert.equals(1, constructedValue4.size);
         Assert.equals(14, constructor_counter)
     }
 }
@@ -101,6 +106,7 @@ public struct PrivateWithParams {
 
     static func check_inside() {
         let t = PrivateWithParams(14)
+        let constructedValue5 = [t]; Assert.equals(1, constructedValue5.size);
         Assert.equals(28, constructor_counter)
     }
 }
@@ -112,6 +118,7 @@ public struct NoMods {
 
     static func check_inside() {
         let t = NoMods()
+        let constructedValue6 = [t]; Assert.equals(1, constructedValue6.size);
         Assert.equals(29, constructor_counter)
     }
 }
@@ -123,6 +130,7 @@ public struct NoModsGeneric<T> {
 
     static func check_inside() {
         let t = NoModsGeneric<Unit>()
+        let constructedValue7 = [t]; Assert.equals(1, constructedValue7.size);
         Assert.equals(30, constructor_counter)
     }
 }
@@ -134,6 +142,7 @@ public struct NoModsWithParams {
 
     static func check_inside() {
         let t = NoModsWithParams(70)
+        let constructedValue8 = [t]; Assert.equals(1, constructedValue8.size);
         Assert.equals(100, constructor_counter)
     }
 }

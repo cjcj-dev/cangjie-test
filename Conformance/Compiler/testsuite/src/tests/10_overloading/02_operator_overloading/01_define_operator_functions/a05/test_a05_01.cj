@@ -44,7 +44,7 @@ class IRange {
 }
 
 
-main(ina :Array<String>) {
+main() {
     var v1:IRange = IRange( 0xffff_ffff_ffff_fffe)
     var vs:IRange;
     vs = v1 | IRange(1)

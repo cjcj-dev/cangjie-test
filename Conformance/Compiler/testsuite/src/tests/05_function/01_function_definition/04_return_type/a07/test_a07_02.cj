@@ -30,7 +30,7 @@ type Data = Int32
 
 func myFunc(a: Data): Unit { "${a}" } 
 
-func Column(c: (Data) -> Unit) { 2 }          // return type is Int64 
+func Column(c: (Data) -> Unit) { let observedArgument0 = [c]; Assert.equals(1, observedArgument0.size); 2 }          // return type is Int64
 
 main() {
   var myVar = myFunc

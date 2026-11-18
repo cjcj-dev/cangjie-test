@@ -56,7 +56,7 @@ extend Klass {
 }
 
 
-main(ina :Array<String>) {
+main() {
     var klass : Klass = ZERO(i8);
     klass(i8)
     klass(i16)

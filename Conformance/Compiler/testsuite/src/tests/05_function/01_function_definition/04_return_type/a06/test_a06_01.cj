@@ -28,7 +28,7 @@
 */
 import utils.assert.Assert
 
-func myFunc<T>(a: T): Unit {a}
+func myFunc<T>(a: T): Unit { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size);a}
 
 func myFunc1(): Unit { return ()}
 

@@ -31,7 +31,7 @@ interface myInterface1 {
 }
 
 interface myInterface2 {
-  mut func myMutFunc(a: Float32) {}
+  mut func myMutFunc(a: Float32) { let testedArgument0 = [a]; Assert.equals(1, testedArgument0.size) }
 }
 
 class myClass <: myInterface1 {

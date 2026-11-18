@@ -61,9 +61,11 @@ main() {
     Assert.equals("", constructor_string)
 
     let case1 = A()
+    let constructedValue0 = [case1]; Assert.equals(1, constructedValue0.size);
     Assert.equals("A", constructor_string)
 
     let case3 = B(1)
+    let constructedValue1 = [case3]; Assert.equals(1, constructedValue1.size);
     Assert.equals("AB", constructor_string)
 }
 

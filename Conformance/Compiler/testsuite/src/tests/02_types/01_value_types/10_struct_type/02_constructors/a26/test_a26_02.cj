@@ -95,6 +95,7 @@ main() {
         p5: eval_param("p5"),
         p6: eval_param("p6")
         )
+    let constructedValue0 = [a]; Assert.equals(1, constructedValue0.size);
 
     order = ""
 
@@ -106,4 +107,5 @@ main() {
         p5: eval_param("p5"),
         p6: eval_param("p6")
         )
+    let constructedValue1 = [b]; Assert.equals(1, constructedValue1.size);
 }

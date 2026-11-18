@@ -30,20 +30,20 @@ import utils.assert.Assert
 
 class Regular {
     static func f1<T>() {}
-    static func f2<U>(x: U, y: U) {}
+    static func f2<U>(x: U, y: U) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);}
     static func f3<T>() {
         return 1
     }
-    static func f4<T>(x: Int64) {
+    static func f4<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 2
     }
 
     static func f5<T>() where T <: Object {}
-    static func f6<T1, T2>(x: T1) {}
+    static func f6<T1, T2>(x: T1) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
     static func f7<T1, T2, T3>() {
         return 3
     }
-    static func f8<T1, T2>(x: T1, y: T2) {
+    static func f8<T1, T2>(x: T1, y: T2) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 4
     }
 
@@ -63,20 +63,20 @@ class Regular {
 
 class Generic<A, B> {
     static func f1<T>() {}
-    static func f2<U>(x: Bool, y: Rune) {}
+    static func f2<U>(x: Bool, y: Rune) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);}
     static func f3<T>() {
         return 1
     }
-    static func f4<T>(x: Int64) {
+    static func f4<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 2
     }
 
     static func f5<T>() {}
-    static func f6<T1, T2>(x: String) {}
+    static func f6<T1, T2>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
     static func f7<T1, T2, T3>() {
         return 3
     }
-    static func f8<T1, T2>(x: String, y: String) {
+    static func f8<T1, T2>(x: String, y: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 4
     }
 

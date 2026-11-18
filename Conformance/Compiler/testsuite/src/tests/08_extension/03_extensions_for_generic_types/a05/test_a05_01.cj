@@ -51,6 +51,8 @@
 
 */
 
+import utils.assert.Assert
+
 class Foo<T> {
     var item: T
     init(it: T) {
@@ -69,7 +71,7 @@ extend<T> Foo<T> where T <: Eq<T> {
 }
 
 class B <: Eq<B> {
-    public func equals(other: B) { true }
+    public func equals(other: B) { let observedArgument0 = [other]; Assert.equals(1, observedArgument0.size); true }
 }
 
 main() {

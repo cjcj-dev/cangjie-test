@@ -37,7 +37,6 @@
 
 */
 
-import std.sync.*  // Concurrency
 import utils.assert.Assert
 
 main(): Int64 {

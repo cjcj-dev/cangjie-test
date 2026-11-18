@@ -29,7 +29,7 @@ interface Ord<T> {
 }
 
 class Number <: Ord<Number> {
-    public func lt(x: Number): Bool {
+    public func lt(x: Number): Bool { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size);
         return false
     }
 }

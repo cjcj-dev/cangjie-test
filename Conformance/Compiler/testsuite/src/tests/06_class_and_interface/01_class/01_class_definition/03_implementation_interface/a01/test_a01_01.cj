@@ -90,21 +90,25 @@ class A10<T> <: _g1<T> & _g2<T> & _g3<T> & _g4<T> & _g5<T> {}
 
 main() {
   var a1 = A1()
+  let constructedValue0 = [a1]; Assert.equals(1, constructedValue0.size);
   Assert.isTrue(a1 is A1)
   Assert.isTrue(a1 is I)
 
   var a2 = A2()
+  let constructedValue1 = [a2]; Assert.equals(1, constructedValue1.size);
   Assert.isTrue(a2 is A2)
   Assert.isTrue(a2 is I1)
   Assert.isTrue(a2 is I2)
 
   var a3 = A3()
+  let constructedValue2 = [a3]; Assert.equals(1, constructedValue2.size);
   Assert.isTrue(a3 is A3)
   Assert.isTrue(a3 is In1)
   Assert.isTrue(a3 is In2)
   Assert.isTrue(a3 is In3)
 
   var a4 = A4()
+  let constructedValue3 = [a4]; Assert.equals(1, constructedValue3.size);
   Assert.isTrue(a4 is A4)
   Assert.isTrue(a4 is If1)
   Assert.isTrue(a4 is If2)
@@ -112,15 +116,18 @@ main() {
   Assert.isTrue(a4 is If4)
 
   var a5 = A5()
+  let constructedValue4 = [a5]; Assert.equals(1, constructedValue4.size);
   Assert.isTrue(a5 is A5)
   Assert.isTrue(a5 is G<Bool>)
 
   var a6 = A6()
+  let constructedValue5 = [a6]; Assert.equals(1, constructedValue5.size);
   Assert.isTrue(a6 is A6)
   Assert.isTrue(a6 is G1<Rune, Rune>)
   Assert.isTrue(a6 is G2<Unit>)
 
   var a7 = A7()
+  let constructedValue6 = [a7]; Assert.equals(1, constructedValue6.size);
   Assert.isTrue(a7 is A7)
   Assert.isTrue(a7 is Gi1<Int32>)
   Assert.isTrue(a7 is Gi2<Int32>)
@@ -134,15 +141,18 @@ main() {
   Assert.isTrue(a7 is Gi10<Int32>)
 
   var a8 = A8<Rune>()
+  let constructedValue7 = [a8]; Assert.equals(1, constructedValue7.size);
   Assert.isTrue(a8 is A8<Rune>)
   Assert.isTrue(a8 is Gg<Rune>)
 
   var a9 = A9<Float32, Int32>()
+  let constructedValue8 = [a9]; Assert.equals(1, constructedValue8.size);
   Assert.isTrue(a9 is A9<Float32, Int32>)
   Assert.isTrue(a9 is Gg1<Float32>)
   Assert.isTrue(a9 is Gg2<Int32>)
 
   var a10 = A10<Unit>()
+  let constructedValue9 = [a10]; Assert.equals(1, constructedValue9.size);
   Assert.isTrue(a10 is A10<Unit>)
   Assert.isTrue(a10 is _g1<Unit>)
   Assert.isTrue(a10 is _g2<Unit>)

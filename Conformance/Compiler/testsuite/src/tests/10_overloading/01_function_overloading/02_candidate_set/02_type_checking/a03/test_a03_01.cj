@@ -152,7 +152,7 @@ func same(arg:Float64) {
 
 
 
-main(ina :Array<String>) {
+main() {
     Klass.fv(neg,i8)
     Klass.fv(same,-i8)
     Klass.fv(neg,i16)

@@ -100,4 +100,5 @@ main() {
     Assert.isTrue(myTriangle.myPublicLet is Int64)
     Assert.isTrue(myTriangle.myVar is Int64)
     Assert.isTrue(myTriangle.myPublicVar is Int64)
+    Assert.equals(12, myLocalVar)
 }

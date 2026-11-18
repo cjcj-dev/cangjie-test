@@ -35,4 +35,5 @@ main() {
     }
 
     foo()
+    Assert.equals("", tmp)
 }

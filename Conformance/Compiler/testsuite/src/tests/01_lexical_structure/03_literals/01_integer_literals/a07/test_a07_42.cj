@@ -159,4 +159,5 @@ main() {
     Assert.equals(122, 0X7_ai8)
     Assert.equals(15, 0Xf__i8)
     Assert.equals(127, 0X7_F_i8)
+    Assert.equals(127, a)
 }

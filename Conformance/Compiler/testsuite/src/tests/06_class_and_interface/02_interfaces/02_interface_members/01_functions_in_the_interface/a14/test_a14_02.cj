@@ -37,7 +37,7 @@ interface I {
         return 1
     }
 
-    mut func f2(x: Int64) {
+    mut func f2(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 2
     }
 
@@ -45,7 +45,7 @@ interface I {
         return 3
     }
 
-    mut func f4(x: Int64) {
+    mut func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 4
     }
 }

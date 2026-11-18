@@ -112,7 +112,7 @@ struct Klass {
 
 
 
-main(ina :Array<String>) {
+main() {
     let i8 : Int8    = -8i8     
     let i16: Int8   = -16i8   
     let i32: Int8   = -32i8   

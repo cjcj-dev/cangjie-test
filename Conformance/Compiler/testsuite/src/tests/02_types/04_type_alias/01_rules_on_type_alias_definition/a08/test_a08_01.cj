@@ -22,9 +22,11 @@
 
 */
 
+import utils.assert.Assert
+
 class GenericClassA<V> {}
 type Class1<V> = GenericClassA<V>
 
-func foo<V> (p: Class1<V>) where V <: ToString { }
+func foo<V> (p: Class1<V>) where V <: ToString { let observedArgument0 = [p]; Assert.equals(1, observedArgument0.size); }
 
 main(): Unit {}

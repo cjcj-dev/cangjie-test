@@ -26,6 +26,8 @@
 
 */
 
+import utils.assert.Assert
+
 open class A {}
 
 open class B <: A {}
@@ -33,17 +35,17 @@ open class B <: A {}
 open class C <: B {}
 
 open class D <: A {
-    public operator func +(x : Unit) { D() }
-    public operator func -(x : Unit) { D() }
-    public operator func *(x : Unit) { D() }
-    public operator func **(x : Unit) { D() }
-    public operator func /(x : Unit) { D() }
-    public operator func %(x : Unit) { D() }
-    public operator func &(x : Unit) { D() }
-    public operator func |(x : Unit) { D() }
-    public operator func ^(x : Unit) { D() }
-    public operator func <<(x : Unit) { D() }
-    public operator func >>(x : Unit) { D() }
+    public operator func +(x : Unit) { Assert.equals((), x); D() }
+    public operator func -(x : Unit) { Assert.equals((), x); D() }
+    public operator func *(x : Unit) { Assert.equals((), x); D() }
+    public operator func **(x : Unit) { Assert.equals((), x); D() }
+    public operator func /(x : Unit) { Assert.equals((), x); D() }
+    public operator func %(x : Unit) { Assert.equals((), x); D() }
+    public operator func &(x : Unit) { Assert.equals((), x); D() }
+    public operator func |(x : Unit) { Assert.equals((), x); D() }
+    public operator func ^(x : Unit) { Assert.equals((), x); D() }
+    public operator func <<(x : Unit) { Assert.equals((), x); D() }
+    public operator func >>(x : Unit) { Assert.equals((), x); D() }
 }
 
 main() {

@@ -39,11 +39,11 @@ interface IL2<T1, T2> where T1 <: IL1_1<T1>, T2 <: IL1_2<T2> {
 
 // Introduce upper bound constraints.
 class Impl <: IL1_1<Impl> & IL1_2<Impl> & IL2<Impl, Impl> {
-    public func method_1_1(x: Impl): Int64 {
+    public func method_1_1(x: Impl): Int64 { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size);
         return 11
     }
 
-    public func method_1_2(x: Impl): Int64 {
+    public func method_1_2(x: Impl): Int64 { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size);
         return 12
     }
 

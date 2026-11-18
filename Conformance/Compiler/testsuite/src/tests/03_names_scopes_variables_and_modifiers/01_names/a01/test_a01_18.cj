@@ -21,6 +21,10 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
     let 倉頡輸入法: Int64
+    倉頡輸入法 = 0
+    Assert.equals(0, 倉頡輸入法)
 }

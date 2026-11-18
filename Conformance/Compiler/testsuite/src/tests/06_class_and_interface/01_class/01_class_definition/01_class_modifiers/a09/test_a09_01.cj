@@ -143,7 +143,7 @@ class TestClass <: AbstractExample {
     return x / 2.0f64
   }
 
-  public func int_f_bool(x: Bool): Int32 {
+  public func int_f_bool(x: Bool): Int32 { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
     return 15
   }
 
@@ -171,7 +171,7 @@ class TestClass <: AbstractExample {
     return x
   }
 
-  public func bool_f_enum(x: Week): Bool {
+  public func bool_f_enum(x: Week): Bool { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
     return true
   }
 
@@ -179,7 +179,7 @@ class TestClass <: AbstractExample {
     return a + b +c + d + e + f + g + h + i + j
   }
 
-  public func bool_f_class_float_string(x: A, y: Float32, z: String): Bool {
+  public func bool_f_class_float_string(x: A, y: Float32, z: String): Bool { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
     return z == ""
   }
 }

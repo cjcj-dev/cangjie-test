@@ -41,7 +41,7 @@ interface I2 {
     static func f() {
         return 0
     }
-    static func g<T>(x: Int64) {
+    static func g<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 }
@@ -50,7 +50,7 @@ interface I3 {
     static func f() {
         return 0
     }
-    static func g<T>(x: Int64) {
+    static func g<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 }
@@ -59,7 +59,7 @@ abstract class A {
     public static func f() {
         return 0
     }
-    public static func g<T>(x: Int64) {
+    public static func g<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 }
@@ -68,7 +68,7 @@ open class B {
     public static func f() {
         return 0
     }
-    public static func g<T>(x: Int64) {
+    public static func g<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 }
@@ -77,7 +77,7 @@ sealed abstract class C {
     public static func f() {
         return 0
     }
-    public static func g<T>(x: Int64) {
+    public static func g<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 }
@@ -87,7 +87,7 @@ class T1 <: I1 & I2 {
     public redef static func f() {
         return 11
     }
-    public redef static func g<T>(x: Int64) {
+    public redef static func g<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 12
     }
 }
@@ -97,7 +97,7 @@ class T2 <: I2 & I3 {
     public redef static func f() {
         return 21
     }
-    public redef static func g<T>(x: Int64) {
+    public redef static func g<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 22
     }
 }
@@ -107,7 +107,7 @@ class T3 <: A & I1 {
     public redef static func f() {
         return 31
     }
-    public redef static func g<T>(x: Int64) {
+    public redef static func g<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 32
     }
 }
@@ -117,7 +117,7 @@ class T4 <: A & I1 & I2 & I3 {
     public redef static func f() {
         return 41
     }
-    public redef static func g<T>(x: Int64) {
+    public redef static func g<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 42
     }
 }
@@ -126,7 +126,7 @@ class T5 <: B & I1 & I2 & I3 {
     public redef static func f() {
         return 51
     }
-    public redef static func g<T>(x: Int64) {
+    public redef static func g<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 52
     }
 }
@@ -135,7 +135,7 @@ class T6 <: C & I1 & I2 & I3 {
     public redef static func f() {
         return 61
     }
-    public redef static func g<T>(x: Int64) {
+    public redef static func g<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 62
     }
 }

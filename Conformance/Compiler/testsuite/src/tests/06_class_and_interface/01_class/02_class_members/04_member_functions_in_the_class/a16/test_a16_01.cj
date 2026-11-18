@@ -37,8 +37,8 @@ class Test {
         return 2
     }
     
-    static func e(x: String, y: Bool) {}
-    static func f<T>(x: T, y!: T) {}
+    static func e(x: String, y: Bool) { let testedArgument0 = [x]; Assert.equals(1, testedArgument0.size); let testedArgument1 = [y]; Assert.equals(1, testedArgument1.size) }
+    static func f<T>(x: T, y!: T) { let testedArgument0 = [x]; Assert.equals(1, testedArgument0.size); let testedArgument1 = [y]; Assert.equals(1, testedArgument1.size) }
 
     static func g(p1: Rune, p2!: Int64, p3!: Bool = false) {
         return "${p1}${p2}${p3}"

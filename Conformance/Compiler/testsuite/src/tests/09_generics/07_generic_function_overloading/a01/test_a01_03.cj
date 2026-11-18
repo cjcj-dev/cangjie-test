@@ -26,11 +26,11 @@
 
 import utils.assert.Assert
 
-func foo(x: Int64) {
+func foo(x: Int64) { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size);
     return 1
 }
 
-func foo<T>(x: T, y: String) {
+func foo<T>(x: T, y: String) { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [y]; Assert.equals(1, observedArgument1.size);
     return 2
 }
 

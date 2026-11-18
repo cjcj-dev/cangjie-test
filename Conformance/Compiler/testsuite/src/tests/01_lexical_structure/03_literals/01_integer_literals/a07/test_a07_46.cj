@@ -177,4 +177,5 @@ main() {
     Assert.equals(250, 0XF_au8)
     Assert.equals(15, 0Xf__u8)
     Assert.equals(255, 0Xf_F_u8)
+    Assert.equals(255, a)
 }

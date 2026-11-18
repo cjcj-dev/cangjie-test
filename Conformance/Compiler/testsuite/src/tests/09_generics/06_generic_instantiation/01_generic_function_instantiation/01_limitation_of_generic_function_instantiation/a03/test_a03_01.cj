@@ -43,26 +43,26 @@ import utils.assert.Assert
 
 class Foo {
     // generic static function in class
-    static func foo<T>(a: T) {
+    static func foo<T>(a: T) { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size);
         return "foo"
     }
 
     // generic non-open function in class
-    func bar<T>(a: T) {
+    func bar<T>(a: T) { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size);
         return "bar"
     }
 }
 
 abstract class Bar {
     // generic non-open function in abstract class
-    func bar<T>(a: T) {
+    func bar<T>(a: T) { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size);
         return "bar"
     }
 }
 
 struct R {
     // generic function in struct
-    func foo<T>(a: T) {
+    func foo<T>(a: T) { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size);
         return "foo"
     }
 }
@@ -73,7 +73,7 @@ enum E {
     A | B | C
 
     // generic function in enum
-    func e<T>(a: T) {
+    func e<T>(a: T) { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size);
         return "e"
     }
 }

@@ -40,8 +40,8 @@ enum E2<T1,T2> {
 func F(b: Bool) { b }
 func F2(s: Rune) { s }
 func F1(s: String) { s }
-func F2<T1, T2>(a:T1, b:T2, c:T2) { "F2<T1, T2>" }
-func F3(x: Int64, y: Rune) {}
+func F2<T1, T2>(a:T1, b:T2, c:T2) { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [b]; Assert.equals(1, observedArgument1.size); let observedArgument2 = [c]; Assert.equals(1, observedArgument2.size); "F2<T1, T2>" }
+func F3(x: Int64, y: Rune) { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [y]; Assert.equals(1, observedArgument1.size);}
 
 main() {
     Assert.isTrue(F(true) is Bool)

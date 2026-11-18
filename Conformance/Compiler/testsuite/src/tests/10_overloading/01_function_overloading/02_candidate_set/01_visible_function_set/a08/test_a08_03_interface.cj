@@ -43,29 +43,29 @@ let f64: Float64 =  64.0f64
 
 
 interface InterFace {
-    func Verify(arg:Int8) :Unit {
+    func Verify(arg:Int8) :Unit { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
     }
-    func Verify(arg:Int16) :Unit {
+    func Verify(arg:Int16) :Unit { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
     }
-    func Verify(arg:Int32) :Unit {
+    func Verify(arg:Int32) :Unit { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
     }
-    func Verify(arg:Int64) :Unit {
-    }
-    
-    func Verify(arg:UInt8) :Unit {
-    }
-    func Verify(arg:UInt16) :Unit {
-    }
-    func Verify(arg:UInt32) :Unit {
-    }
-    func Verify(arg:UInt64) :Unit {
+    func Verify(arg:Int64) :Unit { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
     }
     
-    func Verify(arg:Float64) :Unit {
+    func Verify(arg:UInt8) :Unit { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
     }
-    func Verify(arg:Float32) :Unit {
+    func Verify(arg:UInt16) :Unit { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
     }
-    func Verify(arg:Float16) :Unit {
+    func Verify(arg:UInt32) :Unit { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
+    }
+    func Verify(arg:UInt64) :Unit { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
+    }
+    
+    func Verify(arg:Float64) :Unit { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
+    }
+    func Verify(arg:Float32) :Unit { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
+    }
+    func Verify(arg:Float16) :Unit { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
     }
 
 }

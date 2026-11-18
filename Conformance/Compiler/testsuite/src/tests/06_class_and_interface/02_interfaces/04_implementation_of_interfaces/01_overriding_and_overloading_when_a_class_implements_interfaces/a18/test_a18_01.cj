@@ -40,7 +40,7 @@ interface I1 {
     func f() {}
 }
 interface I2 {
-    func f(a: Int32) {}
+    func f(a: Int32) { let testedArgument0 = [a]; Assert.equals(1, testedArgument0.size) }
 }
 class C <: I1 & I2 {
 }

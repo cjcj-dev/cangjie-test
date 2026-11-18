@@ -45,6 +45,8 @@ main(){
     isExpectedType = mutable_var is UInt8;
     Assert.isTrue(isExpectedType, reason: "Test case 3 failed.");
 
+    Assert.equals(127u8, mutable_var);
+
     return 0;
 }
 

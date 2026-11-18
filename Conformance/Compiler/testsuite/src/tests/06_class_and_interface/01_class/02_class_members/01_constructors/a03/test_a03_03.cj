@@ -98,29 +98,38 @@ main() {
   Assert.equals(0, constructor_counter)
 
   var case1 = Public()
+  let constructedValue0 = [case1]; Assert.equals(1, constructedValue0.size);
   Assert.equals(1, constructor_counter)
 
   var case2 = PublicGeneric<Int64>()
+  let constructedValue1 = [case2]; Assert.equals(1, constructedValue1.size);
   Assert.equals(2, constructor_counter)
 
   var case3 = PublicWithParams(10)
+  let constructedValue2 = [case3]; Assert.equals(1, constructedValue2.size);
   Assert.equals(12, constructor_counter)
 
   var case4 = Protected()
+  let constructedValue3 = [case4]; Assert.equals(1, constructedValue3.size);
   Assert.equals(13, constructor_counter)
 
   var case5 = ProtectedGeneric<String>()
+  let constructedValue4 = [case5]; Assert.equals(1, constructedValue4.size);
   Assert.equals(14, constructor_counter)
 
   var case6 = ProtectedWithParams(6)
+  let constructedValue5 = [case6]; Assert.equals(1, constructedValue5.size);
   Assert.equals(20, constructor_counter)
 
   var case7 = NoMods()
+  let constructedValue6 = [case7]; Assert.equals(1, constructedValue6.size);
   Assert.equals(21, constructor_counter)
 
   var case8 = NoModsGeneric<String>()
+  let constructedValue7 = [case8]; Assert.equals(1, constructedValue7.size);
   Assert.equals(22, constructor_counter)
 
   var case9 = NoModsWithParams(78)
+  let constructedValue8 = [case9]; Assert.equals(1, constructedValue8.size);
   Assert.equals(100, constructor_counter)
 }

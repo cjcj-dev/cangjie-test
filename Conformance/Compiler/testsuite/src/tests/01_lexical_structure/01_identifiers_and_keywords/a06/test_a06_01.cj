@@ -46,6 +46,8 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
     var PUBLIC: Int32 = 0
     var PRIVATE: Int32 = 0
@@ -62,4 +64,19 @@ main() {
     var _ABCDEF_12345: Int32 = 0
     var `_ABCDEFG_`: Int32 = 0
     var `_ABCDEGF_12345`: Int32 = 0
+
+    Assert.equals(0, PUBLIC)
+    Assert.equals(0, PRIVATE)
+    Assert.equals(0, PROTECTED)
+    Assert.equals(0, OVERRIDE)
+    Assert.equals(0, ABSTRACT)
+    Assert.equals(0, SEALED)
+    Assert.equals(0, OPEN)
+    Assert.equals(0, REDEF)
+    Assert.equals(0, GET)
+    Assert.equals(0, SET)
+    Assert.equals(0, _ABCDEF_)
+    Assert.equals(0, _ABCDEF_12345)
+    Assert.equals(0, `_ABCDEFG_`)
+    Assert.equals(0, `_ABCDEGF_12345`)
 }

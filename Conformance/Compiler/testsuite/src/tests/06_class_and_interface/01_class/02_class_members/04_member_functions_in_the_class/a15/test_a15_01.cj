@@ -51,21 +51,21 @@ class Test {
             return gl_val
         }
     }
-    static func f3(x: Int64) {
+    static func f3(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         if (global > 0) {
             return res_val
         } else {
             return gl_val
         }
     }
-    static func f4<T>(x: T) {
+    static func f4<T>(x: T) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         if (global > 0) {
             return res_val
         } else {
             return gl_val
         }
     }
-    static func f5(a: String, b: Rune) {
+    static func f5(a: String, b: Rune) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [b]; Assert.equals(1, checkedArgument1.size);
         if (global > 0) {
             return res_val
         } else {

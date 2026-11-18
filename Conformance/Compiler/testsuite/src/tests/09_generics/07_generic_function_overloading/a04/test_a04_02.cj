@@ -30,11 +30,11 @@ import utils.assert.Assert
 
 class C<T> {
     // Function foo is fully instantiated after T type is known on C<T> instantiation.
-    func foo<T>(x: T) {
+    func foo<T>(x: T) { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size);
         return 1
     }
 
-    func foo(x: Int64) {
+    func foo(x: Int64) { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size);
         return 2
     }
 }

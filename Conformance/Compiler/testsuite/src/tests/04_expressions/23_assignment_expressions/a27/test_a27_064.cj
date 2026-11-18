@@ -26,18 +26,20 @@
 
 */
 
+import utils.assert.Assert
+
 open class A {
-    public operator func +(x : Unit) { D() }
-    public operator func -(x : Unit) { D() }
-    public operator func *(x : Unit) { D() }
-    public operator func **(x : Unit) { D() }
-    public operator func /(x : Unit) { D() }
-    public operator func %(x : Unit) { D() }
-    public operator func &(x : Unit) { D() }
-    public operator func |(x : Unit) { D() }
-    public operator func ^(x : Unit) { D() }
-    public operator func <<(x : Unit) { D() }
-    public operator func >>(x : Unit) { D() }
+    public operator func +(x : Unit) { Assert.equals((), x); D() }
+    public operator func -(x : Unit) { Assert.equals((), x); D() }
+    public operator func *(x : Unit) { Assert.equals((), x); D() }
+    public operator func **(x : Unit) { Assert.equals((), x); D() }
+    public operator func /(x : Unit) { Assert.equals((), x); D() }
+    public operator func %(x : Unit) { Assert.equals((), x); D() }
+    public operator func &(x : Unit) { Assert.equals((), x); D() }
+    public operator func |(x : Unit) { Assert.equals((), x); D() }
+    public operator func ^(x : Unit) { Assert.equals((), x); D() }
+    public operator func <<(x : Unit) { Assert.equals((), x); D() }
+    public operator func >>(x : Unit) { Assert.equals((), x); D() }
 }
 
 open class B <: A {}

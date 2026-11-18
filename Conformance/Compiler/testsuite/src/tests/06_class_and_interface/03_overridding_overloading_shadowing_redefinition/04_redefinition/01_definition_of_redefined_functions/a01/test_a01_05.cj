@@ -33,110 +33,110 @@
 import utils.assert.Assert
 
 abstract class A<T1, T2> {
-    public static func f(x: T1, y: T2) {
+    public static func f(x: T1, y: T2) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 0
     }
-    public static func g<T>(x: T1, y: T2) {
+    public static func g<T>(x: T1, y: T2) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 0
     }
 }
 
 interface I<T1, T2> {
-    static func i(x: T1, y: T2) {
+    static func i(x: T1, y: T2) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 0
     }
     static func j(x: T1, y: T2): Int64
 
-    static func k<T>(x: T1, y: T2) {
+    static func k<T>(x: T1, y: T2) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 0
     }
     static func l<T>(x: T1, y: T2): Int64
 }
 
 class C1 <: A<Rune, String> & I<Int64, Bool> {
-    public redef static func f(x: Rune, y: String) {
+    public redef static func f(x: Rune, y: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 11
     }
-    public redef static func g<T>(x: Rune, y: String) {
+    public redef static func g<T>(x: Rune, y: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 12
     }
 
-    public redef static func i(x: Int64, y: Bool) {
+    public redef static func i(x: Int64, y: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 13
     }
-    public redef static func j(x: Int64, y: Bool) {
+    public redef static func j(x: Int64, y: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 14
     }
-    public redef static func k<T>(x: Int64, y: Bool) {
+    public redef static func k<T>(x: Int64, y: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 15
     }
-    public redef static func l<T>(x: Int64, y: Bool) {
+    public redef static func l<T>(x: Int64, y: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 16
     }
 }
 
 class C2 <: A<Rune, String> & I<Int64, Bool> {
-    public static func f(x: Rune, y: String) {
+    public static func f(x: Rune, y: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 21
     }
-    public static func g<T>(x: Rune, y: String) {
+    public static func g<T>(x: Rune, y: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 22
     }
 
-    public static func i(x: Int64, y: Bool) {
+    public static func i(x: Int64, y: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 23
     }
-    public static func j(x: Int64, y: Bool) {
+    public static func j(x: Int64, y: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 24
     }
-    public static func k<T>(x: Int64, y: Bool) {
+    public static func k<T>(x: Int64, y: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 25
     }
-    public static func l<T>(x: Int64, y: Bool) {
+    public static func l<T>(x: Int64, y: Bool) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 26
     }
 }
 
 class C3<T1, T2> <: A<T1, T2> & I<T2, T1> {
-    public redef static func f(x: T1, y: T2) {
+    public redef static func f(x: T1, y: T2) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 31
     }
-    public redef static func g<T>(x: T1, y: T2) {
+    public redef static func g<T>(x: T1, y: T2) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 32
     }
 
-    public redef static func i(x: T2, y: T1) {
+    public redef static func i(x: T2, y: T1) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 33
     }
-    public redef static func j(x: T2, y: T1) {
+    public redef static func j(x: T2, y: T1) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 34
     }
-    public redef static func k<T>(x: T2, y: T1) {
+    public redef static func k<T>(x: T2, y: T1) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 35
     }
-    public redef static func l<T>(x: T2, y: T1) {
+    public redef static func l<T>(x: T2, y: T1) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 36
     }
 }
 
 class C4<T1, T2> <: A<T1, T2> & I<T2, T1> {
-    public static func f(x: T1, y: T2) {
+    public static func f(x: T1, y: T2) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 41
     }
-    public static func g<T>(x: T1, y: T2) {
+    public static func g<T>(x: T1, y: T2) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 42
     }
 
-    public static func i(x: T2, y: T1) {
+    public static func i(x: T2, y: T1) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 43
     }
-    public static func j(x: T2, y: T1) {
+    public static func j(x: T2, y: T1) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 44
     }
-    public static func k<T>(x: T2, y: T1) {
+    public static func k<T>(x: T2, y: T1) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 45
     }
-    public static func l<T>(x: T2, y: T1) {
+    public static func l<T>(x: T2, y: T1) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 46
     }
 }

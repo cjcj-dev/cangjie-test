@@ -44,6 +44,8 @@ main(){
     isExpectedType = mutable_var is UInt64;
     Assert.isTrue(isExpectedType, reason: "Test case 3 failed.");
 
+    Assert.equals(200u64, mutable_var);
+
     return 0;
 }
 

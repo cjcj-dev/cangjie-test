@@ -33,19 +33,19 @@ open class B {}
 
 open class DerivedB <: B {}
 
-func f1(a: B): A {
+func f1(a: B): A { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size);
     A()
 }
 
-func f2(a: B): DerivedA {
+func f2(a: B): DerivedA { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size);
     DerivedA()
 }
 
-func f3(a: DerivedB): A {
+func f3(a: DerivedB): A { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size);
     A()
 }
 
-func f4(a: DerivedB): DerivedA {
+func f4(a: DerivedB): DerivedA { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size);
     DerivedA()
 }
 

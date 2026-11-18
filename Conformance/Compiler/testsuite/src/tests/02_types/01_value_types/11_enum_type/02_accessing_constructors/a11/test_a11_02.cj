@@ -39,7 +39,7 @@ struct S {
 }
 type T = A
 
-func F(b:B,c:C) {}
+func F(b:B,c:C) { let testedArgument0 = [b]; Assert.equals(1, testedArgument0.size); let testedArgument1 = [c]; Assert.equals(1, testedArgument1.size) }
 
 var a = (A.B, A.C(true), A.S, A.T(0))
 

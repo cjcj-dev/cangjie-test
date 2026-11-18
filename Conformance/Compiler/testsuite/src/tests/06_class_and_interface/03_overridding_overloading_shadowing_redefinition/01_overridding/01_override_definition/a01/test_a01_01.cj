@@ -37,8 +37,8 @@ abstract class A {
     public open func f2() {
         return 0
     }
-    public open func f3(x: String) {}
-    public open func f4(x: String) {
+    public open func f3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public open func f4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 
@@ -53,8 +53,8 @@ interface I {
     func i2() {
         return 0
     }
-    func i3(x: String) {}
-    func i4(x: String) {
+    func i3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    func i4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 0
     }
 
@@ -69,8 +69,8 @@ class C1 <: A & I {
     public override func f2() {
         return 1
     }
-    public override func f3(x: String) {}
-    public override func f4(x: String) {
+    public override func f3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func f4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 2
     }
 
@@ -78,8 +78,8 @@ class C1 <: A & I {
     public override func g2() {
         return 3
     }
-    public override func g3(x: String) {}
-    public override func g4(x: String) {
+    public override func g3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func g4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 4
     }
 
@@ -87,8 +87,8 @@ class C1 <: A & I {
     public override func i2() {
         return 5
     }
-    public override func i3(x: String) {}
-    public override func i4(x: String) {
+    public override func i3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func i4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 6
     }
 
@@ -96,8 +96,8 @@ class C1 <: A & I {
     public override func j2() {
         return 7
     }
-    public override func j3(x: String) {}
-    public override func j4(x: String) {
+    public override func j3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func j4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 8
     }
 }
@@ -107,8 +107,8 @@ class C2 <: A & I {
     public func f2() {
         return 11
     }
-    public func f3(x: String) {}
-    public func f4(x: String) {
+    public func f3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public func f4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 12
     }
 
@@ -116,8 +116,8 @@ class C2 <: A & I {
     public func g2() {
         return 13
     }
-    public func g3(x: String) {}
-    public func g4(x: String) {
+    public func g3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public func g4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 14
     }
 
@@ -125,8 +125,8 @@ class C2 <: A & I {
     public func i2() {
         return 15
     }
-    public func i3(x: String) {}
-    public func i4(x: String) {
+    public func i3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public func i4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 16
     }
 
@@ -134,8 +134,8 @@ class C2 <: A & I {
     public func j2() {
         return 17
     }
-    public func j3(x: String) {}
-    public func j4(x: String) {
+    public func j3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public func j4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 18
     }
 }
@@ -145,8 +145,8 @@ class C3<T> <: A & I {
     public override func f2() {
         return 21
     }
-    public override func f3(x: String) {}
-    public override func f4(x: String) {
+    public override func f3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func f4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 22
     }
 
@@ -154,8 +154,8 @@ class C3<T> <: A & I {
     public override func g2() {
         return 23
     }
-    public override func g3(x: String) {}
-    public override func g4(x: String) {
+    public override func g3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func g4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 24
     }
 
@@ -163,8 +163,8 @@ class C3<T> <: A & I {
     public override func i2() {
         return 25
     }
-    public override func i3(x: String) {}
-    public override func i4(x: String) {
+    public override func i3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func i4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 26
     }
 
@@ -172,8 +172,8 @@ class C3<T> <: A & I {
     public override func j2() {
         return 27
     }
-    public override func j3(x: String) {}
-    public override func j4(x: String) {
+    public override func j3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public override func j4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 28
     }
 }
@@ -183,8 +183,8 @@ class C4<T> <: A & I {
     public func f2() {
         return 31
     }
-    public func f3(x: String) {}
-    public func f4(x: String) {
+    public func f3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public func f4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 32
     }
 
@@ -192,8 +192,8 @@ class C4<T> <: A & I {
     public func g2() {
         return 33
     }
-    public func g3(x: String) {}
-    public func g4(x: String) {
+    public func g3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public func g4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 34
     }
 
@@ -201,8 +201,8 @@ class C4<T> <: A & I {
     public func i2() {
         return 35
     }
-    public func i3(x: String) {}
-    public func i4(x: String) {
+    public func i3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public func i4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 36
     }
 
@@ -210,8 +210,8 @@ class C4<T> <: A & I {
     public func j2() {
         return 37
     }
-    public func j3(x: String) {}
-    public func j4(x: String) {
+    public func j3(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    public func j4(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 38
     }
 }

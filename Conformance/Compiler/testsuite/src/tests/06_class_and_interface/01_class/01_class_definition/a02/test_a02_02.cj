@@ -70,15 +70,25 @@ class TestableAPO <: APO {}
 
 func checkCase2() {
   var a = TestableA()
+  let constructedValue0 = [a]; Assert.equals(1, constructedValue0.size);
   var p = P()
+  let constructedValue1 = [p]; Assert.equals(1, constructedValue1.size);
   var o = O()
+  let constructedValue2 = [o]; Assert.equals(1, constructedValue2.size);
   var ap = TestableAP()
+  let constructedValue3 = [ap]; Assert.equals(1, constructedValue3.size);
   var ao = TestableAO()
+  let constructedValue4 = [ao]; Assert.equals(1, constructedValue4.size);
   var pa = TestablePA()
+  let constructedValue5 = [pa]; Assert.equals(1, constructedValue5.size);
   var po = PO()
+  let constructedValue6 = [po]; Assert.equals(1, constructedValue6.size);
   var oa = TestableOA()
+  let constructedValue7 = [oa]; Assert.equals(1, constructedValue7.size);
   var op = OP()
+  let constructedValue8 = [op]; Assert.equals(1, constructedValue8.size);
   var apo = TestableAPO()
+  let constructedValue9 = [apo]; Assert.equals(1, constructedValue9.size);
 
   Assert.isTrue(a is A)
   Assert.isTrue(p is P)
@@ -100,8 +110,11 @@ class Gen3<G1, G2, G3> {}
 
 func checkCase3() {
   var g = Gen1<Int32>()
+  let constructedValue10 = [g]; Assert.equals(1, constructedValue10.size);
   var gg = Gen2<Int32, Float64>()
+  let constructedValue11 = [gg]; Assert.equals(1, constructedValue11.size);
   var ggg = Gen3<Int32, Float64, String>()
+  let constructedValue12 = [ggg]; Assert.equals(1, constructedValue12.size);
 
   Assert.isTrue(g is Gen1<Int32>)
   Assert.isTrue(gg is Gen2<Int32, Float64>)
@@ -114,6 +127,7 @@ class Derivative <: UtilityClass1 {}
 
 func checkCase4() {
   var d = Derivative()
+  let constructedValue13 = [d]; Assert.equals(1, constructedValue13.size);
 
   Assert.isTrue(d is Derivative)
 }
@@ -125,7 +139,9 @@ class Impl2 <: UtilityInterface1 & UtilityInterface2 {}
 
 func checkCase5() {
   var i1 = Impl1()
+  let constructedValue14 = [i1]; Assert.equals(1, constructedValue14.size);
   var i2 = Impl2()
+  let constructedValue15 = [i2]; Assert.equals(1, constructedValue15.size);
 
   Assert.isTrue(i1 is Impl1)
   Assert.isTrue(i2 is Impl2)
@@ -150,6 +166,7 @@ class NotGeneric <: UtilityClass1 & UtilityInterface1 {}
 
 func checkCase7() {
   var ng = NotGeneric()
+  let constructedValue16 = [ng]; Assert.equals(1, constructedValue16.size);
   Assert.isTrue(ng is NotGeneric)
 }
 
@@ -159,6 +176,7 @@ class NoMods<T> <: UtilityClass1 & UtilityInterface1 where T<:UtilityInterface2 
 
 func checkCase8() {
   var nm = NoMods<UtilityClass2>()
+  let constructedValue17 = [nm]; Assert.equals(1, constructedValue17.size);
   Assert.isTrue(nm is NoMods<UtilityClass2>)
 }
 
@@ -168,6 +186,7 @@ public class Orphan<oOo, uireH> where uireH <: UtilityInterface2 {}
 
 func checkCase9() {
   var o = Orphan<Bool, UtilityClass2>()
+  let constructedValue18 = [o]; Assert.equals(1, constructedValue18.size);
 
   Assert.isTrue(o is Orphan<Bool, UtilityClass2>)
 }

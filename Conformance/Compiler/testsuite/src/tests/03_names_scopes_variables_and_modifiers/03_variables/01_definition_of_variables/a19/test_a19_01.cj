@@ -46,4 +46,5 @@ main() {
 
     myVar = 6
     Assert.isTrue(myVar is Int32)
+    Assert.equals(6, myVar)
 }

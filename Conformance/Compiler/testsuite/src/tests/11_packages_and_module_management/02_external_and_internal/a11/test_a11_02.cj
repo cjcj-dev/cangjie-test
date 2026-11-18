@@ -38,7 +38,7 @@ public class C2 {
 
     public var obj = C1()
 
-    public func foo(p1: C1) {
+    public func foo(p1: C1) { let observedArgument0 = [p1]; Assert.equals(1, observedArgument0.size);
         return C1()
     }
 
@@ -52,7 +52,7 @@ public class C3 {
 
     protected var obj = C1()
 
-    protected func foo(p1: C1) {
+    protected func foo(p1: C1) { let observedArgument0 = [p1]; Assert.equals(1, observedArgument0.size);
         return C1()
     }
 
@@ -65,7 +65,7 @@ public struct S1 {
 
     public var obj = C1()
 
-    public func foo(p1: C1) {
+    public func foo(p1: C1) { let observedArgument0 = [p1]; Assert.equals(1, observedArgument0.size);
         return C1()
     }
 

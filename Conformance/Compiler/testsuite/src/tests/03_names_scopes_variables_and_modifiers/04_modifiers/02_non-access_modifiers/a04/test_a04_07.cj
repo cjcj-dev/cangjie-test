@@ -25,13 +25,13 @@
 import utils.assert.Assert
 
 open class C1 {
-    static func foo(p1: String) {
+    static func foo(p1: String) { let observedArgument0 = [p1]; Assert.equals(1, observedArgument0.size);
         return "foo"
     }
 }
 
 class C2 <: C1 {
-    redef static func foo(p2: String) {
+    redef static func foo(p2: String) { let observedArgument0 = [p2]; Assert.equals(1, observedArgument0.size);
         return "redefined foo"
     }
 }

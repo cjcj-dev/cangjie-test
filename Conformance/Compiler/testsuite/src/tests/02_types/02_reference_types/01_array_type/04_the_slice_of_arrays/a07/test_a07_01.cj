@@ -47,7 +47,6 @@
   @Issue:        0006517
 
 */
-import utils.assert.*
 
 main(): Int64 {
     let array7 = [0, 1, 2, 3, 4, 5]

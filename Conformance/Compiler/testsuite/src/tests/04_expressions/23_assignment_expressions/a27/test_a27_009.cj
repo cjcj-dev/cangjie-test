@@ -26,18 +26,20 @@
 
 */
 
+import utils.assert.Assert
+
 extend UInt32 {
-    public operator func +(x : Unit) { 1u32 }
-    public operator func -(x : Unit) { 1u32 }
-    public operator func *(x : Unit) { 1u32 }
-    public operator func **(x : Unit) { 1u32 }
-    public operator func /(x : Unit) { 1u32 }
-    public operator func %(x : Unit) { 1u32 }
-    public operator func &(x : Unit) { 1u32 }
-    public operator func |(x : Unit) { 1u32 }
-    public operator func ^(x : Unit) { 1u32 }
-    public operator func <<(x : Unit) { 1u32 }
-    public operator func >>(x : Unit) { 1u32 }
+    public operator func +(x : Unit) { Assert.equals((), x); 1u32 }
+    public operator func -(x : Unit) { Assert.equals((), x); 1u32 }
+    public operator func *(x : Unit) { Assert.equals((), x); 1u32 }
+    public operator func **(x : Unit) { Assert.equals((), x); 1u32 }
+    public operator func /(x : Unit) { Assert.equals((), x); 1u32 }
+    public operator func %(x : Unit) { Assert.equals((), x); 1u32 }
+    public operator func &(x : Unit) { Assert.equals((), x); 1u32 }
+    public operator func |(x : Unit) { Assert.equals((), x); 1u32 }
+    public operator func ^(x : Unit) { Assert.equals((), x); 1u32 }
+    public operator func <<(x : Unit) { Assert.equals((), x); 1u32 }
+    public operator func >>(x : Unit) { Assert.equals((), x); 1u32 }
 }
 
 main() {

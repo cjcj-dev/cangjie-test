@@ -49,7 +49,7 @@ class Test {
     return 1
   }
   
-  private static func f2<T>(y: Int64) {
+  private static func f2<T>(y: Int64) { let checkedArgument0 = [y]; Assert.equals(1, checkedArgument0.size);
     let x = priv_static_var
     Assert.equals("S", x)
     return 2
@@ -67,7 +67,7 @@ class Test {
     return 4
   }
 
-  static func f5(p: (Int64, Int64)) {
+  static func f5(p: (Int64, Int64)) { let checkedArgument0 = [p]; Assert.equals(1, checkedArgument0.size);
     let x = priv_static_var
     Assert.equals("S", x)
     return 5
@@ -103,7 +103,7 @@ class Test {
     return 10
   }
 
-  func f11(a: Bool, b: Bool) {
+  func f11(a: Bool, b: Bool) { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [b]; Assert.equals(1, checkedArgument1.size);
     let x = priv_static_var
     Assert.equals("S", x)
     return 11

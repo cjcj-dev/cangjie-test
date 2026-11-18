@@ -67,32 +67,38 @@ class GE<T1, T2> <: GD & GTriple<T1, T1, T1> & GDouble<T1, T1> & GOnce<T1> {}
 
 main() {
   var a = A()
+  let constructedValue0 = [a]; Assert.equals(1, constructedValue0.size);
   Assert.isTrue(a is A)
   Assert.isTrue(a is I1<Bool>)
   Assert.isTrue(a is I2<Bool>)
   Assert.isTrue(a is I3<Bool>)
 
   var c = C()
+  let constructedValue1 = [c]; Assert.equals(1, constructedValue1.size);
   Assert.isTrue(c is C)
   Assert.isTrue(c is I<String, Rune>)
 
   var e = E()
+  let constructedValue2 = [e]; Assert.equals(1, constructedValue2.size);
   Assert.isTrue(e is E)
   Assert.isTrue(e is Triple<Unit>)
   Assert.isTrue(e is Double<Unit>)
   Assert.isTrue(e is Once<Unit>)
 
   var ga = GA<Object>()
+  let constructedValue3 = [ga]; Assert.equals(1, constructedValue3.size);
   Assert.isTrue(ga is GA<Object>)
   Assert.isTrue(ga is FG1<Object>)
   Assert.isTrue(ga is FG2<Object>)
   Assert.isTrue(ga is FG3<Object>)
 
   var gc = GC<()->Int32>()
+  let constructedValue4 = [gc]; Assert.equals(1, constructedValue4.size);
   Assert.isTrue(gc is GC<()->Int32>)
   Assert.isTrue(gc is FG<()->Int32, ()->Int32>)
 
   var ge = GE<Int64, Int32>()
+  let constructedValue5 = [ge]; Assert.equals(1, constructedValue5.size);
   Assert.isTrue(ge is GE<Int64, Int32>)
   Assert.isTrue(ge is GTriple<Int64, Int64, Int64>)
   Assert.isTrue(ge is GDouble<Int64, Int64>)

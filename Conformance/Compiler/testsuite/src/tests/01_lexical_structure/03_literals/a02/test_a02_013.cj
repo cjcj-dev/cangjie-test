@@ -49,6 +49,8 @@ main(){
     Assert.equals(true, isExpectedType, 
         reason:"mutable variable, assigned by literal of type Bool, has type different from Bool.");
 
+    Assert.equals(false, mutable_var);
+
     return 0;
 }
 

@@ -25,23 +25,23 @@
 import utils.assert.Assert
 
 class myClass {
-    func myFunc0(a: Int64, fn: ()->Int64) { fn() } 
+    func myFunc0(a: Int64, fn: ()->Int64) { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); fn() }
     func myFunc1(fn: ()->Int64) { fn() } 
 }
 
 struct myStruct {
-    func myFunc0(a: Int64, fn: ()->Int64) { fn() } 
+    func myFunc0(a: Int64, fn: ()->Int64) { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); fn() }
     func myFunc1(fn: ()->Int64) { fn() } 
 }
 
 enum myEnum {
     T
 
-    func myFunc0(a: Int64, fn: ()->Int64) { fn() } 
+    func myFunc0(a: Int64, fn: ()->Int64) { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); fn() }
     func myFunc1(fn: ()->Int64) { fn() } 
 }
 
-func myFunc0(a: Int64, fn: ()->Int64) { fn() } 
+func myFunc0(a: Int64, fn: ()->Int64) { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); fn() }
 func myFunc1(fn: ()->Int64) { fn() } 
 
 main() {

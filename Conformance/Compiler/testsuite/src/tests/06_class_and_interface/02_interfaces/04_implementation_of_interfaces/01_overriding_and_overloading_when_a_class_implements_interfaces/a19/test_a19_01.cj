@@ -46,7 +46,7 @@ interface I1 {
     func f(): Unit
 }
 interface I2 {
-    func f(a: Int32):Unit {
+    func f(a: Int32):Unit { let checkedArgument0 = [a]; Assert.equals(1, checkedArgument0.size);
         return
     }
 }

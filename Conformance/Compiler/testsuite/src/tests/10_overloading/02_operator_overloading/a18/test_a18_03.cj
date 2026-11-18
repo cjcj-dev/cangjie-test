@@ -88,7 +88,7 @@ struct SRange <: IF {
     
 }
 
-main(ina :Array<String>) {
+main() {
     var v1:SRange = SRange(10)
     var v2:SRange = SRange(-2)
     var v3:SRange = SRange(3)

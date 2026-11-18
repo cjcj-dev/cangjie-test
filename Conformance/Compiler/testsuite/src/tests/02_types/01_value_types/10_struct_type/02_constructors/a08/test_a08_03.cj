@@ -47,4 +47,5 @@ struct A {
 main() {
     global_var = 10
     let a = A()
+    let constructedValue0 = [a]; Assert.equals(1, constructedValue0.size);
 }

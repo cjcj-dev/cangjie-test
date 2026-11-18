@@ -47,7 +47,7 @@ extend A <: I1 {
 }
 
 extend A <: I2<String> {
-    public func fi2(a: String): String { "aaa" }
+    public func fi2(a: String): String { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); "aaa" }
 }
 
 class B<T> where T <: Countable<T> {

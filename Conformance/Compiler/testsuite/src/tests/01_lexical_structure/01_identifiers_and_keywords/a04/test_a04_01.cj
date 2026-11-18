@@ -24,6 +24,10 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
     var 仓颉: Int32 = 0
+
+    Assert.equals(0, 仓颉)
 }

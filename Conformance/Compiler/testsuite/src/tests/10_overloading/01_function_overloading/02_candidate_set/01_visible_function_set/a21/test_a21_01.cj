@@ -132,7 +132,7 @@ open class Klass <: Parent {
 }
 
 
-main(ina :Array<String>) {
+main() {
     var klass : Klass = Klass();
     klass(i8)
     klass(i16)

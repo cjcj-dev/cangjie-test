@@ -36,7 +36,6 @@
 
 */
 
-import std.sync.*  // Concurrency
 
 main(): Int64 {
     let future = spawn { // Create a new thread

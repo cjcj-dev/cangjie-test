@@ -35,24 +35,24 @@ open class A {
         return 1
     }
 
-    static func f<U>(x: Int64) {
+    static func f<U>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 2
     }
 
-    static func f<U>(x: String) {
+    static func f<U>(x: String) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 3
     }
 
-    static func f<U>(x: Rune, y: Rune) {
+    static func f<U>(x: Rune, y: Rune) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 4
     }
 }
 
 class B <: A {
-    static func f<U>(x: Unit) {
+    static func f<U>(x: Unit) { Assert.equals((), x);
         return 5
     }
-    static func f<U>(x: Int64, y: Rune) {
+    static func f<U>(x: Int64, y: Rune) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 6
     }
 }
@@ -62,24 +62,24 @@ open class AG<T> {
         return 11
     }
 
-    static func f<U>(x: Int64) {
+    static func f<U>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 12
     }
 
-    static func f<U>(x: T) {
+    static func f<U>(x: T) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 13
     }
 
-    static func f<U>(x: Rune, y: Rune) {
+    static func f<U>(x: Rune, y: Rune) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 14
     }
 }
 
 class BG<T> <: AG<T> {
-    static func f<U>(x: Unit) {
+    static func f<U>(x: Unit) { Assert.equals((), x);
         return 15
     }
-    static func f<U>(x: Int64, y: Rune) {
+    static func f<U>(x: Int64, y: Rune) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size); let checkedArgument1 = [y]; Assert.equals(1, checkedArgument1.size);
         return 16
     }
 }

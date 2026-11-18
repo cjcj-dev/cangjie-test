@@ -40,6 +40,8 @@
 
 */
 
+import utils.assert.Assert
+
 class A_i1  {}
 class A_i2  {}
 class A_i3  {}
@@ -57,7 +59,7 @@ class A_j5  {}
 func f_i<X1, X2, Xp>(a_i1: A_i1, a_i2:A_i2,a_i3: A_i3, a_i4:A_i4, a_i5: A_i5) {// f_i may not have type parameters
     f_j<X1, X2, Xp>(a_i1, a_i2, a_i3, a_i4, a_i5)     // If this call expression can pass the type checking
 }
-func f_j<X1, X2, Xq>(a_i1: A_i1, a_i2:A_i2,a_i3: A_i3, a_i4:A_i4, a_i5: A_i5) {// f_j may not have type parameters
+func f_j<X1, X2, Xq>(a_i1: A_i1, a_i2:A_i2,a_i3: A_i3, a_i4:A_i4, a_i5: A_i5) { let observedArgument0 = [a_i1]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [a_i2]; Assert.equals(1, observedArgument1.size); let observedArgument2 = [a_i3]; Assert.equals(1, observedArgument2.size); let observedArgument3 = [a_i4]; Assert.equals(1, observedArgument3.size); let observedArgument4 = [a_i5]; Assert.equals(1, observedArgument4.size);// f_j may not have type parameters
 }
 
 main() {

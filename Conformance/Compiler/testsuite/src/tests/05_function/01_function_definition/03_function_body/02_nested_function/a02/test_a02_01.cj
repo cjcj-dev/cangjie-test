@@ -26,7 +26,7 @@
 */
 import utils.assert.Assert
 
-func func0(a: Int32): Int32 { 
+func func0(a: Int32): Int32 { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size);
   let localLet: Int32 = 2
   func func2(n: Int32): Int32 { 
     return n + 1

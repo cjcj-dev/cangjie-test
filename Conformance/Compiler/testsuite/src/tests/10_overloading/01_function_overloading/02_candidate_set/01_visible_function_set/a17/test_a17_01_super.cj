@@ -160,7 +160,7 @@ open class Klass <: Parent {
 }
 
 
-main(ina :Array<String>) {
+main() {
     var kl:Klass = Klass();
     kl.Verify(i8+1)
     kl.Verify(i16+1)

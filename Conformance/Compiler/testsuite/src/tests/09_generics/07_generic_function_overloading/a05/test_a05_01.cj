@@ -32,11 +32,11 @@ open class A {}
 open class B {}
 
 class C<TA> {
-    static func f(x: A) {
+    static func f(x: A) { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size);
         return 1
     }
 
-    static func f(x: B) {
+    static func f(x: B) { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size);
         return 2
     }
 }

@@ -28,7 +28,10 @@
 
  */
 
+import utils.assert.Assert
+
 main() {
     var c: Rune
     c = '\u{2023}'
+  Assert.equals(r'\u{2023}', c)
 }

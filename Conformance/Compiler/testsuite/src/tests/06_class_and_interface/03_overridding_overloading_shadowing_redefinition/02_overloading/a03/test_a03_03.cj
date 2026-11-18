@@ -37,19 +37,19 @@ open class Parent {}
 class Child <: Parent {}
 
 interface I<T> {
-    func f(x: Child) {
+    func f(x: Child) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 1
     }
-    static func g(x: Child) {
+    static func g(x: Child) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 11
     }
 }
 
 interface J<T> <: I<T> {
-    func f(x: Parent) {
+    func f(x: Parent) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 2
     }
-    static func g(x: Parent) {
+    static func g(x: Parent) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 12
     }
 
@@ -62,19 +62,19 @@ interface J<T> <: I<T> {
 class JImpl <: J<Bool> {}
 
 open class A<T> {
-    func f(x: Child) {
+    func f(x: Child) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 1
     }
-    static func g(x: Child) {
+    static func g(x: Child) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 11
     }
 }
 
 class B<T> <: A<T> {
-    func f(x: Parent) {
+    func f(x: Parent) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 2
     }
-    static func g(x: Parent) {
+    static func g(x: Parent) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 12
     }
 
@@ -85,10 +85,10 @@ class B<T> <: A<T> {
 }
 
 class C<T> <: I<T> {
-    func f(x: Parent) {
+    func f(x: Parent) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 2
     }
-    static func g(x: Parent) {
+    static func g(x: Parent) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 12
     }
 

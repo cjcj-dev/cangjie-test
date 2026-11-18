@@ -32,15 +32,15 @@ interface I<T> {
 }
 
 class Foo<T> <: I<Bool> {
-    public func foo(i: Bool): String { "a" }
+    public func foo(i: Bool): String { let observedArgument0 = [i]; Assert.equals(1, observedArgument0.size); "a" }
 }
 
 extend<T> Foo<T> <: I<String> {
-    public func foo(i: String): String { "b" }
+    public func foo(i: String): String { let observedArgument0 = [i]; Assert.equals(1, observedArgument0.size); "b" }
 }
 
 extend<T> Foo<T> <: I<T> {
-    public func foo(i: T): String { "c" }
+    public func foo(i: T): String { let observedArgument0 = [i]; Assert.equals(1, observedArgument0.size); "c" }
 }
 
 main() {

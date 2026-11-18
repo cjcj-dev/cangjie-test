@@ -32,10 +32,12 @@
 
 */
 
-    open class Base {}
+    import utils.assert.Assert
+
+open class Base {}
     class Sub <: Base {}
-    func f<X, Y>(a: X, b: Y) {}         // f1, number of type parameters is not matched
-    func f<X>(a: Base, b: X) where X <: Sub {} // f2
+    func f<X, Y>(a: X, b: Y) { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [b]; Assert.equals(1, observedArgument1.size);}         // f1, number of type parameters is not matched
+    func f<X>(a: Base, b: X) where X <: Sub { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [b]; Assert.equals(1, observedArgument1.size);} // f2
     func test() {
         f<Sub>(Base(), Sub())        // candidate set: { f2 }
     }

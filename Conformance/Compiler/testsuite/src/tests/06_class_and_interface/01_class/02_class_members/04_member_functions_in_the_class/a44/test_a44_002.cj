@@ -33,7 +33,7 @@ abstract class Abstract {
         Assert.isTrue(false)
     }
 
-    public static func f2(x: Int64) {
+    public static func f2(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
     }
 
@@ -42,7 +42,7 @@ abstract class Abstract {
         return 1
     }
 
-    public static func f4(x: Int64) {
+    public static func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
         return 2
     }
@@ -51,7 +51,7 @@ abstract class Abstract {
         Assert.isTrue(false)
     }
 
-    protected static func f6(x: Int64) {
+    protected static func f6(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
     }
 
@@ -60,7 +60,7 @@ abstract class Abstract {
         return 3
     }
 
-    protected static func f8(x: Int64) {
+    protected static func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
         return 4
     }
@@ -69,7 +69,7 @@ abstract class Abstract {
         Assert.isTrue(false)
     }
 
-    static func f10(x: Int64) {
+    static func f10(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
     }
 
@@ -78,7 +78,7 @@ abstract class Abstract {
         return 5
     }
 
-    static func f12(x: Int64) {
+    static func f12(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
         return 6
     }
@@ -87,7 +87,7 @@ abstract class Abstract {
         Assert.isTrue(false)
     }
 
-    public static func f14<T>(x: Int64) {
+    public static func f14<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
     }
 
@@ -96,7 +96,7 @@ abstract class Abstract {
         return 7
     }
 
-    public static func f16<T>(x: Int64) {
+    public static func f16<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
         return 8
     }
@@ -105,7 +105,7 @@ abstract class Abstract {
         Assert.isTrue(false)
     }
 
-    protected static func f18<T>(x: Int64) {
+    protected static func f18<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
     }
 
@@ -114,7 +114,7 @@ abstract class Abstract {
         return 9
     }
 
-    protected static func f20<T>(x: Int64) {
+    protected static func f20<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
         return 10
     }
@@ -123,7 +123,7 @@ abstract class Abstract {
         Assert.isTrue(false)
     }
 
-    static func f22<T>(x: Int64) {
+    static func f22<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
     }
 
@@ -132,7 +132,7 @@ abstract class Abstract {
         return 11
     }
 
-    static func f24<T>(x: Int64) {
+    static func f24<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
         return 12
     }
@@ -141,73 +141,73 @@ abstract class Abstract {
 class Test1 <: Abstract {
     public static func f1() {}
 
-    public static func f2(x: Int64) {}
+    public static func f2(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     public static func f3() {
         return 10
     }
 
-    public static func f4(x: Int64) {
+    public static func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 20
     }
 
     protected static func f5() {}
 
-    protected static func f6(x: Int64) {}
+    protected static func f6(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     protected static func f7() {
         return 30
     }
 
-    protected static func f8(x: Int64) {
+    protected static func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 40
     }
 
     static func f9() {}
 
-    static func f10(x: Int64) {}
+    static func f10(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     static func f11() {
         return 50
     }
 
-    static func f12(x: Int64) {
+    static func f12(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 60
     }
 
     public static func f13<T>() {}
 
-    public static func f14<T>(x: Int64) {}
+    public static func f14<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     public static func f15<T>() {
         return 70
     }
 
-    public static func f16<T>(x: Int64) {
+    public static func f16<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 80
     }
 
     protected static func f17<T>() {}
 
-    protected static func f18<T>(x: Int64) {}
+    protected static func f18<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     protected static func f19<T>() {
         return 90
     }
 
-    protected static func f20<T>(x: Int64) {
+    protected static func f20<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 100
     }
 
     static func f21<T>() {}
 
-    static func f22<T>(x: Int64) {}
+    static func f22<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     static func f23<T>() {
         return 110
     }
 
-    static func f24<T>(x: Int64) {
+    static func f24<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 120
     }
 }
@@ -215,73 +215,73 @@ class Test1 <: Abstract {
 class Test2 <: Abstract {
     redef public static func f1() {}
 
-    redef public static func f2(x: Int64) {}
+    redef public static func f2(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     redef public static func f3() {
         return 100
     }
 
-    redef public static func f4(x: Int64) {
+    redef public static func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 200
     }
 
     redef protected static func f5() {}
 
-    redef protected static func f6(x: Int64) {}
+    redef protected static func f6(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     redef protected static func f7() {
         return 300
     }
 
-    redef protected static func f8(x: Int64) {
+    redef protected static func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 400
     }
 
     redef static func f9() {}
 
-    redef static func f10(x: Int64) {}
+    redef static func f10(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     redef static func f11() {
         return 500
     }
 
-    redef static func f12(x: Int64) {
+    redef static func f12(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 600
     }
 
     redef public static func f13<T>() {}
 
-    redef public static func f14<T>(x: Int64) {}
+    redef public static func f14<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     redef public static func f15<T>() {
         return 700
     }
 
-    redef public static func f16<T>(x: Int64) {
+    redef public static func f16<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 800
     }
 
     redef protected static func f17<T>() {}
 
-    redef protected static func f18<T>(x: Int64) {}
+    redef protected static func f18<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     redef protected static func f19<T>() {
         return 900
     }
 
-    redef protected static func f20<T>(x: Int64) {
+    redef protected static func f20<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 1000
     }
 
     redef static func f21<T>() {}
 
-    redef static func f22<T>(x: Int64) {}
+    redef static func f22<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     redef static func f23<T>() {
         return 1100
     }
 
-    redef static func f24<T>(x: Int64) {
+    redef static func f24<T>(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 1200
     }
 }

@@ -28,7 +28,6 @@
 */
 
 import std.sync.*  // Concurrency
-import std.time.* // Duration
 
 main(): Int64 {
     let m = Mutex()

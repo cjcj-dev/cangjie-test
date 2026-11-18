@@ -39,8 +39,8 @@ interface I {
     mut func f6() {
         return 3
     }
-    mut func f7(x: Int64) {}
-    mut func f8(x: Int64) {
+    mut func f7(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    mut func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 4
     }
 
@@ -53,8 +53,8 @@ interface I {
     mut func f14() {
         return 7
     }
-    mut func f15(x: Int64) {}
-    mut func f16(x: Int64) {
+    mut func f15(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
+    mut func f16(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 8
     }
 }
@@ -68,10 +68,10 @@ struct S <: I {
         counter++
         return 1
     }
-    public override mut func f3(x: Int64) {
+    public override mut func f3(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         counter++
     }
-    public override mut func f4(x: Int64) {
+    public override mut func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         counter++
         return 2
     }
@@ -83,10 +83,10 @@ struct S <: I {
         counter++
         return 5
     }
-    public override mut func f11(x: Int64) {
+    public override mut func f11(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         counter++
     }
-    public override mut func f12(x: Int64) {
+    public override mut func f12(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         counter++
         return 6
     }

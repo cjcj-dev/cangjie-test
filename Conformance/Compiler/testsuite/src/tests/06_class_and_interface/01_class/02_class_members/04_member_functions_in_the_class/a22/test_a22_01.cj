@@ -41,7 +41,7 @@ import utils.assert.Assert
 
 class C<T> {
     static let a: Int32 = 0
-    static func foo(b: T): Int32 {
+    static func foo(b: T): Int32 { let checkedArgument0 = [b]; Assert.equals(1, checkedArgument0.size);
         return a
     }
 }

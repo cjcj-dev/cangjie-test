@@ -116,45 +116,45 @@ enum ENUM {
         Assert.equals(0.3f16, arg)
     }
 
-    func Check(arg:Int8) {
+    func Check(arg:Int8) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(-1i8)
     }
-    func Check(arg:Int16) {
+    func Check(arg:Int16) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(-2i16)
     }
-    func Check(arg:Int32) {
+    func Check(arg:Int32) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(-3i32)
     }
-    func Check(arg:Int64) {
+    func Check(arg:Int64) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(-4i64)
     }
-    func Check(arg:IntNative) {
+    func Check(arg:IntNative) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(IntNative(-5))
     }
     
-    func Check(arg:UInt8) {
+    func Check(arg:UInt8) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(1u8)
     }
-    func Check(arg:UInt16) {
+    func Check(arg:UInt16) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(2u16)
     }
-    func Check(arg:UInt32) {
+    func Check(arg:UInt32) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(3u32)
     }
-    func Check(arg:UInt64) {
+    func Check(arg:UInt64) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(4u64)
     }
-    func Check(arg:UIntNative) {
+    func Check(arg:UIntNative) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(UIntNative(5))
     }
     
-    func Check(arg:Float64) {
+    func Check(arg:Float64) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(0.10f64)
     }
-    func Check(arg:Float32) {
+    func Check(arg:Float32) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(0.2f32)
     }
-    func Check(arg:Float16) {
+    func Check(arg:Float16) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(0.3f16)
     }
 
@@ -208,45 +208,45 @@ struct STRUCT {
         Assert.equals(0.3f16, arg)
     }
 
-    func Check(arg:Int8) {
+    func Check(arg:Int8) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(-1i8)
     }
-    func Check(arg:Int16) {
+    func Check(arg:Int16) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(-2i16)
     }
-    func Check(arg:Int32) {
+    func Check(arg:Int32) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(-3i32)
     }
-    func Check(arg:Int64) {
+    func Check(arg:Int64) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(-4i64)
     }
-    func Check(arg:IntNative) {
+    func Check(arg:IntNative) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(IntNative(-5))
     }
     
-    func Check(arg:UInt8) {
+    func Check(arg:UInt8) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(1u8)
     }
-    func Check(arg:UInt16) {
+    func Check(arg:UInt16) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(2u16)
     }
-    func Check(arg:UInt32) {
+    func Check(arg:UInt32) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(3u32)
     }
-    func Check(arg:UInt64) {
+    func Check(arg:UInt64) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(4u64)
     }
-    func Check(arg:UIntNative) {
+    func Check(arg:UIntNative) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(UIntNative(5))
     }
     
-    func Check(arg:Float64) {
+    func Check(arg:Float64) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(0.10f64)
     }
-    func Check(arg:Float32) {
+    func Check(arg:Float32) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(0.2f32)
     }
-    func Check(arg:Float16) {
+    func Check(arg:Float16) { let observedArgument0 = [arg]; Assert.equals(1, observedArgument0.size);
         SCheck(0.3f16)
     }
 

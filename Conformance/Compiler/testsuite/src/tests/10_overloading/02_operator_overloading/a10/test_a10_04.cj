@@ -62,7 +62,7 @@ enum ENUM {
 }
 
 
-main(ina :Array<String>) {
+main() {
     
     var u:ENUM = ONE + TWO
     Assert.equals(3, ENUM.enuco(u))    

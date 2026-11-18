@@ -27,4 +27,5 @@ import utils.assert.Assert
 main() {
   var c = r'c'
   Assert.isTrue(c is Rune)
+  Assert.equals(r'c', c)
 }

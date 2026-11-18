@@ -24,18 +24,20 @@
 
 */
 
+import utils.assert.Assert
+
 extend Object {
-    public operator func +(x : Unit) { C() }
-    public operator func -(x : Unit) { C() }
-    public operator func *(x : Unit) { C() }
-    public operator func **(x : Unit) { C() }
-    public operator func /(x : Unit) { C() }
-    public operator func %(x : Unit) { C() }
-    public operator func &(x : Unit) { C() }
-    public operator func |(x : Unit) { C() }
-    public operator func ^(x : Unit) { C() }
-    public operator func <<(x : Unit) { C() }
-    public operator func >>(x : Unit) { C() }
+    public operator func +(x : Unit) { Assert.equals((), x); C() }
+    public operator func -(x : Unit) { Assert.equals((), x); C() }
+    public operator func *(x : Unit) { Assert.equals((), x); C() }
+    public operator func **(x : Unit) { Assert.equals((), x); C() }
+    public operator func /(x : Unit) { Assert.equals((), x); C() }
+    public operator func %(x : Unit) { Assert.equals((), x); C() }
+    public operator func &(x : Unit) { Assert.equals((), x); C() }
+    public operator func |(x : Unit) { Assert.equals((), x); C() }
+    public operator func ^(x : Unit) { Assert.equals((), x); C() }
+    public operator func <<(x : Unit) { Assert.equals((), x); C() }
+    public operator func >>(x : Unit) { Assert.equals((), x); C() }
 }
 
 class C { }

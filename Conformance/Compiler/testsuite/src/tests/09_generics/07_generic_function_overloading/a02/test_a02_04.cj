@@ -38,11 +38,11 @@ import utils.assert.Assert
 open class A {}
 open class B <: A {}
 
-func foo<T>(x: T, y: A) {
+func foo<T>(x: T, y: A) { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [y]; Assert.equals(1, observedArgument1.size);
     return 1
 }
 
-func foo<T>(x: T, y: B) {
+func foo<T>(x: T, y: B) { let observedArgument0 = [x]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [y]; Assert.equals(1, observedArgument1.size);
     return 2
 }
 

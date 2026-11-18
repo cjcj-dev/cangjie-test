@@ -48,8 +48,8 @@
 import utils.assert.Assert
 
 open class C1<T> {
-    public func c1(a: Int32) {} // ok
-    public func c1(a: T) {} // ok
+    public func c1(a: Int32) { let testedArgument0 = [a]; Assert.equals(1, testedArgument0.size) } // ok
+    public func c1(a: T) { let testedArgument0 = [a]; Assert.equals(1, testedArgument0.size) } // ok
 }
 
 interface I1<T> {
@@ -60,8 +60,8 @@ interface I1<T> {
 var a = C1<Rune>()
 class C2 <: C1<String> {}
 class C3 <: I1<Float16> {
-  public func i1(a: Int32) {}
-  public func i1(a: Float16) {}
+  public func i1(a: Int32) { let testedArgument0 = [a]; Assert.equals(1, testedArgument0.size) }
+  public func i1(a: Float16) { let testedArgument0 = [a]; Assert.equals(1, testedArgument0.size) }
 }
 
 main() {

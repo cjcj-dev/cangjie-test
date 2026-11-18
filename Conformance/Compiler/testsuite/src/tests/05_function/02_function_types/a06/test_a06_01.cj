@@ -33,7 +33,7 @@ type myFuncType0 = (Int32, Int32) -> Int32
 type myFuncType1 = (Int32, Int32) -> myFuncType0
 type myFuncType2 = (Int32, Int32) -> (Int32, Int32) -> Int32 
 
-func returnAdd(a: Int32, b: Int32): (Int32, Int32) -> Int32 { 
+func returnAdd(a: Int32, b: Int32): (Int32, Int32) -> Int32 { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [b]; Assert.equals(1, observedArgument1.size);
   {a, b => a + b}
 }
 

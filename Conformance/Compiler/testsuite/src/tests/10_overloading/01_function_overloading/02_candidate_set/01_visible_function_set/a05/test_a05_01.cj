@@ -45,7 +45,7 @@ open class Klass {
 }
 
 
-main(ina :Array<String>) {
+main() {
     var kl:Klass = Klass();
     Assert.equals(0.0f32, kl.f32)
     0

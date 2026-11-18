@@ -53,11 +53,11 @@ class Foo<T> <: IBar<T> {
         a = arg
     }
 
-    static func foo(a: T) {
+    static func foo(a: T) { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size);
         return "foo"
     }
 
-    public func bar(a: T, b: Int32): Unit {}
+    public func bar(a: T, b: Int32): Unit { let observedArgument0 = [a]; Assert.equals(1, observedArgument0.size); let observedArgument1 = [b]; Assert.equals(1, observedArgument1.size);}
 }
 
 interface IBar<T> { 

@@ -37,7 +37,7 @@ open class Open {
         Assert.isTrue(false)
     }
 
-    public open func f2(x: Int64) {
+    public open func f2(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
     }
 
@@ -46,7 +46,7 @@ open class Open {
         return 1
     }
 
-    public open func f4(x: Int64) {
+    public open func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
         return 2
     }
@@ -55,7 +55,7 @@ open class Open {
         Assert.isTrue(false)
     }
 
-    protected open func f6(x: Int64) {
+    protected open func f6(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
     }
 
@@ -64,7 +64,7 @@ open class Open {
         return 3
     }
 
-    protected open func f8(x: Int64) {
+    protected open func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
         return 4
     }
@@ -75,7 +75,7 @@ abstract class Abstract {
         Assert.isTrue(false)
     }
 
-    public open func f2(x: Int64) {
+    public open func f2(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
     }
 
@@ -84,7 +84,7 @@ abstract class Abstract {
         return 5
     }
 
-    public open func f4(x: Int64) {
+    public open func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
         return 6
     }
@@ -93,7 +93,7 @@ abstract class Abstract {
         Assert.isTrue(false)
     }
 
-    protected open func f6(x: Int64) {
+    protected open func f6(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
     }
 
@@ -102,7 +102,7 @@ abstract class Abstract {
         return 7
     }
 
-    protected open func f8(x: Int64) {
+    protected open func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
         return 8
     }
@@ -113,7 +113,7 @@ sealed abstract class Sealed {
         Assert.isTrue(false)
     }
 
-    public open func f2(x: Int64) {
+    public open func f2(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
     }
 
@@ -122,7 +122,7 @@ sealed abstract class Sealed {
         return 9
     }
 
-    public open func f4(x: Int64) {
+    public open func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
         return 10
     }
@@ -131,7 +131,7 @@ sealed abstract class Sealed {
         Assert.isTrue(false)
     }
 
-    protected open func f6(x: Int64) {
+    protected open func f6(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
     }
 
@@ -140,7 +140,7 @@ sealed abstract class Sealed {
         return 11
     }
 
-    protected open func f8(x: Int64) {
+    protected open func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         Assert.isTrue(false)
         return 12
     }
@@ -150,25 +150,25 @@ sealed abstract class Sealed {
 class Test1 <: Open {
     public override func f1() {}
 
-    public override func f2(x: Int64) {}
+    public override func f2(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     public override func f3() {
         return 10
     }
 
-    public override func f4(x: Int64) {
+    public override func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 20
     }
 
     protected override func f5() {}
 
-    protected override func f6(x: Int64) {}
+    protected override func f6(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     protected override func f7() {
         return 30
     }
 
-    protected override func f8(x: Int64) {
+    protected override func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 40
     }
 }
@@ -176,25 +176,25 @@ class Test1 <: Open {
 class Test2 <: Abstract {
     public override func f1() {}
 
-    public override func f2(x: Int64) {}
+    public override func f2(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     public override func f3() {
         return 50
     }
 
-    public override func f4(x: Int64) {
+    public override func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 60
     }
 
     protected override func f5() {}
 
-    protected override func f6(x: Int64) {}
+    protected override func f6(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     protected override func f7() {
         return 70
     }
 
-    protected override func f8(x: Int64) {
+    protected override func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 80
     }
 }
@@ -202,25 +202,25 @@ class Test2 <: Abstract {
 class Test3 <: Sealed {
     public override func f1() {}
 
-    public override func f2(x: Int64) {}
+    public override func f2(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     public override func f3() {
         return 90
     }
 
-    public override func f4(x: Int64) {
+    public override func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 100
     }
 
     protected override func f5() {}
 
-    protected override func f6(x: Int64) {}
+    protected override func f6(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     protected override func f7() {
         return 110
     }
 
-    protected override func f8(x: Int64) {
+    protected override func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 120
     }
 }
@@ -229,25 +229,25 @@ class Test3 <: Sealed {
 class Test4 <: Open {
     public func f1() {}
 
-    public func f2(x: Int64) {}
+    public func f2(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     public func f3() {
         return 100
     }
 
-    public func f4(x: Int64) {
+    public func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 200
     }
 
     protected func f5() {}
 
-    protected func f6(x: Int64) {}
+    protected func f6(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     protected func f7() {
         return 300
     }
 
-    protected func f8(x: Int64) {
+    protected func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 400
     }
 }
@@ -255,25 +255,25 @@ class Test4 <: Open {
 class Test5 <: Abstract {
     public func f1() {}
 
-    public func f2(x: Int64) {}
+    public func f2(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     public func f3() {
         return 500
     }
 
-    public func f4(x: Int64) {
+    public func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 600
     }
 
     protected func f5() {}
 
-    protected func f6(x: Int64) {}
+    protected func f6(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     protected func f7() {
         return 700
     }
 
-    protected func f8(x: Int64) {
+    protected func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 800
     }
 }
@@ -281,25 +281,25 @@ class Test5 <: Abstract {
 class Test6 <: Sealed {
     public func f1() {}
 
-    public func f2(x: Int64) {}
+    public func f2(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     public func f3() {
         return 900
     }
 
-    public func f4(x: Int64) {
+    public func f4(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 1000
     }
 
     protected func f5() {}
 
-    protected func f6(x: Int64) {}
+    protected func f6(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);}
 
     protected func f7() {
         return 1100
     }
 
-    protected func f8(x: Int64) {
+    protected func f8(x: Int64) { let checkedArgument0 = [x]; Assert.equals(1, checkedArgument0.size);
         return 1200
     }
 }

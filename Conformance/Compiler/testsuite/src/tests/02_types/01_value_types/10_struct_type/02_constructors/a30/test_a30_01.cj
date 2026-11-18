@@ -66,20 +66,26 @@ struct B<T1, T2> where T1 <: ToString, T2 <: ToString {
 
 main() {
     let case1 = A()
+    let constructedValue0 = [case1]; Assert.equals(1, constructedValue0.size);
     Assert.equals("A:init()", last_const)
 
     let case2 = A(12)
+    let constructedValue1 = [case2]; Assert.equals(1, constructedValue1.size);
     Assert.equals("A:init(12)", last_const)
 
     let case3 = A("str", y: false, z: r's')
+    let constructedValue2 = [case3]; Assert.equals(1, constructedValue2.size);
     Assert.equals("A:init(str, false, s)", last_const)
 
     let case4 = A([1, 2, 3])
+    let constructedValue3 = [case4]; Assert.equals(1, constructedValue3.size);
     Assert.equals("A:init([1, 2, 3], 5)", last_const)
 
     let case5 = B<Int64, Int64>()
+    let constructedValue4 = [case5]; Assert.equals(1, constructedValue4.size);
     Assert.equals("B:init()", last_const)
 
     let case6 = B<String, Int64>("abc", 7)
+    let constructedValue5 = [case6]; Assert.equals(1, constructedValue5.size);
     Assert.equals("B:init(abc, 7)", last_const)
 }

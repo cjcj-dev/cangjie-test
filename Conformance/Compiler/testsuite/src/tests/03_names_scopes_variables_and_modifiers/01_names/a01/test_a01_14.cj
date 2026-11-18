@@ -21,6 +21,10 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
     let `_5`: Int64
+    `_5` = 0
+    Assert.equals(0, `_5`)
 }

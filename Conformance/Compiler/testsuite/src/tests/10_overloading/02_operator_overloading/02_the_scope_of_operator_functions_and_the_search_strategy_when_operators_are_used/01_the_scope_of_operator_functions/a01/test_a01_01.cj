@@ -51,7 +51,7 @@ open class Sub <: Parent {
 
 }
 
-main(ina :Array<String>) {
+main() {
     var pa:Parent = Parent(0xffff)
     var su:Sub = Sub(0xffff00000)
     pa = !pa

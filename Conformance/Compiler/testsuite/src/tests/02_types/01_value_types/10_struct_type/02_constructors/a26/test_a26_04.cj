@@ -62,4 +62,5 @@ struct Test {
 main() {
     let tst = Test(1, 2, 4, 8, 16, 32, p7: 64, p8: 128, 
         p9: 256, p10: 512, p11: 1024, p12: 2048)
+    let constructedValue0 = [tst]; Assert.equals(1, constructedValue0.size);
 }

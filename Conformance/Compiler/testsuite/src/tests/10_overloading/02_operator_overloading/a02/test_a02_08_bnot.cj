@@ -31,6 +31,6 @@
 */
 
 
-main(ina :Array<String>) {
+main() {
     print(!0)
 }

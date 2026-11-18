@@ -28,10 +28,12 @@
 
 */
 
+import utils.assert.Assert
+
 open class Base {} 
 class Sub <: Base {} 
-func f<X, Y>(a: X, b: Y) {}          // f1 
-func f<X>(a: Base, b: X) {}          // f2 
+func f<X, Y>(a: X, b: Y) { let testedArgument0 = [a]; Assert.equals(1, testedArgument0.size); let testedArgument1 = [b]; Assert.equals(1, testedArgument1.size) }          // f1
+func f<X>(a: Base, b: X) { let testedArgument0 = [a]; Assert.equals(1, testedArgument0.size); let testedArgument1 = [b]; Assert.equals(1, testedArgument1.size) }          // f2
 
 main() {
   f<Base>(Base(), Sub()) // f2 may pass the type checking

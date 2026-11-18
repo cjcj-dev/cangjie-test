@@ -57,8 +57,9 @@ class A <: I1 {
     public func f2() {
         return 1
     }
-    public func f3(x: Int64) {}
+    public func f3(x: Int64) { Assert.equals(1, [x].size) }
     public func f4(x: Int64) {
+        Assert.equals(1, [x].size)
         return 2
     }
 
@@ -66,8 +67,9 @@ class A <: I1 {
     public static func f6() {
         return 3
     }
-    public static func f7(x: Int64) {}
+    public static func f7(x: Int64) { Assert.equals(1, [x].size) }
     public static func f8(x: Int64) {
+        Assert.equals(1, [x].size)
         return 4
     }
 
@@ -75,8 +77,9 @@ class A <: I1 {
     public static func f10<T>() {
         return 5
     }
-    public static func f11<T>(x: Int64) {}
+    public static func f11<T>(x: Int64) { Assert.equals(1, [x].size) }
     public static func f12<T>(x: Int64) {
+        Assert.equals(1, [x].size)
         return 6
     }
 
@@ -87,9 +90,11 @@ class A <: I1 {
         return 100
     }
     public operator func +(x: Int64) {
+        Assert.equals(1, [x].size)
         return true
     }
     public operator func [](x: Int64) {
+        Assert.equals(1, [x].size)
         return r'c'
     }
 

@@ -34,6 +34,8 @@
   @Structure:    single
 */
 
+import utils.assert.Assert
+
 public let myPublicTopLetNotDefinedInitialized = 0
 public var myPublicTopVarNotDefinedInitialized = 0
 public let myPublicTopLetInt64Initialized: Int64 = 0
@@ -106,4 +108,13 @@ main() {
     myClass1.changeVal(33)
     var myClass2 = MyClass(45)
     myClass1.changeVal(65)
+    Assert.equals(1, [myLetInt64Initialized].size)
+    Assert.equals(1, [myVarInt64Initialized].size)
+    Assert.equals(1, [myLetNotDefinedInitialized].size)
+    Assert.equals(1, [myVarNotDefinedInitialized].size)
+    Assert.equals(1, [myLetInt64NotInitialized].size)
+    Assert.equals(1, [myVarInt64NotInitialized].size)
+    Assert.equals(1, [myLetTupleInitialized].size)
+    Assert.equals(1, [myVarTupleInitialized].size)
+    Assert.equals(1, [myClass2].size)
 }

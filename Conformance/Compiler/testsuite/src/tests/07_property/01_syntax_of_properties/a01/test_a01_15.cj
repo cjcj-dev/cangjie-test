@@ -42,13 +42,19 @@
 
 */
 
+import utils.assert.Assert
+
 class A {
   public prop aaa : Int32 {
     get() { 0 }
   }
+    func checkProperty() {
+        Assert.equals(0i32, aaa)
+    }
 }
 
 main() {
+    A().checkProperty()
     return 0;
 }
 

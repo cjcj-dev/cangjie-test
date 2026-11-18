@@ -40,6 +40,8 @@
 
 */
 
+import utils.assert.Assert
+
 class TestClass {};
 
 main() {
@@ -73,6 +75,12 @@ main() {
     var operand_62 = "S_2";
     var expression_result_6: String = operand_61 + operand_62;
 
+    Assert.equals(127i8, expression_result_1)
+    Assert.equals(300i16, expression_result_2)
+    Assert.equals(8.0f16, expression_result_3)
+    Assert.equals(9.0f64, expression_result_4)
+    Assert.equals("S_1S_2", expression_result_5)
+    Assert.equals("S_1S_2", expression_result_6)
     return 0;
 }
 

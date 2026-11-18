@@ -25,6 +25,8 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
     let
     x
@@ -33,4 +35,6 @@ main() {
     y
     =
     200
+    Assert.equals(100, x)
+    Assert.equals(200, y)
 }

@@ -25,9 +25,12 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
     let
     x
     =
     100
+    Assert.equals(100, x)
 }

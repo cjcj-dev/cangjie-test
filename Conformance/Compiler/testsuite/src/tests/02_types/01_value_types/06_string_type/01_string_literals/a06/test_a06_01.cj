@@ -27,6 +27,8 @@
 
 */
 
+import utils.assert.Assert
+
 public let myPublicTopLetRawMultyLine0: String = """
 23t34***
 \"""
@@ -102,4 +104,6 @@ main() {
 
   var myLocalVarRawMultyLine0: String = """
   """
+    Assert.equals(1, [myLocalLetRawMultyLine0].size)
+    Assert.equals(1, [myLocalVarRawMultyLine0].size)
 }

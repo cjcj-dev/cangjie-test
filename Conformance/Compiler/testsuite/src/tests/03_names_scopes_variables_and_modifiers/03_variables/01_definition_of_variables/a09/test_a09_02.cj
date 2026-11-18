@@ -24,6 +24,8 @@
 
 */
 
+import utils.assert.Assert
+
 enum Color {
     Red(Int64)
 }
@@ -31,4 +33,7 @@ enum Color {
 main() {
     let (x,y) = ("JHFJ",45.2)
     let Red(a) = Red(22)
+    Assert.equals("JHFJ", x)
+    Assert.equals(45.2, y)
+    Assert.equals(22, a)
 }

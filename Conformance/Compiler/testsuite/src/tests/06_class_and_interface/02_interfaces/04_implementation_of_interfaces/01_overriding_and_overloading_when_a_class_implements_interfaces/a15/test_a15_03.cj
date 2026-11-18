@@ -39,78 +39,97 @@ interface I1 {
 enum C1 <: I1 {
     E1
     func f(x: Int64) {
+        Assert.equals(1, [x].size)
         return 2
     }
 
     func f(x: Int32) {
+        Assert.equals(1, [x].size)
         return 3
     }
 
     func f(x: Int16) {
+        Assert.equals(1, [x].size)
         return 4
     }
 
     func f(x: Int8) {
+        Assert.equals(1, [x].size)
         return 5
     }
 
     func f(x: UInt64) {
+        Assert.equals(1, [x].size)
         return 6
     }
 
     func f(x: UInt32) {
+        Assert.equals(1, [x].size)
         return 7
     }
 
     func f(x: UInt16) {
+        Assert.equals(1, [x].size)
         return 8
     }
 
     func f(x: UInt8) {
+        Assert.equals(1, [x].size)
         return 9
     }
 
     func f(x: Float64) {
+        Assert.equals(1, [x].size)
         return 10
     }
 
     func f(x: Float32) {
+        Assert.equals(1, [x].size)
         return 11
     }
 
     func f(x: Float16) {
+        Assert.equals(1, [x].size)
         return 12
     }
 
     func f(x: Rune) {
+        Assert.equals(1, [x].size)
         return 13
     }
 
     func f(x: String) {
+        Assert.equals(1, [x].size)
         return 14
     }
 
     func f(x: Bool) {
+        Assert.equals(1, [x].size)
         return 15
     }
 
     func f(x: Unit) {
+        Assert.equals((), x)
         return 16
     }
 
     func f(x: (Int64, Int64)) {
+        Assert.equals(1, [x].size)
         return 17
     }
 
     func f(x: (Int64) -> Int64) {
+        Assert.equals(1, [x].size)
         return 18
     }
 
     func f(x: Range<Int64>) {
+        Assert.equals(1, [x].size)
         return 19
     }
 
     func f(x: Array<String>) {
+        Assert.equals(1, [x].size)
         return 20
     }
 }
@@ -131,12 +150,15 @@ interface I2 {
 enum C2 <: I2 {
     E2
     func f1(x: String) {
+        Assert.equals(1, [x].size)
         return 24
     }
     func f2(x: Bool) {
+        Assert.equals(1, [x].size)
         return 25
     }
     func f3(x: Rune) {
+        Assert.equals(1, [x].size)
         return 26
     }
 }
@@ -151,12 +173,18 @@ interface I3 {
 enum C3 <: I3 {
     E3
     static func f(a: Int64) {
+        Assert.equals(1, [a].size)
         return 31
     }
     static func f(a: Int64, b: Int64) {
+        Assert.equals(1, [a].size)
+        Assert.equals(1, [b].size)
         return 32
     }
     static func f(a: Int64, b: Int64, c: Int64) {
+        Assert.equals(1, [a].size)
+        Assert.equals(1, [b].size)
+        Assert.equals(1, [c].size)
         return 33
     }
 }
@@ -167,10 +195,12 @@ class B <: A {}
 
 interface I4 {
     static func f(x: A) {
+        Assert.equals(1, [x].size)
         return 41
     }
 
     static func f(x: B) {
+        Assert.equals(1, [x].size)
         return 42
     }
 }
@@ -178,9 +208,11 @@ interface I4 {
 enum C4 <: I4 {
     E4
     static func f(x: (A) -> Int64) {
+        Assert.equals(1, [x].size)
         return 43
     }
     static func f(x: (B) -> Int64) {
+        Assert.equals(1, [x].size)
         return 44
     }
 }
@@ -188,6 +220,8 @@ enum C4 <: I4 {
 // Generic enum overloads functions from an interface
 interface I5 {
     func f(x: String, y: Rune) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 51
     }
 }
@@ -195,6 +229,7 @@ interface I5 {
 enum C5<T> <: I5 {
     E5
     func f(a: Int64) {
+        Assert.equals(1, [a].size)
         return 52
     }
 }
@@ -202,6 +237,7 @@ enum C5<T> <: I5 {
 // Generic enum overloads functions from a generic interface
 interface I6<T> {
     func f(x: T) {
+        Assert.equals(1, [x].size)
         return 61
     }
 }
@@ -209,6 +245,7 @@ interface I6<T> {
 enum C6<T1, T2> <: I6<T1> {
     E6
     func f(x: T2) {
+        Assert.equals(1, [x].size)
         return 62
     }
 }
@@ -251,8 +288,8 @@ main() {
 
     Assert.equals(41, C4.f(A()))
     Assert.equals(42, C4.f(B()))
-    Assert.equals(43, C4.f({x: A => 1}))
-    Assert.equals(44, C4.f({x: B => 1}))
+    Assert.equals(43, C4.f({x: A => Assert.equals(1, [x].size); 1}))
+    Assert.equals(44, C4.f({x: B => Assert.equals(1, [x].size); 1}))
 
     let c5 = C5<Unit>.E5
     Assert.equals(51, c5.f("", r'a'))

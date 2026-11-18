@@ -53,42 +53,48 @@ interface I1 {
 enum A <: I1 {
     E(String)
     public func f1() {}
-    public func f2(x: Int64) {}
+    public func f2(x: Int64) { Assert.equals(1, [x].size) }
     public func f3() {
         return 1
     }
     public func f4(x: Int64) {
+        Assert.equals(1, [x].size)
         return 2
     }
 
     public static func f5() {}
-    public static func f6(x: Int64) {}
+    public static func f6(x: Int64) { Assert.equals(1, [x].size) }
     public static func f7() {
         return 3
     }
     public static func f8(x: Int64) {
+        Assert.equals(1, [x].size)
         return 4
     }
 
     public static func f9<T>() {}
-    public static func f10<T>(x: Int64) {}
+    public static func f10<T>(x: Int64) { Assert.equals(1, [x].size) }
     public static func f11<T>() {
         return 5
     }
     public static func f12<T>(x: Int64) {
+        Assert.equals(1, [x].size)
         return 6
     }
 
     public operator func +(rhs: I1) {
+        Assert.equals(1, [rhs].size)
         return 7
     }
     public operator func -(rhs: I1) {
+        Assert.equals(1, [rhs].size)
         return 8
     }
     public operator func !() {
         return 9
     }
     public operator func [](idx: Int64) {
+        Assert.equals(1, [idx].size)
         return 10
     }
 
@@ -128,12 +134,18 @@ enum B <: I2 {
         return 1
     }
     public static func f(x: Int64) {
+        Assert.equals(1, [x].size)
         return 2
     }
     public static func f(x: Int64, y: Int64) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 3
     }
     public static func f(x: Int64, y: Int64, z: Int64) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
+        Assert.equals(1, [z].size)
         return 4
     }
 
@@ -170,60 +182,79 @@ interface I3 {
 enum C <: I3 {
     E(String)
     public func f(a: Int64) {
+        Assert.equals(1, [a].size)
         return 1
     }
     public func f(a: Int32) {
+        Assert.equals(1, [a].size)
         return 2
     }
     public func f(a: Int16) {
+        Assert.equals(1, [a].size)
         return 3
     }
     public func f(a: Int8) {
+        Assert.equals(1, [a].size)
         return 4
     }
     public func f(a: UInt64) {
+        Assert.equals(1, [a].size)
         return 5
     }
     public func f(a: UInt32) {
+        Assert.equals(1, [a].size)
         return 6
     }
     public func f(a: UInt16) {
+        Assert.equals(1, [a].size)
         return 7
     }
     public func f(a: UInt8) {
+        Assert.equals(1, [a].size)
         return 8
     }
     public func f(a: Float64) {
+        Assert.equals(1, [a].size)
         return 9
     }
     public func f(a: Float32) {
+        Assert.equals(1, [a].size)
         return 10
     }
     public func f(a: Float16) {
+        Assert.equals(1, [a].size)
         return 11
     }
     public func f(a: Bool) {
+        Assert.equals(1, [a].size)
         return 12
     }
     public func f(a: Rune) {
+        Assert.equals(1, [a].size)
         return 13
     }
     public func f(a: String) {
+        Assert.equals(1, [a].size)
         return 14
     }
     public func f(a: Unit) {
+        Assert.equals((), a)
         return 15
     }
     public func f(a: (Rune, Rune)) {
+        Assert.equals(1, [a].size)
         return 16
     }
     public func f(a: () -> Int64) {
+        Assert.equals(1, [a].size)
         return 17
     }
     public func f(a: Range<Int64>) {
+        Assert.equals(1, [a].size)
         return 18
     }
     public func f(a: Array<Bool>) {
+        Assert.equals(1, [a].size)
         return 19
     }
 

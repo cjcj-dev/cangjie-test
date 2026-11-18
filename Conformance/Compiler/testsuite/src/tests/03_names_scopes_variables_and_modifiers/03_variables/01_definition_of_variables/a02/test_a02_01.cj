@@ -24,6 +24,8 @@
 
 */
 
+import utils.assert.Assert
+
 public let myPublicLetNotDefinedInitialized = 0.0
 public var myPublicVarNotDefinedInitialized = 0.0
 public let myPublicLetFloat16Initialized: Float16 = 0.0
@@ -49,4 +51,12 @@ main() {
 
     myLetFloat16NotInitialized = 0.0
     myVarFloat16NotInitialized = 0.0
+    Assert.equals(1, [myLetFloat16Initialized].size)
+    Assert.equals(1, [myVarFloat16Initialized].size)
+    Assert.equals(1, [myLetNotDefinedInitialized].size)
+    Assert.equals(1, [myVarNotDefinedInitialized].size)
+    Assert.equals(1, [myLetFloat16NotInitialized].size)
+    Assert.equals(1, [myVarFloat16NotInitialized].size)
+    Assert.equals(1, [myLetTupleInitialized].size)
+    Assert.equals(1, [myVarTupleInitialized].size)
 }

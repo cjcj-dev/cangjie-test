@@ -24,6 +24,9 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
     let s  : String = "\u{4f60}\u{101}\u{ffff}abc"
+    Assert.equals(1, [s].size)
 }

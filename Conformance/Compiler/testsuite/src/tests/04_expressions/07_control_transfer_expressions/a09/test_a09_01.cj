@@ -24,7 +24,7 @@ import utils.assert.Assert
 
 main() {
     var k = 0
-    for (i in 0..10) {
+    for (_ in 0..10) {
         func f() {
             var k = 1
             for (j in 0..10) {

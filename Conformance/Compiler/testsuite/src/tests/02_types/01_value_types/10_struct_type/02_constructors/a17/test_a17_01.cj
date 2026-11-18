@@ -84,7 +84,7 @@ main() {
                   m7: match(for_m2()) {case 2 => 7; case _ => 8},
                   m8: for_m1 |> {x: Int64 => x * 8},
                   m9: (for_m1 << 3) + 1,
-                  m10: {x: Unit => 10} (for (x in 1..=10:1) {for_m1++}),
+                  m10: {x: Unit => Assert.equals((), x); 10} (for (_ in 1..=10:1) {for_m1++}),
                   m11: for_m1,
                   m12: for_m2() * 6
                   )

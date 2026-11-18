@@ -53,43 +53,67 @@ enum C1 <: I1 {
         return 1
     }
     func f(x: Unit) {
+        Assert.equals((), x)
         return 2
     }
 
     public func g(x: String, y: Rune) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 11
     }
     public func g(x: Rune, y: String) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 12
     }
     public func g(x: String, y: String) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 13
     }
     func g(x: Rune, y: Rune) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 14
     }
 
     public func h(x: Bool) {
+        Assert.equals(1, [x].size)
         return 21
     }
     public func h(x1: Bool, y1: Bool) {
+        Assert.equals(1, [x1].size)
+        Assert.equals(1, [y1].size)
         return 22
     }
     public func h(x1: Bool, x2: Bool, y2!: Bool) {
+        Assert.equals(1, [x1].size)
+        Assert.equals(1, [x2].size)
+        Assert.equals(1, [y2].size)
         return 23
     }
     func h(x1: Bool, x2: Bool, x3: Bool, x4: Bool) {
+        Assert.equals(1, [x1].size)
+        Assert.equals(1, [x2].size)
+        Assert.equals(1, [x3].size)
+        Assert.equals(1, [x4].size)
         return 24
     }
 
     public func i(p1: Rune, p2: Unit) {
+        Assert.equals(1, [p1].size)
+        Assert.equals((), p2)
         return 31
     }
     func i(x: Bool, y: Int64) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 32
     }
 
     public operator func()(x: Int64) {
+        Assert.equals(1, [x].size)
         return 41
     }
     operator func()() {
@@ -118,39 +142,62 @@ enum C2 <: I2 {
         return 10
     }
     static func f(x: Unit) {
+        Assert.equals((), x)
         return 20
     }
 
     public static func g(x: String, y: Rune) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 110
     }
     public static func g(x: Rune, y: String) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 120
     }
     public static func g(x: String, y: String) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 130
     }
     static func g(x: Rune, y: Rune) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 140
     }
 
     public static func h(x: Bool) {
+        Assert.equals(1, [x].size)
         return 210
     }
     public static func h(x1: Bool, y1: Bool) {
+        Assert.equals(1, [x1].size)
+        Assert.equals(1, [y1].size)
         return 220
     }
     public static func h(x1: Bool, x2: Bool, y2!: Bool) {
+        Assert.equals(1, [x1].size)
+        Assert.equals(1, [x2].size)
+        Assert.equals(1, [y2].size)
         return 230
     }
     static func h(x1: Bool, x2: Bool, x3: Bool, x4: Bool) {
+        Assert.equals(1, [x1].size)
+        Assert.equals(1, [x2].size)
+        Assert.equals(1, [x3].size)
+        Assert.equals(1, [x4].size)
         return 240
     }
 
     public static func i(p1: Rune, p2: Unit) {
+        Assert.equals(1, [p1].size)
+        Assert.equals((), p2)
         return 310
     }
     static func i(x: Bool, y: Int64) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 320
     }
 }
@@ -176,39 +223,62 @@ enum C3 <: I3 {
         return 100
     }
     static func f<T>(x: Unit) {
+        Assert.equals((), x)
         return 200
     }
 
     public static func g<T>(x: String, y: Rune) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 1100
     }
     public static func g<T>(x: Rune, y: String) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 1200
     }
     public static func g<T>(x: String, y: String) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 1300
     }
     static func g<T>(x: Rune, y: Rune) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 1400
     }
 
     public static func h<T>(x: Bool) {
+        Assert.equals(1, [x].size)
         return 2100
     }
     public static func h<T>(x1: Bool, y1: Bool) {
+        Assert.equals(1, [x1].size)
+        Assert.equals(1, [y1].size)
         return 2200
     }
     public static func h<T>(x1: Bool, x2: Bool, y2!: Bool) {
+        Assert.equals(1, [x1].size)
+        Assert.equals(1, [x2].size)
+        Assert.equals(1, [y2].size)
         return 2300
     }
     static func h<T>(x1: Bool, x2: Bool, x3: Bool, x4: Bool) {
+        Assert.equals(1, [x1].size)
+        Assert.equals(1, [x2].size)
+        Assert.equals(1, [x3].size)
+        Assert.equals(1, [x4].size)
         return 2400
     }
 
     public static func i<T>(p1: Rune, p2: Unit) {
+        Assert.equals(1, [p1].size)
+        Assert.equals((), p2)
         return 3100
     }
     static func i<T>(x: Bool, y: Int64) {
+        Assert.equals(1, [x].size)
+        Assert.equals(1, [y].size)
         return 3200
     }
 }
@@ -221,10 +291,12 @@ interface I4<T1, T2> {
 enum C4<T1, T2> <: I4<T1, T2> {
     E4
     public func f(x: T1) {
+        Assert.equals(1, [x].size)
         return "1"
     }
 
     func f(x: T2) {
+        Assert.equals(1, [x].size)
         return "2"
     }
 }

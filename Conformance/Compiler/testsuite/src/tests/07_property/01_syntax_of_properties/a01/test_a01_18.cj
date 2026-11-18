@@ -42,14 +42,21 @@
 
 */
 
+import utils.assert.Assert
+
 class A {
   private mut prop aaa : Int32 {
     get() { 0 }
-    set(v) {}
+    set(v) { Assert.equals(3i32, v) }
   }
+    func checkProperty() {
+        aaa = 3
+        Assert.equals(0i32, aaa)
+    }
 }
 
 main() {
+    A().checkProperty()
     return 0;
 }
 

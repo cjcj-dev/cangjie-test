@@ -74,7 +74,7 @@ main() {
     var yf64 : Float64
 
     let rnd = Random(123)
-    for (i in 0..2**10) {
+    for (_ in 0..2**10) {
         xi8 = rnd.nextInt8() / 2
         yi8 = rnd.nextInt8() / 2
         Assert.equals(xi8 - (-1i8), xi8 - - 1i8)

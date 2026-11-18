@@ -24,8 +24,12 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
     var _ = "asfknds"
     var myVar = 12.76
     let (_,z) = (17,"ASFASF")
+    Assert.equals(12.76, myVar)
+    Assert.equals("ASFASF", z)
 }

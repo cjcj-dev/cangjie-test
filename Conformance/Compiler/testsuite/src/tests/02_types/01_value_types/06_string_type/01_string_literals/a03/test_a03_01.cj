@@ -33,9 +33,15 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
   let s1 = "" // empty string
   let s2: String = "Hello Cangjie Lang" // define string s2
   var s3 = "\"Hello Cangjie Lang\"" // define string s3 containing character "
   var s4: String = "Hello Cangjie Lang\n" // define string s4 containing character \n
+    Assert.equals("", s1)
+    Assert.equals("Hello Cangjie Lang", s2)
+    Assert.equals("\"Hello Cangjie Lang\"", s3)
+    Assert.equals("Hello Cangjie Lang\n", s4)
 }

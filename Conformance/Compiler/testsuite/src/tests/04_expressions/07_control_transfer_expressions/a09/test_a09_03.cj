@@ -27,7 +27,7 @@ main() {
     do {
         func f() {
             var k = 1
-            for (j in 0..10) {
+            for (_ in 0..10) {
                 k *= 100
                 break
             }

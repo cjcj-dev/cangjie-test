@@ -25,6 +25,11 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
     let x = 100 ; let y = 200 ; let z = 300
+    Assert.equals(100, x)
+    Assert.equals(200, y)
+    Assert.equals(300, z)
 }

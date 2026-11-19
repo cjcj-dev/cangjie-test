@@ -36,7 +36,8 @@ func myCheckFunc(x: Int64, v: Int64){
     return retVal
 }
 
-main() {
+main(inp: Array<String>) {
+    let zero = Assert.getRuntimeZero(inp)
     // test case #1
     let intNum: Int64 = 100
     Assert.equals(100, intNum)
@@ -73,7 +74,7 @@ main() {
     Assert.equals(-1, v) ;
     
     // test case #5
-    var score: Int64 = 90
+    var score: Int64 = 90 + zero
     var res: String = match (score) {
     case 0 => "zero"
     case 10 => "fail"
@@ -85,12 +86,13 @@ main() {
     Assert.equals("excellent", res);
     
     // test case #6
-    score = 20
+    score = 20 + zero
     res = match (score) {
     case 20 => "pass"
     case _ => "not a valid score"
     }
-    score = 0
+    Assert.equals("pass", res)
+    score = 0 + zero
     res = match (score) {
     case 0 => "zero"
     case _ => "not a valid score"

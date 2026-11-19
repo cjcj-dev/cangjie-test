@@ -47,7 +47,6 @@ main() {
     @When[backend == "cjnative"]
     func err(): Error {
         throw SpawnException()
-        err()
     }
 
     try {

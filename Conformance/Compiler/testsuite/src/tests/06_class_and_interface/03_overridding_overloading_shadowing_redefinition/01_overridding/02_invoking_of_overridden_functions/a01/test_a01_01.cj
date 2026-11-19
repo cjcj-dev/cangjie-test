@@ -173,6 +173,8 @@ class C4 <: C {
     }
 }
 
+class C5 <: C {}
+
 main() {
     let C1_typeI: I = C1()
     let C1_typeC1: C1 = C1()
@@ -221,4 +223,7 @@ main() {
     C4_typeC.super_check_sub(C4(), C4())
     C4_typeC4.super_check_sub(C4(), C4())
     C4_typeC4.sub_check_sub(C4(), C4())
+    let baseBody: C = C5()
+    baseBody.super_check_super(baseBody)
+    C4_typeC4.sub_check_super(baseBody)
 }

@@ -24,6 +24,8 @@
 
 */
 
+import utils.assert.Assert
+
 class AccessModifiers { 
     var a = 0             //default access modifier
     public var b = 0      //public access modifier
@@ -54,5 +56,7 @@ struct MutModifier { mut func f() { } }  //mut non-access modifier
 class OperatorModifier { operator func -() {} } //operator non-access modifier 
 
 main() {
-
+    var value = MutModifier()
+    Assert.equals((), value.f())
+    Assert.equals((), -OperatorModifier())
 }

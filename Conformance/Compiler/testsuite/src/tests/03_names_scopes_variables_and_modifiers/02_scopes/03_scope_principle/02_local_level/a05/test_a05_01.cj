@@ -34,7 +34,7 @@ class Test {
     }    
 }
 
-main() {
+main(inp: Array<String>) {
 // test case #1
     let tmp1 : Int32 = 0
     if (tmp1 == 0) {
@@ -81,7 +81,7 @@ main() {
 
 // test case #5
     let tmp5 : Int64 = 0
-    let ss5 : String = match (0) {
+    let ss5 : String = match (tmp5 + Assert.getRuntimeZero(inp)) {
         case 1 => "1"
         case 2 => "2"
         case 0 => "0"
@@ -93,6 +93,8 @@ main() {
         Assert.equals(-1, tmp5)
     }
  
+    Assert.equals(0, tmp5)
+
 // test case #6
     let tmp6 : String = ""
     let intArray: Array<Int32> = [0, 1, 2, 3, 4]

@@ -92,6 +92,8 @@ class ManyInits {
   init(p1: Rune, p2: String) {
     init_counter++
     x = 20
+    Assert.equals(r'f', p1)
+    Assert.equals("", p2)
   }
 
   var x: Int64
@@ -101,6 +103,8 @@ main() {
   Assert.equals(0, init_counter)
   
   var a = SimpleInit()
+  let constructed: Any = a
+  Assert.isTrue(constructed is SimpleInit)
   Assert.equals(1, init_counter)
 
   var b = GenericInit<Unit>()

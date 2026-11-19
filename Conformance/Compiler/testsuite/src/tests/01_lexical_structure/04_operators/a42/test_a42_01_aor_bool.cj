@@ -35,8 +35,9 @@ let ct_opnd2   :  TestedType  =  true
 
 main(ina :Array<String>) {
     var RTZero : TestedType =  Assert.getRuntimeZero(ina) != 0
+    let runtimeTrue: TestedType = ct_opnd2 != RTZero
     var rt_opnd1: TestedType = ct_opnd1 ||  RTZero;
-    var rt_opnd2: TestedType = ct_opnd2 ||  RTZero;
+    var rt_opnd2: TestedType = runtimeTrue ||  RTZero;
     var res1: TestedType =  ct_opnd1;
     var res2: TestedType =  rt_opnd1;
     res1 ||= ct_opnd2;

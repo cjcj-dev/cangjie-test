@@ -36,7 +36,8 @@ class Test {
     }
 
     func g(x: Test) {
-        if (x is Test) {
+        let value: Any = x
+        if (value is Test) {
             return true
         } else {
             return false
@@ -61,7 +62,7 @@ class Test {
         Assert.isTrue(g(f()))
         let x: Test
         x = f()
-        Assert.isTrue(x is Test)
+        Assert.isTrue(g(x))
         Assert.isTrue(h() is Test)
         Assert.isTrue(p is Test)
         p = f()

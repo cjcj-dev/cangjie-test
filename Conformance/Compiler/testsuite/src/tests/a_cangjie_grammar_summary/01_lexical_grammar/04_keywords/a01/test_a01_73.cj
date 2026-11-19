@@ -92,6 +92,8 @@
   @Negative: no
 */
 
+import utils.assert.Assert
+
 class A {
     prop x: Int64 {
         get() { 42 }
@@ -100,5 +102,7 @@ class A {
 
 main() {
     var get = 0
+    Assert.equals(42, A().x)
+    Assert.equals(0, get)
 }
 

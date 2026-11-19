@@ -31,20 +31,19 @@ import utils.assert.Assert
 
 main(ina :Array<String>) {
     let carr:Array<Int32>=[0,1,2,3,4,5,6,7,8]
-    var arr = Array<Int32>(3) {
-        i=>0
-    }
+    var arr: Array<Int32> = [0, 0, 0]
 
+    var caught = false
     try {
-        var i:Int64 = 0
+        var i:Int64 = Assert.getRuntimeZero(ina)
         for (item in 1..=7 : 2) {
            arr[i] = carr[item]
            i++
         } 
-        Assert.fail()
-    } catch (_) {
-        Assert.pass()
+    } catch (_: IndexOutOfBoundsException) {
+        caught = true
     }
+    Assert.isTrue(caught)
 
     0
 }

@@ -38,38 +38,47 @@ import utils.assert.Assert
 
 class Test {
   private static let priv_static_var = true
+  private let operandTag: Int64
+
+  init(tag: Int64) { operandTag = tag }
 
   operator func +(rhs: Test) {
+    Assert.equals(2, rhs.operandTag)
     let x = priv_static_var
     Assert.equals(true, x)
     return 1
   }
 
   operator func -(rhs: Test) {
+    Assert.equals(2, rhs.operandTag)
     let x = priv_static_var
     Assert.equals(true, x)
     return 2
   }
 
   operator func *(rhs: Test) {
+    Assert.equals(2, rhs.operandTag)
     let x = priv_static_var
     Assert.equals(true, x)
     return 3
   }
 
   operator func /(rhs: Test) {
+    Assert.equals(2, rhs.operandTag)
     let x = priv_static_var
     Assert.equals(true, x)
     return 4
   }
 
   operator func %(rhs: Test) {
+    Assert.equals(2, rhs.operandTag)
     let x = priv_static_var
     Assert.equals(true, x)
     return 5
   }
 
   operator func **(rhs: Test) {
+    Assert.equals(2, rhs.operandTag)
     let x = priv_static_var
     Assert.equals(true, x)
     return 6
@@ -94,6 +103,7 @@ class Test {
   }
 
   operator func [](idx: Int64) {
+    Assert.equals(1, idx)
     let x = priv_static_var
     Assert.equals(true, x)
     return 10
@@ -101,8 +111,8 @@ class Test {
 }
 
 main() {
-  let lhs = Test()
-  let rhs = Test()
+  let lhs = Test(1)
+  let rhs = Test(2)
 
   Assert.equals(1, lhs + rhs)
   Assert.equals(2, lhs - rhs)

@@ -41,6 +41,7 @@ main() {
     
     if (x01 > 0.0) {
         var y01 : Float32 = 3.0 * x01
+        Assert.equals(300.0f32, y01)
     }
     Assert.equals(200.0, y01)
     
@@ -51,9 +52,11 @@ main() {
     
     if (myBoolFunc(0)) {
         var y02 : Int64 = 100
+        Assert.equals(100, y02)
     }
     else {
         var y02 : Int64 = 500
+        Assert.equals(500, y02)
     }
     Assert.equals(40, y02)
 
@@ -65,7 +68,7 @@ main() {
     if (myBoolFunc(10)) { }
     else {
         var y03 : Int32 = 8 * x03
-        y03 + 1
+        Assert.equals(-799i32, y03 + 1)
     }
     Assert.equals(-600, y03)
 
@@ -76,7 +79,8 @@ main() {
     
     if (myBoolFunc(0)) {
         var y04 = 7 * x04
-        4 * x04 
+        Assert.equals(700, y04)
+        Assert.equals(400, 4 * x04)
     }
     else { }
     Assert.equals(800, y04)
@@ -95,6 +99,7 @@ main() {
         y05 - x05 
     }
     Assert.equals(20, ifRes)
+    Assert.equals(50, y05)
 }   //main
 
 

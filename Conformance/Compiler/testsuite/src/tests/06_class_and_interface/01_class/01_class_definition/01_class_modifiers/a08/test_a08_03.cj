@@ -63,6 +63,10 @@ abstract sealed class PAG<T1, T2> {
     public func foo(x: T1): T2
     public func bar(x: T2): T1
     func foobar(x: T1, y: T2) {
+        let first: Any = x
+        let second: Any = y
+        Assert.isTrue(first is T1)
+        Assert.isTrue(second is T2)
         return 10
     }
 }
@@ -123,12 +127,12 @@ class PRG <: PAG<Rune, Bool> {
 
 
 main() {
-    var ac  = RC()
-    var ag  = RG()
-    var apc = RPC()
-    var apg = RPG()
-    var pac = PRC()
-    var pag = PRG()
+    var ac  : Any = RC()
+    var ag  : Any = RG()
+    var apc : Any = RPC()
+    var apg : Any = RPG()
+    var pac : Any = PRC()
+    var pag : Any = PRG()
 
     Assert.isTrue(ac is AC)
     Assert.isTrue(ac is RC)
@@ -142,4 +146,6 @@ main() {
     Assert.isTrue(pac is PRC)
     Assert.isTrue(pag is PAG<Rune, Bool>)
     Assert.isTrue(pag is PRG)
+    let inherited: PAG<Rune, Bool> = PRG()
+    Assert.equals(10, inherited.foobar(r'b', true))
 }

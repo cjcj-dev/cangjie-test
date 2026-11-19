@@ -87,6 +87,7 @@ abstract public class APG<T> {
 // Non-abstract classes for runtime checks
 class RS <: AS {
   public func foo(x: Int32) {
+    Assert.equals(1i32, x)
     return r'a'
   }
   public func bar() {
@@ -95,7 +96,10 @@ class RS <: AS {
 }
 
 class RG <: AG<Object> {
-  public func abst(x: Object) {}
+  public func abst(x: Object) {
+    let argument: Any = x
+    Assert.isTrue(argument is Object)
+  }
 }
 
 class PRS <: PAS {
@@ -121,6 +125,7 @@ public class RPS <: APS {
 
 class RPG <: APG<Bool> {
   public func f(x: Int32, y: Int32, z: Int32) {
+    Assert.equals("", this.x)
     return x*y + z
   }
 }
@@ -140,4 +145,9 @@ main() {
   Assert.isTrue(pag is PAG<Int32, Float32>)
   Assert.isTrue(aps is APS)
   Assert.isTrue(apg is APG<Bool>)
+  Assert.equals(1, as_.foobar())
+  Assert.equals(r'a', as_.foo(1i32))
+  Assert.equals((), ag.abst(as_))
+  Assert.equals((), pas.c())
+  Assert.equals(5, apg.f(1i32, 2i32, 3i32))
 }

@@ -21,7 +21,10 @@ import utils.assert.Assert
 
 main() {
     try {
-        Assert.throws({ => throw SpawnException() }, check: { unused => throw IllegalArgumentException() })
+        Assert.throws({ => throw SpawnException() }, check: { caught =>
+            Assert.isTrue(caught is SpawnException)
+            throw IllegalArgumentException()
+        })
         throw Exception("No expected AssertException")
     } catch (ok: IllegalArgumentException) {
     } catch (e: Exception) {

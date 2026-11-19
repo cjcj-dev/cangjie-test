@@ -52,6 +52,7 @@ class MyClass {
     }
 
     func checkValues(inVal: Int8) {
+        Assert.equals(127i8, myStaticPrivateClassMemberVar)
         Assert.equals(this.myPrivateClassMemberVarNotInitalised, inVal)
         Assert.equals(this.myPublicClassMemberVarNotInitalised, inVal)
         Assert.equals(this.myProtectedClassMemberVarNotInitalised, inVal)
@@ -94,11 +95,11 @@ class NumberInput <: Resource {
     }
 }
 
-main() {
+main(inp: Array<String>) {
     let f1: (Int32, Int32)->Int32 = {a: Int32, b: Int32 => a - b}
     var f1Check = f1(16, 10)
     Assert.equals(6, f1Check)
-    let score: Int64 = 90 
+    let score: Int64 = 90 + Assert.getRuntimeZero(inp)
     Assert.equals(90, score)
 
     var scoreResult: String = match (score) { 
@@ -133,4 +134,7 @@ main() {
 
   let myClassImpl = MyClass(5) 
   myClassImpl.checkValues(5)
+  let triangle = Triangle(3, 4)
+  Assert.equals(3i32, triangle.base)
+  Assert.equals(4i32, triangle.height)
 }

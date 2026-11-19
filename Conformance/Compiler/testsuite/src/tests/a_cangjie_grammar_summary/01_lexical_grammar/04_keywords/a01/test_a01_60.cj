@@ -92,9 +92,13 @@
   @Negative: no
 */
 
+import utils.assert.Assert
+
 public func foo() {}
 
 main() {
     var public = 0
+    Assert.equals((), foo())
+    Assert.equals(0, public)
 }
 

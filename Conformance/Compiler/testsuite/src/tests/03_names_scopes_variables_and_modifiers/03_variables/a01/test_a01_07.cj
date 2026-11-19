@@ -25,12 +25,18 @@
 
 */
 
+import utils.assert.Assert
+
 class MyClass {
     static public var classVarStaticPublic = 22
     public var classVarPublic = 0..10:1
     static protected var classVarStaticProtected =23 
     protected var classVarProtected = 'H'
     static private var classVarStaticPrivate = 24
+
+    static func checkPrivateStorage() {
+        Assert.equals(24, classVarStaticPrivate)
+    }
     private var classVarPrivate = "9ywesn"
     static var classVarStatic = 3
     var classVar = 42.3
@@ -66,4 +72,22 @@ main() {
     var nameVarString = "AAA"
 
     var nameVarRangeOfInt64 = 0..5
+
+    MyClass.checkPrivateStorage()
+    Assert.equals(127, nameVarInt8)
+    Assert.equals(32767, nameVarInt16)
+    Assert.equals(2147483647, nameVarInt32)
+    Assert.equals(9223372036854775807, nameVarInt64)
+    Assert.equals(255, nameVarUInt8)
+    Assert.equals(65535, nameVarUInt16)
+    Assert.equals(4294967295, nameVarUInt32)
+    Assert.equals(4294967295, nameVarUInt64)
+    Assert.equals(0.0, nameVarFloat16)
+    Assert.equals(0.0, nameVarFloat32)
+    Assert.equals(0.0, nameVarFloat64)
+    Assert.equals(255, nameVarByte)
+    Assert.equals('S', nameVarChar)
+    Assert.equals(true, nameVarBool)
+    Assert.equals("AAA", nameVarString)
+    Assert.equals(0..5, nameVarRangeOfInt64)
 }

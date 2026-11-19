@@ -63,9 +63,12 @@
   @Structure:   single
 */
 
-main() {
-    var e = 1
-    var e2 = 2
+import utils.assert.Assert
+
+main(inp: Array<String>) {
+    let zero = Assert.getRuntimeZero(inp)
+    var e = 1 + zero
+    var e2 = 2 + zero
 
     var m1 = match (e) {
         case 0 => 2 + 2
@@ -90,5 +93,8 @@ main() {
         case _ => "fail"
     }
 
+    Assert.equals(0, m1)
+    Assert.equals("a", m2)
+    Assert.equals("succeed", m3)
     return 0
 }

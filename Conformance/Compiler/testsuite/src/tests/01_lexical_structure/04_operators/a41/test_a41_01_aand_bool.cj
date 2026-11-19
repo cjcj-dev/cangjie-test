@@ -37,10 +37,12 @@ let ctOpnd2   :  TestedType  =  true
 
 main(ina :Array<String>) {
     var RTZero : TestedType =  Assert.getRuntimeZero(ina) != 0
-    var rtOpnd1: TestedType = ctOpnd1 &&  RTZero;
+    let runtimeFalse: TestedType = ctOpnd1 != RTZero
+    var rtOpnd1: TestedType = runtimeFalse &&  RTZero;
     var rtOpnd2: TestedType = ctOpnd2 &&  RTZero;
     var res1: TestedType =  ctOpnd1;
     var res2: TestedType =  rtOpnd1;
+    res1 = runtimeFalse;
     res1 &&= ctOpnd2;
     res2 &&= rtOpnd2;
     Assert.equals(res1, res2)

@@ -92,14 +92,22 @@
   @Negative: no
 */
 
+import utils.assert.Assert
+
 class A {
     mut prop x: Int64 {
-        set(v) {}
+        set(v) {
+            Assert.equals(0, v)
+        }
         get() { 42 }
     }
 }
 
 main() {
     var set = 0
+    let instance = A()
+    instance.x = set
+    Assert.equals(42, instance.x)
+    Assert.equals(0, set)
 }
 

@@ -19,7 +19,14 @@
 
 */
 
-main() {
-    var score: Int64 = 0
+import utils.assert.Assert
+
+func matchScore(score: Int64): String {
     var res: String = match (score) {; case 0 => "pass" ; case _ => "failed" ; }
+    return res
+}
+
+main() {
+    Assert.equals("pass", matchScore(0))
+    Assert.equals("failed", matchScore(1))
 }

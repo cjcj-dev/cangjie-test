@@ -36,6 +36,8 @@
 
 import utils.assert.Assert
 
+let setterInputs = [0, 0, 0, 0, 0, 0]
+
 public open class Top {
   static var top_svar = 1
   static let top_slet = 2
@@ -63,7 +65,7 @@ public open class Top {
     get() {
       9
     }
-    set(v) {}
+    set(v) { setterInputs[0] = v }
   }
 
   static prop top_sprop: Int64 {
@@ -76,7 +78,7 @@ public open class Top {
     get() {
       11
     }
-    set(v) {}
+    set(v) { setterInputs[1] = v }
   }
 
   prop top_prop: Int64 {
@@ -117,7 +119,7 @@ public abstract class Middle <: Top {
     get() {
       21
     }
-    set(v) {}
+    set(v) { setterInputs[2] = v }
   }
 
   static prop middle_sprop: Int64 {
@@ -130,7 +132,7 @@ public abstract class Middle <: Top {
     get() {
       23
     }
-    set(v) {}
+    set(v) { setterInputs[3] = v }
   }
 
   prop middle_prop: Int64 {
@@ -171,7 +173,7 @@ sealed abstract class Bottom <: Middle {
     get() {
       33
     }
-    set(v) {}
+    set(v) { setterInputs[4] = v }
   }
 
   static prop bottom_sprop: Int64 {
@@ -184,7 +186,7 @@ sealed abstract class Bottom <: Middle {
     get() {
       35
     }
-    set(v) {}
+    set(v) { setterInputs[5] = v }
   }
 
   prop bottom_prop: Int64 {
@@ -194,7 +196,7 @@ sealed abstract class Bottom <: Middle {
   }
 
   operator func[](indx: Int64) {
-    return 39
+    return 38 + indx
   }
 }
 
@@ -214,8 +216,10 @@ class Test <: Bottom {
 
     // Check properties from the top open class
     Assert.equals(9, top_smprop)
+    top_smprop = 51
     Assert.equals(10, top_sprop)
     Assert.equals(11, top_mprop)
+    top_mprop = 52
     Assert.equals(12, top_prop)
 
     // Check variables from the middle abstract class
@@ -232,8 +236,10 @@ class Test <: Bottom {
 
     // Check properties from the middle abstract class
     Assert.equals(21, middle_smprop)
+    middle_smprop = 53
     Assert.equals(22, middle_sprop)
     Assert.equals(23, middle_mprop)
+    middle_mprop = 54
     Assert.equals(24, middle_prop)
 
     // Check variables from the bottom sealed class
@@ -250,8 +256,10 @@ class Test <: Bottom {
 
     // Check properties from the bottom sealed class
     Assert.equals(33, bottom_smprop)
+    bottom_smprop = 55
     Assert.equals(34, bottom_sprop)
     Assert.equals(35, bottom_mprop)
+    bottom_mprop = 56
     Assert.equals(36, bottom_prop)
   }
 }
@@ -317,6 +325,8 @@ main() {
   Assert.equals(37, tst())
   Assert.equals(38, -tst)
   Assert.equals(39, tst[1])
+  Assert.equals(40, tst[2])
 
   tst.check()
+  Assert.equals([51, 52, 53, 54, 55, 56], setterInputs)
 }

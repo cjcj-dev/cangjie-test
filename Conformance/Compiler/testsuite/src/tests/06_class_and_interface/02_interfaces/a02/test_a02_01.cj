@@ -29,6 +29,8 @@
 
 import utils.assert.Assert
 
+let setterSeen = [false, false, false, false, false, false, false, false, false]
+
 // Empty interfaces
 interface I1 {}
 class C1 <: I1 {}
@@ -52,7 +54,7 @@ interface I5<T> {
 }
 class C5 <: I5<Rune> {
     public operator func ==(rhs: I5<Rune>) {
-        return false
+        return !(rhs is C5)
     }
 }
 
@@ -61,6 +63,8 @@ interface I6<T> {
 }
 class C6<T> <: I6<T> {
     public func f(x: T) {
+        let input: Any = x
+        Assert.isTrue(input is T)
         return 1
     }
 }
@@ -88,6 +92,7 @@ interface I10 {
 }
 class C10 <: I10 {
     public func g(x: Int64) {
+        Assert.equals(17, x)
         return 1
     }
 }
@@ -98,6 +103,7 @@ interface I11<T> {
 }
 class C11 <: I11<Bool> {
     public func g(x: Int64) {
+        Assert.equals(17, x)
         return 1
     }
 }
@@ -108,6 +114,8 @@ interface I12<T> {
 }
 class C12<T> <: I12<T> {
     public func g(x: T) {
+        let input: Any = x
+        Assert.isTrue(input is T)
         return 1
     }
 }
@@ -170,7 +178,10 @@ interface I18<T> {
         get() {
             10
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(18, v)
+            setterSeen[0] = true
+        }
     }
 }
 class C18<T> <: I18<T> {}
@@ -189,7 +200,10 @@ class C19 <: I19 {
         get() {
             true
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(true, v)
+            setterSeen[1] = true
+        }
     }
 }
 
@@ -206,7 +220,10 @@ class C20 <: I20<Float16> {
         get() {
             r'q'
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(r'q', v)
+            setterSeen[2] = true
+        }
     }
 }
 
@@ -215,7 +232,10 @@ interface I21<T> {
         get() {
             10
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(21, v)
+            setterSeen[3] = true
+        }
     }
     mut prop q: String
 }
@@ -224,7 +244,10 @@ class C21<T> <: I21<T> {
         get() {
             ""
         }
-        set(v) {}
+        set(v) {
+            Assert.equals("ok", v)
+            setterSeen[4] = true
+        }
     }
 }
 
@@ -247,7 +270,10 @@ class C22 <: I22 {
         get() {
             true
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(true, v)
+            setterSeen[5] = true
+        }
     }
 }
 
@@ -269,7 +295,10 @@ class C23 <: I23<Rune> {
         get() {
             r'q'
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(r'q', v)
+            setterSeen[6] = true
+        }
     }
 }
 
@@ -282,19 +311,27 @@ interface I24<T> {
         get() {
             10
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(24, v)
+            setterSeen[7] = true
+        }
     }
     mut prop q: String
 }
 class C24<T> <: I24<T> {
     public func g(x: T) {
+        let input: Any = x
+        Assert.isTrue(input is T)
         return 5
     }
     public mut prop q: String {
         get() {
             ""
         }
-        set(v) {}
+        set(v) {
+            Assert.equals("ok", v)
+            setterSeen[8] = true
+        }
     }
 }
 
@@ -350,24 +387,41 @@ main() {
     let c17 = C17()
     Assert.isTrue(c17 is I17<Unit>)
 
-    let c18 = C18<(Rune, Bool)>()
+    var c18 = C18<(Rune, Bool)>()
     Assert.isTrue(c18 is I18<(Rune, Bool)>)
 
-    let c19 = C19()
+    var c19 = C19()
     Assert.isTrue(c19 is I19)
 
-    let c20 = C20()
+    var c20 = C20()
     Assert.isTrue(c20 is I20<Float16>)
 
-    let c21 = C21<Range<Int64>>()
+    var c21 = C21<Range<Int64>>()
     Assert.isTrue(c21 is I21<Range<Int64>>)
 
-    let c22 = C22()
+    var c22 = C22()
     Assert.isTrue(c22 is I22)
 
-    let c23 = C23()
+    var c23 = C23()
     Assert.isTrue(c23 is I23<Rune>)
 
-    let c24 = C24<IntNative>()
+    var c24 = C24<IntNative>()
     Assert.isTrue(c24 is I24<IntNative>)
+    let eq: I5<Rune> = c5
+    Assert.isFalse(eq == c5)
+    Assert.equals(1, c6.f(()))
+    Assert.equals(1, c10.g(17))
+    Assert.equals(1, c11.g(17))
+    Assert.equals(1, c12.g([true]))
+    Assert.equals(5, c24.g(IntNative(19)))
+    c18.p = 18
+    c19.q = true
+    c20.q = r'q'
+    c21.p = 21
+    c21.q = "ok"
+    c22.q = true
+    c23.q = r'q'
+    c24.p = 24
+    c24.q = "ok"
+    Assert.equals([true, true, true, true, true, true, true, true, true], setterSeen)
 }

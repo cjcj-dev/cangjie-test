@@ -30,7 +30,10 @@
 import utils.assert.Assert
 
 class Tester<T> {
-    init(x: T) {}
+    init(x: T) {
+        let argument: Any = x
+        Assert.isTrue(argument is T)
+    }
 }
 
 class Test {
@@ -58,14 +61,20 @@ class Test {
     // they can not be assigned instances of the current class
     func test_assignment() {
         var x = this
+        let xBeforeAssignment: Any = x
+        Assert.isTrue(xBeforeAssignment is Test)
         x = Test()
         Assert.isTrue(x is Test)
 
         var y = f()
+        let yBeforeAssignment: Any = y
+        Assert.isTrue(yBeforeAssignment is Test)
         y = Test()
         Assert.isTrue(y is Test)
 
         var z = !this
+        let zBeforeAssignment: Any = z
+        Assert.isTrue(zBeforeAssignment is Test)
         z = Test()
         Assert.isTrue(z is Test)
     }

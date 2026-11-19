@@ -36,6 +36,8 @@
 
 import utils.assert.Assert
 
+let setterInputs = [0, 0]
+
 class Test {
   static var svar = 1
   static let slet = 2
@@ -63,7 +65,7 @@ class Test {
     get() {
       9
     }
-    set(v) {}
+    set(v) { setterInputs[0] = v }
   }
 
   static prop siprop: Int64 {
@@ -76,7 +78,7 @@ class Test {
     get() {
       11
     }
-    set(v) {}
+    set(v) { setterInputs[1] = v }
   }
 
   prop iprop: Int64 {
@@ -104,8 +106,10 @@ class Test {
 
     // Check properties
     Assert.equals(9, smprop)
+    smprop = 51
     Assert.equals(10, siprop)
     Assert.equals(11, mprop)
+    mprop = 52
     Assert.equals(12, iprop)
   }
 }
@@ -135,4 +139,5 @@ main() {
   Assert.equals(13, tst())
 
   tst.check()
+  Assert.equals([51, 52], setterInputs)
 }

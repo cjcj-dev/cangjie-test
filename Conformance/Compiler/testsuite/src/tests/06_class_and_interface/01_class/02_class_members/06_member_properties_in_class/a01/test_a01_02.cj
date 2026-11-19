@@ -210,7 +210,6 @@ class Test {
         let tmp = match(t12) {
             case Helper_enum.A(x) => ""
             case Helper_enum.B(y) => y
-            case _ => "t"
         }
         Assert.equals("It's B", tmp)
 

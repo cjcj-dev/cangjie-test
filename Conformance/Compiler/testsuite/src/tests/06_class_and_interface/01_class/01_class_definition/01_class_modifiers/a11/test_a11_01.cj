@@ -24,6 +24,8 @@
 
 */
 
+import utils.assert.Assert
+
 public struct S {}
 
 public enum E {
@@ -153,4 +155,6 @@ abstract class GenericWithAbstractFunctions<T> <: Super {
 }
 
 main() {
+  let callback: Any = {child: JustAbstractChild => child.foo()}
+  Assert.isTrue(callback is (JustAbstractChild) -> Bool)
 }

@@ -27,6 +27,8 @@
 
 */
 
+import utils.assert.Assert
+
 var x = 1
 
 open class A {
@@ -36,8 +38,11 @@ open class A {
 class B <: A {
     //var x = 5     // error: a member of the subtype must not shadow a member of the supertype.
     func f(x!: Int32 = 7): Unit { // this x shadows all the previous x
+        Assert.equals(7i32, x)
+        Assert.equals(3, this.x)
     }
 }
 
 main() {
+    B().f()
 }

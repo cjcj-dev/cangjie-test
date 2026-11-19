@@ -120,6 +120,7 @@ class A {
             1
         }
         set(v) {
+            Assert.equals(2, v)
             Assert.equals(1, this.m1)
             Assert.equals(2, this.m2)
 
@@ -157,6 +158,7 @@ class A {
             1
         }
         set(v) {
+            Assert.equals(2, v)
             let a = A()
 
             Assert.equals(1, a.m1)
@@ -199,8 +201,10 @@ main() {
     A.test_static()
 
     let x = a.p1
+    Assert.equals(1, x)
     a.p1 = 2
 
     let y = A.p2
+    Assert.equals(1, y)
     A.p2 = 2
 }

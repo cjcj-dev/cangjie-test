@@ -37,12 +37,20 @@
  */
 
 
+import utils.assert.Assert
+
 open class A {} 
 
 public class TestA1209 { 
-    private func foo() {A()} 
+    private func foo() {A()}
+
+    func check() {
+        let constructed: Any = foo()
+        Assert.isTrue(constructed is A)
+    }
 } 
 
 main() {
+    TestA1209().check()
     return 0
 }

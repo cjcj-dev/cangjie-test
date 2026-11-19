@@ -38,6 +38,8 @@
   @Negative:    no
   @Structure:   single
 */
+import utils.assert.Assert
+
 func foo() {
     321
 }
@@ -53,9 +55,13 @@ main() {
     ['c', if ({=> false}()) { 'b' } else { 'a' }]
     ["Whaaat?", if ({=> true}()) { "Doesn't matter" } else { "Be happy" }]
     var e = 1
-    [e, match (e) {
-        case 0 => 2 + 2
-        case _ => 2 - 2
-    }]
+    func withMatch(value: Int64): Array<Int64> {
+        [value, match (value) {
+            case 0 => 2 + 2
+            case _ => 2 - 2
+        }]
+    }
+    Assert.equals([1, 0], withMatch(e))
+    Assert.equals([0, 4], withMatch(0))
     return 0
 }

@@ -29,6 +29,8 @@
 
 import utils.assert.Assert
 
+let setterSeen = [false]
+
 class Test {
   // Variables
   static var mem1 = "mem1"
@@ -48,7 +50,10 @@ class Test {
     get() {
       r'o'
     }
-    set(v) {}
+    set(v) {
+            Assert.equals(r'w', v)
+            setterSeen[0] = true
+        }
   }
 
   static prop mem5: Float64 {
@@ -62,6 +67,7 @@ class Test {
     Assert.equals(999999, mem2)
     Assert.equals("F", mem3(false))
     Assert.equals(r'o', mem4)
+    mem4 = r'w'
     Assert.approxEquals(1.5672e-10, mem5)
   }
 }
@@ -72,4 +78,6 @@ main() {
   Assert.equals("F", Test.mem3(false))
   Assert.equals(r'o', Test.mem4)
   Assert.approxEquals(1.5672e-10, Test.mem5)
+  Test.check_direct()
+  Assert.equals([true], setterSeen)
 }

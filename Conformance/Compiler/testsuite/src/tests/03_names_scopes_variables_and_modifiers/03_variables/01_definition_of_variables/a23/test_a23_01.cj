@@ -35,12 +35,22 @@ enum EatUnit {
     | Diner
 } 
 
-main() {
-    let myEat = EatUnit.Lunch 
+func timeOfMeal(myEat: EatUnit): String {
     var eatTime: String = match (myEat) { 
         case Lunch => "14:00"
-        case Branch => "11:00"
+        case Branch =>
+            Assert.isTrue(match (Branch) {
+                case Breakfast => true
+                case _ => false
+            })
+            "11:00"
     } 
 
-    Assert.equals("14:00", eatTime)
+    eatTime
+}
+
+main() {
+    let myEat = EatUnit.Lunch
+    Assert.equals("14:00", timeOfMeal(myEat))
+    Assert.equals("11:00", timeOfMeal(EatUnit.Breakfast))
 }

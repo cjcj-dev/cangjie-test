@@ -39,7 +39,7 @@ class Test {
             1
         }
         set(v) {
-            setter_proof[0] = 1
+            setter_proof[0] = v
         }
     }
     prop p2: Int64 {
@@ -55,7 +55,7 @@ class Test {
             1
         }
         set(v) {
-            setter_proof[2] = 1
+            setter_proof[2] = v
         }
     }
     private prop p4: Int64 {
@@ -71,7 +71,7 @@ class Test {
             1
         }
         set(v) {
-            setter_proof[4] = 1
+            setter_proof[4] = v
         }
     }
     protected prop p6: Int64 {
@@ -87,7 +87,7 @@ class Test {
             1
         }
         set(v) {
-            setter_proof[6] = 1
+            setter_proof[6] = v
         }
     }
     public prop p8: Int64 {
@@ -103,7 +103,7 @@ class Test {
             1
         }
         set(v) {
-            setter_proof[8] = 1
+            setter_proof[8] = v
         }
     }
     static prop p10: Int64 {
@@ -119,7 +119,7 @@ class Test {
             1
         }
         set(v) {
-            setter_proof[10] = 1
+            setter_proof[10] = v
         }
     }
     private static prop p12: Int64 {
@@ -135,7 +135,7 @@ class Test {
             1
         }
         set(v) {
-            setter_proof[12] = 1
+            setter_proof[12] = v
         }
     }
     protected static prop p14: Int64 {
@@ -151,7 +151,7 @@ class Test {
             1
         }
         set(v) {
-            setter_proof[14] = 1
+            setter_proof[14] = v
         }
     }
     public static prop p16: Int64 {
@@ -165,49 +165,65 @@ class Test {
         let tst = Test()
 
         let t1 = tst.p1
+        Assert.equals(1, t1)
         tst.p1 = 2
 
         let t2 = tst.p2
+        Assert.equals(1, t2)
 
         let t3 = tst.p3
+        Assert.equals(1, t3)
         tst.p3 = 2
 
         let t4 = tst.p4
+        Assert.equals(1, t4)
 
         let t5 = tst.p5
+        Assert.equals(1, t5)
         tst.p5 = 2
 
         let t6 = tst.p6
+        Assert.equals(1, t6)
 
         let t7 = tst.p7
+        Assert.equals(1, t7)
         tst.p7 = 2
 
         let t8 = tst.p8
+        Assert.equals(1, t8)
 
         let t9 = Test.p9
+        Assert.equals(1, t9)
         Test.p9 = 2
 
         let t10 = Test.p10
+        Assert.equals(1, t10)
 
         let t11 = Test.p11
+        Assert.equals(1, t11)
         Test.p11 = 2
 
         let t12 = Test.p12
+        Assert.equals(1, t12)
 
         let t13 = Test.p13
+        Assert.equals(1, t13)
         Test.p13 = 2
 
         let t14 = Test.p14
+        Assert.equals(1, t14)
 
         let t15 = Test.p15
+        Assert.equals(1, t15)
         Test.p15 = 2
 
         let t16 = Test.p16
+        Assert.equals(1, t16)
     }
 }
 
 main() {
     Test.test()
     Assert.equals([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1], getter_proof)
-    Assert.equals([1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1 ,0], setter_proof)
+    Assert.equals([2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0], setter_proof)
 }

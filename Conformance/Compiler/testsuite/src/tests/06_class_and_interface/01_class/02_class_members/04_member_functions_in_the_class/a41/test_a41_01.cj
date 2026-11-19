@@ -28,6 +28,8 @@
 
 import utils.assert.Assert
 
+let setterSeen = [false, false, false, false]
+
 class Test {
     static var m1 = 1
     static let m2 = 2
@@ -42,7 +44,10 @@ class Test {
         get() {
             9
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(51, v)
+            setterSeen[0] = true
+        }
     }
     static prop p2: Int64 {
         get() {
@@ -53,7 +58,10 @@ class Test {
         get() {
             11
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(52, v)
+            setterSeen[1] = true
+        }
     }
     static private prop p4: Int64 {
         get() {
@@ -64,7 +72,10 @@ class Test {
         get() {
             13
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(53, v)
+            setterSeen[2] = true
+        }
     }
     static protected prop p6: Int64 {
         get() {
@@ -75,7 +86,10 @@ class Test {
         get() {
             15
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(54, v)
+            setterSeen[3] = true
+        }
     }
     static public prop p8: Int64 {
         get() {
@@ -119,12 +133,16 @@ class Test {
         Assert.equals(8, m8)
 
         Assert.equals(9, p1)
+        p1 = 51
         Assert.equals(10, p2)
         Assert.equals(11, p3)
+        p3 = 52
         Assert.equals(12, p4)
         Assert.equals(13, p5)
+        p5 = 53
         Assert.equals(14, p6)
         Assert.equals(15, p7)
+        p7 = 54
         Assert.equals(16, p8)
 
         Assert.equals(17, f1())
@@ -148,12 +166,16 @@ class Test {
         Assert.equals(8, m8)
 
         Assert.equals(9, p1)
+        p1 = 51
         Assert.equals(10, p2)
         Assert.equals(11, p3)
+        p3 = 52
         Assert.equals(12, p4)
         Assert.equals(13, p5)
+        p5 = 53
         Assert.equals(14, p6)
         Assert.equals(15, p7)
+        p7 = 54
         Assert.equals(16, p8)
 
         Assert.equals(17, f1())
@@ -170,4 +192,5 @@ class Test {
 main() {
     Test.test_f()
     Test.test_g<Bool>()
+    Assert.equals([true, true, true, true], setterSeen)
 }

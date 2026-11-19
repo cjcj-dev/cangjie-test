@@ -64,6 +64,7 @@ main() {
         Assert.equals(r's', f)
         Assert.isTrue(f is Rune)
         Assert.isTrue(e is ()->Unit)
+        Assert.equals((), e())
         Assert.equals(true, s)
         Assert.isTrue(s is Bool )
     }()
@@ -88,6 +89,7 @@ main() {
     Assert.equals(r's', f)
     Assert.isTrue(f is Rune)
     Assert.isTrue(e is ()->Unit)
+    Assert.equals((), e())
     Assert.equals(true, s)
     Assert.isTrue(s is Bool )
 }

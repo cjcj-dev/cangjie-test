@@ -66,7 +66,7 @@ class ConstWithMemParam {
 }
 
 class ConstWithOtherMembers {
-  init(x: Int64) {}
+  init(x: Int64) { Assert.equals(525, x) }
   ConstWithOtherMembers() {
     call_indicator++
   }
@@ -79,6 +79,7 @@ class ConstWithOtherMembers {
 
 class ConstWithNoMembers {
   ConstWithNoMembers(x: Int64) {
+    Assert.equals(524, x)
     call_indicator++
   }
 }
@@ -107,7 +108,14 @@ main() {
 
   var e = ConstWithOtherMembers()
   Assert.equals(5, call_indicator)
+  Assert.equals((), e.f1())
+  Assert.isFalse(!e)
 
   var f = ConstWithNoMembers(524)
+  Assert.equals(6, call_indicator)
+  let constructed: Any = f
+  Assert.isTrue(constructed is ConstWithNoMembers)
+  let secondary: Any = ConstWithOtherMembers(525)
+  Assert.isTrue(secondary is ConstWithOtherMembers)
   Assert.equals(6, call_indicator)
 }

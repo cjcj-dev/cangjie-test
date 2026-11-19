@@ -40,7 +40,7 @@ abstract class A {
     }
 
     init(x : Int64) {
-        Assert.isFalse(abstractClassFlag)
+        Assert.isFalse(abstractClassFlag, reason: "static init precedes construction with ${x}")
     }
 }
 
@@ -55,7 +55,7 @@ class C <: A {
     }
 
     init(x : Int64) {
-        Assert.isFalse(classFlag)
+        Assert.isFalse(classFlag, reason: "static init precedes construction with ${x}")
     }
 }
 
@@ -70,7 +70,7 @@ struct S {
     }
 
     init(x : Int64) {
-        Assert.isFalse(structFlag)
+        Assert.isFalse(structFlag, reason: "static init precedes construction with ${x}")
     }
 }
 
@@ -80,7 +80,9 @@ main() {
     Assert.isFalse(structFlag)
     C()
     C(1)
-    S()
-    S(1)
+    let primary: Any = S()
+    let named: Any = S(1)
+    Assert.isTrue(primary is S)
+    Assert.isTrue(named is S)
     0
 }

@@ -35,17 +35,28 @@ class T {}
 
 // The type parameter can be inferred from the only constructor's argument
 class A<T> {
-    init(x: T) {}
+    init(x: T) {
+        let inputx: Any = x
+        Assert.isTrue(inputx is T)
+    }
 }
 
 // Both type parameters can be inferred from the only constructor's arguments
 class B<T1, T2> {
-    init(x: T1, y: T2) {}
+    init(x: T1, y: T2) {
+        let inputx: Any = x
+        Assert.isTrue(inputx is T1)
+        let inputy: Any = y
+        Assert.isTrue(inputy is T2)
+    }
 }
 
 // One type parameter can be inferred from the only constructor's arument, another has only one possible type
 class C<T1, T2> where T2 <: T {
-    init(x: T1) {}
+    init(x: T1) {
+        let inputx: Any = x
+        Assert.isTrue(inputx is T1)
+    }
 }
 
 // Both type parameters can have only one possible type
@@ -55,8 +66,11 @@ class D<T1, T2> where T1 <: T, T2 <: T {
 
 // The type parameter can be inferred from the argument of one of the constructors
 class E<T> {
-    init(x: Int64) {}
-    init(x: T) {}
+    init(x: Int64) { Assert.equals(7, x) }
+    init(x: T) {
+        let inputx: Any = x
+        Assert.isTrue(inputx is T)
+    }
 }
 
 main() {
@@ -92,6 +106,9 @@ main() {
 
     let case11 = D()
     Assert.isTrue(case11 is D<T, T>)
+
+    let numeric: E<String> = E(7)
+    Assert.isTrue(numeric is E<String>)
 
     let case13 = E("")
     Assert.isTrue(case13 is E<String>)

@@ -44,7 +44,7 @@ open class A {
         get() {
             7
         }
-        set(v) {}
+        set(v) { Assert.equals(71, v) }
     }
     private prop p2: Int64 {
         get() {
@@ -55,7 +55,7 @@ open class A {
         get() {
             9
         }
-        set(v) {}
+        set(v) { Assert.equals(91, v) }
     }
     static private prop p4: Int64 {
         get() {
@@ -71,8 +71,10 @@ open class A {
         Assert.equals(5, f1())
         Assert.equals(6, f2())
         Assert.equals(7, p1)
+        p1 = 71
         Assert.equals(8, p2)
         Assert.equals(9, p3)
+        p3 = 91
         Assert.equals(10, p4)
     }
 }

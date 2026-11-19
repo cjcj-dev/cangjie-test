@@ -31,13 +31,15 @@ import utils.assert.Assert
 
 main(ina :Array<String>) {
     let carr:Array<Int32>=[0,1,2,3,4,5,6,7,8]
-    var arr :Array<Int32> = []
+    let step = 2 + Assert.getRuntimeZero(ina)
+    var caught = false
     try {
-        arr = carr[1..7:2]
-        Assert.fail()
-    } catch (_) {
-        Assert.pass()
+        let slice = carr[1..7:step]
+        Assert.fail(reason: "slice accepted step ${step} and returned ${slice.size} elements")
+    } catch (_: IllegalArgumentException) {
+        caught = true
     }
+    Assert.isTrue(caught)
 
     0
 }

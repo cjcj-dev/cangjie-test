@@ -28,6 +28,8 @@
 
 import utils.assert.Assert
 
+let setterSeen = [false, false]
+
 open class Parent {
     static var parent_var = 1
     static let parent_let = 2
@@ -43,7 +45,10 @@ open class Parent {
         get() {
             5
         }
-        set(v){}
+        set(v) {
+            Assert.equals(51, v)
+            setterSeen[0] = true
+        }
     }
     static prop parent_p: Int64 {
         get() {
@@ -67,7 +72,10 @@ class Test <: Parent {
         get() {
             11
         }
-        set(v){}
+        set(v) {
+            Assert.equals(52, v)
+            setterSeen[1] = true
+        }
     }
     static prop child_p: Int64 {
         get() {
@@ -82,12 +90,14 @@ class Test <: Parent {
         Assert.equals(3, parent_f())
         Assert.equals(4, parent_f_g<Rune>())
         Assert.equals(5, parent_mut_p)
+        parent_mut_p = 51
         Assert.equals(6, parent_p)
         Assert.equals(7, child_var)
         Assert.equals(8, child_let)
         Assert.equals(9, child_f())
         Assert.equals(10, child_f_g<Bool>())
         Assert.equals(11, child_mut_p)
+        child_mut_p = 52
         Assert.equals(12, child_p)
         // Referencing functions by name as objects
         Assert.isTrue(parent_f is () -> Int64)
@@ -133,12 +143,14 @@ class Test <: Parent {
         Assert.equals(3, parent_f())
         Assert.equals(4, parent_f_g<Rune>())
         Assert.equals(5, parent_mut_p)
+        parent_mut_p = 51
         Assert.equals(6, parent_p)
         Assert.equals(7, child_var)
         Assert.equals(8, child_let)
         Assert.equals(9, child_f())
         Assert.equals(10, child_f_g<Bool>())
         Assert.equals(11, child_mut_p)
+        child_mut_p = 52
         Assert.equals(12, child_p)
         // Referencing functions by name as objects
         Assert.isTrue(parent_f is () -> Int64)
@@ -181,4 +193,5 @@ class Test <: Parent {
 main() {
     Test.test()
     Test.test_generic<Float32>()
+    Assert.equals([true, true], setterSeen)
 }

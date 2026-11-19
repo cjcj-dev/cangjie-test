@@ -22,12 +22,14 @@
   @Structure:   single
 */
 
+import utils.assert.Assert
+
 main() {
     let unused = (2 + 2)
 
     ("asd" + "dsa")
 
-    (2 + 2) * 2
+    Assert.equals(8, (2 + 2) * 2)
 
     (if ({=> true}()) {
         {=> 100}()
@@ -45,5 +47,7 @@ main() {
 
     )
 
+    Assert.equals(4, unused)
+    Assert.equals(15, res)
     return 0
 }

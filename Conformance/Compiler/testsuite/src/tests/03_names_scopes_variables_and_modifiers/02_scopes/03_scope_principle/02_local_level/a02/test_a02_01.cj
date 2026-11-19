@@ -36,6 +36,9 @@ main() {
         let v1 : Int32 = 0
         let v2 : Int64 = 1
         let v3 : String = "block #1"
+        Assert.equals(0i32, v1)
+        Assert.equals(1, v2)
+        Assert.equals("block #1", v3)
     }
 
     Assert.equals(10, v1)
@@ -66,10 +69,12 @@ main() {
 // test case #4
     var num = 0
     try { 
-        let num = - 5 
+        let num = - 5
+        Assert.equals(-5, num)
         throw ArithmeticException()
     } catch (e: ArithmeticException) {
         let num = -10
+        Assert.equals(-10, num)
     }
 
     Assert.equals(0, num)

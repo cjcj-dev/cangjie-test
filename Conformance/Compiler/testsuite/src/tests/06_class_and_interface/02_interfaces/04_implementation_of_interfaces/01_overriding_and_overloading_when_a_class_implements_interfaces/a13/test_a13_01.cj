@@ -59,13 +59,21 @@ interface I {
 }
 
 class E <: I {
-    public static func f<T>(a: T): Unit where T <: A {} // OK, looser constraint
+    public static func f<T>(a: T): Unit where T <: A {
+        let argument: Any = a
+        Assert.isTrue(argument is A)
+    } // OK, looser constraint
     public static func g<T>(): Unit where T <: A {} // OK, looser constraint
 }
 class F <: I {
-    public static func f<T>(a: T): Unit where T <: B {} // OK￿same constraint
+    public static func f<T>(a: T): Unit where T <: B {
+        let argument: Any = a
+        Assert.isTrue(argument is B)
+    } // OK￿same constraint
     public static func g<T>(): Unit where T <: B {} // OK￿same constraint
 }
 
 main() {
+    E.f(A())
+    F.f(B())
 }

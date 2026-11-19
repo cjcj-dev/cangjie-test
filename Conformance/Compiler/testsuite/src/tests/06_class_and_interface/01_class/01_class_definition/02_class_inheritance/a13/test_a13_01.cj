@@ -28,6 +28,8 @@
 
 import utils.assert.Assert
 
+let setterInputs = [0, 0, 0]
+
 open class A {
   static var s_mutVar = 1
   static let s_immutVar = 2
@@ -69,7 +71,7 @@ open class A {
     get() {
       12
     }
-    set(v) {}
+    set(v) { setterInputs[0] = v }
   }
 
   public prop pub_prop: Int64 {
@@ -82,7 +84,7 @@ open class A {
     get() {
       14
     }
-    set(v) {}
+    set(v) { setterInputs[1] = v }
   }
 
   protected prop prot_prop: Int64 {
@@ -95,7 +97,7 @@ open class A {
     get() {
       16
     }
-    set(v) {}
+    set(v) { setterInputs[2] = v }
   }
 }
 
@@ -121,16 +123,20 @@ class B <: A {
 
     Assert.equals(11, s_prop)
     Assert.equals(12, s_mut_prop)
+    s_mut_prop = 51
 
     Assert.equals(13, pub_prop)
     Assert.equals(14, pub_mut_prop)
+    pub_mut_prop = 52
 
     Assert.equals(15, prot_prop)
     Assert.equals(16, prot_mut_prop)
+    prot_mut_prop = 53
   }
 }
 
 main() {
   var test = B()
   test.test()
+  Assert.equals([51, 52, 53], setterInputs)
 }

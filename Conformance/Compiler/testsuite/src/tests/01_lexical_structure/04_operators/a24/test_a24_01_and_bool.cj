@@ -40,12 +40,13 @@ func BinOp(Operor1:TestedType, Operor2:TestedType): TestedType {
 
 main(ina :Array<String>) {
     var RTZero : TestedType =  Assert.getRuntimeZero(ina) != 0
-    var rtOpnd1: TestedType = ctOpnd1 &&  RTZero;
+    let runtimeFalse: TestedType = ctOpnd1 != RTZero
+    var rtOpnd1: TestedType = runtimeFalse &&  RTZero;
     var rtOpnd2: TestedType = ctOpnd2 &&  RTZero;
-    Assert.equals(ctOpnd1 && ctOpnd2,rtOpnd1 && rtOpnd2)
-    Assert.equals(ctOpnd1 && rtOpnd2,rtOpnd1 && ctOpnd2)
+    Assert.equals(runtimeFalse && ctOpnd2,rtOpnd1 && rtOpnd2)
+    Assert.equals(runtimeFalse && rtOpnd2,rtOpnd1 && ctOpnd2)
     Assert.equals(BinOp(ctOpnd1,ctOpnd2),BinOp(rtOpnd1,rtOpnd2))
 
-    Assert.isTrue((ctOpnd1 && rtOpnd2) is TestedType)
+    Assert.isTrue((runtimeFalse && rtOpnd2) is TestedType)
     0
 }

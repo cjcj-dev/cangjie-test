@@ -24,6 +24,8 @@
 
 */
 
+import utils.assert.Assert
+
 public let testA0103: String = "127"
 let myTopLet = 'G'
 
@@ -33,6 +35,10 @@ class MyClass {
     static protected let classLetStaticProtected: Int32 =23 
     protected let classLetProtected: Rune
     static private let classLetStaticPrivate: Int32 = 24
+
+    static func checkPrivateStorage() {
+        Assert.equals(24i32, classLetStaticPrivate)
+    }
     private let classLetPrivate: String
     static let classLetStatic: Int32 = 3
     let classLet: Float64
@@ -84,4 +90,47 @@ main() {
 
     let nameLetPoint: Point
 
+
+    MyClass.checkPrivateStorage()
+    nameLetInt8 = 1i8
+    Assert.equals(1i8, nameLetInt8)
+    nameLetInt16 = 2i16
+    Assert.equals(2i16, nameLetInt16)
+    nameLetInt32 = 3i32
+    Assert.equals(3i32, nameLetInt32)
+    nameLetInt64 = 4
+    Assert.equals(4, nameLetInt64)
+    nameLetIntNative = IntNative(5)
+    Assert.equals(IntNative(5), nameLetIntNative)
+    nameLetUInt8 = 6u8
+    Assert.equals(6u8, nameLetUInt8)
+    nameLetUInt16 = 7u16
+    Assert.equals(7u16, nameLetUInt16)
+    nameLetUInt32 = 8u32
+    Assert.equals(8u32, nameLetUInt32)
+    nameLetUInt64 = 9u64
+    Assert.equals(9u64, nameLetUInt64)
+    nameLetUIntNative = UIntNative(10)
+    Assert.equals(UIntNative(10), nameLetUIntNative)
+    nameLetFloat16 = 1.0f16
+    Assert.equals(1.0f16, nameLetFloat16)
+    nameLetFloat32 = 2.0f32
+    Assert.equals(2.0f32, nameLetFloat32)
+    nameLetFloat64 = 3.0
+    Assert.equals(3.0, nameLetFloat64)
+    nameLetByte = b'A'
+    Assert.equals(b'A', nameLetByte)
+    nameLetChar = r'H'
+    Assert.equals(r'H', nameLetChar)
+    nameLetBool = true
+    Assert.equals(true, nameLetBool)
+    nameLetUnit = ()
+    Assert.equals((), nameLetUnit)
+    nameLetString = "typed"
+    Assert.equals("typed", nameLetString)
+    nameLetRangeOfInt64 = 0..10:1
+    Assert.equals(0..10:1, nameLetRangeOfInt64)
+    nameLetPoint = Point(1, 2)
+    Assert.equals(1i32, nameLetPoint.x)
+    Assert.equals(2i32, nameLetPoint.y)
 }

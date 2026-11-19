@@ -23,8 +23,11 @@
   @Structure:   single
 */
 
+import utils.assert.Assert
+
 open class Class1 { }
 interface I1 { }
+class ImplementsI1 <: I1 { }
 struct S1 { }
 type MyType = Int16
 enum HandGame {
@@ -78,5 +81,54 @@ main() {
      Rune, ((UInt32, Float64, Rune, Rune, Float64), Rune, Float32), Rune, Int32), (Rune, Float16),
      Float16, Float32))))
 
+    v1 = (1i8, 2i16, 3i32, 4, IntNative(5))
+    v2 = (1u8, 2u16, 3u32, 4u64, UIntNative(5))
+    v3 = (1.0f16, 2.0f32, 3.0)
+    v4 = (r'x', "tuple", true)
+    v5 = (Class1(), ImplementsI1(), { => true })
+    v6 = (6i16, S1(), HandGame.ROCK)
+    v7 = ((6.0, ((6.0, 3i32, UIntNative(9), 6.0, 8u8, (6.0, (r'k', 3i32, r'k', (16u16, 64u64,
+        7, ((r'k', (r'k', r'k', r'k', (6.0, 64u64, 1.0f16, r'k'), UIntNative(9)), 8u8, 16u16),
+        1i8, 64u64, r'k', r'k'))), r'k', (2.0f32, (r'k', r'k', 6.0, r'k', r'k'), r'k', 16u16),
+        1.0f16)), (r'k', r'k'), 1.0f16, 6.0, (r'k', IntNative(4), 1i8, 6.0, 2.0f32, 6.0)),
+        r'k', r'k', ((r'k', 16u16, (32u32, r'k', UIntNative(9), IntNative(4)), 1.0f16, (6.0,
+        16u16, 1i8, (6.0, 16u16, 6.0, r'k'))), (r'k', (64u64, r'k'), (3i32, 6.0, r'k', 8u8,
+        (((6.0, r'k', (6.0, 1i8, 8u8, (UIntNative(9), 6.0, ((1.0f16, 1.0f16, 1.0f16, (1i8,
+        (6.0, (1.0f16, 2.0f32), r'k', 6.0), 2.0f32, r'k'), (2.0f32, (r'k', r'k', UIntNative(9),
+        1.0f16), 6.0, ((r'k', (32u32, r'k', ((6.0, (32u32, (UIntNative(9), (8u8, 2.0f32,
+        2.0f32, 64u64, 3i32), (r'k', (r'k', IntNative(4), 1.0f16, r'k', ((7, 32u32, (1.0f16,
+        r'k', 1.0f16), (2i16, r'k'), 2.0f32, 16u16), 8u8, (r'k', UIntNative(9), 2.0f32, 2i16,
+        (8u8, 16u16, 7, (r'k', r'k', 1.0f16, r'k', (r'k', r'k', 2i16, 6.0)), 3i32)), (r'k',
+        (r'k', 6.0, 3i32, 64u64, r'k', r'k'), (r'k', 2.0f32), r'k'), r'k'))), (1.0f16, 6.0),
+        r'k'), r'k', r'k', 2i16), r'k'), 3i32), 2i16), r'k'), 1i8, (1.0f16, r'k', (1i8, r'k',
+        (6.0, r'k', 1i8, ((r'k', 2.0f32), 2.0f32, (r'k', 1i8, 16u16, r'k'), r'k', r'k', 3i32)),
+        (7, 1.0f16, 16u16, r'k', 1.0f16, 1i8), (r'k', r'k', 1.0f16, 1.0f16, r'k', 64u64)),
+        r'k', IntNative(4), r'k'), r'k'))), r'k', (3i32, r'k'), 1i8, (2.0f32, r'k', r'k',
+        UIntNative(9), r'k', 6.0), r'k'), (((r'k', 1.0f16, (1.0f16, r'k'), r'k', r'k', r'k'),
+        (16u16, r'k'), r'k'), r'k', 1i8), (7, r'k', (r'k', 2.0f32, ((7, 64u64, r'k', r'k'),
+        1.0f16, r'k', r'k', (1i8, r'k', 32u32)), 64u64, 2i16, 32u32), r'k'), ((2.0f32, 64u64,
+        2i16, 3i32), r'k', r'k', 64u64)), (r'k', (r'k', r'k', r'k', r'k', ((2i16, r'k', 6.0,
+        32u32), 1.0f16, 2.0f32, (((1.0f16, (r'k', 2.0f32, 16u16, UIntNative(9), 2.0f32),
+        (7, (UIntNative(9), r'k', 8u8, (r'k', (1.0f16, (r'k', r'k', 8u8, r'k', 6.0, (2i16,
+        (1.0f16, r'k'), 3i32, IntNative(4), r'k', (8u8, (r'k', r'k', (r'k', 8u8, r'k', (r'k',
+        32u32, 1i8, 32u32)), 6.0)))), r'k')), 6.0), r'k', 6.0, (r'k', 1.0f16, 2.0f32, 1.0f16,
+        (r'k', 6.0), r'k')), r'k', r'k'), 2i16, 6.0, r'k'), 6.0, 2.0f32), r'k', 1.0f16),
+        6.0), 3i32)), (1.0f16, (r'k', 8u8), (IntNative(4), 2.0f32, r'k', 1.0f16, r'k', 3i32),
+        IntNative(4), 3i32, r'k'), 6.0), (r'k', 16u16, 1.0f16, (1.0f16, (1i8, r'k'), 2.0f32,
+        6.0, r'k'), (2.0f32, 6.0, r'k', 6.0), r'k'), IntNative(4), (1i8, (r'k', UIntNative(9),
+        6.0, 7, 6.0), r'k'), 6.0), (16u16, 16u16, UIntNative(9)), 3i32), 2.0f32), r'k', r'k'),
+        6.0), 2.0f32), (r'k', 2.0f32, (2.0f32, r'k', 1.0f16), 64u64, 32u32, 64u64), 7, (7,
+        UIntNative(9), 2.0f32, 8u8, r'k', (r'k', ((UIntNative(9), (r'k', 3i32), 32u32, 2.0f32,
+        r'k', r'k'), r'k', r'k', 1.0f16), r'k', 16u16, (((UIntNative(9), IntNative(4), 1.0f16,
+        3i32), r'k', ((32u32, 6.0, r'k', r'k', 6.0), r'k', 2.0f32), r'k', 3i32), (r'k', 1.0f16),
+        1.0f16, 2.0f32))))
+    Assert.equals(IntNative(5), v1[4])
+    Assert.equals(UIntNative(5), v2[4])
+    Assert.equals(2.0f32, v3[1])
+    Assert.equals("tuple", v4[1])
+    Assert.isTrue(v5[2]())
+    Assert.equals(6i16, v6[0])
+    Assert.equals(6.0, v7[0][0])
+    Assert.equals(UIntNative(9), v7[0][1][0][2])
     return 0
 }

@@ -26,8 +26,9 @@ import std.ast.*
 
 main(inp: Array<String>): Unit {
     // Matching Expressions
-    var score = 60
-    let error = 101
+    let zero = Assert.getRuntimeZero(inp)
+    var score = 60 + zero
+    let error = 101 + zero
     var m_const = match (Assert.getRuntimeZero(inp)) {
         case 0 => "zero"
         case 10 | 20 | 30 | 40 | 50 => "fail"

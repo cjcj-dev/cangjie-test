@@ -47,7 +47,9 @@ class C <: I {
 
     static mut prop b: Int64 {
         get() { 100 }
-        set(p) {  }
+        set(p) {
+            Assert.equals(1, p)
+        }
     }
 }
 
@@ -64,5 +66,7 @@ main() {
     Assert.equals("foo3", C.foo3())
     Assert.equals(2023, C.currentYear)
     Assert.equals(3.14, C.PI)
+    Assert.equals(100, C.b)
+    C.b = 1
     Assert.equals(100, C.b)
 }

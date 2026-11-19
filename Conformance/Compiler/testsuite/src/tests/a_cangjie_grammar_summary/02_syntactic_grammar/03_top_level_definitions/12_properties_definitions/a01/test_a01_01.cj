@@ -41,13 +41,20 @@
   @Issue:       0006124
 */
 
+import utils.assert.Assert
+
 class C1 {
   public mut prop p1 : Int32 {
     get() { -1 }
-    set(v) {}
+    set(v) {
+      Assert.equals(1i32, v)
+    }
   }
 }
 
 main() {
+    let instance = C1()
+    instance.p1 = 1i32
+    Assert.equals(-1i32, instance.p1)
     return 0
 }

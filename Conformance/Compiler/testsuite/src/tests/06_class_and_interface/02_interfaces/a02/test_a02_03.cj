@@ -64,7 +64,7 @@ interface I5<T> {
 enum E5 <: I5<Rune> {
     VAL1(Int64) | VAL2(Float64)
     public operator func ==(rhs: I5<Rune>) {
-        return false
+        return !(rhs is E5)
     }
 }
 
@@ -74,6 +74,8 @@ interface I6<T> {
 enum E6<T> <: I6<T> {
     VAL1(Int64) | VAL2(Float64)
     public func f(x: T) {
+        let input: Any = x
+        Assert.isTrue(input is T)
         return 1
     }
 }
@@ -108,6 +110,7 @@ interface I10 {
 enum E10 <: I10 {
     VAL1(Int64) | VAL2(Float64)
     public func g(x: Int64) {
+        Assert.equals(17, x)
         return 1
     }
 }
@@ -119,6 +122,7 @@ interface I11<T> {
 enum E11 <: I11<Bool> {
     VAL1(Int64) | VAL2(Float64)
     public func g(x: Int64) {
+        Assert.equals(17, x)
         return 1
     }
 }
@@ -130,6 +134,8 @@ interface I12<T> {
 enum E12<T> <: I12<T> {
     VAL1(Int64) | VAL2(Float64)
     public func g(x: T) {
+        let input: Any = x
+        Assert.isTrue(input is T)
         return 1
     }
 }
@@ -317,6 +323,8 @@ interface I24<T> {
 enum E24<T> <: I24<T> {
     VAL1(Int64) | VAL2(Float64)
     public func g(x: T) {
+        let input: Any = x
+        Assert.isTrue(input is T)
         return 5
     }
     public prop q: String {
@@ -398,4 +406,11 @@ main() {
 
     let c24 = E24<IntNative>.VAL1(1)
     Assert.isTrue(c24 is I24<IntNative>)
+    let eq: I5<Rune> = c5
+    Assert.isFalse(eq == c5)
+    Assert.equals(1, c6.f(()))
+    Assert.equals(1, c10.g(17))
+    Assert.equals(1, c11.g(17))
+    Assert.equals(1, c12.g([true]))
+    Assert.equals(5, c24.g(IntNative(19)))
 }

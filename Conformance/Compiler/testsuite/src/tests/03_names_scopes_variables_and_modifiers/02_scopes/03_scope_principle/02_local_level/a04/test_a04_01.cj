@@ -34,7 +34,7 @@ class Point {
     }
 }
 
-main() {
+main(inp: Array<String>) {
 // test case #1
     let tmp1 : Int32 = 0
     var vv1 = tmp1
@@ -76,7 +76,7 @@ main() {
 
 // test case #6
     var tmp6 : Int64 = 0
-    let ss6 : String = match (0) {
+    let ss6 : String = match (Assert.getRuntimeZero(inp)) {
         case 1 => "one"
         case 2 => "two"
         case 0 => "zero"
@@ -94,7 +94,11 @@ main() {
 
 // test case #8
     var xx10 = 1; let yy10 = 2
-    func foo10<T>(x : T, y : T) : T { return y }
+    func foo10<T>(x : T, y : T) : T {
+        let first: Any = x
+        Assert.isTrue(first is T)
+        return y
+    }
     let z : Int64 = foo10<Int64>(xx10, yy10)
     Assert.equals(2, z)
 
@@ -107,9 +111,13 @@ main() {
 
 // test case #10
     let intArray: Array<Int32> = [0, 1, 2, 3, 4]
+    var index = 0
     for (item in intArray) {
         let s : String = "${item}"
+        Assert.equals(intArray[index].toString(), s)
+        index++
     }
+    Assert.equals(intArray.size, index)
 
 // test case #11
     var tmp13 = 0

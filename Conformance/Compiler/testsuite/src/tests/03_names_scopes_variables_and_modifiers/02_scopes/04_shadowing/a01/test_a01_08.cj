@@ -32,6 +32,7 @@ struct S {
     S() {
         if (true) {
             let x = 100
+            Assert.equals(100, x)
             if (true) {
                 let x = 200
                 Assert.equals(200, x)
@@ -44,6 +45,7 @@ class C {
     C() {
         if (true) {
             let x = "red"
+            Assert.equals("red", x)
             if (true) {
                 let x: () -> Bool = { => true }
                 Assert.isTrue(x())
@@ -53,6 +55,7 @@ class C {
     func foo(inp: Array<String>) {
         if (true) {
             let x = ()
+            Assert.equals((), x)
             if (true) {
                 let x = 200
                 let y = x + if (x + Assert.getRuntimeZero(inp) == 200) {
@@ -84,6 +87,7 @@ func bar(x: Int32): Unit {
 main(inp: Array<String>) {
     if (true) {
         let x = 100
+        Assert.equals(100, x)
         if (true) {
             func x(): Int32 { 200 }
             Assert.equals(200, x())
@@ -93,7 +97,9 @@ main(inp: Array<String>) {
     bar(10)
 
     let l: (Int32) -> Unit = {
-        x => if (true) {
+        x =>
+            Assert.equals(10i32, x)
+            if (true) {
                  var x = 200
                  Assert.equals(200, x)
              }
@@ -102,6 +108,8 @@ main(inp: Array<String>) {
     l(10)
 
     var s = S()
+    let constructed: Any = s
+    Assert.isTrue(constructed is S)
     var c = C()
     c.foo(inp)
 }

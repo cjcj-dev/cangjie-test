@@ -41,18 +41,25 @@ class C<U, V> <: B<U> {}
 
 // Class with a constructor with parameters
 class D<T1, T2> where T2 <: Object {
-    init(x: Int64, y: Bool) {}
+    init(x: Int64, y: Bool) {
+        Assert.equals(10, x)
+        Assert.isFalse(y)
+    }
 }
 
 // Open class with a constructor with parameters
 open class E<T> {
-    init(a: String, b: Rune) {}
+    init(a: String, b: Rune) {
+        Assert.equals("", a)
+        Assert.isTrue(b == r'e' || b == r'b')
+    }
 }
 
 // Derived class with a constructor with parameters
 class F<T1, T2> <: E<T2> {
     init(a: Float64) {
         super("", r'b')
+        Assert.equals(1.3031, a)
     }
 }
 
@@ -82,7 +89,10 @@ class J<T> {
 
 // A public-modified class
 public class TestA0401<T> {
-    init(x: T) {}
+    init(x: T) {
+        let input: Any = x
+        Assert.isTrue(input is T)
+    }
 }
 
 // A sealed-modified class
@@ -119,7 +129,7 @@ class N<T1, T2> {
         get() {
             ""
         }
-        set(v) {}
+        set(v) { Assert.equals("mutable", v) }
     }
     static prop p2: Bool {
         get() {
@@ -170,6 +180,8 @@ main() {
 
     let n = N<Float64, Int64>()
     Assert.isTrue(n is N<Float64, Int64>)
+    n.p1 = "mutable"
+    Assert.equals("", n.p1)
 
     let o = O()
     Assert.isTrue(o is N<Int64, Bool>)

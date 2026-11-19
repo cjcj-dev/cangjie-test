@@ -29,8 +29,12 @@ let opInt32_1 = Some(100i32) // The type of 'opInt32_1' is 'Option<Int32>'
 let opInt32_2 = Option<Int32>.None // The type of 'opInt32_2' is 'Option<Int32>'
 
 main() {
-    let number1 = opInt32_1 ?? 0 // number1 = 100
-    let number2 = opInt32_2 ?? 0 // number2 = 0
+    checkDefaults(opInt32_1, opInt32_2)
+}
+
+func checkDefaults(filled: Option<Int32>, empty: Option<Int32>) {
+    let number1 = filled ?? 0 // number1 = 100
+    let number2 = empty ?? 0 // number2 = 0
     Assert.equals(100i32, number1)
     Assert.equals(0, number2)
 }

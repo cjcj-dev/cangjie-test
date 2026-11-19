@@ -27,9 +27,12 @@ import utils.assert.Assert
 
 enum E { |A(Int64) |B(String)}
 
+func receivedEnum(value: E): E { value }
+func receivedOption(value: Option<Int64>): Option<Int64> { value }
+
 main() {
     var a = 99
-    var e = A(a)
+    var e = receivedEnum(A(a))
     a = 45
     match (e) {
         case A(m) => Assert.equals(99, m)
@@ -44,7 +47,7 @@ main() {
       case _ => Assert.fail()
     }
 
-    var o = Some(a)
+    var o = receivedOption(Some(a))
     a = 965
     Assert.equals(45, o ?? a)
 }

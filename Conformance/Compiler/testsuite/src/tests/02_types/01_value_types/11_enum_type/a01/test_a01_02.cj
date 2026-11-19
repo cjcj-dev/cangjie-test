@@ -41,5 +41,9 @@ main() {
 
     var o = Some(c)
     c.i = 965
-    Assert.equals(965, o?.i ?? 0)
+    checkReference(o)
+}
+
+func checkReference(value: Option<C>) {
+    Assert.equals(965, value?.i ?? 0)
 }

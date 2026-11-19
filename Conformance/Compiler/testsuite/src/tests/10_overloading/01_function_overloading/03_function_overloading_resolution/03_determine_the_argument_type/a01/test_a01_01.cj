@@ -35,6 +35,7 @@ let f64: Float64 =  64.0f64
 open class Klass  {
 
     public static func fv(f:(Float64)->Float64,arg:Float64) {
+        Assert.equals(1, [f].size)
         Assert.equals(f64, -arg)
    }
 
@@ -51,6 +52,7 @@ func same(arg:Float64) {
 
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     Klass.fv(neg,-f64)
     Klass.fv(same,-f64)
     0

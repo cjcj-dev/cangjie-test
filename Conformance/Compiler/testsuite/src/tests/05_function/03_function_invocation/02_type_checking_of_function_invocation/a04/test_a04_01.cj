@@ -41,9 +41,9 @@ class myClass <: myInterface {
     public func myFunc(a: Int32) { a + 1 }
     public func myFunc(a: Int64) { a + 1 }
 
-    public func myFunc(a: Int64, b: String) { "myClass myFunc(a: Int64, b: String)" }
-    public func myFunc(a: Int64, b: Rune) { "myClass myFunc(a: Int64, b: Rune)" }
-    public func myFunc(a: Int64, b: Bool) { "myClass myFunc(a: Int64, b: Bool)" }
+    public func myFunc(a: Int64, b: String) { Assert.equals(1, [(a, b)].size); "myClass myFunc(a: Int64, b: String)" }
+    public func myFunc(a: Int64, b: Rune) { Assert.equals(1, [(a, b)].size); "myClass myFunc(a: Int64, b: Rune)" }
+    public func myFunc(a: Int64, b: Bool) { Assert.equals(1, [(a, b)].size); "myClass myFunc(a: Int64, b: Bool)" }
 }
 
 struct myStruct {
@@ -51,9 +51,9 @@ struct myStruct {
     func myFunc(a: Int32) { a + 1 }
     func myFunc(a: Int64) { a + 1 }
 
-    func myFunc(a: Int64, b: String) { "myStruct myFunc(a: Int64, b: String)" }
-    func myFunc(a: Int64, b: Rune) { "myStruct myFunc(a: Int64, b: Rune)" }
-    func myFunc(a: Int64, b: Bool) { "myStruct myFunc(a: Int64, b: Bool)" }
+    func myFunc(a: Int64, b: String) { Assert.equals(1, [(a, b)].size); "myStruct myFunc(a: Int64, b: String)" }
+    func myFunc(a: Int64, b: Rune) { Assert.equals(1, [(a, b)].size); "myStruct myFunc(a: Int64, b: Rune)" }
+    func myFunc(a: Int64, b: Bool) { Assert.equals(1, [(a, b)].size); "myStruct myFunc(a: Int64, b: Bool)" }
 }
 
 enum myEnum { 
@@ -63,9 +63,9 @@ enum myEnum {
     func myFunc(a: Int32) { a + 1 }
     func myFunc(a: Int64) { a + 1 }
 
-    func myFunc(a: Int64, b: String) { "myEnum myFunc(a: Int64, b: String)" }
-    func myFunc(a: Int64, b: Rune) { "myEnum myFunc(a: Int64, b: Rune)" }
-    func myFunc(a: Int64, b: Bool) { "myEnum myFunc(a: Int64, b: Bool)" }
+    func myFunc(a: Int64, b: String) { Assert.equals(1, [(a, b)].size); "myEnum myFunc(a: Int64, b: String)" }
+    func myFunc(a: Int64, b: Rune) { Assert.equals(1, [(a, b)].size); "myEnum myFunc(a: Int64, b: Rune)" }
+    func myFunc(a: Int64, b: Bool) { Assert.equals(1, [(a, b)].size); "myEnum myFunc(a: Int64, b: Bool)" }
 }
 
 func myFunc(a: Int16): Int16 { a + 1 }
@@ -73,11 +73,11 @@ func myFunc(a: Int32): Int32 { a + 1 }
 func myFunc(a: Int64): Int64 { a + 1 }
 func myFunc<T1>(a: T1): T1 { a }
 
-func myFunc(a: Int64, b: String) { "myFunc(a: Int64, b: String)" }
-func myFunc(a: Int64, b: Rune) { "myFunc(a: Int64, b: Rune)" }
-func myFunc(a: Int64, b: Bool) { "myFunc(a: Int64, b: Bool)" }
+func myFunc(a: Int64, b: String) { Assert.equals(1, [(a, b)].size); "myFunc(a: Int64, b: String)" }
+func myFunc(a: Int64, b: Rune) { Assert.equals(1, [(a, b)].size); "myFunc(a: Int64, b: Rune)" }
+func myFunc(a: Int64, b: Bool) { Assert.equals(1, [(a, b)].size); "myFunc(a: Int64, b: Bool)" }
 
-func myFunc<T1, T2>(a: T1, b: T2): String { "myFunc(a: T1, b: T2)" }
+func myFunc<T1, T2>(a: T1, b: T2): String { Assert.equals(1, [(a, b)].size); "myFunc(a: T1, b: T2)" }
 
 main() {
 
@@ -88,6 +88,7 @@ main() {
     Assert.equals(22, myFunc<Int16>(22))
     Assert.isTrue(myFunc<Int16> is (Int16) -> Int16)
     var myTestVar: Int16 = myFunc<Int16>(22)
+    Assert.equals(1, [myTestVar].size)
     Assert.equals(14, myFunc(myInt16))
     myTestVar = myFunc(myInt16)
     Assert.equals(8, myFunc(myInt32))

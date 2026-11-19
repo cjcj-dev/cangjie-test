@@ -44,7 +44,11 @@ let r2 = c2?.item // r2 = Option<Int64>.None
 
 main() {
     Assert.equals(100, r1.getOrThrow())
-    match(r2) {
+    checkEmpty(r2)
+}
+
+func checkEmpty(value: Option<Int64>) {
+    match (value) {
       case None => ()
       case _ => Assert.fail()
     }

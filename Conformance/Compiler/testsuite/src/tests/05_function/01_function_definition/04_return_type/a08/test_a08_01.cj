@@ -56,7 +56,7 @@ enum myEnum {
     }
 }
 
-func myFuncUnit(a: Rune) { } 
+func myFuncUnit(a: Rune) { Assert.equals(1, [a].size); }
 
 func myFuncGeneric<T>(a: T) { a } 
 
@@ -101,6 +101,7 @@ main() {
     Assert.isTrue(myClassImpl.classBoolFunc(a: 9) is Bool)
     Assert.isTrue(myClassImpl.classBoolFunc is (Int32) -> Bool)
 
+    Assert.equals("static", myStruct.structStaticFunc())
     var myStructImpl = myStruct()
     Assert.isTrue(myStructImpl.structStringFunc(true) is String)
     Assert.isTrue(myStructImpl.structStringFunc is (Bool) -> String)

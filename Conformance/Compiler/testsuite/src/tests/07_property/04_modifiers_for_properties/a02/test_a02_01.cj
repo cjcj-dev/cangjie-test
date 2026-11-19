@@ -38,12 +38,14 @@
 
 */
 
+import utils.assert.Assert
+
 class Foo {
   public mut prop a: Int64 { // ok
     get() {
       0
     }
-    set(v) {} 
+    set(v) { Assert.equals(1, v) }
   }
 
   //mut prop b: Int64 {
@@ -55,6 +57,9 @@ class Foo {
 }
 
 main() {
+  var x = Foo()
+  x.a = 1
+  Assert.equals(0, x.a)
   return 0;
 }
 

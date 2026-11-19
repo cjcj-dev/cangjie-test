@@ -23,6 +23,8 @@
 
 */
 
+import utils.assert.Assert
+
 class A {
 }
 
@@ -35,7 +37,7 @@ extend A {
   }
   mut prop a2 : Int32 {
     get() { 0 }
-    set(v) {}
+    set(v) { Assert.equals(1, [v].size) }
   }
 }
 
@@ -45,7 +47,7 @@ extend B {
   }
   mut prop b2 : Int32 {
     get() { 0 }
-    set(v) {}
+    set(v) { Assert.equals(1, [v].size) }
   }
 }
 
@@ -56,6 +58,16 @@ extend Int32 {
 }
 
 main() {
+    var a = A()
+    Assert.equals(0, a.a1)
+    a.a2 = 1
+    Assert.equals(0, a.a2)
+    var b = B()
+    Assert.equals(0, b.b1)
+    b.b2 = 1
+    Assert.equals(0, b.b2)
+    let original: Int32 = 3
+    Assert.equals(0, original.a1)
     return 0;
 }
 

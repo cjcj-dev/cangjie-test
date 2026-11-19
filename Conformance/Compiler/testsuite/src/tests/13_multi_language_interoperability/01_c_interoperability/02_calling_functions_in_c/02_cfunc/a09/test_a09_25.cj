@@ -29,10 +29,15 @@
   @Issue: 0006421
 */
 
+import utils.assert.Assert
+
 @C
-func func_01(x: Int32): Unit {}
+func func_01(x: Int32): Unit {
+    Assert.equals(1, [x].size)
+}
 
 main() {
     var FPtr: CFunc<(Int32)->Unit> = func_01
+    Assert.equals(1, [FPtr].size)
     unsafe{ func_01(222) }
 }

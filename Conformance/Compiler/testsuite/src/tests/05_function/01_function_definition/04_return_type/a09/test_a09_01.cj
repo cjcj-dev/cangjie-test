@@ -70,9 +70,12 @@ func funcNumber(a: String) {
 
 func funcUnit() {
     var aaaa = "aaaa"
+    Assert.equals(1, [aaaa].size)
 }
 
 main() {
+    let value: myType = 12
+    Assert.equals(111, value.add())
     Assert.isTrue(funcUnit() is Unit)
     Assert.isTrue(funcUnit is () -> Unit)
 

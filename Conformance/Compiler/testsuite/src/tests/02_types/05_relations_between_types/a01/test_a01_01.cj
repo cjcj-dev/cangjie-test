@@ -34,6 +34,7 @@ main() {
     // subtypes
     let base = Base()
     var impl = Impl()
+    Assert.equals(1, [impl].size)
 
     Assert.isTrue(base is I)
     Assert.isTrue(impl is I)

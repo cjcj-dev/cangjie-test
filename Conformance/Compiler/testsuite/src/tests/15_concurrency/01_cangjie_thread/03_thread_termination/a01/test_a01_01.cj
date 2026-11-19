@@ -22,8 +22,6 @@
 
 */
 
-import std.sync.*  // Concurrency
-import std.time.* // Duration
 
 import utils.assert.Assert
 
@@ -31,7 +29,7 @@ var result:Int64 = 0
 
 main(): Int64 {
     let f: Future<Int64> = spawn {
-        for (i in 0..10) {
+        for (_ in 0..10) {
             result++
             if (result > 7) {
                 return result

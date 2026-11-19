@@ -30,17 +30,21 @@ class myClass {
     var myVar: Rune = r'A'
     init(name: String, age: Int32, gender: Int32) { 
         this(name, age, true, r'U')
+        Assert.equals(1, [gender].size)
         this.myVar = r'D'
     }
     init(name: String, age: Int32, gender: Rune)  { 
         this(name, age, false, r'U')
+        Assert.equals(1, [gender].size)
         this.myVar = r'C'
     }
     init(name: String, age: Int32, gender: Bool) { 
         this(name, age, false, r'U') 
+        Assert.equals(1, [gender].size)
         this.myVar = r'E'
     }
     myClass(name: String, age: Int32, gender: Bool, status: Rune) {
+        Assert.equals(1, [(name, age, gender, status)].size)
         this.myVar = r'B'
     }
 }
@@ -49,17 +53,21 @@ struct myStruct {
     var myVar: Int32 = 0
     init(name: String, age: Int32, gender: Int32) { 
         this(name, age, true, r'U')
+        Assert.equals(1, [gender].size)
         this.myVar = 4
     }
     init(name: String, age: Int32, gender: Rune)  { 
         this(name, age, false, r'U')
+        Assert.equals(1, [gender].size)
         this.myVar = 3
     }
     init(name: String, age: Int32, gender: Bool) { 
         this(name, age, false, r'U') 
+        Assert.equals(1, [gender].size)
         this.myVar = 2
     }
     myStruct(name: String, age: Int32, gender: Bool, status: Rune) {
+        Assert.equals(1, [(name, age, gender, status)].size)
         this.myVar = 1
     }
 }

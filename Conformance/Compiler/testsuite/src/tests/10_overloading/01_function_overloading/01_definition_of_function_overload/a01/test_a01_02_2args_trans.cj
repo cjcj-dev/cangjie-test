@@ -88,6 +88,7 @@ func Check(arg!:Float16, arg2!:Int32 = 1) {
 }
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     Check(arg2:0,arg:-1i8  )
     Check(arg2:0,arg:-2i16 )
     Check(arg2:0,arg:-3i32 )
@@ -101,5 +102,7 @@ main(ina :Array<String>) {
     Check(arg2:0,arg:0.1f64)
     Check(arg2:0,arg:0.2f32)
     Check(arg2:0,arg:0.3f16)
+    Check(arg2: 0, arg: IntNative(-5))
+    Check(arg2: 0, arg: UIntNative(5))
     0
 }

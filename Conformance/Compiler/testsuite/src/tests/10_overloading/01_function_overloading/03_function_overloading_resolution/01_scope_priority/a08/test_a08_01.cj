@@ -51,19 +51,23 @@
 
 */
 
+import utils.assert.Assert
+
 open class A {}
 open class B <: A {}
 
 func outer() {
     func g(a: B) {
+        Assert.equals(1, [a].size)
          print("1")
     }
     func g(a: Int32) {
+        Assert.equals(1, [a].size)
          print("3")
     }
     func inner() {
 
-         func g(a: A) { print("2") }
+         func g(a: A) { Assert.equals(1, [a].size); print("2") }
          func innermost() {
              g(B())    // Output: 2
              g(1)     // Output: 3
@@ -78,6 +82,7 @@ func outer() {
 
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     outer()
     0
 }

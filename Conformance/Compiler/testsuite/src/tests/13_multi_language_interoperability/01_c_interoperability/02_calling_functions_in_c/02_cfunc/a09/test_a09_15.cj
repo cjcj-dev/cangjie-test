@@ -30,6 +30,9 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
-    var CB: CFunc<(VArray<Int32, $3>)->Int32> = { x => 22 }
+    var CB: CFunc<(VArray<Int32, $3>)->Int32> = { x => Assert.equals(1, [x].size); 22 }
+    Assert.equals(1, [CB].size)
 }

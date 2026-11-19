@@ -32,7 +32,7 @@ abstract class A {
   protected prop a1: Int64
   protected mut prop a2: Int64 {
     get() { 5 }
-    set(v) {}
+    set(v) { Assert.equals(1, [v].size) }
   }
 }
 
@@ -45,6 +45,8 @@ class C <: A {
 main() {
   let x = C()
   Assert.equals(6, x.a1)
+  Assert.equals(5, x.a2)
+  x.a2 = 3
   Assert.equals(5, x.a2)
   return 0;
 }

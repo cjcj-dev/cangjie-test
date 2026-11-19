@@ -41,17 +41,23 @@
 
 */
 
+import utils.assert.Assert
+
 class Foo {
   mut prop b: Int64 {
     get() {
       123 // ok, return 123
     }
     set(v) {
+      Assert.equals(1, v)
       () // ok, return unit
     }
   }
 }
 
 main() {
+  var x = Foo()
+  x.b = 1
+  Assert.equals(123, x.b)
   return 0
 }

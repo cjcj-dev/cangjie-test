@@ -29,21 +29,23 @@ enum E<T> {
    | B(T)
 }
 
+func enumValue<T>(value: E<T>): E<T> { value }
+
 main() {
-    match(A<Bool>) {
+    match (enumValue(A<Bool>)) {
       case A => ()
       case _ => Assert.fail()
     }
-    match (B(0)) {
+    match (enumValue(B(0))) {
       case A | B(1) => Assert.fail()
       case B(10) => Assert.fail()
       case B(_) => ()
     }
-    match (B(B(A<String>))) {
+    match (enumValue(B(B(A<String>)))) {
       case A | B(A) => Assert.fail()
       case _ => ()
     }
-    match (B(B(A<E<Float64>>))) {
+    match (enumValue(B(B(A<E<Float64>>)))) {
       case B(B(A)) => ()
       case _ => Assert.fail()
     }

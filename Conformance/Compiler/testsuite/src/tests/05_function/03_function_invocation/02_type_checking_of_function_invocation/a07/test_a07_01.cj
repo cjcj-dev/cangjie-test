@@ -33,12 +33,13 @@ var myVar: Int64 = 1
 
 open class Base {} 
 class Sub <: Base {} 
-func f(a: Sub) {myVar}  // f1 
-func f(a: Base) {Base()}          // f2 
+func f(a: Sub) { Assert.equals(1, [a].size);myVar}  // f1
+func f(a: Base) { Assert.equals(1, [a].size);Base()}          // f2
 
 main() {
     Assert.isTrue(Sub() is Base)
     Assert.isTrue(f(Sub()) is Int64)
     Assert.isTrue(f(Base()) is Base)
     let x: Base = f(Sub())         // f2 can pass the type checking 
+    Assert.equals(1, [x].size)
 }

@@ -44,7 +44,7 @@ main() {
   var bool1: Bool = true
   var bool2: Bool = false
 
-  bool2 = true 
+  bool2 = Assert.getRuntimeZero() == 0
 
   bool2 &&= bool1 
   Assert.isTrue(bool2)

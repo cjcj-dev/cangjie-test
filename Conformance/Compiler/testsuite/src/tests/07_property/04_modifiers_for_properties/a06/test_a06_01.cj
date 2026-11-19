@@ -30,21 +30,27 @@ import utils.assert.Assert
 open class Foo {
   open public mut prop a: String {
     get() { "Foo" }
-    set(p) {}
+    set(p) {
+        Assert.equals(1, [p].size)
+    }
   }
 }
 
 class Foo1 <: Foo {
   public mut prop a: String {
     get() { "Foo1" }
-    set(p1) {}
+    set(p1) {
+        Assert.equals(1, [p1].size)
+    }
   }
 }
 
 class Foo2 <: Foo {
   override public mut prop a: String {
     get() { "Foo2" }
-    set(p2) {}
+    set(p2) {
+        Assert.equals(1, [p2].size)
+    }
   }
 }
 

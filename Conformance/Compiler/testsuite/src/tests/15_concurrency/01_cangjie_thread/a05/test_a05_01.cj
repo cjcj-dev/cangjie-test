@@ -21,7 +21,7 @@
 */
 import utils.assert.*
 
-let arr:Array<Int64> = Array<Int64>(3){i => 0}
+let arr:Array<Int64> = Array<Int64>(3){i => i - i}
 var i = 0
 
 func var1() {

@@ -35,6 +35,7 @@ class A {
       ""
     }
     set(v) {
+      Assert.equals("Hello", v)
       str += "s"
       ()
     }
@@ -47,5 +48,7 @@ main() {
   var x = A()
   x.val = "Hello"
   Assert.equals("s", A.str)
+  Assert.equals("", x.val)
+  Assert.equals("sg", A.str)
   return 0
 }

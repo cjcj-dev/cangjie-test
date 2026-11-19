@@ -56,6 +56,8 @@
 
 */
 
+import utils.assert.Assert
+
 foreign func free(ptr: CPointer<Int32>): Unit
 
 @C
@@ -86,6 +88,7 @@ main() {
     }
     var data = Data()
     var a = A()
+    Assert.equals(1, [a].size)
     unsafe {
         free(inout data.n)   // OK
     }

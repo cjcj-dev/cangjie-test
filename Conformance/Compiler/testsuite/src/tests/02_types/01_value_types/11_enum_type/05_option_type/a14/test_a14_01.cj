@@ -27,8 +27,12 @@
 import utils.assert.Assert
 
 main() {
-    var a = Some(123) ?? 321
+    checkCoalescing(Some(123), None<Rune>)
+}
+
+func checkCoalescing(filled: Option<Int64>, empty: Option<Rune>) {
+    var a = filled ?? 321
     Assert.equals(123, a)
-    let b = None<Rune> ?? r'f'
+    let b = empty ?? r'f'
     Assert.equals(r'f', b)
 }

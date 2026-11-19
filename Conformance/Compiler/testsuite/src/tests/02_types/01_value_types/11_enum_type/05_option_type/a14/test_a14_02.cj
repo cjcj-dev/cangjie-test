@@ -27,17 +27,20 @@
 import utils.assert.Assert
 
 main() {
-    var a = Some(Some(345))
+    let a = Some(Some(345))
+    checkNestedCoalescing(a, Some(None<Rune>), Some(a))
+}
+
+func checkNestedCoalescing(a: Option<Option<Int64>>, rune: Option<Option<Rune>>, nested: Option<Option<Option<Int64>>>) {
     var b = a ?? None<Int64>
     Assert.isTrue(b is Option<Int64>)
     Assert.equals(345, b.getOrThrow())
 
-    let c = None<Rune>
-    let d = Some(c) ?? Some(r'g')
+    let d = rune ?? Some(r'g')
     Assert.isTrue(d is Option<Rune>)
     Assert.throws({ => d.getOrThrow() }, check: { e => e is NoneValueException})
 
-    var e = Some(a) ?? Some(None<Int64>)
+    var e = nested ?? Some(None<Int64>)
     Assert.isTrue(e is Option<Option<Int64>>)
     Assert.equals(345, e.getOrThrow() ?? 546)
 }

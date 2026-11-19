@@ -23,17 +23,23 @@
 
 */
 
+import utils.assert.Assert
+
 class A1 {
   prop a1 : Int32 {
     get() { 0 }
   }
   mut prop a2 : Int32 {
     get() { 0 }
-    set(v) {}
+    set(v) { Assert.equals(1, [v].size) }
   }
 }
 
 main() {
+    var x = A1()
+    Assert.equals(0, x.a1)
+    x.a2 = 1
+    Assert.equals(0, x.a2)
     return 0;
 }
 

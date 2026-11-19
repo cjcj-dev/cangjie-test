@@ -34,9 +34,10 @@ import utils.assert.Assert
 main(): Int64 {
     let m = Mutex()
     let c = synchronized(m) { m.condition() }
+    Assert.equals(1, [c].size)
     synchronized(m) {
         // checking 1M of ConditionIDs can be generated
-        for (i in 0..1_000_000) {
+        for (_ in 0..1_000_000) {
             Assert.isTrue(m.condition() is Condition)
         }
     }

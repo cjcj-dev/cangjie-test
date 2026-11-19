@@ -22,8 +22,12 @@
   @Structure:     single
 
 */
+
+import utils.assert.Assert
 func myFunc(a:Int32, ):String {
+    Assert.equals(1, [a].size)
   ""
 }
 main() {
+    Assert.equals("", myFunc(1))
 }

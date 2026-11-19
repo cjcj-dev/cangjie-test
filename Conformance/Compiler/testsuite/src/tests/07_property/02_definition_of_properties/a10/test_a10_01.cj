@@ -25,6 +25,8 @@
 
 */
 
+import utils.assert.Assert
+
 class A {
   private var imv: Int64 = 0
   static var smv: Int64 = 0
@@ -53,6 +55,9 @@ class A {
 
 main() {
   var x1 = A()
+  Assert.equals(0, x1.imv_prop)
+  x1.imv_prop = 3
+  Assert.equals(6, x1.imv_prop)
   return 0;
 }
 

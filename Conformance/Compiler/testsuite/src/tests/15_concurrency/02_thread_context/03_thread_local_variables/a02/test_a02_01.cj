@@ -29,7 +29,6 @@
 */
 
 import std.sync.*  // Concurrency
-import std.time.* // Duration
 
 import utils.assert.Assert
 
@@ -60,7 +59,7 @@ main(): Int64 {
             }
         }
 
-        for (i in 0..1_000_000) {
+        for (_ in 0..1_000_000) {
             Assert.isNone<Int64>(a.get())
             sleep(Duration.nanosecond)
         }

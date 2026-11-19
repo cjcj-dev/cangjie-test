@@ -27,8 +27,11 @@
 
 */
 
+import utils.assert.Assert
+
 struct myStruct { 
     mut operator func +(a: myStruct): myStruct { 
+        Assert.equals(1, [a].size)
         return myStruct() 
     } 
     func res() {

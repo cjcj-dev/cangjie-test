@@ -26,7 +26,10 @@
 import utils.assert.Assert
 
 main() {
-    var e: Option<String> = Some("str")
+    checkSome(Some("str"))
+}
+
+func checkSome(e: Option<String>) {
     match (e) {
         case None => Assert.fail()
         case Some(s) => Assert.equals("str", s)

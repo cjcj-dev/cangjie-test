@@ -26,6 +26,8 @@
 
 */
 
+import utils.assert.Assert
+
 class A {
   var propVal: Int64 = 0
   mut prop prop1: Int64 {
@@ -34,6 +36,7 @@ class A {
       var y1: Int64 = 0
       y1 = 234
       x1 = "Hello " + y1.toString()
+      Assert.equals("Hello 234", x1)
       propVal
     }
     set(value) {
@@ -41,6 +44,7 @@ class A {
       var y2: Int64 = 0
       y2 = 234
       x2 = "Hello " + y2.toString()
+      Assert.equals("Hello 234", x2)
       propVal = value
     }
   } 
@@ -49,5 +53,8 @@ class A {
 
 main() {
   var x = A()
+  Assert.equals(0, x.prop1)
+  x.prop1 = 7
+  Assert.equals(7, x.prop1)
   return 0
 }

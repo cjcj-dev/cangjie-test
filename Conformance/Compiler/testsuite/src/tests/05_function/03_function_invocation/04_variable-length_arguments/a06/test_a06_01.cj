@@ -50,6 +50,7 @@ class myClass {
     }
 
     operator func [](a: Rune, arg: Array<Int64>): Int64 {
+        Assert.equals(1, [a].size)
         return arg.size
     }
 }

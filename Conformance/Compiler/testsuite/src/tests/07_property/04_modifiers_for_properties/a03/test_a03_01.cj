@@ -23,26 +23,40 @@
 
 */
 
+import utils.assert.Assert
+
 class A {
   mut prop a: Int64 {
     get() { 0 }
-    set(v) {} 
+    set(v) { Assert.equals(1, [v].size) }
   }
   private mut prop b: Int64 {
     get() { 0 }
-    set(v) {} 
+    set(v) { Assert.equals(1, [v].size) }
   }
   protected mut prop c: Int64 {
     get() { 0 }
-    set(v) {} 
+    set(v) { Assert.equals(1, [v].size) }
   }
   public mut prop d: Int64 {
     get() { 0 }
-    set(v) {} 
+    set(v) { Assert.equals(1, [v].size) }
+  }
+  func checkAccess() {
+    a = 1
+    Assert.equals(0, a)
+    b = 1
+    Assert.equals(0, b)
+    c = 1
+    Assert.equals(0, c)
+    d = 1
+    Assert.equals(0, d)
   }
 }
 
 main() {
+  var x = A()
+  x.checkAccess()
   return 0;
 }
 

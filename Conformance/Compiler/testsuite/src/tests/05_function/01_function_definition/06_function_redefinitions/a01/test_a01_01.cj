@@ -47,7 +47,7 @@ enum myEnum {
   func myFunc(a: Int32, b!: Int32): Int32 { a / b}
 }
 
-func myFunc(a: Int32, b!: Int32): Int32 { a + 10 } 
+func myFunc(a: Int32, b!: Int32): Int32 { Assert.equals(1, [b].size); a + 10 }
 
 func myParentFunc(a: Int32) {
   var b: Int32 = 12

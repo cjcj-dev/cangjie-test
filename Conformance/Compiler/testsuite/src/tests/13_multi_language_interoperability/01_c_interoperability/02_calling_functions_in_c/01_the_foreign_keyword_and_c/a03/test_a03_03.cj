@@ -28,6 +28,8 @@
   @Issue: 0006421
 */
 
+import utils.assert.Assert
+
 @C
 struct ABC {
   var x : Int32
@@ -40,4 +42,5 @@ struct ABC {
 
 main() {
     var Value : ABC = ABC(11, 666);
+    Assert.equals(1, [Value].size)
 }

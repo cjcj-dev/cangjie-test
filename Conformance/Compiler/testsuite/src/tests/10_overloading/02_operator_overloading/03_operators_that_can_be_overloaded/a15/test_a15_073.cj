@@ -29,6 +29,8 @@
 
 */
 
+import utils.assert.Assert
+
 interface I {}
 
 interface J <: I {}
@@ -50,59 +52,59 @@ interface L <: I {
 }
 
 open class CI <: I {
-    public operator func +(x : Unit) { CL() }
-    public operator func -(x : Unit) { CL() }
-    public operator func *(x : Unit) { CL() }
-    public operator func **(x : Unit) { CL() }
-    public operator func /(x : Unit) { CL() }
-    public operator func %(x : Unit) { CL() }
-    public operator func &(x : Unit) { CL() }
-    public operator func |(x : Unit) { CL() }
-    public operator func ^(x : Unit) { CL() }
-    public operator func <<(x : Unit) { CL() }
-    public operator func >>(x : Unit) { CL() }
+    public operator func +(x : Unit) { Assert.equals((), x); CL() }
+    public operator func -(x : Unit) { Assert.equals((), x); CL() }
+    public operator func *(x : Unit) { Assert.equals((), x); CL() }
+    public operator func **(x : Unit) { Assert.equals((), x); CL() }
+    public operator func /(x : Unit) { Assert.equals((), x); CL() }
+    public operator func %(x : Unit) { Assert.equals((), x); CL() }
+    public operator func &(x : Unit) { Assert.equals((), x); CL() }
+    public operator func |(x : Unit) { Assert.equals((), x); CL() }
+    public operator func ^(x : Unit) { Assert.equals((), x); CL() }
+    public operator func <<(x : Unit) { Assert.equals((), x); CL() }
+    public operator func >>(x : Unit) { Assert.equals((), x); CL() }
 }
 
 open class CJ <: J {
-    public operator func +(x : Unit) { CL() }
-    public operator func -(x : Unit) { CL() }
-    public operator func *(x : Unit) { CL() }
-    public operator func **(x : Unit) { CL() }
-    public operator func /(x : Unit) { CL() }
-    public operator func %(x : Unit) { CL() }
-    public operator func &(x : Unit) { CL() }
-    public operator func |(x : Unit) { CL() }
-    public operator func ^(x : Unit) { CL() }
-    public operator func <<(x : Unit) { CL() }
-    public operator func >>(x : Unit) { CL() }
+    public operator func +(x : Unit) { Assert.equals((), x); CL() }
+    public operator func -(x : Unit) { Assert.equals((), x); CL() }
+    public operator func *(x : Unit) { Assert.equals((), x); CL() }
+    public operator func **(x : Unit) { Assert.equals((), x); CL() }
+    public operator func /(x : Unit) { Assert.equals((), x); CL() }
+    public operator func %(x : Unit) { Assert.equals((), x); CL() }
+    public operator func &(x : Unit) { Assert.equals((), x); CL() }
+    public operator func |(x : Unit) { Assert.equals((), x); CL() }
+    public operator func ^(x : Unit) { Assert.equals((), x); CL() }
+    public operator func <<(x : Unit) { Assert.equals((), x); CL() }
+    public operator func >>(x : Unit) { Assert.equals((), x); CL() }
 }
 
 open class CK <: K {
-    public operator func +(x : Unit) { CL() }
-    public operator func -(x : Unit) { CL() }
-    public operator func *(x : Unit) { CL() }
-    public operator func **(x : Unit) { CL() }
-    public operator func /(x : Unit) { CL() }
-    public operator func %(x : Unit) { CL() }
-    public operator func &(x : Unit) { CL() }
-    public operator func |(x : Unit) { CL() }
-    public operator func ^(x : Unit) { CL() }
-    public operator func <<(x : Unit) { CL() }
-    public operator func >>(x : Unit) { CL() }
+    public operator func +(x : Unit) { Assert.equals((), x); CL() }
+    public operator func -(x : Unit) { Assert.equals((), x); CL() }
+    public operator func *(x : Unit) { Assert.equals((), x); CL() }
+    public operator func **(x : Unit) { Assert.equals((), x); CL() }
+    public operator func /(x : Unit) { Assert.equals((), x); CL() }
+    public operator func %(x : Unit) { Assert.equals((), x); CL() }
+    public operator func &(x : Unit) { Assert.equals((), x); CL() }
+    public operator func |(x : Unit) { Assert.equals((), x); CL() }
+    public operator func ^(x : Unit) { Assert.equals((), x); CL() }
+    public operator func <<(x : Unit) { Assert.equals((), x); CL() }
+    public operator func >>(x : Unit) { Assert.equals((), x); CL() }
 }
 
 open class CL <: L {
-    public operator func +(x : Unit) { CL() }
-    public operator func -(x : Unit) { CL() }
-    public operator func *(x : Unit) { CL() }
-    public operator func **(x : Unit) { CL() }
-    public operator func /(x : Unit) { CL() }
-    public operator func %(x : Unit) { CL() }
-    public operator func &(x : Unit) { CL() }
-    public operator func |(x : Unit) { CL() }
-    public operator func ^(x : Unit) { CL() }
-    public operator func <<(x : Unit) { CL() }
-    public operator func >>(x : Unit) { CL() }
+    public operator func +(x : Unit) { Assert.equals((), x); CL() }
+    public operator func -(x : Unit) { Assert.equals((), x); CL() }
+    public operator func *(x : Unit) { Assert.equals((), x); CL() }
+    public operator func **(x : Unit) { Assert.equals((), x); CL() }
+    public operator func /(x : Unit) { Assert.equals((), x); CL() }
+    public operator func %(x : Unit) { Assert.equals((), x); CL() }
+    public operator func &(x : Unit) { Assert.equals((), x); CL() }
+    public operator func |(x : Unit) { Assert.equals((), x); CL() }
+    public operator func ^(x : Unit) { Assert.equals((), x); CL() }
+    public operator func <<(x : Unit) { Assert.equals((), x); CL() }
+    public operator func >>(x : Unit) { Assert.equals((), x); CL() }
     static func l() : L { CL() }
 }
 
@@ -119,6 +121,29 @@ main() {
     a ^= ()
     a <<= ()
     a >>= ()
+
+    // Exercise the standalone operators outside the compound-assignment examples.
+    let ci = CI()
+    Assert.equals(11, [
+        ci + (), ci - (), ci * (),
+        ci ** (), ci / (), ci % (),
+        ci & (), ci | (), ci ^ (),
+        ci << (), ci >> ()
+    ].size)
+    let cj = CJ()
+    Assert.equals(11, [
+        cj + (), cj - (), cj * (),
+        cj ** (), cj / (), cj % (),
+        cj & (), cj | (), cj ^ (),
+        cj << (), cj >> ()
+    ].size)
+    let ck = CK()
+    Assert.equals(11, [
+        ck + (), ck - (), ck * (),
+        ck ** (), ck / (), ck % (),
+        ck & (), ck | (), ck ^ (),
+        ck << (), ck >> ()
+    ].size)
 
     return 0
 }

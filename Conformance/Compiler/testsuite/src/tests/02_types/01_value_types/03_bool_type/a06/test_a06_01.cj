@@ -33,7 +33,7 @@ import utils.assert.Assert
   var bool1: Bool
   var bool2: Bool 
 
-  bool1 = true
+  bool1 = Assert.getRuntimeZero() == 0
   bool2 = false
 
   Assert.isTrue(!bool2)

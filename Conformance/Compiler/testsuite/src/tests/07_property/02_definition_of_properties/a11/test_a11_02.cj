@@ -23,6 +23,8 @@
 
 */
 
+import utils.assert.Assert
+
 class A {
   static var smv: Int64 = 0
   static mut prop smv_prop: Int64 {
@@ -41,6 +43,9 @@ class A {
 main() {
   let x = A()
   let y = x.i_member()
+  Assert.equals(0, y)
+  A.smv_prop = 5
+  Assert.equals(5, x.i_member())
   return 0;
 }
 

@@ -24,26 +24,40 @@
 
 */
 
+import utils.assert.Assert
+
 class A1 {
   public mut prop a1 : UInt8 {
     get() { 0 }
-    set(v) {}
+    set(v) { Assert.equals(1, [v].size) }
   }
   static mut prop a2 : UInt16 {
     get() { 0 }
-    set(v) {}
+    set(v) { Assert.equals(1, [v].size) }
   }
   private mut prop a3 : UInt32 {
     get() { 0 }
-    set(v) {}
+    set(v) { Assert.equals(1, [v].size) }
   }
   protected mut prop a4 : UInt64 {
     get() { 0 }
-    set(v) {}
+    set(v) { Assert.equals(1, [v].size) }
+  }
+  func checkHiddenProperties() {
+    a3 = 3
+    Assert.equals(0, a3)
+    a4 = 4
+    Assert.equals(0, a4)
   }
 }
 
 main() {
+  var x = A1()
+  x.a1 = 1
+  Assert.equals(0, x.a1)
+  A1.a2 = 2
+  Assert.equals(0, A1.a2)
+  x.checkHiddenProperties()
   return 0;
 }
 

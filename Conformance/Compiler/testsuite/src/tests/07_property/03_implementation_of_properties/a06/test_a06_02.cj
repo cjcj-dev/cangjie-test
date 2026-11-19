@@ -26,17 +26,20 @@
 
 */
 
+import utils.assert.Assert
+
 class A {
   mut prop aProp: Int64 {
     get() {
       aProp
     }
-    set(v) { }
+    set(v) { Assert.equals(1, [v].size) }
   } 
 }
 
 
 main() {
   var x = A()
+  x.aProp = 1
   return 0
 }

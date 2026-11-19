@@ -29,6 +29,8 @@
 
 */
 
+import utils.assert.Assert
+
 interface I {}
 
 interface J <: I {}
@@ -50,60 +52,60 @@ interface K <: J {
 interface L <: I {}
 
 open class CI <: I {
-    public operator func +(x : Unit) { CK() }
-    public operator func -(x : Unit) { CK() }
-    public operator func *(x : Unit) { CK() }
-    public operator func **(x : Unit) { CK() }
-    public operator func /(x : Unit) { CK() }
-    public operator func %(x : Unit) { CK() }
-    public operator func &(x : Unit) { CK() }
-    public operator func |(x : Unit) { CK() }
-    public operator func ^(x : Unit) { CK() }
-    public operator func <<(x : Unit) { CK() }
-    public operator func >>(x : Unit) { CK() }
+    public operator func +(x : Unit) { Assert.equals((), x); CK() }
+    public operator func -(x : Unit) { Assert.equals((), x); CK() }
+    public operator func *(x : Unit) { Assert.equals((), x); CK() }
+    public operator func **(x : Unit) { Assert.equals((), x); CK() }
+    public operator func /(x : Unit) { Assert.equals((), x); CK() }
+    public operator func %(x : Unit) { Assert.equals((), x); CK() }
+    public operator func &(x : Unit) { Assert.equals((), x); CK() }
+    public operator func |(x : Unit) { Assert.equals((), x); CK() }
+    public operator func ^(x : Unit) { Assert.equals((), x); CK() }
+    public operator func <<(x : Unit) { Assert.equals((), x); CK() }
+    public operator func >>(x : Unit) { Assert.equals((), x); CK() }
 }
 
 open class CJ <: J {
-    public operator func +(x : Unit) { CK() }
-    public operator func -(x : Unit) { CK() }
-    public operator func *(x : Unit) { CK() }
-    public operator func **(x : Unit) { CK() }
-    public operator func /(x : Unit) { CK() }
-    public operator func %(x : Unit) { CK() }
-    public operator func &(x : Unit) { CK() }
-    public operator func |(x : Unit) { CK() }
-    public operator func ^(x : Unit) { CK() }
-    public operator func <<(x : Unit) { CK() }
-    public operator func >>(x : Unit) { CK() }
+    public operator func +(x : Unit) { Assert.equals((), x); CK() }
+    public operator func -(x : Unit) { Assert.equals((), x); CK() }
+    public operator func *(x : Unit) { Assert.equals((), x); CK() }
+    public operator func **(x : Unit) { Assert.equals((), x); CK() }
+    public operator func /(x : Unit) { Assert.equals((), x); CK() }
+    public operator func %(x : Unit) { Assert.equals((), x); CK() }
+    public operator func &(x : Unit) { Assert.equals((), x); CK() }
+    public operator func |(x : Unit) { Assert.equals((), x); CK() }
+    public operator func ^(x : Unit) { Assert.equals((), x); CK() }
+    public operator func <<(x : Unit) { Assert.equals((), x); CK() }
+    public operator func >>(x : Unit) { Assert.equals((), x); CK() }
 }
 
 open class CK <: K {
-    public operator func +(x : Unit) { CK() }
-    public operator func -(x : Unit) { CK() }
-    public operator func *(x : Unit) { CK() }
-    public operator func **(x : Unit) { CK() }
-    public operator func /(x : Unit) { CK() }
-    public operator func %(x : Unit) { CK() }
-    public operator func &(x : Unit) { CK() }
-    public operator func |(x : Unit) { CK() }
-    public operator func ^(x : Unit) { CK() }
-    public operator func <<(x : Unit) { CK() }
-    public operator func >>(x : Unit) { CK() }
+    public operator func +(x : Unit) { Assert.equals((), x); CK() }
+    public operator func -(x : Unit) { Assert.equals((), x); CK() }
+    public operator func *(x : Unit) { Assert.equals((), x); CK() }
+    public operator func **(x : Unit) { Assert.equals((), x); CK() }
+    public operator func /(x : Unit) { Assert.equals((), x); CK() }
+    public operator func %(x : Unit) { Assert.equals((), x); CK() }
+    public operator func &(x : Unit) { Assert.equals((), x); CK() }
+    public operator func |(x : Unit) { Assert.equals((), x); CK() }
+    public operator func ^(x : Unit) { Assert.equals((), x); CK() }
+    public operator func <<(x : Unit) { Assert.equals((), x); CK() }
+    public operator func >>(x : Unit) { Assert.equals((), x); CK() }
     static func k() : K { CK() }
 }
 
 open class CL <: L {
-    public operator func +(x : Unit) { CK() }
-    public operator func -(x : Unit) { CK() }
-    public operator func *(x : Unit) { CK() }
-    public operator func **(x : Unit) { CK() }
-    public operator func /(x : Unit) { CK() }
-    public operator func %(x : Unit) { CK() }
-    public operator func &(x : Unit) { CK() }
-    public operator func |(x : Unit) { CK() }
-    public operator func ^(x : Unit) { CK() }
-    public operator func <<(x : Unit) { CK() }
-    public operator func >>(x : Unit) { CK() }
+    public operator func +(x : Unit) { Assert.equals((), x); CK() }
+    public operator func -(x : Unit) { Assert.equals((), x); CK() }
+    public operator func *(x : Unit) { Assert.equals((), x); CK() }
+    public operator func **(x : Unit) { Assert.equals((), x); CK() }
+    public operator func /(x : Unit) { Assert.equals((), x); CK() }
+    public operator func %(x : Unit) { Assert.equals((), x); CK() }
+    public operator func &(x : Unit) { Assert.equals((), x); CK() }
+    public operator func |(x : Unit) { Assert.equals((), x); CK() }
+    public operator func ^(x : Unit) { Assert.equals((), x); CK() }
+    public operator func <<(x : Unit) { Assert.equals((), x); CK() }
+    public operator func >>(x : Unit) { Assert.equals((), x); CK() }
 }
 
 main() {
@@ -119,6 +121,29 @@ main() {
     a ^= ()
     a <<= ()
     a >>= ()
+
+    // Exercise the standalone operators outside the compound-assignment examples.
+    let ci = CI()
+    Assert.equals(11, [
+        ci + (), ci - (), ci * (),
+        ci ** (), ci / (), ci % (),
+        ci & (), ci | (), ci ^ (),
+        ci << (), ci >> ()
+    ].size)
+    let cj = CJ()
+    Assert.equals(11, [
+        cj + (), cj - (), cj * (),
+        cj ** (), cj / (), cj % (),
+        cj & (), cj | (), cj ^ (),
+        cj << (), cj >> ()
+    ].size)
+    let cl = CL()
+    Assert.equals(11, [
+        cl + (), cl - (), cl * (),
+        cl ** (), cl / (), cl % (),
+        cl & (), cl | (), cl ^ (),
+        cl << (), cl >> ()
+    ].size)
 
     return 0
 }

@@ -56,23 +56,29 @@
 
 */
 
+import utils.assert.Assert
+
 open class A {
   public open mut prop i1: Int64 {
     get() { 0 }
-    set(v) {}
+    set(v) {
+        Assert.equals(1, [v].size)
+    }
   }
   static mut prop i2: Int64 {
     get() { 0 }
-    set(v) {}
+    set(v) {
+        Assert.equals(1, [v].size)
+    }
   }
 }
 // case 2
 class B <: A {
   public override mut prop i1: Int64 {
-    set(v) {} // ok
+    set(v) { Assert.equals(1, [v].size);} // ok
   }
   redef static mut prop i2: Int64 {
-    set(v) {} // ok
+    set(v) { Assert.equals(1, [v].size);} // ok
   }
 }
 

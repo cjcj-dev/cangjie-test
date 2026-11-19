@@ -50,7 +50,10 @@ enum TimeUnit2 {
     | Hour(Float32, Float32, Float32, Float32)
  }
 main() {
-    let time12 = TimeUnit1.Year
+    checkHours(TimeUnit1.Year, TimeUnit2.Month(1.0, 1.5))
+}
+
+func checkHours(time12: TimeUnit1, time13: TimeUnit2) {
     let howManyHours1 = match (time12) {
         case Year => 365.0f32 * 24.0f32 // matched
         case Month => 30.0f32 * 24.0f32
@@ -58,11 +61,12 @@ main() {
         case Hour => 1.0f32
     }
  
-    let time13 = TimeUnit2.Month(1.0, 1.5)
     let howManyHours2 = match (time13) {
         case Year(y) => y * 365.0f32 * 24.0f32
         case Month(y, m) => y * 365.0f32 * 24.0f32 + m * 30.0f32 * 24.0f32 // matched
         case Day(y, m, d) => y * 365.0f32 * 24.0f32 + m * 30.0f32 * 24.0f32 + d * 24.0f32
         case Hour(y, m, d, h) => y * 365.0f32 * 24.0f32 + m * 30.0f32 * 24.0f32 + d * 24.0f32 + h
     }
+    Assert.equals(8760.0f32, howManyHours1)
+    Assert.equals(9840.0f32, howManyHours2)
 }

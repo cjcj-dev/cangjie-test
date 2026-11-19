@@ -38,6 +38,8 @@
 
 */
 
+import utils.assert.Assert
+
 class Foo {
   prop a: Int64 {
     get() {
@@ -48,14 +50,16 @@ class Foo {
     get() {
       0
     }
-    set(v) {} 
+    set(v) { Assert.equals(1, [v].size);}
   }
 }
 
 main() {
   var x = Foo()
   let r1 = x.a
+  Assert.equals(1, [r1].size)
   let r2 = x.b
+  Assert.equals(1, [r2].size)
   x.b = 222
   return 0;
 }

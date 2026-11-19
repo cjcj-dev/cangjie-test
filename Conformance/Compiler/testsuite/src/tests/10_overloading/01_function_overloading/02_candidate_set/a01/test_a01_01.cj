@@ -80,38 +80,49 @@ class Klass {
     }
 
     func Check(arg:Int8) {
+        Assert.equals(1, [arg].size)
         SCheck(-1i8)
     }
     func Check(arg:Int16) {
+        Assert.equals(1, [arg].size)
         SCheck(-2i16)
     }
     func Check(arg:Int32) {
+        Assert.equals(1, [arg].size)
         SCheck(-3i32)
     }
     func Check(arg:Int64) {
+        Assert.equals(1, [arg].size)
         SCheck(-4i64)
     }
     
     func Check(arg:UInt8) {
+        Assert.equals(1, [arg].size)
         SCheck(1u8)
     }
     func Check(arg:UInt16) {
+        Assert.equals(1, [arg].size)
         SCheck(2u16)
     }
     func Check(arg:UInt32) {
+        Assert.equals(1, [arg].size)
         SCheck(3u32)
     }
     func Check(arg:UInt64) {
+        Assert.equals(1, [arg].size)
         SCheck(4u64)
     }
     
     func Check(arg:Float64) {
+        Assert.equals(1, [arg].size)
         SCheck(0.10f64)
     }
     func Check(arg:Float32) {
+        Assert.equals(1, [arg].size)
         SCheck(0.2f32)
     }
     func Check(arg:Float16) {
+        Assert.equals(1, [arg].size)
         SCheck(0.3f16)
     }
 
@@ -121,6 +132,7 @@ extend Klass {
         Assert.equals(-5, arg)
     }
     func Check(arg:IntNative) {
+        Assert.equals(1, [arg].size)
         SCheck(IntNative(-5))
     }
 }
@@ -130,6 +142,7 @@ extend Klass {
         Assert.equals(5, arg)
     }
     private func Check(arg:IntNative, b:Bool) {
+        Assert.equals(1, [(arg, b)].size)
         Assert.fail()
     }
     func Check(arg:UIntNative) {
@@ -141,10 +154,22 @@ extend Klass {
 }
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     var kl:Klass = Klass(0);
     kl.Check(IntNative(-5))
 
     kl.Check(UIntNative(5))
+    kl.Check(-1i8)
+    kl.Check(-2i16)
+    kl.Check(-3i32)
+    kl.Check(-4i64)
+    kl.Check(1u8)
+    kl.Check(2u16)
+    kl.Check(3u32)
+    kl.Check(4u64)
+    kl.Check(0.10f64)
+    kl.Check(0.2f32)
+    kl.Check(0.3f16)
 
     0
 }

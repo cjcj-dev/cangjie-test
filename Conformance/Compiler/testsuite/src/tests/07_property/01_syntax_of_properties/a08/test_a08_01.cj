@@ -24,17 +24,23 @@
 
 */
 
+import utils.assert.Assert
+
 struct Foo {
   mut prop a: Int64 {
     get() {
       0
     } 
-    set(v) {} 
+    set(v) { Assert.equals(1, [v].size) }
   }
 }
 
 main() {
   let x = Foo()
+  Assert.equals(0, x.a)
+  var writable = Foo()
+  writable.a = 1
+  Assert.equals(0, writable.a)
   return 0;
 }
 

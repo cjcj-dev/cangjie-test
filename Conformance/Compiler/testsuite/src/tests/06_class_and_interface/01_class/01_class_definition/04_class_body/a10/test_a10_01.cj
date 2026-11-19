@@ -60,6 +60,7 @@ class NonGeneric {
 
 class Generic<T> {
   operator func-(rhs:Generic<T>) {
+    Assert.equals(26, -rhs)
     return 25
   }
   operator func-() {

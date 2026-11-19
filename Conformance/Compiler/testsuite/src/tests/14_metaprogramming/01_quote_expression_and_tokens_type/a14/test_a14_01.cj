@@ -31,6 +31,9 @@ main(): Unit {
     var t1 = Tokens()
     var t2 = ts()
 
+    t = t1
+    Assert.equals(0, t.size)
+    Assert.equals(0, t2.size)
     Assert.isTrue(t1 is Tokens)
     Assert.isTrue(t2 is Tokens)
 }

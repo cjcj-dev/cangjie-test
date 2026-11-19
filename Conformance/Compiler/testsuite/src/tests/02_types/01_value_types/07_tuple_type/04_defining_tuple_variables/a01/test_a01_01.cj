@@ -44,9 +44,13 @@ func getTuple4() {
 main() {
     var t1 = (123, 321)
     Assert.isTrue(t1 is (Int64, Int64))
+    Assert.equals(123, t1[0])
+    Assert.equals(321, t1[1])
 
     var t2 = ((1.23, 3.21f16), true, "Bla-bla-bla")
     Assert.isTrue(t2 is ((Float64, Float16), Bool, String))
+    Assert.isTrue(t2[1])
+    Assert.equals("Bla-bla-bla", t2[2])
 
     var r1 = R1()
     var c1 = C1()
@@ -56,5 +60,8 @@ main() {
     let t4 = ([1_i16, 2i16, 3i16], (1..=2, my), my())
     Assert.isTrue(t4 is (Array<Int16>, (Range<Int64>, () -> String), String))
 
+    let example = getTuple4()
+    Assert.equals([1, 2, 3], example[0])
+    Assert.equals("Hi", example[2])
     return 0
 }

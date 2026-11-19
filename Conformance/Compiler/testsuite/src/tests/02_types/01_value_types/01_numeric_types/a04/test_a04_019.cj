@@ -48,6 +48,7 @@ func getUIntNativeSize
         size = 32;
 
         uint_native_var = one << shift63;
+        Assert.equals(9223372036854775808u64, UInt64(uint_native_var));
         size = 64;
     } catch (e: ArithmeticException) {
         //println(e.toString());
@@ -108,7 +109,7 @@ by calculated size of UIntNative, is not correcti.
 """
 Test_case_3: Variable of UIntNative type is assigned successfully
 by value, whose length is greater than length of UIntNative. 
-""";
+""" + " Actual value: " + intNative_var_02.toString();
     } catch (e: ArithmeticException) {
         // OK        
         //println(e.toString());

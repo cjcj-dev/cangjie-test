@@ -25,6 +25,8 @@
 
 */
 
+import utils.assert.Assert
+
 enum WeekBase {
     Monday(Bool)
 }
@@ -41,4 +43,10 @@ main() {
     var myVar = 12.76
     let Monday(flag) = Monday(true)
     let (_,z) = (17,"ASFASF")
+    Assert.equals(24, x)
+    Assert.equals('h', y)
+    Assert.equals(12.76, myVar)
+    Assert.isTrue(flag)
+    Assert.equals("ASFASF", z)
+    Assert.equals("inVal = 24", matchVar(x))
 }

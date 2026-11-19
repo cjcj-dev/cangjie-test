@@ -36,43 +36,50 @@ struct Test {
     
     init(x: Int64) {
         this()
+        Assert.equals(1, [x].size)
         order += "_2"
     }
 
     init(x: Int32) {
         this(12)
+        Assert.equals(1, [x].size)
         order += "_3"
     }
 
     init(x: Int16) {
         this(1i32)
+        Assert.equals(1, [x].size)
         order += "_4"
     }
 
     init(x: Int8) {
         this(1i16)
+        Assert.equals(1, [x].size)
         order += "_5"
     }
 
     init(x: Float64) {
+        Assert.equals(1, [x].size)
         order += "_3"
     }
 
     init(x: Float32) {
         this(0.1)
+        Assert.equals(1, [x].size)
         order += "_4"
     }
 
     init(x: Float16) {
         this(0.1f32)
+        Assert.equals(1, [x].size)
         order += "_5"
     }
 
     init(x: Bool) {
         if (x) {
-            Test(1i8)
+            Assert.equals(1, [Test(1i8)].size)
         } else {
-            Test(0.1f16)
+            Assert.equals(1, [Test(0.1f16)].size)
         }
         order += "_6"
     }
@@ -84,10 +91,10 @@ struct Test {
 }
 
 main() {
-    Test("a")
+    Assert.equals(1, [Test("a")].size)
     Assert.equals("_1_2_3_4_5_6_7", order)
 
     order = ""
-    Test("b")
+    Assert.equals(1, [Test("b")].size)
     Assert.equals("_3_4_5_6_7", order)
 }

@@ -29,6 +29,8 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
     let b: Int32                     // Define read-only variable b with type Int32. 
     let c: Int64                     // Define read-only variable c with type Int64. 
@@ -36,4 +38,17 @@ main() {
     var (x, y): (Int8, Int16)       // Define two writeable variable: x with type Int8, x with type Int16. 
     var `open` = 1                   // Define a variable named `open` with value 1. 
     var `throw` = "throw"            // Define a variable named `throw` with value "throw".
+
+    b = 2i32
+    c = 3
+    bb = "bb"
+    x = 4i8
+    y = 5i16
+    Assert.equals(2i32, b)
+    Assert.equals(3, c)
+    Assert.equals("bb", bb)
+    Assert.equals(4i8, x)
+    Assert.equals(5i16, y)
+    Assert.equals(1, `open`)
+    Assert.equals("throw", `throw`)
 }

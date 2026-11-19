@@ -32,12 +32,13 @@ var INVOCATION_COUNTER = 0
 
 struct StructName {
     init(arg1: Int64, arg2: Int64) {
+        Assert.equals(1, [(arg1, arg2)].size)
         INVOCATION_COUNTER++
     }
 }
 
 main() {
     let beforeInvocation = INVOCATION_COUNTER
-    StructName(1, 2)
+    Assert.equals(1, [StructName(1, 2)].size)
     Assert.equals(1, INVOCATION_COUNTER - beforeInvocation)
 }

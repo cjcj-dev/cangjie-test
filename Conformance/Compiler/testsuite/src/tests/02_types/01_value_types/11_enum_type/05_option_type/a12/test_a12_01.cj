@@ -40,6 +40,7 @@ main() {
     var check = 0;
     try {
         let number2 = opInt32_2.getOrThrow() // throw NoneValueException
+        Assert.equals(1, [number2].size)
       check = -1
     } catch(e : NoneValueException) {
         check = 1
@@ -49,6 +50,7 @@ main() {
     check = 0
     try {
         let number3 = opInt32_2.getOrThrow{ MyException("Get None value") } // throw MyException
+        Assert.equals(1, [number3].size)
       check = -1
     } catch(e : MyException) {
         Assert.equals("Get None value", e.s)

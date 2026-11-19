@@ -45,6 +45,7 @@ main(ina: Array<String>) {
             throw ArithmeticException() 
         }
         let temp = listTest[0] + 1 // Will never be executed. 
+        Assert.fail(reason: "Execution continued after the expected throw: ${temp}.")
     } catch (e: ArithmeticException) {
         catch_block = true
         print("an arithmeticException happened: " + e.toString())

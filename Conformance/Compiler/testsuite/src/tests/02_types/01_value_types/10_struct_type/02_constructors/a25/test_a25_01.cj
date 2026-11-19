@@ -46,7 +46,9 @@ struct Test{
         var width!: Int64 = 1, // member variable parameter with initial value
         private var length!: Int64, // member variable parameter
         private var height!: Int64 = 3 // member variable parameter
-        ) {}
+        ) {
+        Assert.equals(2, [name, annotation].size)
+    }
 
     static func test() {
         let tst = Test("str", length: 2)

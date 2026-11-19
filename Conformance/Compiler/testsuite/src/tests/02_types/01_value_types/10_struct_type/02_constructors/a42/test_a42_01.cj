@@ -42,23 +42,28 @@ struct Test {
     }
 
     init(x: Int64) {
+        Assert.equals(1, [x].size)
         id = 2
         return ()
     }
 
     init(x: String) {
+        Assert.equals(1, [x].size)
         id = 3
         let a: Unit = ()
         return a
     }
 
     init(x: Rune) {
+        Assert.equals(1, [x].size)
         id = 4
         var a = 1
+        Assert.equals(1, [a].size)
         return (a = 0)
     }
 
     init(x: Bool) {
+        Assert.equals(1, [x].size)
         id = 5
         var a = 1
         return a++
@@ -70,6 +75,7 @@ struct Test {
     }
 
     init(x: Float64) {
+        Assert.equals(1, [x].size)
         id = 7
         return unit_f()
     }
@@ -77,23 +83,30 @@ struct Test {
 
 main() {
     let t1 = Test()
+    Assert.equals(1, [t1].size)
     Assert.equals(1, id)
 
     let t2 = Test(1)
+    Assert.equals(1, [t2].size)
     Assert.equals(2, id)
 
     let t3 = Test("")
+    Assert.equals(1, [t3].size)
     Assert.equals(3, id)
 
     let t4 = Test(r'a')
+    Assert.equals(1, [t4].size)
     Assert.equals(4, id)
 
     let t5 = Test(true)
+    Assert.equals(1, [t5].size)
     Assert.equals(5, id)
 
     let t6 = Test(())
+    Assert.equals(1, [t6].size)
     Assert.equals(6, id)
 
     let t7 = Test(1.1)
+    Assert.equals(1, [t7].size)
     Assert.equals(7, id)
 }

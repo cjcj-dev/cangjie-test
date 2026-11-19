@@ -54,6 +54,7 @@
 */
 
 import std.ast.*
+import utils.assert.Assert
 
 main(): Unit {
     quote(.)
@@ -191,4 +192,5 @@ main(): Unit {
     var variable2:Int64 = 32 
     var t:Tokens = quote(\() + quote($(variable1 * variable2)) + quote(\)) + 
                     quote(-) + quote(\($(variable1 * variable2)\))
+    Assert.isTrue(t.size > 0)
 }

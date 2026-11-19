@@ -53,10 +53,13 @@ struct PrivateConst {
         constructor_counter++
     }
 
-    init(x: Int64) {}
+    init(x: Int64) {
+        Assert.equals(1, [x].size)
+    }
 
     func check_private() {
         let x = PrivateConst()
+        Assert.equals(1, [x].size)
         Assert.equals(3, constructor_counter)
     }
 }
@@ -65,9 +68,11 @@ main() {
     Assert.equals(0, constructor_counter)
 
     var case1 = NoMods()
+    Assert.equals(1, [case1].size)
     Assert.equals(1, constructor_counter)
 
     var case2 = PublicConst()
+    Assert.equals(1, [case2].size)
     Assert.equals(2, constructor_counter)
 
     var case3 = PrivateConst(1)

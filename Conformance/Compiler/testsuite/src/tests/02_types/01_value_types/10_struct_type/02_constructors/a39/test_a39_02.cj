@@ -33,6 +33,7 @@ var gv = 0
 struct A {
     init() {
         let x = A(1)
+        Assert.equals(1, [x].size)
     }
 
     init(x: Int64) {
@@ -41,34 +42,43 @@ struct A {
 
     func f1() {
         let x = A(2)
+        Assert.equals(1, [x].size)
     }
 
     mut prop p1: Int64 {
         get() {
             let x = A(3)
+            Assert.equals(1, [x].size)
             1
         }
         set(v) {
+            Assert.equals(3, v)
             let x = A(4)
+            Assert.equals(1, [x].size)
         }
     }
 
     static func f2() {
         let x = A(5)
+        Assert.equals(1, [x].size)
     }
 
     static mut prop p2: Int64 {
         get() {
             let x = A(6)
+            Assert.equals(1, [x].size)
             1
         }
         set(v) {
+            Assert.equals(3, v)
             let x = A(7)
+            Assert.equals(1, [x].size)
         }
     }
 
     static init() {
         let x = A(-1)
+        Assert.equals(1, [x].size)
     }
 }
 

@@ -36,6 +36,8 @@ abstract class A {
 
     static init() {
         Assert.equals(2, abstractClassCounter)
+        Assert.equals((), x)
+        Assert.equals((), y)
     }
 
     private static var y = abstractClassCounter++

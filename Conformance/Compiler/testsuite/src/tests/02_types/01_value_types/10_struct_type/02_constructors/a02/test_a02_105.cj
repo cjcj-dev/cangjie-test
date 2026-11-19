@@ -53,8 +53,12 @@
   @Structure: single
 */
 
+import utils.assert.Assert
+
 struct Yfow {
-    Yfow(a: Int64, b!: Bool,) {}
+    Yfow(a: Int64, b!: Bool,) {
+        Assert.equals(1, [(a, b)].size)
+    }
 }
 
 main() {

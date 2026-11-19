@@ -46,7 +46,9 @@ struct B<X,Y> {
       y: X,
       v!: Int64 = 1, // regular parameter
       private var z!: Y // member variable parameter
-    ) {}
+    ) {
+        Assert.equals(1, [(x, y, v)].size)
+    }
     /* The corresponding init constructor with primary constructor auto-generated
     by compiler.
     private var z: Y // auto generated member variable definition

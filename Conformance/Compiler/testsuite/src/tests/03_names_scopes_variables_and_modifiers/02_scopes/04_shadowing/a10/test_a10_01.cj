@@ -24,9 +24,11 @@ func g(): Unit {
 }
 
 func f(x: Int32, y: Int32): Unit {
+    Assert.isTrue(x < y)
     var i = 1         // OK
     for (i in 1..3) { // OK, a new i in the block
         let v = 1
+        Assert.isTrue(i >= v && i < 3)
     }                 // i and v disappear
 
     print("${i}")     // OK. i is defined at line 9
@@ -34,5 +36,6 @@ func f(x: Int32, y: Int32): Unit {
 }
 
 main() {
+    g()
     f(10, 20)         // added to orig code
 }

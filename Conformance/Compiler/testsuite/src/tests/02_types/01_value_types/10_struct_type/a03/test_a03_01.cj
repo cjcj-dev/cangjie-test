@@ -27,6 +27,8 @@
 
 */
 
+import utils.assert.Assert
+
 // variableDeclaration
 public struct TestA0301 {
     var member1: Int32 = 1;
@@ -93,6 +95,16 @@ main() {
     var structVar03: Struct03 = Struct03(11);
     var structVar04: Struct04 = Struct04(11);
     var structVar05: Struct05 = Struct05();
+    Assert.equals(1, structVar01.member1)
+    Assert.equals(10, structVar02.member1)
+    Assert.equals(11, structVar03.member)
+    Assert.equals(12, structVar04.function1(1))
+    Assert.isTrue(structVar04.function2(true))
+    Assert.equals("xs1", structVar04.function3("x"))
+    Assert.equals(r'A', structVar05.prop1)
+    Assert.isFalse(structVar05.prop2)
+    structVar05.prop2 = true
+    Assert.isTrue(structVar05.prop2)
 }
 
 

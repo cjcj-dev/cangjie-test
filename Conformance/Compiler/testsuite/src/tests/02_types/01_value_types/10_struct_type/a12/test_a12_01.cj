@@ -81,6 +81,9 @@ main() {
 
     var pair = Pair<Int16, Int32>(100, 200);
 
+    let square = Rectangle1(4)
+    Assert.equals(16, square.area1())
+
     // Test case 2
     Assert.equals(100, pair.first, 
         reason: "Test case 2 FAILED.");

@@ -26,6 +26,8 @@
   @Structure:   single
 */
 
+import utils.assert.Assert
+
 enum MyEnum {
     item1
     |
@@ -67,6 +69,9 @@ struct MyStruct {
 
 
 main() {
+    let value = MyStruct("text", 1.0f32, (1i8, 2.0, MyEnum.item1, (3i32, 4.0f32), "tail"), MyEnum.item2)
+    Assert.equals("text", value.letPubWithType)
+    Assert.equals("text", value.varPubWithType)
 }
 
 

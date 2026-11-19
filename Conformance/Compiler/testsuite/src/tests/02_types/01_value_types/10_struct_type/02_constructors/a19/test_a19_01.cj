@@ -43,7 +43,9 @@ struct TestNoNamedRegularParams {
         private let p4!: Int64 = c2,
         var p5!: Int64 = c3,
         let p6!: Int64 = c4
-    ) {}
+    ) {
+        Assert.equals(1, [(r1, r2)].size)
+    }
 
     func check() {
         Assert.equals(1, p1)
@@ -69,7 +71,9 @@ struct TestNoUnnamedClassParams {
         private let p4!: Int64 = r4,
         var p5!: Int64 = r5,
         let p6!: Int64 = r6
-    ) {}
+    ) {
+        Assert.equals(1, [(r1, r2, r3, r4, r5, r6)].size)
+    }
 
     func check() {
         Assert.equals(1, p1)
@@ -90,7 +94,9 @@ struct TestNamedClassParamsChain {
         private let p4!: Int64 = p3 + 1,
         var p5!: Int64 = p4 + 1,
         let p6!: Int64 = p5 + 1
-    ) {}
+    ) {
+        Assert.equals(1, [r].size)
+    }
 
     func check() {
         Assert.equals(-8, p1)

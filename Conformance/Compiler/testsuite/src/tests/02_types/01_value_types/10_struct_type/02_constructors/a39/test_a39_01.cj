@@ -34,12 +34,14 @@ struct A {
     }
     init(x: Int64) {
         this()
+        Assert.equals(1, [x].size)
         order += "_1"
     }
 }
 
 struct B {
     init(x: Int64) {
+        Assert.equals(1, [x].size)
         order += "_2"
     }
     init() {
@@ -55,20 +57,22 @@ struct C {
 
     init(x: Int64) {
         this()
+        Assert.equals(1, [x].size)
         order += "_5"
     }
 
     init(x: Int64, y: Int64) {
         this(x)
+        Assert.equals(1, [y].size)
         order += "_6"
     }
 }
 
 main() {
-    A(1)
+    Assert.equals(1, [A(1)].size)
     Assert.equals("_0_1", order)
-    B()
+    Assert.equals(1, [B()].size)
     Assert.equals("_0_1_2_3", order)
-    C(10, 20)
+    Assert.equals(1, [C(10, 20)].size)
     Assert.equals("_0_1_2_3_4_5_6", order)
 }

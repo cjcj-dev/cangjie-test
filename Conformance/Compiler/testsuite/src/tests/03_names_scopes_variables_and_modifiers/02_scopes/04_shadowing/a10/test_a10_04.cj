@@ -18,8 +18,21 @@
 
 */
 
+import utils.assert.Assert
+
+func isFirstMaze(value: Maze): Bool {
+    match (value) {
+        case Maze.C1 => true
+        case Maze.C2 => false
+    }
+}
+
 func f(x: Int32, y: Int32): Unit {
+    let first = Maze.C1
+    let second = Maze.C2
     let Maze : Maze
+    Maze = if (x < y) { first } else { second }
+    Assert.equals(x < y, isFirstMaze(Maze))
 }
 
 enum Maze {
@@ -27,4 +40,6 @@ enum Maze {
 }
 
 main() {
+    f(1, 2)
+    f(2, 1)
 }

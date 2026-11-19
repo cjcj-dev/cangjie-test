@@ -65,6 +65,7 @@ struct A {
     }
 
     init(x: Int64) {
+        Assert.equals(1, [x].size)
         uninit_x = 1
         uninit_y = 1
     }
@@ -83,7 +84,9 @@ struct A {
         get() {
         -3
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(1, [v].size)
+        }
     }
 
     prop this_immut_prop: Int64 {
@@ -95,4 +98,9 @@ struct A {
 
 main() {
     let tst = A()
+    Assert.equals(30, tst.uninit_x)
+    var explicit = A(0)
+    Assert.equals(1, explicit.uninit_x)
+    explicit.this_mut_prop = 5
+    Assert.equals(-3, explicit.this_mut_prop)
 }

@@ -45,6 +45,7 @@ func first_func() {
 }
 
 func second_func(x: Int64) {
+    Assert.equals(1, [x].size)
     order += "2"
 }
 
@@ -77,10 +78,13 @@ struct Test {
         third_func()
         let p = fourth_func()
         var z = fifth_func()
+        Assert.equals(10, p)
+        Assert.equals("", z)
     }
 }
 
 main() {
     let tst = Test(12)
+    Assert.equals(1, [tst].size)
     Assert.equals("12345678", order)
 }

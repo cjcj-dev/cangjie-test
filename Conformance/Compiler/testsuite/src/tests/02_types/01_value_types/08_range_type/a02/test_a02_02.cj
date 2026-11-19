@@ -22,6 +22,8 @@
 
 */
 
+import utils.assert.Assert
+
 public class TestA0202 <: Countable<TestA0202> & Comparable<TestA0202> {
   public var value: Int64
   public init(val: Int64) {
@@ -54,6 +56,7 @@ public class TestA0202 <: Countable<TestA0202> & Comparable<TestA0202> {
 }
 
 func range<T>(a: T, b: T, c: Int64): Range<T> where T <: Countable<T> & Comparable<T> {
+  Assert.equals(1, [c].size)
   a..b
 }
 
@@ -61,5 +64,7 @@ main() {
   let x = TestA0202(2)
   let y = TestA0202(10)
   let r1 = range(x, y, 3)
+  Assert.equals(2, r1.start.value)
+  Assert.equals(10, r1.end.value)
   return 0
 }

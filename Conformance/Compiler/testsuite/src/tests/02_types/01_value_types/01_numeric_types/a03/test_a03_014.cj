@@ -49,6 +49,7 @@ func getIntNativeSize(): Int64 {
 
         intVar64 = -9223372036854775808; 
         intVar_native = IntNative(intVar64);
+        Assert.equals(intVar64, Int64(intVar_native));
         size = 64;
     } catch (e: OverflowException) {
         //println(e.toString());
@@ -111,7 +112,7 @@ using calculated size of IntNative, is not correcti.
 """
 Test_case_3: Variable of IntNative type is assigned successfully
 by value, whose length is greater than length of IntNative. 
-""";
+""" + " Actual value: " + intNative_var_02.toString();
     } catch (e: ArithmeticException) {
         // OK        
         //println(e.toString());

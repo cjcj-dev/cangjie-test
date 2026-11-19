@@ -23,6 +23,8 @@
 
 */
 
+import utils.assert.Assert
+
 struct S {
     public static let v = 64
     public static prop p: Int64 {
@@ -32,7 +34,7 @@ struct S {
     public static func t<T>() { 4 }
 
     static func test() {
-        v
+        Assert.equals(64, v)
         p
         f()
         t<Nothing>()
@@ -40,7 +42,8 @@ struct S {
 }
 
 main() {
-    S.v
+    S.test()
+    Assert.equals(64, S.v)
     S.p
     S.f()
     S.t<Nothing>()

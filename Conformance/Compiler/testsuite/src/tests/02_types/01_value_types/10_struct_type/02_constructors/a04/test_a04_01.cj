@@ -53,21 +53,29 @@ struct StructWithInit {
         constructor_counter++
     }
 
-    init(x: String) {}
+    init(x: String) {
+        Assert.equals(1, [x].size)
+    }
 }
 
 main() {
     Assert.equals(0, constructor_counter)
 
     let case1 = JustAStruct()
+    Assert.equals(1, [case1].size)
     Assert.equals(1, constructor_counter)
 
     let case2 = AGenericStruct<Bool>()
+    Assert.equals(1, [case2].size)
     Assert.equals(2, constructor_counter)
 
     let case3 = ImplementingStruct()
+    Assert.equals(1, [case3].size)
     Assert.equals(3, constructor_counter)
 
     let case4 = StructWithInit()
+    Assert.equals(1, [case4].size)
+    Assert.equals(4, constructor_counter)
+    Assert.equals(1, [StructWithInit("")].size)
     Assert.equals(4, constructor_counter)
 }

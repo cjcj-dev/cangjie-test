@@ -23,10 +23,12 @@
 */
 
 import std.ast.*
+import utils.assert.Assert
 
 main() {
     var v1 = 2
     var v2:Int64 = 2 
     var t:Tokens = quote($(v1 + v2))
+    Assert.isTrue(t.size > 0)
     return 0
 }

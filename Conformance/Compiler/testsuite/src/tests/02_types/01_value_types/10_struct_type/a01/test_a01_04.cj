@@ -23,6 +23,8 @@
 
 */
 
+import utils.assert.Assert
+
 struct Struct {
     var varMember1: Int32;
     var varMember2: Bool = true;
@@ -41,5 +43,8 @@ struct Struct {
 main() {
     var testStructVar: Struct = Struct(20);
 
+    Assert.equals(21, testStructVar.function1(1))
+    Assert.isTrue(testStructVar.function2(true))
+    Assert.equals("xs1", testStructVar.function3("x"))
     return 0;
 }

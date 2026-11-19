@@ -47,59 +47,59 @@ interface L <: I {
 }
 
 open class CI <: I {
-    public operator func +(x : Unit) { CL.l() }
-    public operator func -(x : Unit) { CL.l() }
-    public operator func *(x : Unit) { CL.l() }
-    public operator func **(x : Unit) { CL.l() }
-    public operator func /(x : Unit) { CL.l() }
-    public operator func %(x : Unit) { CL.l() }
-    public operator func &(x : Unit) { CL.l() }
-    public operator func |(x : Unit) { CL.l() }
-    public operator func ^(x : Unit) { CL.l() }
-    public operator func <<(x : Unit) { CL.l() }
-    public operator func >>(x : Unit) { CL.l() }
+    public operator func +(_ : Unit) { CL.l() }
+    public operator func -(_ : Unit) { CL.l() }
+    public operator func *(_ : Unit) { CL.l() }
+    public operator func **(_ : Unit) { CL.l() }
+    public operator func /(_ : Unit) { CL.l() }
+    public operator func %(_ : Unit) { CL.l() }
+    public operator func &(_ : Unit) { CL.l() }
+    public operator func |(_ : Unit) { CL.l() }
+    public operator func ^(_ : Unit) { CL.l() }
+    public operator func <<(_ : Unit) { CL.l() }
+    public operator func >>(_ : Unit) { CL.l() }
 }
 
 open class CJ <: J {
-    public operator func +(x : Unit) { CL.l() }
-    public operator func -(x : Unit) { CL.l() }
-    public operator func *(x : Unit) { CL.l() }
-    public operator func **(x : Unit) { CL.l() }
-    public operator func /(x : Unit) { CL.l() }
-    public operator func %(x : Unit) { CL.l() }
-    public operator func &(x : Unit) { CL.l() }
-    public operator func |(x : Unit) { CL.l() }
-    public operator func ^(x : Unit) { CL.l() }
-    public operator func <<(x : Unit) { CL.l() }
-    public operator func >>(x : Unit) { CL.l() }
+    public operator func +(_ : Unit) { CL.l() }
+    public operator func -(_ : Unit) { CL.l() }
+    public operator func *(_ : Unit) { CL.l() }
+    public operator func **(_ : Unit) { CL.l() }
+    public operator func /(_ : Unit) { CL.l() }
+    public operator func %(_ : Unit) { CL.l() }
+    public operator func &(_ : Unit) { CL.l() }
+    public operator func |(_ : Unit) { CL.l() }
+    public operator func ^(_ : Unit) { CL.l() }
+    public operator func <<(_ : Unit) { CL.l() }
+    public operator func >>(_ : Unit) { CL.l() }
 }
 
 open class CK <: K {
-    public operator func +(x : Unit) { CL.l() }
-    public operator func -(x : Unit) { CL.l() }
-    public operator func *(x : Unit) { CL.l() }
-    public operator func **(x : Unit) { CL.l() }
-    public operator func /(x : Unit) { CL.l() }
-    public operator func %(x : Unit) { CL.l() }
-    public operator func &(x : Unit) { CL.l() }
-    public operator func |(x : Unit) { CL.l() }
-    public operator func ^(x : Unit) { CL.l() }
-    public operator func <<(x : Unit) { CL.l() }
-    public operator func >>(x : Unit) { CL.l() }
+    public operator func +(_ : Unit) { CL.l() }
+    public operator func -(_ : Unit) { CL.l() }
+    public operator func *(_ : Unit) { CL.l() }
+    public operator func **(_ : Unit) { CL.l() }
+    public operator func /(_ : Unit) { CL.l() }
+    public operator func %(_ : Unit) { CL.l() }
+    public operator func &(_ : Unit) { CL.l() }
+    public operator func |(_ : Unit) { CL.l() }
+    public operator func ^(_ : Unit) { CL.l() }
+    public operator func <<(_ : Unit) { CL.l() }
+    public operator func >>(_ : Unit) { CL.l() }
 }
 
 open class CL <: L {
-    public operator func +(x : Unit) { CL.l() }
-    public operator func -(x : Unit) { CL.l() }
-    public operator func *(x : Unit) { CL.l() }
-    public operator func **(x : Unit) { CL.l() }
-    public operator func /(x : Unit) { CL.l() }
-    public operator func %(x : Unit) { CL.l() }
-    public operator func &(x : Unit) { CL.l() }
-    public operator func |(x : Unit) { CL.l() }
-    public operator func ^(x : Unit) { CL.l() }
-    public operator func <<(x : Unit) { CL.l() }
-    public operator func >>(x : Unit) { CL.l() }
+    public operator func +(_ : Unit) { CL.l() }
+    public operator func -(_ : Unit) { CL.l() }
+    public operator func *(_ : Unit) { CL.l() }
+    public operator func **(_ : Unit) { CL.l() }
+    public operator func /(_ : Unit) { CL.l() }
+    public operator func %(_ : Unit) { CL.l() }
+    public operator func &(_ : Unit) { CL.l() }
+    public operator func |(_ : Unit) { CL.l() }
+    public operator func ^(_ : Unit) { CL.l() }
+    public operator func <<(_ : Unit) { CL.l() }
+    public operator func >>(_ : Unit) { CL.l() }
     static func l() : L { CL() }
 }
 
@@ -117,5 +117,22 @@ main() {
     a <<= ()
     a >>= ()
 
+    // Ordinary binary results fit L even though the concrete receivers cannot accept them back.
+    let ci = CI()
+    let cj = CJ()
+    let ck = CK()
+    let binaryResults: Array<L> = [
+        ci + (), ci - (), ci * (), ci ** (), ci / (), ci % (),
+        ci & (), ci | (), ci ^ (), ci << (), ci >> (),
+        cj + (), cj - (), cj * (), cj ** (), cj / (), cj % (),
+        cj & (), cj | (), cj ^ (), cj << (), cj >> (),
+        ck + (), ck - (), ck * (), ck ** (), ck / (), ck % (),
+        ck & (), ck | (), ck ^ (), ck << (), ck >> ()
+    ]
+    for (result in binaryResults) {
+        if (!(result is CL)) {
+            return 1
+        }
+    }
     return 0
 }

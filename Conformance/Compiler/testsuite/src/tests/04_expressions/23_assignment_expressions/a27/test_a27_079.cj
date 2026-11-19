@@ -27,17 +27,17 @@
 */
 
 open class A <: J {
-    public operator func +(x : Unit) { C() }
-    public operator func -(x : Unit) { C() }
-    public operator func *(x : Unit) { C() }
-    public operator func **(x : Unit) { C() }
-    public operator func /(x : Unit) { C() }
-    public operator func %(x : Unit) { C() }
-    public operator func &(x : Unit) { C() }
-    public operator func |(x : Unit) { C() }
-    public operator func ^(x : Unit) { C() }
-    public operator func <<(x : Unit) { C() }
-    public operator func >>(x : Unit) { C() }
+    public operator func +(_ : Unit) { C() }
+    public operator func -(_ : Unit) { C() }
+    public operator func *(_ : Unit) { C() }
+    public operator func **(_ : Unit) { C() }
+    public operator func /(_ : Unit) { C() }
+    public operator func %(_ : Unit) { C() }
+    public operator func &(_ : Unit) { C() }
+    public operator func |(_ : Unit) { C() }
+    public operator func ^(_ : Unit) { C() }
+    public operator func <<(_ : Unit) { C() }
+    public operator func >>(_ : Unit) { C() }
 }
 
 open class B <: A {}
@@ -67,61 +67,61 @@ interface K <: J {}
 interface L <: I {}
 
 open class CI <: I {
-    public operator func +(x : Unit) { C() }
-    public operator func -(x : Unit) { C() }
-    public operator func *(x : Unit) { C() }
-    public operator func **(x : Unit) { C() }
-    public operator func /(x : Unit) { C() }
-    public operator func %(x : Unit) { C() }
-    public operator func &(x : Unit) { C() }
-    public operator func |(x : Unit) { C() }
-    public operator func ^(x : Unit) { C() }
-    public operator func <<(x : Unit) { C() }
-    public operator func >>(x : Unit) { C() }
+    public operator func +(_ : Unit) { C() }
+    public operator func -(_ : Unit) { C() }
+    public operator func *(_ : Unit) { C() }
+    public operator func **(_ : Unit) { C() }
+    public operator func /(_ : Unit) { C() }
+    public operator func %(_ : Unit) { C() }
+    public operator func &(_ : Unit) { C() }
+    public operator func |(_ : Unit) { C() }
+    public operator func ^(_ : Unit) { C() }
+    public operator func <<(_ : Unit) { C() }
+    public operator func >>(_ : Unit) { C() }
 }
 
 open class CJ <: J {
-    public operator func +(x : Unit) { C() }
-    public operator func -(x : Unit) { C() }
-    public operator func *(x : Unit) { C() }
-    public operator func **(x : Unit) { C() }
-    public operator func /(x : Unit) { C() }
-    public operator func %(x : Unit) { C() }
-    public operator func &(x : Unit) { C() }
-    public operator func |(x : Unit) { C() }
-    public operator func ^(x : Unit) { C() }
-    public operator func <<(x : Unit) { C() }
-    public operator func >>(x : Unit) { C() }
+    public operator func +(_ : Unit) { C() }
+    public operator func -(_ : Unit) { C() }
+    public operator func *(_ : Unit) { C() }
+    public operator func **(_ : Unit) { C() }
+    public operator func /(_ : Unit) { C() }
+    public operator func %(_ : Unit) { C() }
+    public operator func &(_ : Unit) { C() }
+    public operator func |(_ : Unit) { C() }
+    public operator func ^(_ : Unit) { C() }
+    public operator func <<(_ : Unit) { C() }
+    public operator func >>(_ : Unit) { C() }
     static func j() : J { CJ() }
 }
 
 open class CK <: K {
-    public operator func +(x : Unit) { C() }
-    public operator func -(x : Unit) { C() }
-    public operator func *(x : Unit) { C() }
-    public operator func **(x : Unit) { C() }
-    public operator func /(x : Unit) { C() }
-    public operator func %(x : Unit) { C() }
-    public operator func &(x : Unit) { C() }
-    public operator func |(x : Unit) { C() }
-    public operator func ^(x : Unit) { C() }
-    public operator func <<(x : Unit) { C() }
-    public operator func >>(x : Unit) { C() }
+    public operator func +(_ : Unit) { C() }
+    public operator func -(_ : Unit) { C() }
+    public operator func *(_ : Unit) { C() }
+    public operator func **(_ : Unit) { C() }
+    public operator func /(_ : Unit) { C() }
+    public operator func %(_ : Unit) { C() }
+    public operator func &(_ : Unit) { C() }
+    public operator func |(_ : Unit) { C() }
+    public operator func ^(_ : Unit) { C() }
+    public operator func <<(_ : Unit) { C() }
+    public operator func >>(_ : Unit) { C() }
     static func k() : K { CK() }
 }
 
 open class CL <: L {
-    public operator func +(x : Unit) { C() }
-    public operator func -(x : Unit) { C() }
-    public operator func *(x : Unit) { C() }
-    public operator func **(x : Unit) { C() }
-    public operator func /(x : Unit) { C() }
-    public operator func %(x : Unit) { C() }
-    public operator func &(x : Unit) { C() }
-    public operator func |(x : Unit) { C() }
-    public operator func ^(x : Unit) { C() }
-    public operator func <<(x : Unit) { C() }
-    public operator func >>(x : Unit) { C() }
+    public operator func +(_ : Unit) { C() }
+    public operator func -(_ : Unit) { C() }
+    public operator func *(_ : Unit) { C() }
+    public operator func **(_ : Unit) { C() }
+    public operator func /(_ : Unit) { C() }
+    public operator func %(_ : Unit) { C() }
+    public operator func &(_ : Unit) { C() }
+    public operator func |(_ : Unit) { C() }
+    public operator func ^(_ : Unit) { C() }
+    public operator func <<(_ : Unit) { C() }
+    public operator func >>(_ : Unit) { C() }
 }
 
 main() {
@@ -138,5 +138,19 @@ main() {
     a <<= ()
     a >>= ()
 
+    // Ordinary binary results fit J even though the concrete receivers cannot accept them back.
+    let ci = CI()
+    let cl = CL()
+    let binaryResults: Array<J> = [
+        ci + (), ci - (), ci * (), ci ** (), ci / (), ci % (),
+        ci & (), ci | (), ci ^ (), ci << (), ci >> (),
+        cl + (), cl - (), cl * (), cl ** (), cl / (), cl % (),
+        cl & (), cl | (), cl ^ (), cl << (), cl >> ()
+    ]
+    for (result in binaryResults) {
+        if (!(result is C)) {
+            return 1
+        }
+    }
     return 0
 }

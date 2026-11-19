@@ -93,22 +93,57 @@ def name(ty : str, c : list):
   if ty in integral_types: return ty
   return ty + ((' <: ' + custom_type_dict[ty][0]) if (custom_type_dict[ty] and custom_type_dict[ty][0] in c) else '')
 
-op_class = '    public operator func %s(x : Unit) { %s }'
+op_class = '    public operator func %s(%s : Unit) { %s }'
 op_interface = '    operator func %s(x : Unit) : %s'
 
-def decl(t0 : str, t1 : str, op : str = ''):
-  t1_is_in = t1 in interfaces
+def declaration_types(t0, t1):
   c = [t1] if t1 in integral_types else []
-  if t0 in classes or t1 in classes: c += list(classes.keys())
-  if t0 in impls or t1 in impls or t0 in interfaces or t1 in interfaces: c += list(interfaces.keys()) + list(impls.keys())
+  if t0 in classes or t1 in classes: c += list(classes)
+  if t0 in impls or t1 in impls or t0 in interfaces or t1 in interfaces: c += list(interfaces) + list(impls)
+  return c
+
+def declares_operator(t, target):
+  return t == target or (target in interfaces and t not in interfaces
+                         and all(parent in interfaces for parent in custom_type_dict[t]))
+
+def decl(t0 : str, t1 : str, op : str = '', discard_operand : bool = False):
+  t1_is_in = t1 in interfaces
+  operand = '_' if discard_operand else 'x'
+  c = declaration_types(t0, t1)
   template = '''
 %s %s {%s}
 '''
   return ''.join([template % (keyword(t), name(t, c),
-    ('\n%s\n' % '\n'.join([op_interface % (op, t0) if t == t1 and t1_is_in else op_class % (op, default_value(t0))
+    ('\n%s\n' % '\n'.join([op_interface % (op, t0) if t == t1 and t1_is_in else op_class % (op, operand, default_value(t0))
                            for op in ([op] if op else ops)]) +
         (('    static func %s() : %s { %s() }\n' % (t[1].lower(), t[1], t)) if t in impls and subtype(t, t1) else ''))
-        if (t == t1 or (t1_is_in and t not in interfaces and all(t in interfaces for t in custom_type_dict[t]))) else '') for t in c])
+        if declares_operator(t, t1) else '') for t in c])
+
+def binary_control(result, target):
+  if target not in interfaces or result == 'Nothing':
+    return ''
+  # A receiver outside the assignment target cannot accept a result of this family.
+  receivers = [t for t in declaration_types(result, target)
+               if declares_operator(t, target) and not subtype(t, target)]
+  if not receivers:
+    return ''
+  result_class = f'C{result}' if result in interfaces else result
+  lines = [f'    // Ordinary binary results fit {target} even though the concrete receivers cannot accept them back.']
+  lines += [f'    let {t.lower()} = {t}()' for t in receivers]
+  lines.append(f'    let binaryResults: Array<{target}> = [')
+  operands = []
+  for t in receivers:
+    expressions = [f'{t.lower()} {op} ()' for op in ops]
+    operands += [', '.join(expressions[:6]), ', '.join(expressions[6:])]
+  lines.append('        ' + ',\n        '.join(operands))
+  lines += ['    ]', '    for (result in binaryResults) {',
+            f'        if (!(result is {result_class})) {{', '            return 1',
+            '        }', '    }']
+  return '\n' + '\n'.join(lines)
+
+def positive_body(result, target):
+  assignment = '\n    '.join(['a %s= ()' % op for op in ops])
+  return 'var a = %s\n    %s\n' % (default_value(target), assignment) + binary_control(result, target)
 
 for c in [product(interfaces, interfaces), product(classes, classes), product(impls, interfaces), product(classes, interfaces)]:
     subtypes += [(t0, t1) for t0, t1 in c if subtype(t0, t1)]
@@ -118,9 +153,8 @@ counter = 2
 positive_tests = [template % ('''Checks that if overloaded operator op for type {t1} with argument type T
                 has return type {t2}, which is a subtype of {t1},
                 then compound assignment operator op= can be used with types {t1} and T.'''.format(t1=t1, t2=t0),
-                'run', 'no', warning(t0), issue(t0), decl(t0, t1), '''var a = %s
-    %s
-''' % (default_value(t1), '\n    '.join(['a %s= ()' % op for op in ops]))) for t0, t1 in subtypes]
+                'run', 'no', warning(t0), issue(t0), decl(t0, t1, discard_operand=True),
+                positive_body(t0, t1)) for t0, t1 in subtypes]
 negative_tests = [template % ('''Checks that if overloaded operator {op} for type {t1} with argument type T has 
                 return type {t0}, then compound assignment operator {op}= cannot be
                 used with types {t1} and T.'''.format(t1=t1, t0=t0, op=op), 'compileonly', 'yes', warning(t0), issue(t0), decl(t0, t1, op),

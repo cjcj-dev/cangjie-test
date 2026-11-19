@@ -37,7 +37,7 @@ func myBoolFunc(i: Int64){
 }
 
 // Function body is an empty block
-func foo01(a: Int64): Unit { }	
+func foo01(): Unit { }
 
 // Function body is a non-empty block
 func foo02(a: Int32, b: Int32): Int32 { 
@@ -58,8 +58,8 @@ main() {
 
 //Test-case 1: Check that empty pair of curly brackets forms an empty block
 
-    var res01 = foo01(0)
-    Assert.isTrue(res01 is Unit)
+    var res01 = foo01()
+    Assert.equals((), res01)
 
 //Test-case 2: Check that non-empty sequences of declarations with the enclosing pair of curly brackets form a block
 
@@ -78,13 +78,19 @@ main() {
     var value04 : Int32  = 10
     var NPlaces : Int32 = 10
 
-    if (myBoolFunc(0)) {
-        var NPlaces : Int32 = value04 / 2
+    for (input in [0i64, 1i64]) {
+        if (myBoolFunc(input)) {
+            Assert.equals(0i64, input)
+            var NPlaces : Int32 = value04 / 2
+            Assert.equals(5i32, NPlaces)
+        }
+        else {
+            Assert.equals(1i64, input)
+            var NPlaces : Int32 = value04 / 2 + 1
+            Assert.equals(6i32, NPlaces)
+        }
+        Assert.equals(10, NPlaces)
     }
-    else {
-        var NPlaces : Int32 = value04 / 2 + 1
-    }
-    Assert.equals(10, NPlaces )
 
 //Test-case 5: Check that the enclosing pair of curly brackets in an internal function forms a block 
 

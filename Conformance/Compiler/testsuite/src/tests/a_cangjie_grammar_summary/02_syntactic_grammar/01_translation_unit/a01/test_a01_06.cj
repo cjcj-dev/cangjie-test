@@ -26,11 +26,12 @@
 */
 
 // preamble
-import std.core.*
+import std.collection.*
 // topLevelObject
 func foo() {}
 // mainDefinition
 main() {
+    if (ArrayList<Int64>().size != 0) { throw Exception("new list is not empty") }
     foo()
     bar()
 }

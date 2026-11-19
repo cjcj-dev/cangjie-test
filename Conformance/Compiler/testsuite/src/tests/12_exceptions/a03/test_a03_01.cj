@@ -69,6 +69,7 @@ main(ina: Array<String>) {
         while (num >= 1) {
             num-- 
             let res = 1 / num
+            Assert.isTrue(res == 0 || res == 1)
         }
         Assert.fail(reason: "Should not reach here")
     } catch (e: ArithmeticException) {
@@ -84,6 +85,7 @@ main(ina: Array<String>) {
         let arr = [0, 1, 2]
         for (ind in [0, 1, 2, 3]) {
             let elem = arr[ind]
+            Assert.equals(ind, elem)
         }
         Assert.fail(reason: "Should not reach here")
     } catch (e: IndexOutOfBoundsException) {

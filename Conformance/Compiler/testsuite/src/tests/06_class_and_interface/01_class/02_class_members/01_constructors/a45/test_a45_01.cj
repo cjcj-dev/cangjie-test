@@ -31,7 +31,10 @@ import utils.assert.Assert
 
 class C {
   init() {}
-  init(name: String, age: Int32) {}
+  init(name: String, age: Int32) {
+    Assert.equals("name", name)
+    Assert.equals(1i32, age)
+  }
 }
 
 main() {

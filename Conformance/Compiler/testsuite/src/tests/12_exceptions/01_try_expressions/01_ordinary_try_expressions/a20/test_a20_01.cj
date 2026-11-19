@@ -64,6 +64,10 @@ open class Exc2 <: Exception {
 }
 
 main() {
+    Assert.equals(0.0, Exc0().f0())
+    Assert.equals(1.0, Exc1().f1())
+    Assert.equals(2.0, Exc2().f2())
+
 // test case #1
     try {
         throw Exc()

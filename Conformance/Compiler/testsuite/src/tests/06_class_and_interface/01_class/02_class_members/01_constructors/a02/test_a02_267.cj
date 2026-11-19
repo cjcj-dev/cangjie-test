@@ -59,9 +59,16 @@
   @Structure: single
 */
 
+import utils.assert.Assert
+
 class Yfow {
-  Yfow(a: Int64, b!: Bool,) {}
+  Yfow(a: Int64, b!: Bool,) {
+    Assert.equals(4, a)
+    Assert.isTrue(b)
+  }
 }
 
 main() {
+  let constructed: Any = Yfow(4, b: true)
+  Assert.isTrue(constructed is Yfow)
 }

@@ -54,7 +54,8 @@ main() {
         }
     }
 
-    match (t) {
+    let candidate: Any = t
+    match (candidate) {
         case x: T => if (true) {
             let T = Alias()
             Assert.isTrue(T is Alias)

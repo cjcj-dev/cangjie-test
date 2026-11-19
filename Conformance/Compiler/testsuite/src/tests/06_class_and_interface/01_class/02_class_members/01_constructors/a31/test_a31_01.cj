@@ -65,6 +65,7 @@ class B<X> <: A<X> {
     private var z!: Int64 = v // member variable parameter
   ) {
   super(x, y)
+  Assert.equals(z, this.z, reason: "member initialization with default input ${v}")
   }
   /* The corresponding init constructor with primary constructor auto-generated
   by compiler.

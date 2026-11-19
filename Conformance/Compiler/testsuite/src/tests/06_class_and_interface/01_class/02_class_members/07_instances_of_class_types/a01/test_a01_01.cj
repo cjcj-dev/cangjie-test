@@ -31,7 +31,10 @@ import utils.assert.Assert
 class A {}
 
 class B {
-    init(x: Int64, y: Bool) {}
+    init(x: Int64, y: Bool) {
+        Assert.equals(1, x)
+        Assert.isTrue(y)
+    }
 }
 
 open class C {}
@@ -39,7 +42,13 @@ open class C {}
 open class D<T1, T2> <: C {}
 
 open class E<F> <: D<F, F> {
-    init(x: F, y: F, z: Rune) {}
+    init(x: F, y: F, z: Rune) {
+        let first: Any = x
+        let second: Any = y
+        Assert.isTrue(first is F)
+        Assert.isTrue(second is F)
+        Assert.equals(r'n', z)
+    }
 }
 
 main() {

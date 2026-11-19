@@ -35,7 +35,8 @@ main() {
     let t : Test = Test()
     t.xx = -1
     t.yy = -1
-    let r : Int32 = match(t) {
+    let candidate: Any = t
+    let r : Int32 = match(candidate) {
         case a : Test => let t = Test(); t.xx
         case _  => 0 
     }

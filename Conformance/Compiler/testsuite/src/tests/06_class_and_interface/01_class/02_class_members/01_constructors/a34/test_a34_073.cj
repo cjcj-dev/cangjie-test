@@ -30,9 +30,17 @@
   @Structure: single
 */
 
+import utils.assert.Assert
+
 class _fh931 {
-  init(a: String, b: Bool, c!: Int64,) {}
+  init(a: String, b: Bool, c!: Int64,) {
+    Assert.equals("trailing", a)
+    Assert.isTrue(b)
+    Assert.equals(3, c)
+  }
 }
 
 main() {
+  let constructed: Any = _fh931("trailing", true, c: 3)
+  Assert.isTrue(constructed is _fh931)
 }

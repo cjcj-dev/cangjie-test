@@ -97,6 +97,7 @@ class B {
 
     init(p: Int64) {
         this()
+        Assert.equals(a, p)
         b = { => this.a } // OK
         b = f // OK
     }
@@ -132,5 +133,6 @@ main() {
     Assert.equals(1, case3.f())
 
     let case4 = C()
+    case4.m()
     Assert.isTrue(case4 is C)
 }

@@ -35,5 +35,21 @@ main() {
     var v6: ?String
     var v7: ?Bool
     var v8: ?Unit
+    v1 = None
+    Assert.isNone(v1)
+    v2 = None
+    Assert.isNone(v2)
+    v3 = None
+    Assert.isNone(v3)
+    v4 = None
+    Assert.isNone(v4)
+    v5 = None
+    Assert.isNone(v5)
+    v6 = None
+    Assert.isNone(v6)
+    v7 = None
+    Assert.isNone(v7)
+    v8 = None
+    Assert.isNone(v8)
     return 0
 }

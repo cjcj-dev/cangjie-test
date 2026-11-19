@@ -80,6 +80,11 @@ main() {
   var childClass = ChildClass(1, "")
   var genericClassWithConstraints = GenericClassWithConstraints<ChildClass, InheritableClass>()
 
+  Assert.equals(12i32, ordinaryClass.foo().mem)
+  Assert.equals("dsfafasf", inheritableClass.non_cnst)
+  Assert.equals("String", genericClass.generic_mem)
+  Assert.equals(1i32, childClass.child)
+  Assert.equals(1.5f32, genericClassWithConstraints.abstract_foo())
   Assert.isTrue(ordinaryClass is OrdinaryClass)
   Assert.isTrue(inheritableClass is InheritableClass)
   Assert.isTrue(genericClass is GenericClass<String>)

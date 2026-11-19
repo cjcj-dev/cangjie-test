@@ -25,6 +25,8 @@
 */
 
 
+import utils.assert.Assert
+
 main() {
     var v1: (Int8) -> Bool
     var v2: () -> Int16
@@ -36,5 +38,13 @@ main() {
         UInt64)
         ->
         UIntNative
+    v1 = { x: Int8 => x == 1i8 }
+    v2 = { => 2i16 }
+    v3 = { x: Int32, y: Int64 => IntNative(x) + IntNative(y) }
+    v4 = { a: UInt8, b: UInt16, c: UInt32, d: UInt64 => UIntNative(a) + UIntNative(b) + UIntNative(c) + UIntNative(d) }
+    Assert.isTrue(v1(1i8))
+    Assert.equals(2i16, v2())
+    Assert.equals(IntNative(3), v3(1i32, 2))
+    Assert.equals(UIntNative(10), v4(1u8, 2u16, 3u32, 4u64))
     return 0
 }

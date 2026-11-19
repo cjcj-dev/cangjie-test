@@ -44,6 +44,11 @@ main() {
     var optionalVar: Option<Test>
     var testVar: Test
 
+    unassignedF = 2.0f16
+    unassigned = 2
+    Assert.equals(2.0f16, unassignedF)
+    Assert.equals(2, unassigned)
+
     str = "ABC"
     a = 1
     numE = CONST_FLOAT

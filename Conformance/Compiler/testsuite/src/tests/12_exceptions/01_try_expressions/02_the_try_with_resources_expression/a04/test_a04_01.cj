@@ -24,6 +24,8 @@
 
 */
 
+import utils.assert.Assert
+
 public class TestA0401 <: Resource {
     public func isClosed() : Bool {
         return true
@@ -42,4 +44,7 @@ main() {
 // test case #3
     let e3 = try (res = TestA0401()) {
                 } finally {} 
+    Assert.equals((), e1)
+    Assert.equals((), e2)
+    Assert.equals((), e3)
 }

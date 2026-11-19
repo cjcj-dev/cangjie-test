@@ -42,7 +42,8 @@ open class Figure {
 main() {
     let myFigure = Figure(5, 12) 
     var myTmpFigure = Figure(6, 24) 
-    var figureArea: Int32 = match (myFigure) { 
+    let candidate: Any = myFigure
+    var figureArea: Int32 = match (candidate) {
         case myTmpFigure: Figure => 
             Assert.equals(5, myTmpFigure.x)
             Assert.equals(12, myTmpFigure.y)

@@ -35,10 +35,14 @@ struct Rect {
 }
 
 
+func resolve(value: Option<Rect>, fallback: Rect): Rect {
+    value ?? fallback
+}
+
 main() {
     var r2 : Rect = Rect();
     var sv = Option<Rect>.None
-    var re = sv ?? r2
+    var re = resolve(sv, r2)
     Assert.equals(re.wid,10)
     Assert.equals(re.len,20)
     0

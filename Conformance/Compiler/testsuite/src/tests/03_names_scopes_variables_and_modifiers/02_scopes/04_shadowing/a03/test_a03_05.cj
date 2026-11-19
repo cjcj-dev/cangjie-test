@@ -56,7 +56,8 @@ main() {
         Assert.isTrue(T is Int64)
     }
 
-    match (Dummy()) {
+    let candidate: Any = Dummy()
+    match (candidate) {
         case x: T => if (true) {
                 let T = C()
                 Assert.isTrue(T is C)

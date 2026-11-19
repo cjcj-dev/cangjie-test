@@ -45,13 +45,14 @@ main() {
 // test case #1
     let r1 = TestA1301()
     let e1 = try (r = r1) {}
+    Assert.equals((), e1)
     Assert.isTrue(r1.isClosed())
 
 // test case #2
     var my_exception : Bool = false
     try {
         let r2 = TestA1301()
-        let e2 = try (r = r2) {
+        try (r = r2) {
             throw MyException()
         }
         Assert.isTrue(r2.isClosed())

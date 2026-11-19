@@ -32,38 +32,50 @@ import utils.assert.Assert
 
 class Test {
     private func f1() {}
-    private func f2(x: Rune) {}
+    private func f2(x: Rune) {
+        Assert.equals(r'1', x)
+    }
     private func f3() {
         return 1
     }
     private func f4(x: Rune) {
+        Assert.equals(r'1', x)
         return 2
     }
 
     private func f5<T>() {}
-    private func f6<T>(x: Rune) {}
+    private func f6<T>(x: Rune) {
+        Assert.equals(r'1', x)
+    }
     private func f7<T>() {
         return 3
     }
     private func f8<T>(x: Rune) {
+        Assert.equals(r'1', x)
         return 4
     }
 
     private static func f9() {}
-    private static func f10(x: Rune) {}
+    private static func f10(x: Rune) {
+        Assert.equals(r'1', x)
+    }
     private static func f11() {
         return 5
     }
     private static func f12(x: Rune) {
+        Assert.equals(r'1', x)
         return 6
     }
 
     private static func f13<T>() {}
-    private static func f14<T>(x: Rune) {}
+    private static func f14<T>(x: Rune) {
+        Assert.equals(r'1', x)
+    }
     private static func f15<T>() {
         return 7
     }
     private static func f16<T>(x: Rune) {
+        Assert.equals(r'1', x)
         return 8
     }
 
@@ -127,6 +139,7 @@ class Test {
 
     // Check access inside a constructor
     init(x: Int64) {
+        Assert.equals(1, x)
         let obj = Test()
         Assert.isTrue(obj.f1() is Unit)
         Assert.isTrue(obj.f2(r'1') is Unit)
@@ -193,7 +206,7 @@ class Test {
         }
         set(v) {
             let obj = Test()
-            Assert.isTrue(obj.f1() is Unit)
+            Assert.isTrue(obj.f1() is Unit, reason: "private member access for setter input ${v}")
             Assert.isTrue(obj.f2(r'1') is Unit)
             Assert.equals(1, obj.f3())
             Assert.equals(2, obj.f4(r'1'))
@@ -236,7 +249,7 @@ class Test {
         }
         set(v) {
             let obj = Test()
-            Assert.isTrue(obj.f1() is Unit)
+            Assert.isTrue(obj.f1() is Unit, reason: "private member access for setter input ${v}")
             Assert.isTrue(obj.f2(r'1') is Unit)
             Assert.equals(1, obj.f3())
             Assert.equals(2, obj.f4(r'1'))

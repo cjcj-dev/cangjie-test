@@ -23,6 +23,8 @@
 
 */
 
+import utils.assert.Assert
+
 open class Exc <: Exception {}
 main() {
 // test case #1
@@ -31,6 +33,7 @@ main() {
     } catch (_) {
     }
 // test case #2
+    var quotient: ?Int64 = None
     try {
         func bar0() : Int64 {
             return 0
@@ -39,6 +42,8 @@ main() {
             return 1
         }
         let v = bar1() / bar0()
+        quotient = Some(v)
     } catch (_) {
     }
+    Assert.isNone(quotient)
 }

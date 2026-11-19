@@ -41,6 +41,8 @@ public func foo1() {
 }
 
 public func foo2(p1: C1) {
+  let argument: Any = p1
+  if (!(argument is C1)) { throw Exception("incorrect argument type for foo2") }
   return 0
 }
 
@@ -52,10 +54,12 @@ public class C2 {
 
 public class C3 {
     public func foo4(p1: C1) {
+        let argument: Any = p1
+        if (!(argument is C1)) { throw Exception("incorrect argument type for foo4") }
         return 0
     }
 }
 
 main() {
-    return 0
+    return foo2(foo1()) + C3().foo4(C2().foo3())
 }

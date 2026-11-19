@@ -82,6 +82,7 @@ class Test {
         }
         set(v) {
             m2 = 1
+            Assert.equals(1, m2, reason: "p5 writes its constant for input ${v}")
         }
     }
     protected prop p6: Int64 {
@@ -147,6 +148,7 @@ class Test {
         }
         set(v) {
             s2 = Test().p1
+            Assert.equals(-2, s2, reason: "p13 reads the new instance for input ${v}")
         }
     }
     protected static prop p14: Int64 {

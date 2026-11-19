@@ -41,6 +41,8 @@ func f() {
     let a = 1                   // Define and initialize immutable variable a.
     var b: Float32 = 3.14 // Define and initialize mutable b.
     b = 3.1415                  // ok: mutable variable b can be reassigned.
+    Assert.equals(1, a)
+    Assert.equals(3.1415f32, b)
 }
 
 class C {
@@ -55,6 +57,7 @@ class C {
 }
 
 main() {
+    f()
     var c = C(10, 1_123_345);
     Assert.equals(10 * 1_123_345, c.m1, reason: "Re-init value should be used")
 

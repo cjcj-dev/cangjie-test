@@ -25,6 +25,8 @@
   @Structure:   single
 */
 
+import utils.assert.Assert
+
 open class Class1 { }
 interface I1 { }
 struct S1 { }
@@ -63,5 +65,61 @@ main() {
     var v27: ?Unit
     var v28: ?Nothing
 
+    v1 = None
+    Assert.isNone(v1)
+    v2 = None
+    Assert.isNone(v2)
+    v3 = None
+    Assert.isNone(v3)
+    v4 = None
+    Assert.isNone(v4)
+    v5 = None
+    Assert.isNone(v5)
+    v6 = None
+    Assert.isNone(v6)
+    v7 = None
+    Assert.isNone(v7)
+    v8 = None
+    Assert.isNone(v8)
+    v9 = None
+    Assert.isNone(v9)
+    v10 = None
+    Assert.isNone(v10)
+    v11 = None
+    Assert.isNone(v11)
+    v12 = None
+    Assert.isNone(v12)
+    v13 = None
+    Assert.isNone(v13)
+    v14 = None
+    Assert.isNone(v14)
+    v15 = None
+    Assert.isNone(v15)
+    v16 = None
+    Assert.isNone(v16)
+    v17 = None
+    Assert.isNone(v17)
+    v18 = None
+    Assert.isNone(v18)
+    v19 = None
+    Assert.isNone(v19)
+    v20 = None
+    Assert.isNone(v20)
+    v21 = None
+    Assert.isNone(v21)
+    v22 = None
+    Assert.isNone(v22)
+    v23 = None
+    Assert.isNone(v23)
+    v24 = None
+    Assert.isNone(v24)
+    v25 = None
+    Assert.isNone(v25)
+    v26 = None
+    Assert.isNone(v26)
+    v27 = None
+    Assert.isNone(v27)
+    v28 = None
+    Assert.isNone(v28)
     return 0
 }

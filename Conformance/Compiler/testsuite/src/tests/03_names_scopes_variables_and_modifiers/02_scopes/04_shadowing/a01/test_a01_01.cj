@@ -43,6 +43,7 @@ interface idInterface { }
 type idAlias = String
 
 main() {
+    Assert.equals("unused", idFunc())
     let idPackage = "ok"
     Assert.equals("ok", idPackage)
 
@@ -58,6 +59,7 @@ main() {
     Assert.equals(300, idEnum)
 
     var idStruct = "ok"
+    Assert.equals("ok", idStruct)
     Assert.isTrue(idStruct is String)
 
     let idClass = "ok"

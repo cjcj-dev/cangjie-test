@@ -41,6 +41,7 @@ class C2 <: C1 {}
 
 main() {
   var c2 = C2()
+  Assert.equals((), c2.foo())
   Assert.isTrue(c2 is C1)
   Assert.isTrue(c2 is C2)
 }

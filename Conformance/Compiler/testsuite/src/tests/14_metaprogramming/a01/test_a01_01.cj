@@ -22,7 +22,7 @@
 */
 
 import std.ast.*
-import std.collection.ArrayList
+import utils.assert.Assert
 
 main(): Unit {
     var code = quote(import std.random.Random
@@ -63,4 +63,7 @@ main(): Unit {
         case None => throw Exception()
     }
     var main_token = main_func.get(1)
+    Assert.equals(code.toString(), quoted_code_0.toString())
+    Assert.isTrue(main_expr.toTokens().size > 0)
+    Assert.isTrue(main_func[1].kind == main_token.kind)
 }

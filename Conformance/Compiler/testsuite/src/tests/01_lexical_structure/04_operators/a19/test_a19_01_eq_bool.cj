@@ -43,7 +43,7 @@ func BinOp(Operand1:TestedType, Operand2:TestedType): Bool
 main(ina :Array<String>) {
     let z : Bool = Assert.getRuntimeZero(ina) == 0
     if (z) {RTZero = ct0;}
-    var rt_opnd1: TestedType = ct_opnd1 || RTZero;
+    var rt_opnd1: TestedType = z || RTZero;
     var rt_opnd2: TestedType = ct_opnd2 || RTZero;
     Assert.equals(ct_opnd1 == ct_opnd2,rt_opnd1 == rt_opnd2)
     Assert.equals(ct_opnd1 == rt_opnd2,rt_opnd1 == ct_opnd2)

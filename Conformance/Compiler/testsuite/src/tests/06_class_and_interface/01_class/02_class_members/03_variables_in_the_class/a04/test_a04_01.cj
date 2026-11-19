@@ -47,6 +47,7 @@ open class B <: A {
 
 open class C <: B {
     init(x: Int64) {
+        Assert.equals(1, x)
         order += "_11"
     }
 }
@@ -54,6 +55,7 @@ open class C <: B {
 open class D <: C {
     D(x: Bool) {
         super(1)
+        Assert.isTrue(x)
         order += "_12"
     }
 }

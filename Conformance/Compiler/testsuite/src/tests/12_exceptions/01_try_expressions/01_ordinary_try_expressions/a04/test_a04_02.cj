@@ -35,16 +35,20 @@ main(ina :Array<String>) : Int32 {
         if (t) {
             throw MyException()
         }
-        Assert.fail(reason : "Unexpected execution.")    
     } catch (_) {
         Assert.equals(0, cnt)    
         cnt++
     } finally {
-        Assert.equals(1, cnt)    
+        if (cnt == 0) {
+            Assert.fail(reason : "Unexpected execution.")
+        }
+        Assert.equals(1, cnt)
     }
 
 // test case #2
     cnt = -1
+    var arithmeticCaught = false
+    var quotient: Option<Int32> = None
     try {
         func f0() : Int32 {
             return 0
@@ -53,14 +57,25 @@ main(ina :Array<String>) : Int32 {
             return 1
         }
         cnt = 0
-        let r = f1() / f0()
-        Assert.fail(reason : "Unexpected execution.")    
+        try {
+            quotient = Some(f1() / f0())
+        } catch (error: ArithmeticException) {
+            arithmeticCaught = true
+            throw error
+        }
     } catch (_) {
-        Assert.equals(0, cnt)    
+        Assert.isTrue(arithmeticCaught, reason: "Expected ArithmeticException from division.")
+        Assert.equals(0, cnt)
         cnt++
     } finally {
-        Assert.equals(1, cnt)    
+        if (arithmeticCaught) {
+            Assert.equals(1, cnt)
+        }
     }
+    if (let Some(r) <- quotient) {
+        Assert.fail(reason: "Unexpected execution: division returned ${r}.")
+    }
+    Assert.isTrue(arithmeticCaught, reason: "Division neither threw ArithmeticException nor returned.")
 
     return 0
 }

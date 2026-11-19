@@ -25,4 +25,4 @@
   @Negative: no
 */
 
-import std.core.*;func foo() {};main() {foo()}
+import std.collection.*;func foo() {};main() {foo(); if (ArrayList<Int64>().size != 0) { throw Exception("new list is not empty") }}

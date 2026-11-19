@@ -114,6 +114,14 @@ enum GenericEnum<T, U> where
     | ECode(Int64)
 }
 
+func classify(value: GenericEnum<Dog, Rect>): Int64 {
+    match (value) {
+        case DataT(x) => 1
+        case DataU(x) => 2
+        case ECode(x) => 3
+    }
+}
+
 main() {
     var d = Dog()
     var r = Rect()
@@ -143,18 +151,11 @@ main() {
     Assert.isTrue(make_pair(d, r)[1] is Shape)
     Assert.isTrue(make_pair(d, r)[1] is Drawable)
 
-    let valueD = match ({=> GenericEnum<Dog, Rect>.DataT(d)}()) {
-        case DataT(x) => 1
-        case DataU(x) => 2
-        case ECode(x) => 3
-    }
+    let valueD = classify(GenericEnum<Dog, Rect>.DataT(d))
     Assert.equals(1, valueD)
 
-    let valueR = match (GenericEnum<Dog, Rect>.DataU(r)) {
-        case DataT(x) => 1
-        case DataU(x) => 2
-        case ECode(x) => 3
-    }
+    let valueR = classify(GenericEnum<Dog, Rect>.DataU(r))
     Assert.equals(2, valueR)
+    Assert.equals(3, classify(GenericEnum<Dog, Rect>.ECode(0)))
 }
 

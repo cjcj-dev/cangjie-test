@@ -54,6 +54,14 @@ type GenericTypeAlias<T1, T2> = GenericInterface<T1, T2>
 class A {}
 class B {}
 
+func classify(value: GenericEnum<A, B>): Int64 {
+    match (value) {
+        case Data1(x) => 1
+        case Data2(x) => 2
+        case ECode(x) => 3
+    }
+}
+
 main() {
     Assert.isTrue(GenericClass<A, B>(A(), B()).x1 is A)
     Assert.isTrue(GenericClass<A, B>(A(), B()).x2 is B)
@@ -64,17 +72,10 @@ main() {
     Assert.isTrue(GenericTypeAlias<A, B>.makePair(A(), B())[0] is A)
     Assert.isTrue(GenericTypeAlias<A, B>.makePair(A(), B())[1] is B)
 
-    let value1 = match ({ => GenericEnum<A, B>.Data1(A()) }()) {
-        case Data1(x) => 1
-        case Data2(x) => 2
-        case ECode(x) => 3
-    }
+    let value1 = classify(GenericEnum<A, B>.Data1(A()))
     Assert.equals(1, value1)
-    let value2 = match (GenericEnum<A, B>.Data2(B())) {
-        case Data1(x) => 1
-        case Data2(x) => 2
-        case ECode(x) => 3
-    }
+    let value2 = classify(GenericEnum<A, B>.Data2(B()))
     Assert.equals(2, value2)
+    Assert.equals(3, classify(GenericEnum<A, B>.ECode(0)))
 }
 

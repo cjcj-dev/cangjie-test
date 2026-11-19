@@ -42,15 +42,20 @@ enum C<U> where U <: B<U> {
 
 class Impl <: B<Impl> & A {}
 
+func classify(value: C<Impl>): Int64 {
+    match (value) {
+        case Data(t) => 1
+        case Code(t) => 2
+    }
+}
+
 main() {
     // Constraint check should happen here:
     var x = C<Impl>.Data(Impl())
 
-    let value = match (x) {
-        case Data(t) => 1
-        case Code(t) => 2
-    }
+    let value = classify(x)
 
     Assert.equals(1, value)
+    Assert.equals(2, classify(C<Impl>.Code(0)))
 }
 

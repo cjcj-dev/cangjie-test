@@ -52,16 +52,21 @@ type GenericTypeAlias<T> = GenericInterface<T>
 
 class C {}
 
+func classify(value: GenericEnum<C>): Int64 {
+    match (value) {
+        case Data(x) => 1
+        case Code(x) => 2
+    }
+}
+
 main() {
     Assert.isTrue(GenericClass<C>(C()).x is C)
     Assert.isTrue(GenericInterface<C>.id(C()) is C)
     Assert.isTrue(GenericStruct<C>(x: C()).x is C)
     Assert.isTrue(GenericTypeAlias<C>.id(C()) is C)
 
-    let value = match (GenericEnum<C>.Data(C())) {
-        case Data(x) => 1
-        case Code(x) => 2
-    }
+    let value = classify(GenericEnum<C>.Data(C()))
     Assert.equals(1, value)
+    Assert.equals(2, classify(GenericEnum<C>.Code(0)))
 }
 

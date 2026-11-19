@@ -77,6 +77,13 @@ enum GenericEnum<T> where T <: Animal {
     | Code(Int64)
 }
 
+func classify(value: GenericEnum<Dog>): Int64 {
+    match (value) {
+        case Data(x) => 1
+        case Code(x) => 0
+    }
+}
+
 main() {
     var d = Dog()
 
@@ -90,10 +97,8 @@ main() {
 
     Assert.isTrue(isDog(d))
 
-    let value = match (GenericEnum<Dog>.Data(d)) {
-        case Data(x) => 1
-        case Code(x) => 0
-    }
+    let value = classify(GenericEnum<Dog>.Data(d))
     Assert.equals(1, value)
+    Assert.equals(0, classify(GenericEnum<Dog>.Code(0)))
 }
 

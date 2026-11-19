@@ -24,6 +24,10 @@ import utils.assert.Assert
 
 func incr (x: Int64) { x + 1 }
 
+func checkTopLevelIncr() {
+    Assert.equals(101, incr(100))
+}
+
 class C {
     func incr(x: Int64) { x }
     C() {
@@ -47,6 +51,7 @@ struct S {
 }
 
 main() {
+    checkTopLevelIncr()
     let c = C()
     c.test()
 

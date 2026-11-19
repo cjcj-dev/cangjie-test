@@ -25,6 +25,8 @@
 
 */
 
+import utils.assert.Assert
+
 public let myPublicTopLet = 127
 public let myPublicTopLetWithType: Float64 = 0.01
 let myTopLet = 'J'
@@ -41,6 +43,11 @@ class MyClass {
     protected let myProtectedClassMemberLetWithType: String = "asfljh"
     static let myStaticClassMemberLet = -1
     let myClassMemberLet = 127
+
+    static func checkPrivateStatic() {
+        Assert.equals(0, myStaticPrivateClassMemberLet)
+        Assert.equals(r'h', myStaticPrivateClassMemberLetWithType)
+    }
 }
 
 struct Triangle { 
@@ -54,4 +61,7 @@ struct Triangle {
 main() {
     let myLocalLet = "k3e5r0jk"
     let myLocalLetWithType: Int8 = 12
+    Assert.equals("k3e5r0jk", myLocalLet)
+    Assert.equals(12i8, myLocalLetWithType)
+    MyClass.checkPrivateStatic()
 }

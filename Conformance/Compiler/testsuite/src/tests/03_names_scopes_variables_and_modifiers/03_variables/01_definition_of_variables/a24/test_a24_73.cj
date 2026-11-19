@@ -27,9 +27,16 @@
 
 */
 
+import utils.assert.Assert
+
 class MyClass {
     static private let override = 127.12
+
+    static func checkPrivateStatic() {
+        Assert.equals(127.12, override)
+    }
 }
 
 main() {
+    MyClass.checkPrivateStatic()
 }

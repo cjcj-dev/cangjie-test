@@ -27,6 +27,8 @@
 
 */
 
+import utils.assert.Assert
+
 type funcType1 = () -> Int32;
 type funcType2 = (() -> Int32) -> Int32;
 type funcType3 = () -> () -> Int32;
@@ -36,6 +38,7 @@ func testFunc1(): Int32 {
 }
 
 func testFunc2(funcPar: () -> Int32): Int32 {
+    Assert.equals(1i32, funcPar())
     return 1;
 }
 
@@ -49,6 +52,12 @@ main() {
     let funcVar1: funcType1 = testFunc1;
     var funcVar2: funcType2 = testFunc2;
     let funcVar3: funcType3 = testFunc3;
+
+    Assert.equals(1i32, result1)
+    Assert.equals(1i32, result2())
+    Assert.equals(1i32, funcVar1())
+    Assert.equals(1i32, funcVar2(testFunc1))
+    Assert.equals(1i32, funcVar3()())
 
     return 0;
 }

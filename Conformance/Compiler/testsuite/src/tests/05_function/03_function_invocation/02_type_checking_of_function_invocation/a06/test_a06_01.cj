@@ -70,6 +70,7 @@ func f1(a: Rune, b: Bool): String {"${b} ${a}"}
 main() {
     var myInt32Var: Int32 = 12
     var myTypeInt32Var: myTypeInt32 = 3
+    Assert.equals(6, myTypeInt32Var.doubled())
     var myCharVar: Rune = 'c'
     var myTypeBoolVar: myTypeBool = true
 

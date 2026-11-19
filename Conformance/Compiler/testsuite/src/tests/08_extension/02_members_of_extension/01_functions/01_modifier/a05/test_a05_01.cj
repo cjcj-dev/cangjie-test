@@ -64,6 +64,10 @@ extend Foo {
     public func f2() {} // ok
     protected func f3() {} // ok
     func f4() {} // visible in the package
+
+    func checkPrivateExtension() {
+        f1()
+    }
 }
 
 main() {
@@ -71,4 +75,5 @@ main() {
     a.f2() // ok
     a.f3() // ok
     a.f4() // ok
+    a.checkPrivateExtension()
 }

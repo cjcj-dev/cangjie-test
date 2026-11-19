@@ -59,5 +59,7 @@ main() {
   a.y = -4
   Assert.equals(10, a.point[0])
   Assert.equals(-4, a.point[1])
+  Assert.equals(10, a.x)
+  Assert.equals(-4, a.y)
   0
 }

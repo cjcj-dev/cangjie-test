@@ -65,5 +65,11 @@ main() {
   b.point = (30.5, 7.1)
   var d = sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y))
   Assert.isTrue(abs(d - 5.0) < 0.00001)
+  a.x = -2.0
+  Assert.equals(-2.0f32, a.point[0])
+  Assert.equals(34.5f32, a.point[1])
+  a.y = -4.0
+  Assert.equals(-2.0f32, a.point[0])
+  Assert.equals(-4.0f32, a.point[1])
   0
 }

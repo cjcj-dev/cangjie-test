@@ -51,6 +51,9 @@ func myFunc6(mylocalUnnamed4: Float32, mylocalNamedWithDefault4!: Float32 = 12.3
 }
 
 main() {
+    myFunc2(mylocalNamed1: "named argument")
+    myFunc3()
+    myFunc3(mylocalNamedWithDefault1: r'G')
     var myFunc1Res = myFunc1(32)
     Assert.equals(64, myFunc1Res)
     var myFunc4Res = myFunc4(3, mylocalNamed2:2)

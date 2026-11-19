@@ -21,6 +21,8 @@
 
 */
 
+import utils.assert.Assert
+
 struct S {
     public init() {}
 }
@@ -29,6 +31,10 @@ struct S1 {
 }
 struct S2 {
     private init() {}
+
+    static func checkPrivateInit() {
+        Assert.equals(1, [S2()].size)
+    }
 }
 struct S3 {
     public S3() {}
@@ -40,4 +46,8 @@ struct S5 {
     private S5() {}
 }
 
-main() {}
+main() {
+    Assert.equals(1, [S()].size)
+    Assert.equals(1, [S1()].size)
+    S2.checkPrivateInit()
+}

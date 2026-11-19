@@ -24,6 +24,8 @@
 
 */
 
+import utils.assert.Assert
+
 var v1 = 1
 var v2 = ""
 var v3 = 'a'
@@ -35,28 +37,33 @@ main() {
         case 1 => 1
         case _ => 0
     }
+    Assert.equals(1, m)
 
     m = match (v2) {
         case "" => 1
         case _ => 0
     }
+    Assert.equals(1, m)
 
     m = match (v3) {
         case 'a' => 1
         case _ => 0
     }
+    Assert.equals(1, m)
 
     m = match (v4) {
         case b'\u{B}' => 2
         case b'\u{A}' => 1
         case _ => 0
     }
+    Assert.equals(1, m)
 
     m = match (v5) {
         case 0.1 => 1
         case 0.2 => 1
         case _ => 0
     }
+    Assert.equals(1, m)
 
     return
 }

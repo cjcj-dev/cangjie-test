@@ -32,8 +32,8 @@ struct S <: ToString {
 }
 
 main() {
-    S()
-    S(0)
+    Assert.equals("0", S().toString())
+    Assert.equals("0", S(0).toString())
     let s = S()
     var s1 = S(1)
     Assert.equals("0", S().toString())

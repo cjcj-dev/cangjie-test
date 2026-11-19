@@ -35,6 +35,8 @@
 
 */
 
+import utils.assert.Assert
+
 class Foo {
   private prop a: Int64 { // ok
     get() { 0 } 
@@ -45,9 +47,16 @@ class Foo {
   public static prop c: Int64 { // ok
     get() { 0 } 
   }
+
+  func checkInstanceProperties() {
+    Assert.equals(0, a)
+    Assert.equals(0, b)
+  }
 }
 
 main() {
+  Foo().checkInstanceProperties()
+  Assert.equals(0, Foo.c)
   return 0;
 }
 

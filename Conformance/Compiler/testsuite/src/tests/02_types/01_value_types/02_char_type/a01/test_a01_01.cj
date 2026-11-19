@@ -26,7 +26,11 @@
  
 */
 
+import utils.assert.Assert
+
 main() {
   var a: Rune
+  a = r'A'
+  Assert.equals(r'A', a)
   return 0
 }

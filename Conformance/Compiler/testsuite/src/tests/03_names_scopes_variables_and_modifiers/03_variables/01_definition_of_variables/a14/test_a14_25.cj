@@ -23,6 +23,8 @@
 
 */
 
+import utils.assert.Assert
+
 class MyClass {
     public var myPublicClassMemberVarInt64: Int64
     private var myPrivateClassMemberVarInt64: Int64
@@ -62,4 +64,7 @@ struct MyStruct {
 main() {
     var myLocalVarInt32: Int32
     let myLocalLetInt64: Int64 = 12
+    myLocalVarInt32 = 17
+    Assert.equals(17i32, myLocalVarInt32)
+    Assert.equals(12, myLocalLetInt64)
 }

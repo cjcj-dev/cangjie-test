@@ -54,6 +54,8 @@ abstract class myAClass {
     func myFunc2(b: String, a: Int32) { "2 ${a} ${b}" }
 }
 
+class OverloadExample <: myAClass {}
+
 class myClass <: myInterface {
     public func myFunc0(a: Int64) { "myClass ${a}" }
     public func myFunc0(a: Int64, b: String) { "myClass ${a} ${b}" }
@@ -103,6 +105,14 @@ func myFunc2(a: Int32, b: String) { "global 2 ${a} ${b}" }
 func myFunc2(b: String, a: Int32) { "global 2 ${a} ${b}" }
 
 main() {
+    let concrete = OverloadExample()
+    Assert.equals("16", concrete.myFunc0(16))
+    Assert.equals("16 DDD", concrete.myFunc0(16, "DDD"))
+    Assert.equals("16 C DDD", concrete.myFunc0(16, "DDD", r'C'))
+    Assert.equals("1 16 DDD", concrete.myFunc1(16, "DDD"))
+    Assert.equals("1 16 D", concrete.myFunc1(16, r'D'))
+    Assert.equals("2 16 DDD", concrete.myFunc2(16, "DDD"))
+    Assert.equals("2 16 DDD", concrete.myFunc2("DDD", 16))
 
     Assert.equals("global 16", myFunc0(16))
     Assert.equals("global 16 DDD", myFunc0(16, "DDD"))

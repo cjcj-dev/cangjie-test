@@ -67,5 +67,6 @@ struct Foo <: I {
 main() { 
     var b: I = Foo() 
     var fn = b.f // ok 
+    fn()
     return 0 
 } 

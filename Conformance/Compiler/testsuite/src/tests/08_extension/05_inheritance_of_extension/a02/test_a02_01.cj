@@ -57,4 +57,5 @@ main() {
     Assert.isTrue(x is B)
     Assert.isTrue(x is A)
     x.f() // ok
+    x.g()
 }

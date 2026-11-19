@@ -57,6 +57,7 @@ main() {
     if (x02 > 0) {
         y02 += 3 * x02
         diff02 = y02 - 2  * x02
+        Assert.equals(30, diff02)
     }
     Assert.equals(50, y02)
 
@@ -69,6 +70,7 @@ main() {
         let x03 = 100
         var y03 : Int64 = 3 * x03
         var sum03 = x03 + y03
+        Assert.equals(400, sum03)
     } 
     Assert.equals(20, y03)
 
@@ -97,6 +99,7 @@ main() {
         y05 - x05
     } 
     Assert.equals(200, y05)
+    Assert.equals(400, res05)
     
 }    //main
 

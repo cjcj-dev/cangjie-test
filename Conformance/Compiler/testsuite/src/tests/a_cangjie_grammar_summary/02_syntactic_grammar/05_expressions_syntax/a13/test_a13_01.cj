@@ -22,10 +22,12 @@
   @Structure:   single
 */
 
+import utils.assert.Assert
+
 main() {
-    Int16(1 - 2)
-    Int8(0b0101 | 0b1010)
-    Int32(213_u16)
+    Assert.equals(-1i16, Int16(1 - 2))
+    Assert.equals(15i8, Int8(0b0101 | 0b1010))
+    Assert.equals(213i32, Int32(213_u16))
 
     Float16(1.0/3.0)
     Float64(Float32(1.0f16/0.0f16))

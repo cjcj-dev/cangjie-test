@@ -22,6 +22,8 @@
 
 */
 
+import utils.assert.Assert
+
 type User = (String, UInt8) // Name and age
 
 func getUserInfo(): User { ("Chu Bong-Foo", 85) }
@@ -34,5 +36,6 @@ main() {
         case (name, age) where age < 23 => "Heeeeeere's ${name} 😎"
         case (name, age) => "Good day, Dear ${name}"
     }
+    Assert.equals("Good day, Dear Chu Bong-Foo", greetings)
     0
 }

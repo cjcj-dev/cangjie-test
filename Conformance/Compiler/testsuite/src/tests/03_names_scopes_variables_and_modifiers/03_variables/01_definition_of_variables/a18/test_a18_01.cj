@@ -25,6 +25,8 @@
 
 */
 
+import utils.assert.Assert
+
 public var myPublicTopVar = 127.1
 var myTopVar = -16
 
@@ -40,6 +42,10 @@ class MyClass {
     protected var myProtectedClassMemberVarWithType: Float16 = 0.123
     static var myStaticClassMemberVar = 1.6
     var myClassMemberVar = "kjhgsd"
+
+    static func checkPrivateStatic() {
+        Assert.equals(1..27:2, myStaticPrivateClassMemberVar)
+    }
 }
 
 struct Triangle { 
@@ -52,4 +58,7 @@ struct Triangle {
 main() {
     var myLocalVar = -1.02
     var myLocalVarWithType: Range<Int32> = 1..5:1
+    Assert.equals(-1.02, myLocalVar)
+    Assert.equals(1i32..5i32:1, myLocalVarWithType)
+    MyClass.checkPrivateStatic()
 }

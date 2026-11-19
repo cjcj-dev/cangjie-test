@@ -21,9 +21,11 @@
 
 */
 
+import utils.assert.Assert
+
 public struct TestA0101 {}
 
 main() {
-    TestA0101()
+    Assert.equals(1, [TestA0101()].size)
     0
 }

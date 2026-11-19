@@ -54,6 +54,8 @@
 
 */
 
+import utils.assert.Assert
+
 class A {
   prop i: Int64 {
     get() {
@@ -88,6 +90,11 @@ extend A {
 }
 
 main() {
+    let example = A()
+    Assert.equals(0, example.i)
+    Assert.equals(0, B().i)
+    Assert.equals(0, C.CASE1.i)
+    Assert.equals("", example.s)
     return 0;
 }
 

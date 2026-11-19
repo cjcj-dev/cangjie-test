@@ -22,6 +22,8 @@
   @Structure:     single
 
 */
+
+import utils.assert.Assert
 interface myInterface { 
   func intefaceFunc1(): Int32
 } 
@@ -60,6 +62,11 @@ class myClass <: myInterface {
   protected func myProtectedFunc(){
     "myProtectedFunc"
   }
+
+  func checkAccess() {
+    Assert.equals("private => 12", myPrivateFunc())
+    Assert.equals("myProtectedFunc", myProtectedFunc())
+  }
   static func myStaticFunc():Int32{
     12
   }
@@ -71,4 +78,11 @@ func myParentFunc(){
   "${myChildFunc()}"
 }
 main() {
+  let example = myClass()
+  example.myClassFunc(4.0f32)
+  Assert.equals(4.0f32, example.myVar)
+  Assert.isTrue(example.getValues().contains("Values are:"))
+  example.checkAccess()
+  Assert.equals(12, myClass.myStaticFunc())
+  Assert.equals("12", myParentFunc())
 }

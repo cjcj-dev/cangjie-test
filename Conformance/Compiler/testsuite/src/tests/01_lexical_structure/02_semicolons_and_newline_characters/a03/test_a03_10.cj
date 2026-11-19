@@ -25,6 +25,8 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
     func
     foo0
@@ -34,6 +36,7 @@ main() {
         Int64
     )
     {
+        Assert.equals(12, i)
     }
     func
     foo1
@@ -43,6 +46,7 @@ main() {
         String
     )
     {
+        Assert.equals("S", s)
     }
     foo0(12)
     foo1("S")

@@ -23,6 +23,8 @@
 
 */
 
+import utils.assert.Assert
+
 enum C {
   CASE_C
   prop i: Int64 {
@@ -31,6 +33,7 @@ enum C {
 }
 
 main() {
+    Assert.equals(0, C.CASE_C.i)
     return 0;
 }
 

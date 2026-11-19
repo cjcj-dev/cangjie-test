@@ -34,5 +34,6 @@ extend Foo {
 }
 
 main() {
+    Foo.f()
     return 0
 }

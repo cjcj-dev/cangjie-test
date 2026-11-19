@@ -24,6 +24,8 @@
 
 */
 
+import utils.assert.Assert
+
 struct MyStruct {
     static var myStaticVarInt32: Int32 = 2
     static var myStaticVar = 2
@@ -37,7 +39,15 @@ struct MyStruct {
     public static let myPublicStaticLetFloat64: Float64 = 0.226
     private static let myPrivateStaticLetInt32: Int32 = 26
     private static let myPrivateStaticLet = 10
+
+    static func checkPrivateStatic() {
+        Assert.equals(r'H', myPrivateStaticVarChar)
+        Assert.equals("D", myPrivateStaticVar.toString())
+        Assert.equals(26i32, myPrivateStaticLetInt32)
+        Assert.equals(10, myPrivateStaticLet)
+    }
 } 
 
 main() {
+    MyStruct.checkPrivateStatic()
 }

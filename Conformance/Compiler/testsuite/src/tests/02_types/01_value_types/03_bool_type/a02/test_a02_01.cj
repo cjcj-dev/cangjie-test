@@ -25,12 +25,16 @@
 
  */
 
+import utils.assert.Assert
+
 main() {
     var b1: Bool
     var b2: Bool
 
     b1 = true
     b2 = false
+    Assert.equals(true, b1)
+    Assert.equals(false, b2)
 
     return 0
 }

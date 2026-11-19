@@ -25,6 +25,8 @@
 
 */
 
+import utils.assert.Assert
+
 let a = None<Unit>
 let b = Option<ToString>.None
 
@@ -34,4 +36,6 @@ main() {
     var e: Option<(Rune)>
     e = Option.Some((r'q'))
     let d = e is Option<(Rune)>
+    Assert.equals(true, d)
+    Assert.equals(r'q', e.getOrThrow())
 }

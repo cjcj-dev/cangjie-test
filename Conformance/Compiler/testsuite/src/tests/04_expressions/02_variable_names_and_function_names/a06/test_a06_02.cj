@@ -67,7 +67,7 @@ struct S {
 }
 
 main() {
-    S()
-    S(Assert.getRuntimeZero(), "Nick")
+    Assert.equals(123, S().Id)
+    Assert.equals("John", S(Assert.getRuntimeZero(), "Nick").name)
     return
 }

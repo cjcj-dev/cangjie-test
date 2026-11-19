@@ -39,6 +39,11 @@ struct MyStruct {
     public static let myPublicStaticLetFloat64: Float64 = 0.226
     private let myPrivateStaticLetInt32: Int32 = 26
     private static let myPrivateStaticLet = 10
+
+    static func checkPrivateStatic() {
+        Assert.equals(r'H', myPrivateStaticVarChar)
+        Assert.equals(10, myPrivateStaticLet)
+    }
 } 
 
 main() {
@@ -54,4 +59,5 @@ main() {
     Assert.equals(r'P', myStructImpl.myStaticLetChar)
 
     Assert.equals(8, myStructImpl.myPublicStaticLetUInt16)
+    MyStruct.checkPrivateStatic()
 }

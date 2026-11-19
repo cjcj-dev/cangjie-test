@@ -22,6 +22,8 @@
 
 */
 
+import utils.assert.Assert
+
 struct S {
     let v = 0
 }
@@ -32,7 +34,7 @@ struct S1<T> {
 }
 
 main() {
-    S()
-    S1<Int64>(0)
+    Assert.equals(0, S().v)
+    Assert.equals(0, S1<Int64>(0).v)
     0
 }

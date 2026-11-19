@@ -42,6 +42,8 @@ struct S2 {
 }
 
 main() {
+    S1(0, 2).test()
+    S2(0, 2).test()
     Assert.equals(2, S1(0, 2).b)
     Assert.equals(0, S2(0, 2).a)
 }

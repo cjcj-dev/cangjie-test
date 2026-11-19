@@ -50,6 +50,8 @@ abstract class myAClass {
     func myFunc(a: Int64, b: Bool) { "${a} ${b}" }
 }
 
+class OverloadExample <: myAClass {}
+
 class myClass <: myInterface {
     public func myFunc(a: Int16) { a + 1 }
     public func myFunc(a: Int32) { a + 1 }
@@ -95,6 +97,16 @@ main() {
     var myInt16: Int16 = 13
     var myInt32: Int32 = 7
     var myInt64: Int64 = 8
+    let concrete = OverloadExample()
+    Assert.equals(14, concrete.myFunc(myInt16))
+    Assert.equals(8, concrete.myFunc(myInt32))
+    Assert.equals(9, concrete.myFunc(myInt64))
+    Assert.equals("8 C", concrete.myFunc(myInt64, r'C'))
+    Assert.equals("8 BBB", concrete.myFunc(myInt64, "BBB"))
+    Assert.equals("8 true", concrete.myFunc(myInt64, true))
+    Assert.equals("8 C", myFunc(myInt64, r'C'))
+    Assert.equals("myStruct 8 C", myStruct().myFunc(myInt64, r'C'))
+    Assert.equals("myEnum 8 C", myEnum.A.myFunc(myInt64, r'C'))
 
     Assert.equals(14, myFunc(myInt16))
     Assert.equals(8, myFunc(myInt32))

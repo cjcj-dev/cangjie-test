@@ -21,9 +21,11 @@
 
 */
 
+import utils.assert.Assert
+
 struct S {}
 
 main() {
-    S()
+    Assert.equals(1, [S()].size)
     0
 }

@@ -36,6 +36,8 @@ class C {
 
     C(iid: Int64, iname: String) {      
         name = "Tom"
+        Assert.equals(0, iid)
+        Assert.equals("Nick", iname)
         Assert.equals("Tom", name)
     }
 }

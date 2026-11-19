@@ -47,6 +47,10 @@ class MoreElements {
   }
   MoreElements() {}
   func some_func() {}
+  func checkInstanceFunctions() {
+    some_func()
+    another_func()
+  }
   private func another_func() {}
 }
 
@@ -71,6 +75,7 @@ main() {
 
   Assert.equals(1, MoreElements.a)
   Assert.equals(2, MoreElements.b)
+  MoreElements().checkInstanceFunctions()
 
   Assert.equals(true, GenericStaticInit<Unit>.b)
 }

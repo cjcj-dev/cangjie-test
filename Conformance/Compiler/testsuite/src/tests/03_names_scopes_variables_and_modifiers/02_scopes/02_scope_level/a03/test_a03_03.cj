@@ -28,6 +28,10 @@ import utils.assert.Assert
 
 func f() { 23 }
 
+func checkTopLevelF() {
+    Assert.equals(23, f())
+}
+
 open class Base {
     let g = "dj"
 
@@ -63,6 +67,7 @@ class Override <: Base {
 }
 
 main() {
+    checkTopLevelF()
     func f() { 98 }
     Assert.equals(98, f())
 

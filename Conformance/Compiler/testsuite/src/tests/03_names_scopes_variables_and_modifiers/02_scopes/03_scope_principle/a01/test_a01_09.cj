@@ -43,5 +43,6 @@ open class X {
 
 main() {
     var x1 = X()
+    Assert.equals(451, x1.x)
     return 0
 }

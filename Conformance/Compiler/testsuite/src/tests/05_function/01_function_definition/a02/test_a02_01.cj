@@ -22,6 +22,8 @@
   @Structure:     single
 
 */
+
+import utils.assert.Assert
 interface myInterface { 
   static func f(): String 
 } 
@@ -65,4 +67,8 @@ func parentFunc(){
 }
 
 main() {
+  Assert.equals(3.0f16, f2(6.0f16, b: 2.0f16))
+  Assert.equals(3.0f16, f3(6.0f16))
+  Assert.isTrue(myClass().getValues().contains("private => 12"))
+  Assert.isTrue(parentFunc().contains("As expected"))
 }

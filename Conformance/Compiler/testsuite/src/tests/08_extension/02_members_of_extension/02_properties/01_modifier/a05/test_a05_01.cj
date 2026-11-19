@@ -77,6 +77,10 @@ extend TestA0501 {
     private prop v1: Int64 { // ok
         get() { 0 }
     }
+
+    func checkPrivateProperty() {
+        Assert.equals(0, v1)
+    }
     public prop v2: Int64 { // ok
         get() { 0 }
     }
@@ -97,4 +101,5 @@ main() {
     Assert.equals(0, a.v2)
     Assert.equals(0, a.v3)
     Assert.equals(0, a.v4)
+    a.checkPrivateProperty()
 }

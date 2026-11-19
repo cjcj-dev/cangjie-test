@@ -67,6 +67,7 @@ class C {
 }
 
 main(inp: Array<String>) {
+    Assert.equals(42, foo())
     let s = S(x: 42)
     let sFun = s.invoke
     let t = (42, 35)

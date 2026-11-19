@@ -25,6 +25,8 @@
 
 */
 
+import utils.assert.Assert
+
 class MyClass {
     static public var classVarStaticPublic: Int32 = 0
     public var classVarPublic: Int32 = 0
@@ -34,7 +36,12 @@ class MyClass {
     private var classVarPrivate: Int32 = 2
     static var classVarStatic: Int32 = 3
     var classVar: Int32 = 4
+
+    static func checkPrivateStatic() {
+        Assert.equals(2i32, classVarStaticPrivate)
+    }
 }
 
 main() {
+    MyClass.checkPrivateStatic()
 }

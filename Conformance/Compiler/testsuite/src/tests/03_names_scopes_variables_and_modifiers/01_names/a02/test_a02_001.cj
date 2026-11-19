@@ -52,10 +52,16 @@ main() {
 
     var funcObj = f
     Assert.isTrue(funcObj is () -> Unit)
+    funcObj()
 
     var enumObj = E.x
     Assert.isTrue(enumObj is E)
+    match (enumObj) {
+        case E.x => ()
+    }
 
     var aliasObj: T = (56, 753434534)
     Assert.isTrue(aliasObj is T)
+    Assert.equals(56, aliasObj[0])
+    Assert.equals(753434534, aliasObj[1])
 }

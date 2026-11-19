@@ -113,12 +113,15 @@ main() {
     Assert.equals(1, 1u64.getValue())
     let uN: IntNative = 1
     Assert.equals(1, uN.getValue())
+    let unsignedNative: UIntNative = 1
+    Assert.equals(1, unsignedNative.getValue())
     Assert.equals(1.0, 1.0f16.getValue())
     Assert.equals(1.0, 1.0f32.getValue())
     Assert.equals(1.0, 1.0f64.getValue())
     Assert.equals(true, true.getValue())
     Assert.isTrue(() == ().getValue())
     Assert.equals('1', '1'.getValue())
+    Assert.equals("1", r'1'.getValue().toString())
     Assert.equals("1", "1".getValue())
     Assert.isTrue(E.E0.getValue() is E)
 }

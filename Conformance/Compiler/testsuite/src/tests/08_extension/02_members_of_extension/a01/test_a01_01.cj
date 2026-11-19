@@ -59,5 +59,8 @@ main() {
     Assert.equals(11, y.foo2())
     Assert.equals(3, A.p1)
     Assert.equals(11, y.p2)
+    var mutable = A(2)
+    mutable.p2 = 5
+    Assert.equals(5, mutable.p2)
     return 0
 }

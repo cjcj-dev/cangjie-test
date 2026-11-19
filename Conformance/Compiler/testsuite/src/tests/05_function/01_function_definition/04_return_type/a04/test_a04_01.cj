@@ -85,6 +85,7 @@ main() {
   Assert.isTrue(myFunc0(true) is Int64)
   Assert.isTrue(myFunc0(false) is Int64)
   Assert.isTrue(myFunc0(false) is myType)
+  Assert.equals("toString extended", myFunc0(false).toStringExtended())
 
   Assert.isTrue(myFunc1(true) is myStruct0)
   Assert.isTrue(myFunc1(true) is myInterface)

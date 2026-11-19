@@ -43,6 +43,8 @@
 
 */
 
+import utils.assert.Assert
+
 class A {
   var x = 0
   mut prop X: Int64 {
@@ -65,6 +67,11 @@ class A {
 }
 
 main() {
+  let example = A()
+  A.Y = 2
+  Assert.equals(2, A.Y)
+  example.X = 3
+  Assert.equals(7, example.X)
   return 0;
 }
 

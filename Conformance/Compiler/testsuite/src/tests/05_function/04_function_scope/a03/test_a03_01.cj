@@ -32,6 +32,7 @@ func testFunc() {
     globalFunction()
 }
 main() {
+    testFunc()
     Assert.isTrue(globalFunction is () -> Unit)
     globalFunction()
 }

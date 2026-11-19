@@ -60,6 +60,7 @@ main() {
 
     var myStruct0Impl = myStruct0()
     Assert.equals(28, myStruct0Impl.funcMut10(16))
+    Assert.equals(21, myStruct0Impl.funcNotMut10(16))
     Assert.equals(true, myStruct0Impl.funcNotMut())
     Assert.equals(12, myStruct0Impl.funcMut2())
     Assert.equals("AAA true BBB true 12", myStruct0Impl.funcMut0())

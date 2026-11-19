@@ -60,6 +60,7 @@ main() {
     local1.classProp = 67
     Assert.equals(192, local)
     Assert.equals(67, local1.classVar)
+    Assert.equals(67, local1.classProp)
 
     Assert.equals(GLOBAL_CONST, GLOBAL_LAMBDA())
 }

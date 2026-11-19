@@ -72,6 +72,10 @@ class myClass <: C1 & myInterface {
     "myProtectedFunc"
   }
 
+  func checkProtected() {
+    Assert.equals("myProtectedFunc", myProtectedFunc())
+  }
+
   static func myStaticFunc(): Int32 {
     12
   }
@@ -85,6 +89,9 @@ main() {
   Assert.equals(12,  myClass.myStaticFunc())
 
   let myClassImpl = myClass()
+  myClassImpl.myClassFunc(4.0f32)
+  Assert.equals(4.0f32, myClassImpl.myVar)
+  myClassImpl.checkProtected()
   Assert.equals(12,  myClassImpl.getSomething())
   Assert.equals("""
     Values are:

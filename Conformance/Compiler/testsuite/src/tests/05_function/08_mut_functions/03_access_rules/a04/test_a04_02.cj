@@ -53,6 +53,8 @@
 
 */
 
+import utils.assert.Assert
+
 interface I { 
     mut func f(): Unit 
 }
@@ -65,8 +67,12 @@ class Bar <: I {
 }
 
 main() { 
+    let b = Bar()
+    g2(b)
+    Assert.equals(1, b.i)
 } 
 
 func g2<T>(v: T): Unit where T <: Bar & I { 
     let fn = v.f // ok 
+    fn()
 } 

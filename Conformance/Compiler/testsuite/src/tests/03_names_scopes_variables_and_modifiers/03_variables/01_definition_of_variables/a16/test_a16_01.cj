@@ -52,6 +52,7 @@ class MyClass {
     }
 
     func checkProtected() {
+        Assert.equals(12.7f16, myStaticPrivateClassMemberVar)
         Assert.equals(r'J', this.myProtectedClassMemberVar)
         Assert.equals(8, this.myProtectedClassMemberVarNotInitalised)
     }

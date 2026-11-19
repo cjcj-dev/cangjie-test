@@ -190,6 +190,7 @@ main() {
     var myOpenClassImpl = MyOpenClass()
     Assert.equals(12,myOpenClassImpl.myBaseOpenFunc())
     Assert.equals(29,myOpenClassImpl.myExtendPublicOpenFunc0())
+    Assert.equals(26, myOpenClassImpl.myExtendPublicOpenFunc1())
 
     var myClassImpl = MyClass()
     Assert.equals("23 ASFg",myClassImpl.myGetValFunc0())
@@ -199,6 +200,7 @@ main() {
     Assert.equals(true,myStructImpl.myExtendGetFunc11())
     myStructImpl.myExtendSetFunc(false)
     Assert.equals(false,myStructImpl.myExtendGetFunc1())
+    Assert.equals(false, myStructImpl.myExtendGetFunc01())
 
     Assert.equals(12,myEnum.A.myBasePublicFunc())
     Assert.equals(12,myEnum.A.myExtendPublicFunc1())

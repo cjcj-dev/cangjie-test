@@ -32,6 +32,7 @@ class C {
     }
 
     operator func [](index: Int64, value!: String): Unit {
+        Assert.equals(0, index)
         x = value
     }
 

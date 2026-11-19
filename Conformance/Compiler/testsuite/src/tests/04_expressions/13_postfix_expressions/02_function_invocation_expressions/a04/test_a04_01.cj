@@ -26,10 +26,12 @@ import utils.assert.Assert
 
 class C {
     operator func() (x: Int64) {
+        Assert.equals(3, x)
         return 1
     }
 
     operator func() (x: String) {
+        Assert.equals("hello", x)
         return 2
     }
 }

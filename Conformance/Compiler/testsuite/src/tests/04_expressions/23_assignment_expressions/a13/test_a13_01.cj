@@ -23,7 +23,6 @@
 */
 
 import utils.assert.Assert
-import std.random.Random
 
 class C {
     var a = [1, 2, 3, 4, 5]
@@ -34,9 +33,15 @@ class C {
 
     operator func[] (x : Int64, value! : Int64) { a[x] = value }
 
-    operator func[] (x : UInt64) { b }
+    operator func[] (x : UInt64) {
+        Assert.equals(0u64, x)
+        b
+    }
 
-    operator func[] (x : UInt64, value! : Bool) { b = value }
+    operator func[] (x : UInt64, value! : Bool) {
+        Assert.equals(0u64, x)
+        b = value
+    }
 }
 
 main() {

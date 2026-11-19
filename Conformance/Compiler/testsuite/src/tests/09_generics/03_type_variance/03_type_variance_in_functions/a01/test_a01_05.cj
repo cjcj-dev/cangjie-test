@@ -37,7 +37,16 @@ main() {
     // Function type-subtype checking should be triggered here.
     Assert.isTrue(assert<(A2) -> A2>({a: A2 => a}) is (A2) -> A2)
     Assert.isTrue(assert<(A2) -> A2>({a: A2 => a}) is (A3) -> A1)
-    Assert.isTrue(assert<(A2) -> A2>({a: A1 => A3()}) is (A2) -> A2)
-    Assert.isTrue(assert<(A2) -> A2>({a: A1 => A3()}) is (A3) -> A1)
-    Assert.isTrue(assert<(A2) -> A2>({a: A1 => A3()}) is (A1) -> A2)
+    Assert.isTrue(assert<(A2) -> A2>({a: A1 =>
+        Assert.equals(1, [a].size)
+        A3()
+    }) is (A2) -> A2)
+    Assert.isTrue(assert<(A2) -> A2>({a: A1 =>
+        Assert.equals(1, [a].size)
+        A3()
+    }) is (A3) -> A1)
+    Assert.isTrue(assert<(A2) -> A2>({a: A1 =>
+        Assert.equals(1, [a].size)
+        A3()
+    }) is (A1) -> A2)
 }

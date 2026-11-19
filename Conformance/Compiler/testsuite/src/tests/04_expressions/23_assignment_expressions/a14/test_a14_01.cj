@@ -22,14 +22,22 @@
 
 */
 
+import utils.assert.Assert
+
 open class A {
     static var s : Int64 = 0
 
     var x : Int64 = 0
 
-    operator func [](y : Int64) { x }
+    operator func [](y : Int64) {
+        Assert.equals(1, [y].size)
+        x
+    }
 
-    operator func [](y : Int64, value! : Int64) { x = value }
+    operator func [](y : Int64, value! : Int64) {
+        Assert.equals(1, [y].size)
+        x = value
+    }
 }
 
 class B <: A {

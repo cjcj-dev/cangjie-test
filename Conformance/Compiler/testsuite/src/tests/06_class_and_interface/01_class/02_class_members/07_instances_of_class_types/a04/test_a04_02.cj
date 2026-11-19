@@ -37,6 +37,9 @@ open class Parent <: Top {}
 class Child <: Parent {}
 
 var init_id = -1
+var callback_id = -1
+let child_callback = 1
+let parent_callback = 2
 
 class Test<T1, T2> {
     init() {
@@ -44,82 +47,161 @@ class Test<T1, T2> {
     }
 
     init(x: Int64) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is Int64)
         init_id = 2
     }
 
     init(x: Int64, y: Int64) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is Int64)
+        let actual_y: Any = y
+        Assert.isTrue(actual_y is Int64)
         init_id = 3
     }
 
     init(x: Int64, y: Int32) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is Int64)
+        let actual_y: Any = y
+        Assert.isTrue(actual_y is Int32)
         init_id = 4
     }
 
     init(x!: Parent) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is Parent)
         init_id = 5
     }
 
     init(x!: Child) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is Child)
         init_id = 6
     }
 
     init(x: Parent, y: Parent) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is Parent)
+        let actual_y: Any = y
+        Assert.isTrue(actual_y is Parent)
         init_id = 7
     }
 
     init(x: Child, y: Child) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is Child)
+        let actual_y: Any = y
+        Assert.isTrue(actual_y is Child)
         init_id = 8
     }
 
     init(x: Parent, y: Child, z!: Bool = false) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is Parent)
+        let actual_y: Any = y
+        Assert.isTrue(actual_y is Child)
+        Assert.isFalse(z)
         init_id = 9
     }
 
     init(x!: Parent, y!: Parent, z!: Parent) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is Parent)
+        let actual_y: Any = y
+        Assert.isTrue(actual_y is Parent)
+        let actual_z: Any = z
+        Assert.isTrue(actual_z is Parent)
         init_id = 10
     }
 
     init(x: (Parent) -> Unit) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is (Parent) -> Unit)
+        x(Child())
         init_id = 11
     }
 
     init(x: (Child) -> Unit) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is (Child) -> Unit)
+        x(Child())
         init_id = 12
     }
 
     init(x: (Parent) -> Unit, y: (Parent) -> Unit, z!: Bool = true) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is (Parent) -> Unit)
+        let actual_y: Any = y
+        Assert.isTrue(actual_y is (Parent) -> Unit)
+        Assert.isTrue(z)
         init_id = 13
     }
 
     init(x: (Parent) -> Unit, y: (Child) -> Unit) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is (Parent) -> Unit)
+        let actual_y: Any = y
+        Assert.isTrue(actual_y is (Child) -> Unit)
         init_id = 14
     }
 
     init(x: (Child) -> Unit, y: (Child) -> Unit, z: (Child) -> Unit) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is (Child) -> Unit)
+        let actual_y: Any = y
+        Assert.isTrue(actual_y is (Child) -> Unit)
+        let actual_z: Any = z
+        Assert.isTrue(actual_z is (Child) -> Unit)
         init_id = 15
     }
 
     init(x: (Child) -> Unit, y: Parent) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is (Child) -> Unit)
+        let actual_y: Any = y
+        Assert.isTrue(actual_y is Parent)
         init_id = 16
     }
 
     init(x: (Parent) -> Unit, y: Child) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is (Parent) -> Unit)
+        let actual_y: Any = y
+        Assert.isTrue(actual_y is Child)
+        x(y)
         init_id = 17
     }
 
     init(x: T1) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is T1)
         init_id = 18
     }
 
     init(x: T1, y: T2) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is T1)
+        let actual_y: Any = y
+        Assert.isTrue(actual_y is T2)
         init_id = 19
     }
 
     init(x: T1, y: T1, z: T1) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is T1)
+        let actual_y: Any = y
+        Assert.isTrue(actual_y is T1)
+        let actual_z: Any = z
+        Assert.isTrue(actual_z is T1)
         init_id = 20
     }
 
     init(x!: (T1) -> Unit, y!: (T2) -> Unit) {
+        let actual_x: Any = x
+        Assert.isTrue(actual_x is (T1) -> Unit)
+        let actual_y: Any = y
+        Assert.isTrue(actual_y is (T2) -> Unit)
         init_id = 21
     }
 }
@@ -155,9 +237,9 @@ main() {
     Test<Top, Top>(x: Child(), y: Child(), z: Child())
     Assert.equals(10, init_id)
 
-    func l0(x: Top) {}
-    func l1(x: Parent) {}
-    func l2(x: Child) {}
+    func l0(x: Top) { let value: Any = x; Assert.isTrue(value is Top) }
+    func l1(x: Parent) { let value: Any = x; Assert.isTrue(value is Parent) }
+    func l2(x: Child) { let value: Any = x; Assert.isTrue(value is Child) }
     Test<Top, Top>(l1)
     Assert.equals(11, init_id)
 
@@ -166,9 +248,23 @@ main() {
     // So first, the closest matching rule chooses between (Parent) -> Unit and (Child) -> Unit
     // The signature that will be chosen is (Parent) -> Unit since it's the most derived
     // After that the only of two f's that can be passed as the argument is f(x: Parent)
-    func f(x: Child) {}
-    func f(x: Parent) {}
+    func f(x: Child) {
+        let value: Any = x
+        Assert.isTrue(value is Child)
+        callback_id = child_callback
+    }
+    func f(x: Parent) {
+        let value: Any = x
+        Assert.isTrue(value is Parent)
+        callback_id = parent_callback
+    }
+    f(Child())
+    Assert.equals(child_callback, callback_id)
+
+    init_id = -1
+    callback_id = -1
     Test<Top, Top>(f)
+    Assert.equals(parent_callback, callback_id)
     Assert.equals(11, init_id)
 
     Test<Top, Top>(l2)
@@ -187,7 +283,10 @@ main() {
     Assert.equals(16, init_id)
 
     // Analogous to previous invocation with the 'f', just with more arguments
+    init_id = -1
+    callback_id = -1
     Test<Top, Top>(f, Child())
+    Assert.equals(parent_callback, callback_id)
     Assert.equals(17, init_id)
 
     Test<Top, Top>(Top())

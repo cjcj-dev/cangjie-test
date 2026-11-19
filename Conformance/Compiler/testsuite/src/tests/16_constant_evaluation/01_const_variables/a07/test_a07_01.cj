@@ -26,8 +26,6 @@
 import utils.assert.Assert
 import std.time.DateTime
 
-func f1(x : Float64) { x * 0.9 }
-
 func f2(x : Float64) { x ** 1.1 }
 
 const func f3(x : Float64) { x ** 1.1 }
@@ -46,6 +44,5 @@ main() {
         f += c
     }
     let t3 = DateTime.now().toUnixTimeStamp().toNanoseconds()
-    let e = 0.001
     Assert.isTrue(Float64(t2 - t1) > Float64(t3 - t2))
 }

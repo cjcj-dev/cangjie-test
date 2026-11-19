@@ -63,14 +63,14 @@ open class Base {}
 open class Sub <: Base {}
 
 class F<X> {
-    static func foo<Y>(a: X, b: Y)   { return 1 } // foo1
-    static func foo<Z>(a: Sub, b: Z) { return 2 } // foo2
+    static func foo<Y>(_: X, _: Y)   { return 1 } // foo1
+    static func foo<Z>(_: Sub, _: Z) { return 2 } // foo2
 }
 
 class C<T, U> {
-    init (a: T, b: U) {}
-    func foo(a: T, b: U)    { return 1 } // foo1
-    func foo(a: Base, b: U) { return 2 } // foo2
+    init (_: T, _: U) {}
+    func foo(_: T, _: U)    { return 1 } // foo1
+    func foo(_: Base, _: U) { return 2 } // foo2
 }
 
 main() {

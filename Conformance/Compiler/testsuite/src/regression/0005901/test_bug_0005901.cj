@@ -30,8 +30,8 @@
 struct T { }
 
 main() {
-    var x: T = T()
-    match (x) {
-        case T => println(T is T) // must be compile error: 'T' is not a type
+    match (T()) {
+        // The binding on the left of `is` does not hide the type on the right.
+        case T => println(T is T)
     }
 }

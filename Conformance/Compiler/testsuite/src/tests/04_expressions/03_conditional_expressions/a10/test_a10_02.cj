@@ -35,9 +35,13 @@
 import utils.assert.Assert
 
 main(ina :Array<String>) {
-    let x: Option<Int32> = Option<Int32>.None
+    let x: Option<Int32> = if (Assert.getRuntimeZero(ina) == 0) {
+        None
+    } else {
+        Some(42i32)
+    }
     if (let Some(v) <- x) {
-        Assert.fail() 
+        Assert.fail()
     } else {
     }
     0

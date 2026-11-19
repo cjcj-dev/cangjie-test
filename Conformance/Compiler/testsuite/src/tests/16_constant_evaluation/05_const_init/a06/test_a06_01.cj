@@ -92,10 +92,6 @@ struct R2 {
     const init() {} // ok
 }
 
-func zero(): Int64 {
-    return 0
-}
-
 open class C2 {
     let a = 0
     let b = R2()

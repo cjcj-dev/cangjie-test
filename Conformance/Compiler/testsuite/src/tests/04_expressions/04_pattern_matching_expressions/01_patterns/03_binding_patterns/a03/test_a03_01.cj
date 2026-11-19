@@ -24,17 +24,24 @@
 
 */
 
+import utils.assert.Assert
+
+func guarded<T>(v: T, asInt64: (T) -> Int64): Int64 {
+    match (v) {
+        case a where v is Int32 => asInt64(a)
+        case a => asInt64(a) + asInt64(a)
+    }
+}
+
 main() {
-    var v = 123
-    match (v) {
+    let v = 123
+    Assert.equals(1, match (v) {
         case foo => 1
-    }
-    match (v) {
+    })
+    Assert.equals(123, match (v) {
         case a => a
-    }
-    match (v) {
-        case a where v is Int32 => a
-        case a => a + a
-    }
+    })
+    Assert.equals(123, guarded(123i32, { n: Int32 => Int64(n) }))
+    Assert.equals(246, guarded(v, { n: Int64 => n }))
     return
 }

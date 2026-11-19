@@ -38,10 +38,10 @@ interface Comparable<T> {}
 
 interface Sequence {}
 
-func collectionCompare<T>(a: T, b: T) where T <: Comparable<T> & Sequence {}
+func collectionCompare<T>(_: T, _: T) where T <: Comparable<T> & Sequence {}
 
-func sort<T, V>(input: T) 
-        where T <:  Enumerable<V>, V <: Object {}
+func sort<T, V>(_: T)
+        where T <: Enumerable<V>, V <: Object {}
 
 main() {
 }

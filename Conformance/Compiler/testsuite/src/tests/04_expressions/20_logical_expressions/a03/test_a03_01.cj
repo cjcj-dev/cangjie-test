@@ -23,13 +23,11 @@
 */
 
 import std.random.Random
+import utils.assert.Assert
 
 func toBool(x : UInt64) { x != 0 }
 
 main() {
-    let x = true
-    let y = false
-
     let rnd = Random(123)
 
     for (_ in 0..2**10) {
@@ -39,10 +37,12 @@ main() {
         while (x != 0 || y != 0) {
             let bx = toBool(x & 1)
             let by = toBool(y & 1)
-            println(bx || by)
-            println(bx && by)
-            println(!bx)
-            println(!by)
+            let lowX = x & 1
+            let lowY = y & 1
+            Assert.equals(lowX + lowY != 0, bx || by)
+            Assert.equals(lowX + lowY == 2, bx && by)
+            Assert.equals(lowX == 0, !bx)
+            Assert.equals(lowY == 0, !by)
             x >>= 1
             y >>= 1
         }

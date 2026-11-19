@@ -30,11 +30,22 @@
 
 import utils.assert.Assert
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
+func checkOr(x: Option<Bool>, left: Bool, right: Bool) {
+    Assert.equals(false, x ?? left || right)
+    Assert.equals(false, x ?? (left || right))
+    Assert.equals(true, (x ?? left) || right) // The other grouping gives a different result.
+}
+
 main() {
-    let x = Option<Bool>.Some(true)
+    let x = present<Bool>(true)
     Assert.equals(true, x ?? true && false)
     Assert.equals(true, x ?? (true && false))
-    Assert.equals(false, (x ?? true) && false) // Another precedence - another result.
+    Assert.equals(false, (x ?? true) && false)
+    checkOr(present<Bool>(false), false, true)
     return
 }
 

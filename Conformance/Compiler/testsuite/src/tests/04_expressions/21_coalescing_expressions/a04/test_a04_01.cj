@@ -23,6 +23,10 @@
 
 import utils.assert.Assert
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
 class C { 
     var x = 0
     C(y : Int64) {
@@ -31,7 +35,7 @@ class C {
 }
 
 func checkType<T>(x : T) {
-    Assert.isTrue((Option<T>.Some(x) ?? x) is T)
+    Assert.isTrue((present<T>(x) ?? x) is T)
 }
 
 main() {

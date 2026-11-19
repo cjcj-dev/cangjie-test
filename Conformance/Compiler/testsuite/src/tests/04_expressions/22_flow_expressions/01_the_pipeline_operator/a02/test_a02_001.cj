@@ -85,6 +85,8 @@ class F {
 
 main() {
     let f = F()
+    let rune = r'7'
+    Assert.equals("17", rune |> f)
     let rnd = Random(123)
 
     for (_ in 0..1024) {

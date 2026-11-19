@@ -33,16 +33,16 @@ enum E {
 
 main() {
     var v1: E = A
-    Assert.isTrue(match(v1) {
+    Assert.isTrue({value: E => match (value) {
         case A => true
         case B => false
-    })
+    } }(v1))
 
     var v2: E = B
-    Assert.isTrue(match(v2) {
+    Assert.isTrue({value: E => match (value) {
         case A => false
         case B => true
-    })
+    } }(v2))
 
     return
 }

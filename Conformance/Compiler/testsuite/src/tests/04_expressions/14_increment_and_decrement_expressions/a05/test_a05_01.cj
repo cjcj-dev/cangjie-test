@@ -28,6 +28,10 @@
 
 import utils.assert.Assert
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
 class S {
     var x: Int64 = 0
 }
@@ -49,7 +53,7 @@ main() {
     Assert.equals(0, s.x)
 
     // Case: postfixExpression = postfixExpression ('?' questSeparatedItems)+.
-    var maybeS: ?S = S()
+    var maybeS: ?S = present(S())
     maybeS?.x++
     Assert.equals(1, maybeS?.x ?? 1709)
     maybeS?.x--

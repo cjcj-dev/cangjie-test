@@ -24,7 +24,7 @@
 import utils.assert.Assert
 
 main() {
-    let selector = 1;
+    let selector = 1 + Assert.getRuntimeZero();
     var m = match (selector) {
         case 1 => "1"
         case _ => "fail"

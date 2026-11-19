@@ -24,7 +24,7 @@
 import utils.assert.Assert
 
 main() {
-    let l1 = 1;
+    let l1 = 1 + Assert.getRuntimeZero();
     var m1 = match (l1) {
         case 1 | 2 | 3 => "one"
         case _ => "fail"

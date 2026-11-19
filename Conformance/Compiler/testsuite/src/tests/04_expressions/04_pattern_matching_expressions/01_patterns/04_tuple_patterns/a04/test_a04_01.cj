@@ -25,7 +25,8 @@
 import utils.assert.Assert
 
 main() {
-    var v1 = (1, 2)
+    let zero = Assert.getRuntimeZero()
+    var v1 = (1 + zero, 2)
     Assert.isTrue(match (v1) {
         case (1, 2) => true
         case _ => false
@@ -34,7 +35,7 @@ main() {
         case (x, y) => true
     })
 
-    var v2 = (1, 2, 3)
+    var v2 = (1 + zero, 2, 3)
     Assert.isTrue(match (v2) {
         case (1, 2, 3) => true
         case _ => false
@@ -43,7 +44,7 @@ main() {
         case (x, y, z) => true
     })
 
-    var v3 = (1, 2, 3, 4)
+    var v3 = (1 + zero, 2, 3, 4)
     Assert.isTrue(match (v3) {
         case (1, 2, 3, 4) => true
         case _ => false

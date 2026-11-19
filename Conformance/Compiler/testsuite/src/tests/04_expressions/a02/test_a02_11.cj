@@ -34,9 +34,7 @@ func foo(): Future<Unit> {
         }
         Assert.equals(1, cnt)
         Assert.isTrue(unit is Unit)
-        if(() != unit) { 
-            Assert.fail(reason: "Unit should have value ()") 
-        }  
+        Assert.equals((), unit, reason: "Unit should have value ()")
     }
 }
 
@@ -55,5 +53,6 @@ main() {
     // Check synchronized
     var t = foo()
     var res = t.get()
+    Assert.equals((), res)
     Assert.equals(1, cnt)
 }

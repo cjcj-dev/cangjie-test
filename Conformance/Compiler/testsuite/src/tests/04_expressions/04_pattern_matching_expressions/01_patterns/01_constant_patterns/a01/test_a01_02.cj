@@ -27,24 +27,24 @@ import utils.assert.Assert
 
 main() {
     let l1: UInt8 = b'\u{A}'
-    var m = match (l1) {
+    var m = {value: UInt8 => match (value) {
         case b'\u{A}' => 1
         case _ => 2
-    }
+    } }(l1)
     Assert.equals(1, m)
 
     let l2: UInt8 = b'\t'
-    m = match (l2) {
+    m = {value: UInt8 => match (value) {
         case b'\t'=> 1
         case _ => 2
-    }
+    } }(l2)
     Assert.equals(1, m)
 
     let l3: UInt8 = b'\u{AB}'
-    m = match (l3) {
+    m = {value: UInt8 => match (value) {
         case b'\u{AB}' => 1
         case _ => 2
-    }
+    } }(l3)
     Assert.equals(1, m)
 
     return

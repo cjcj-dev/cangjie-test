@@ -25,7 +25,7 @@
 import utils.assert.Assert
 
 main() {
-    var v: UInt8 = 1
+    var v: UInt8 = 1 + UInt8(Assert.getRuntimeZero())
     var m = match (v) {
         case b'\u{01}' => 1
         case _ => 0

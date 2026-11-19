@@ -34,22 +34,29 @@ class C { }
 enum E { Foo | Bar(Int32) }
 func f () {}
 
+var evaluated = 0
+func observe<T>(value: T): T {
+    evaluated++
+    value
+}
+
 main() {
-    while (let _ <- ()) { visit("1"); break }
+    while (let _ <- observe(())) { visit("1"); break }
     check("1")
 
-    while (let _ <- ((), ())) { visit("2"); break }
+    while (let _ <- observe(((), ()))) { visit("2"); break }
     check("2")
 
-    while (let _ <- (f, Some(123), [Foo, Bar(2)])) { visit("3"); break }
+    while (let _ <- observe((f, Some(123), [Foo, Bar(2)]))) { visit("3"); break }
     check("3")
 
-    while (let _ <- { x: Bool, y: Bool => x && y} ) { visit("4"); break }
+    while (let _ <- observe({ x: Bool, y: Bool => x && y})) { visit("4"); break }
     check("4")
 
-    while (let _ <- S()) { visit("5"); break }
+    while (let _ <- observe(S())) { visit("5"); break }
     check("5")
 
-    while (let _ <- C()) { visit("6"); break }
+    while (let _ <- observe(C())) { visit("6"); break }
     check("6")
+    Assert.equals(6, evaluated)
 }

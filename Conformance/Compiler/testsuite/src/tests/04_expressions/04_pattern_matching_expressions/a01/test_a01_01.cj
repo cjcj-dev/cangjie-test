@@ -22,8 +22,10 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
-    let l1 = 1;
+    let l1 = 1 + Assert.getRuntimeZero();
     println(
         match (l1) {
             case 1 => "one"

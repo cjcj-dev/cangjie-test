@@ -31,7 +31,7 @@
 import utils.assert.Assert
 
 main() {
-    let score: Int64 = 90
+    let score: Int64 = 90 + Assert.getRuntimeZero()
     var scoreResult: String = match (score) {
         case 60 => "pass"
         case 70 | 80 => "good"

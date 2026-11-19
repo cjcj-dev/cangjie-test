@@ -36,9 +36,7 @@ func foo(): Future<Unit> {
         }
         Assert.equals(1, cnt)
         Assert.isTrue(unit is Unit)
-        if(() != unit) { 
-            Assert.fail(reason: "Unit should have value ()") 
-        }  
+        Assert.equals((), unit, reason: "Unit should have value ()")
 
         let s = spawn { 
             true 
@@ -56,5 +54,6 @@ main() {
     var t = foo()
     Assert.isTrue(t is Future<Unit>)
     var res = t.get()
+    Assert.equals((), res)
     Assert.equals(1, cnt)
 }

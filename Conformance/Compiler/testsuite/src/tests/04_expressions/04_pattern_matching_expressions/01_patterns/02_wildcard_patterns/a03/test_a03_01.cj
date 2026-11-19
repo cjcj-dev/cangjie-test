@@ -24,14 +24,24 @@
 
 */
 
+import utils.assert.Assert
+
+func guardedValue(flag: Bool): Any {
+    if (flag) { true } else { () }
+}
+
 main() {
     var l1: Int64 = 1
     var m = match (l1) {
         case _ => true
     }
+    Assert.isTrue(m)
+    Assert.equals(1, l1)
 
+    let tested = guardedValue(m)
     m = match (l1) {
-        case _ where m is Unit => false
+        case _ where tested is Unit => false
         case _ => true
     }
+    Assert.isTrue(m)
 }

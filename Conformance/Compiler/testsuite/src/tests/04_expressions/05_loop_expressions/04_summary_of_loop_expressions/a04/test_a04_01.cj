@@ -23,9 +23,18 @@ import utils.assert.Assert
 
 main() {
     var count = 0
+    var evaluations = 0
+
+    func readCount(): Int64 {
+        evaluations++
+        count
+    }
 
     func f1(): Unit {
-        for (i in 1..3) { count++ }
+        for (i in 1..3) {
+            Assert.equals(count + 1, i)
+            count++
+        }
     }
     func f2(): Unit {
         while (count < 5) { count++ }
@@ -34,7 +43,7 @@ main() {
         do { count++ } while (count < 10)
     }
     func f4(): Unit {
-        while (let _ <- count) { break }
+        while (let _ <- readCount()) { break }
     }
 
     f1()
@@ -44,7 +53,10 @@ main() {
 
     Assert.equals(10, count)
 
-    let v1 = for (i in 1..3) { break }
+    let v1 = for (i in 1..3) {
+        Assert.equals(1, i)
+        break
+    }
     Assert.isTrue(v1 == ())
 
     let v2 = while (true) { break }
@@ -53,6 +65,7 @@ main() {
     let v3 = do { break } while (true)
     Assert.isTrue(v3 == ())
 
-    let v4 = while (let _ <- count) { break }
+    let v4 = while (let _ <- readCount()) { break }
     Assert.isTrue(v4 == ())
+    Assert.equals(2, evaluations)
 }

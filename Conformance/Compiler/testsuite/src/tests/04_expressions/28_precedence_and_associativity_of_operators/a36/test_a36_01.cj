@@ -31,9 +31,13 @@
 
 import utils.assert.Assert
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
 main() {
-    let s1 = Option<String>.Some("hi")
-    let s2 = Option<String>.Some("hello")
+    let s1 = present<String>("hi")
+    let s2 = present<String>("hello")
 
     let x1 = s1 ?? s2 ?? "choose wisely"
     let x2 = s1 ?? (s2 ?? "choose wisely")

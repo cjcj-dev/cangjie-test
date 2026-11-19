@@ -64,21 +64,15 @@ main() {
             } while (cnt2 < 5)
             Assert.isTrue(unit2 is Unit)
             Assert.equals(5, cnt2)
-            if(() != unit2) { 
-                Assert.fail(reason: "Unit should have value ()") 
-            }
+            Assert.equals((), unit2, reason: "Unit should have value ()")
         }
 
         Assert.isTrue(unit1 is Unit)
         Assert.equals(5, cnt1)
-        if(() != unit1) { 
-            Assert.fail(reason: "Unit should have value ()") 
-        }
+        Assert.equals((), unit1, reason: "Unit should have value ()")
     }
 
     Assert.isTrue(unit is Unit)
     Assert.equals(5, cnt)
-     if(() != unit) { 
-        Assert.fail(reason: "Unit should have value ()") 
-    }
+     Assert.equals((), unit, reason: "Unit should have value ()")
 }

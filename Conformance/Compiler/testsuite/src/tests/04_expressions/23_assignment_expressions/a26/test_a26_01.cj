@@ -30,46 +30,57 @@ class C {
     C(str : String) { s = str }
 
     operator func +(str : String) {
+        Assert.equals("1", str)
         C("+")
     }
 
     operator func -(str : String) {
+        Assert.equals("1", str)
         C("-")
     }
 
     operator func *(str : String) {
+        Assert.equals("1", str)
         C("*")
     }
 
     operator func /(str : String) {
+        Assert.equals("1", str)
         C("/")
     }
 
     operator func %(str : String) {
+        Assert.equals("1", str)
         C("%")
     }
 
     operator func **(str : String) {
+        Assert.equals("1", str)
         C("**")
     }
 
     operator func <<(str : String) {
+        Assert.equals("1", str)
         C("<<")
     }
 
     operator func >>(str : String) {
+        Assert.equals("1", str)
         C(">>")
     }
 
     operator func &(str : String) {
+        Assert.equals("1", str)
         C("&")
     }
 
     operator func |(str : String) {
+        Assert.equals("1", str)
         C("|")
     }
 
     operator func ^(str : String) {
+        Assert.equals("1", str)
         C("^")
     }
 }

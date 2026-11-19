@@ -38,7 +38,7 @@ struct S {
 }
 
 func g() {
-    const l = {x: S => 1}
+    const l = {x: S => x.v - 4}
     Assert.equals(1, l(S()))
     Assert.equals(2, f())
     Assert.equals(3, S.sf())

@@ -36,13 +36,14 @@ main() {
     l2 = 3.2345
     v2 = [Assert.getRuntimeZero()]
 
-    l1
-    l2
-    l3
+    Assert.equals(1, l1)
+    Assert.equals(3.2345, l2)
+    Assert.equals(1, l3[0])
+    Assert.equals(5, l3[4])
 
-    v1
-    v2
-    v3
+    Assert.equals("Hello World", v1)
+    Assert.equals(0, v2[0])
+    Assert.equals("Hello World", v3)
 
     return
 }

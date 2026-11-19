@@ -27,27 +27,27 @@ import utils.assert.Assert
 var z = Assert.getRuntimeZero()
 
 main() {
-    var v1 = (1, 2)
+    var v1 = (1 + z, 2)
     Assert.isTrue(match(v1) {
         case (1, 2) => true
         case (_, _) => false
     })
-    var v2 = (1, 2, 3)
+    var v2 = (1 + z, 2, 3)
     Assert.isTrue(match(v2) {
         case (1, 2, 3) => true
         case (_, _, _) => false
     })
-    var v3 = (1, 2, 3, 4)
+    var v3 = (1 + z, 2, 3, 4)
     Assert.isTrue(match(v3) {
         case (1, 2, 3, 4) => true
         case (_, _, _, _) => false
     })
-    var v4 = (1, 2, 3, 4, 5)
+    var v4 = (1 + z, 2, 3, 4, 5)
     Assert.isTrue(match(v4) {
         case (1, 2, 3, 4, 5) => true
         case (_, _, _, _, _) => false
     })
-    var v5 = (1, 2, 3, 4, 5, 6)
+    var v5 = (1 + z, 2, 3, 4, 5, 6)
     Assert.isTrue(match(v5) {
         case (1, 2, 3, 4, 5, 6) => true
         case (_, _, _, _, _, _) => false

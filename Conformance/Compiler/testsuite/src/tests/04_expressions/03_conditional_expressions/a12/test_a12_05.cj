@@ -35,7 +35,8 @@ enum ENUM {
 }
 
 main(ina: Array<String>) {
-    let x: ENUM = THREE
+    let _ = ina
+    let x: ENUM = if (Assert.getRuntimeZero() == 0) { THREE } else { ZERO }
     if (let ZERO <- x) {
         Assert.fail() 
     } else if (let ONE <- x) {

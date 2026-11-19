@@ -39,7 +39,8 @@ enum Either<L, R> {
 }
 
 main() {
-    let l = Either<Int32, Bool>.Left(42)
+    let right = Assert.getRuntimeZero() != 0
+    let l = if (right) { Either<Int32, Bool>.Right(true) } else { Either<Int32, Bool>.Left(42) }
     let valueL = match (l) {
         case Left(x) => x
         case Right(x) => Int32(0)
@@ -47,7 +48,7 @@ main() {
     Assert.isTrue(valueL is Int32)
     Assert.equals(42, valueL)
 
-    let r = Either<Int32, Bool>.Right(true)
+    let r = if (right) { Either<Int32, Bool>.Left(42) } else { Either<Int32, Bool>.Right(true) }
     let valueR = match(r) {
         case Left(x) => x
         case Right(x) => Int32(35)

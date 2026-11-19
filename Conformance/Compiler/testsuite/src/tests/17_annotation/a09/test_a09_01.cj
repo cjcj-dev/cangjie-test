@@ -28,4 +28,6 @@ func callableInC() {
     return 0
 }
 
-main() {}
+main() {
+    unsafe { callableInC() }
+}

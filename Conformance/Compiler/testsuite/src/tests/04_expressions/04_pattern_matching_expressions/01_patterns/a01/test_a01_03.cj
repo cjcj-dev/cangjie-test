@@ -30,14 +30,14 @@
 import utils.assert.Assert
 
 main() {
-    let l1 = 3
+    let l1 = 3 + Assert.getRuntimeZero()
     var m = match (l1) {
         case 1 => 1
         case a => a - 1
     }
     Assert.equals(2, m)
 
-    let l2 = 2
+    let l2 = 2 + Assert.getRuntimeZero()
     m = match (l2) {
         case 1 => 1
         case b => 2

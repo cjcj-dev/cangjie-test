@@ -25,7 +25,7 @@
 import utils.assert.Assert
 
 main() {
-    var v = (1, 0, 0)
+    var v = (1 + Assert.getRuntimeZero(), 0, 0)
     Assert.isTrue(match (v) {
         case (1, 0, 0) => true
         case _ => false

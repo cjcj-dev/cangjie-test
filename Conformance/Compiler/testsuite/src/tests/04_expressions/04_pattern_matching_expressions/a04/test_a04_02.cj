@@ -24,10 +24,10 @@ import utils.assert.Assert
 
 main() {
     let l1 = 0;
-    var m1 = match (l1) {
+    var m1 = {value: Int64 => match (value) {
         case 1 => "succeed"
         case _ => "fail"
-    }
+    } }(l1)
     Assert.equals("fail", m1)
 
     return

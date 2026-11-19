@@ -32,9 +32,7 @@ func checkForIn() {
     }
     Assert.isTrue(unit is Unit)
     Assert.equals(5, cnt)
-     if(() != unit) { 
-        Assert.fail(reason: "Unit should have value ()") 
-    }
+     Assert.equals((), unit, reason: "Unit should have value ()")
 }
     
 func checkWhile() {
@@ -45,9 +43,7 @@ func checkWhile() {
      }
     Assert.isTrue(unit is Unit)
     Assert.equals(5, cnt)
-    if(() != unit) { 
-        Assert.fail(reason: "Unit should have value ()") 
-    }
+    Assert.equals((), unit, reason: "Unit should have value ()")
 }
   
 func checkDoWhile() {
@@ -58,9 +54,7 @@ func checkDoWhile() {
     } while (cnt < 5)
     Assert.isTrue(unit is Unit)
     Assert.equals(5, cnt)
-    if(() != unit) { 
-        Assert.fail(reason: "Unit should have value ()") 
-    }
+    Assert.equals((), unit, reason: "Unit should have value ()")
 }
 
 main() {

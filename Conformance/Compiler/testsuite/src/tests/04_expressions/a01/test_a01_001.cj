@@ -51,19 +51,36 @@ main() {
 
     let unused8 = true
     let unused9 = false
-    b
+    Assert.isTrue(b)
 
     let unused10 = "Hello" 
-    str
+    Assert.equals("Hello", str)
 
     let unused12 = [0, 1, 2, 3, 4] 
     let unused13 = ["This", "is", "me"]
-    arrI8
-    arrStr
+    Assert.equals(72u8, arrI8[0])
+    Assert.equals("This", arrStr[0])
 
     let unused14 = ()
     let unused15 = (0, "tuple", true) 
-    getTuple(1, 0)
+    Assert.equals(15, unused)
+    Assert.equals(0, unused1)
+    Assert.equals(0u8, unused2)
+    Assert.equals(4i32, unused3)
+    Assert.equals(3.14, unused4)
+    Assert.equals(3.14, unused5)
+    Assert.equals(r'c', unused6)
+    Assert.equals(r'c', unused7)
+    Assert.isTrue(unused8)
+    Assert.isFalse(unused9)
+    Assert.equals("Hello", unused10)
+    Assert.equals(4, unused12[4])
+    Assert.equals("me", unused13[2])
+    Assert.equals((), unused14)
+    Assert.equals(0, unused15[0])
+    Assert.equals("tuple", unused15[1])
+    Assert.isTrue(unused15[2])
+    Assert.equals(1, getTuple(1, 0)[0])
 
     simpleFunction
     simpleFunction()

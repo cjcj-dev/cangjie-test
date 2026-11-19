@@ -42,6 +42,7 @@ func getFloatReturnInt(f: Float64): Int64 {
 }
 
 func generic<T1, T2>(f1: T1, f2: T2): T2 {
+    Assert.equals(1, [f1].size)
     cnt++
     f2
 }
@@ -71,25 +72,25 @@ func checkGeneric(f: ((Int64, Int64) -> Int64)): (Int64, Int64) -> Int64 {
 
 main() {
     var f1: () -> Unit = empty
-    var f2 = checkEmpty(empty)
+    var f2 = checkEmpty(f1)
     Assert.isTrue(f2 is () -> Unit)
     f2()
 
     var f3: () -> Int64 = returnInt
-    var f4 = checkReturnInt(returnInt)
+    var f4 = checkReturnInt(f3)
     var res4 = f4()
     Assert.isTrue(f4 is () -> Int64)
     Assert.equals(0, res4)
 
 
     var f5: (Float64) -> Int64 = getFloatReturnInt
-    var f6 = checkGetFloatReturnInt(getFloatReturnInt)
+    var f6 = checkGetFloatReturnInt(f5)
     Assert.isTrue(f6 is (Float64) -> Int64)
     var res6 = f6(0.0)
     Assert.equals(0, res6)    
 
     var f7: (Int64, Int64) -> Int64 = generic<Int64, Int64> 
-    var f8 = checkGeneric(generic<Int64, Int64>)
+    var f8 = checkGeneric(f7)
     Assert.isTrue(f8 is (Int64, Int64) -> Int64)
     var res8 = f8(8, 2)
     Assert.equals(2, res8)    

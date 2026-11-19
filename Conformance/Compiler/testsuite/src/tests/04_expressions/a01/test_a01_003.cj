@@ -36,6 +36,10 @@ func g(x: Float32): Int32 {
     Int32(x) 
 }
 
+func atOne(n: Int64): ?Int64 {
+    if (n == 1) { None } else { Some(n) }
+}
+
 main(): Int64 {
     i + j / (k + 12)
     (i + j * k)
@@ -47,21 +51,21 @@ main(): Int64 {
     i++
     j--
 
-    i < 0
-    j >= k
-    i > 0 && j < k || i == k
+    Assert.isFalse(i < 0)
+    Assert.isTrue(j >= k)
+    Assert.isFalse(i > 0 && j < k || i == k)
 
     2 << i >> 1
-    i | j
-    j ^ k
-    2 & 1
+    Assert.equals(123, i | j)
+    Assert.equals(122, j ^ k)
+    Assert.equals(0, 2 & 1)
 
-    !b
-    b || true
-    true && b
-    (i > 0) || b && (j >- i)
+    Assert.isFalse(!b)
+    Assert.isTrue(b || true)
+    Assert.isTrue(true && b)
+    Assert.isTrue((i > 0) || b && (j >- i))
 
-    Option<Int64>.None ?? 0
+    Assert.equals(0, atOne(i) ?? 0)
 
     i |> { x: Int64 => x + 1 }
     f ~> g

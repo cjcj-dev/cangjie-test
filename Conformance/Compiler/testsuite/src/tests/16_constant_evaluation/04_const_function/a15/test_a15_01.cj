@@ -55,6 +55,7 @@ class A {
 }
 
 const func f1(a: A): Unit { // ok
+    let _ = a
     return
 }
 

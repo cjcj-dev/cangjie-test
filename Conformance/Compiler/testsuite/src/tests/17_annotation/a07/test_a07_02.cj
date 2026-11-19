@@ -24,4 +24,6 @@ func callableInC() {
     print("This function with built-in annotation")
 }
 
-main() {}
+main() {
+    unsafe { callableInC() }
+}

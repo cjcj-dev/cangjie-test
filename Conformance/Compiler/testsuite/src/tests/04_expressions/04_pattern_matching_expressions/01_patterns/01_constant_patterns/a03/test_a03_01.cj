@@ -33,25 +33,25 @@ var v4 = 0.1
 main() {
     var m = match (v1) {
         case 1 => 1
-        case _ => Assert.fail(); 0
+        case _ => Assert.fail()
     }
     Assert.equals(1, m)
 
     m = match (v2) {
         case "" => 1
-        case _ => Assert.fail(); 0
+        case _ => Assert.fail()
     }
     Assert.equals(1, m)
 
     m = match (v3) {
         case 'a' => 1
-        case _ => Assert.fail(); 0
+        case _ => Assert.fail()
     }
     Assert.equals(1, m)
 
     m = match (v4) {
         case 0.1 => 1
-        case _ => Assert.fail(); 0
+        case _ => Assert.fail()
     }
     Assert.equals(1, m)
 

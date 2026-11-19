@@ -25,7 +25,11 @@ import utils.assert.Assert
 
 func empty() {}
 
-func with_params(i: Int64, j: Int32, name: String) {}
+func with_params(i: Int64, j: Int32, name: String) {
+    Assert.equals(7, i)
+    Assert.equals(3i32, j)
+    Assert.equals("argument", name)
+}
 
 func with_return(): Int64 {
     Assert.getRuntimeZero()
@@ -36,13 +40,17 @@ func generic<T>(): Int64 {
 }
 
 func complex<T1, T2, T3>(a: T1, b: T2, c: T3): T3 {
-    c
+    (a, b, c)[2]
 }
 
 main() {
     func internal_empty() {}
 
-    func internal_with_params(i: Int64, j: Int32, name: String) {}
+    func internal_with_params(i: Int64, j: Int32, name: String) {
+        Assert.equals(7, i)
+        Assert.equals(3i32, j)
+        Assert.equals("argument", name)
+    }
 
     func internal_with_return(): Int64 {
         -1
@@ -51,20 +59,30 @@ main() {
     func internal_generic<T>() {}
 
     func internal_complex<T1, T2, T3>(a: T1, b: T2, c: T3): T3 {
-        c
+        (a, b, c)[2]
     }
 
-    empty
-    with_params
-    with_return
-    generic<Int32>
-    complex<Int32, Int64, String>
-    
-    internal_empty
-    internal_with_params
-    internal_with_return
-    internal_generic<Int32>
-    internal_complex<Int32, Int64, String>
+    let f1 = empty
+    let f2 = with_params
+    let f3 = with_return
+    let f4 = generic<Int32>
+    let f5 = complex<Int32, Int64, String>
+    Assert.equals((), f1())
+    Assert.equals((), f2(7, 3i32, "argument"))
+    Assert.equals(0, f3())
+    Assert.equals(1, f4())
+    Assert.equals("result", f5(7i32, 3, "result"))
+
+    let g1 = internal_empty
+    let g2 = internal_with_params
+    let g3 = internal_with_return
+    let g4 = internal_generic<Int32>
+    let g5 = internal_complex<Int32, Int64, String>
+    Assert.equals((), g1())
+    Assert.equals((), g2(7, 3i32, "argument"))
+    Assert.equals(-1, g3())
+    Assert.equals((), g4())
+    Assert.equals("result", g5(7i32, 3, "result"))
 
     return
 }

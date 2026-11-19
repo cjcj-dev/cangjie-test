@@ -27,11 +27,19 @@
 
 */
 
+import utils.assert.Assert
+
 interface I {}
 
 extend Int64 {
-    func f<T>(a: T, b!: Int64 = 0) where T <: I {}
-    func f(a: String, b: String) {}
+    func f<T>(a: T, b!: Int64 = 0) where T <: I {
+        Assert.isTrue(a is C)
+        Assert.isTrue(b == 0 || b == 4 || b == 6)
+    }
+    func f(a: String, b: String) {
+        Assert.equals("a", a)
+        Assert.equals("b", b)
+    }
 }
 
 class C <: I { }

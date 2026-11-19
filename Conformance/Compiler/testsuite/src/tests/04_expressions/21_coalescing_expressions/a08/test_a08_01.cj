@@ -32,9 +32,17 @@
 
 import utils.assert.Assert
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
+func absent<T>(): Option<T> {
+    None
+}
+
 main(): Int64 {
-    let v1 = Option<Int64>.Some(100)
-    let v2 = Option<Int64>.None
+    let v1 = present<Int64>(100)
+    let v2 = absent<Int64>()
     let r1 = v1 ?? 0
     let r2 = v2 ?? 0
     print("${r1}") // output: 100

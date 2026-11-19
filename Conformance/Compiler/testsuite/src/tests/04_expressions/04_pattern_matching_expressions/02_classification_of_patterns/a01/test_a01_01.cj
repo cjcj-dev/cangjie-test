@@ -25,7 +25,7 @@
 import utils.assert.Assert
 
 main() {
-    let v = 0
+    let v = Assert.getRuntimeZero()
 
     // Constant pattern '0' can match the value:
     match(v) {

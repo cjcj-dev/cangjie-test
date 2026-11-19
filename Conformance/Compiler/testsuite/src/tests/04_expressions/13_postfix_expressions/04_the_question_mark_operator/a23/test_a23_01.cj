@@ -47,6 +47,14 @@
 
 import utils.assert.Assert
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
+func absent<T>(): Option<T> {
+    None
+}
+
 class C {
     init() {
         d = 7
@@ -78,8 +86,8 @@ main() {
     // Case: 'a?.b = e1'
     //
 
-    var a1 = Option<A>.Some(A())
-    var a2 = Option<A>.Some(A())
+    var a1 = present<A>(A())
+    var a2 = present<A>(A())
     Assert.isTrue(a1?.b == 5)
     Assert.isTrue(a2?.b == 5)
     a1?.b = 9
@@ -90,8 +98,8 @@ main() {
     Assert.isTrue(a1?.b == 9)
     Assert.isTrue(a2?.b == 9)
 
-    var n1 = Option<A>.None
-    var n2 = Option<A>.None
+    var n1 = absent<A>()
+    var n2 = absent<A>()
     Assert.isNone(n1?.b)
     Assert.isNone(n2?.b)
     n1?.b = 9
@@ -106,8 +114,8 @@ main() {
     // Case: 'a?[b] = e2'
     //
 
-    var arr1: ?Array<Int64> = [1, 2, 3, 4, 5]
-    var arr2: ?Array<Int64> = [1, 2, 3, 4, 5]
+    var arr1: ?Array<Int64> = present<Array<Int64>>([1, 2, 3, 4, 5])
+    var arr2: ?Array<Int64> = present<Array<Int64>>([1, 2, 3, 4, 5])
     Assert.isTrue(arr1?[2] == 3)
     Assert.isTrue(arr2?[2] == 3)
     arr1?[2] = 9
@@ -118,8 +126,8 @@ main() {
     Assert.isTrue(arr1?[2] == 9)
     Assert.isTrue(arr2?[2] == 9)
 
-    var nrr1 = Option<Array<Int64>>.None
-    var nrr2 = Option<Array<Int64>>.None
+    var nrr1 = absent<Array<Int64>>()
+    var nrr2 = absent<Array<Int64>>()
     Assert.isNone(nrr1?[2])
     Assert.isNone(nrr2?[2])
     nrr1?[2] = 9
@@ -148,8 +156,8 @@ main() {
     Assert.isTrue(a1?.x.c?.d == 9)
     Assert.isTrue(a2?.x.c?.d == 9)
 
-    a1?.x.c = Option<C>.None
-    a2?.x.c = Option<C>.None
+    a1?.x.c = absent<C>()
+    a2?.x.c = absent<C>()
 
     Assert.isNone(a1?.x.c?.d)
     Assert.isNone(a2?.x.c?.d)
@@ -165,8 +173,8 @@ main() {
     Assert.isNone(a1?.x.c?.d)
     Assert.isNone(a2?.x.c?.d)
 
-    a1 = Option<A>.None
-    a2 = Option<A>.None
+    a1 = absent<A>()
+    a2 = absent<A>()
 
     Assert.isNone(a1?.x.c?.d)
     Assert.isNone(a2?.x.c?.d)

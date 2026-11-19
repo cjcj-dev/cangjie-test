@@ -33,7 +33,8 @@ import utils.assert.Assert
 
 
 main(ina :Array<String>) {
-    let xx = (1, 'x')
+    let _ = ina
+    let xx = (1 + Assert.getRuntimeZero(), 'x')
     
     if (let(1, 'x')  <- xx) {
     } else {

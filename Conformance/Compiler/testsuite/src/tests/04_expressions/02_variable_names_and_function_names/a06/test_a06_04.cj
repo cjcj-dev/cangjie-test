@@ -37,11 +37,13 @@ struct S {
     S(iid: Int64, iname: String) {      
         name = "Tom"
         Assert.equals("Tom", name)
+        Assert.equals(0, iid)
+        Assert.equals("Nick", iname)
     }    
 }
 
 main() {
-    S()
-    S(Assert.getRuntimeZero(), "Nick")
+    Assert.equals("Nick", S().name)
+    Assert.equals("Tom", S(Assert.getRuntimeZero(), "Nick").name)
     return
 }

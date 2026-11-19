@@ -31,6 +31,10 @@
 
 import utils.assert.Assert
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
 func checkHi(x: String) {
     if (x == "hi") {
         return "yes"
@@ -39,7 +43,7 @@ func checkHi(x: String) {
 }
 
 main() {
-    let s = Option<String>.Some("hi")
+    let s = present<String>("hi")
     Assert.equals("yes", s ?? "no" |> checkHi)
     Assert.equals("yes", (s ?? "no") |> checkHi)
     Assert.equals("hi", s ?? ("no" |> checkHi)) // incorrect precedence would lead to another result.

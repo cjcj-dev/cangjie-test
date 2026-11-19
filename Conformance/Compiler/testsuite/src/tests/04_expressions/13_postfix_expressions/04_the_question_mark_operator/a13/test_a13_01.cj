@@ -29,12 +29,20 @@
 
 import utils.assert.Assert
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
+func absent<T>(): Option<T> {
+    None
+}
+
 struct C {
     var d = 5
 }
 
 struct B {
-    var c = Option<C>.Some(C())
+    var c = present<C>(C())
 }
 
 struct A {
@@ -42,11 +50,11 @@ struct A {
 }
 
 main() {
-    let a1 = Option<A>.Some(A())
+    let a1 = present<A>(A())
     let x1 = a1?.b.c?.d ?? 1949
     Assert.equals(5, x1)
 
-    let a2 = Option<A>.None
+    let a2 = absent<A>()
     let x2 = a2?.b.c?.d ?? 1949
     Assert.equals(1949, x2)
 }

@@ -30,21 +30,23 @@
 import utils.assert.Assert
 
 main() {
-    let l1 = (1, 2)
+    let zero = Assert.getRuntimeZero()
+    let l1 = (1 + zero, 2)
     var m = match (l1) {
         case (1, 2) => 1
         case (_, _) => 2
     }
     Assert.equals(1, m)
 
-    let l2 = ("one", 1)
+    let l2 = ("one", 1 + zero)
     m = match (l2) {
         case ("one", 1) => 1
         case (_, _) => 2
     }
     Assert.equals(1, m)
 
-    let l3 = ("one", 'a', 0.1)
+    let name = if (zero == 0) { "one" } else { "two" }
+    let l3 = (name, 'a', 0.1)
     m = match (l3) {
         case ("one", _, 0.1) => 1
         case (_, _, _) => 2

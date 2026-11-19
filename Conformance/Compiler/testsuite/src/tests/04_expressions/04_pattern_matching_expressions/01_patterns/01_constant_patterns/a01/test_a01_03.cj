@@ -34,66 +34,66 @@ main() {
     Assert.equals(1, m)
 
     let l2: Float32 = 3.14
-    m = match (l2) {
+    m = {value: Float32 => match (value) {
         case 3.14 => 1
         case _ => 2
-    }
+    } }(l2)
     Assert.equals(1, m)
 
     let l3: Float64 = 3.14
-    m = match (l3) {
+    m = {value: Float64 => match (value) {
         case 3.14 => 1
         case _ => 2
-    }
+    } }(l3)
     Assert.equals(1, m)
 
     let l4 = 2.4e-1
-    m = match (l4) {
+    m = {value: Float64 => match (value) {
         case 2.4e-1 => 1
         case _ => 2
-    }
+    } }(l4)
     Assert.equals(1, m)
 
     let l5 = 2e3
-    m = match (l5) {
+    m = {value: Float64 => match (value) {
         case 2e3 => 1
         case _ => 2
-    }
+    } }(l5)
     Assert.equals(1, m)
 
     let l6 = .8
-    m = match (l6) {
+    m = {value: Float64 => match (value) {
         case .8 => 1
         case _ => 2
-    }
+    } }(l6)
     Assert.equals(1, m)
 
     let l7 = .123e2
-    m = match (l7) {
+    m = {value: Float64 => match (value) {
         case .123e2 => 1
         case _ => 2
-    }
+    } }(l7)
     Assert.equals(1, m)
 
     let l8 = 0x1.1p0
-    m = match (l8) {
+    m = {value: Float64 => match (value) {
         case 0x1.1p0 => 1
         case _ => 2
-    }
+    } }(l8)
     Assert.equals(1, m)
 
     let l9 = 0x1p2
-    m = match (l9) {
+    m = {value: Float64 => match (value) {
         case 0x1p2 => 1
         case _ => 2
-    }
+    } }(l9)
     Assert.equals(1, m)
 
     let l10 = 0x.2p4
-    m = match (l10) {
+    m = {value: Float64 => match (value) {
         case 0x.2p4 => 1
         case _ => 2
-    }
+    } }(l10)
     Assert.equals(1, m)
 
     return

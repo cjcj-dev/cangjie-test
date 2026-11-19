@@ -25,12 +25,17 @@
 
 import utils.assert.Assert
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
 class C {
     init() {
         x = 0
     }
 
     operator func[](i: Int64, value!: Int64) {
+        Assert.equals(0, i)
         x = value
     }
 
@@ -38,12 +43,12 @@ class C {
 }
 
 main() {
-    var a: ?Array<Int64> = [1, 2, 3, 4, 5]
+    var a: ?Array<Int64> = present([1, 2, 3, 4, 5])
     Assert.equals(2, a?[1] ?? 42)
     a?[1] = 9
     Assert.equals(9, a?[1] ?? 42)
 
-    var c: ?C = C()
+    var c: ?C = present(C())
     Assert.equals(0, c?.x ?? 42)
     c?[0] = 9
     Assert.equals(9, c?.x ?? 42)

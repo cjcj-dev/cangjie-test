@@ -44,15 +44,21 @@
 
 import utils.assert.Assert
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
 main() : Int64 {
-    let x: Option<Int64> = Option <Int64>.Some(100)
+    let x: Option<Int64> = present<Int64>(100)
     // if-let expression without else branch
     if (let Some(v) <- x) {
+        Assert.equals(100, v)
         print( "x has value")
     }
     
     // if-let expression with else branch
     if (let Some(v) <- x) {
+        Assert.equals(100, v)
         print( "x has value")
     } else {
         print( "x has not value")

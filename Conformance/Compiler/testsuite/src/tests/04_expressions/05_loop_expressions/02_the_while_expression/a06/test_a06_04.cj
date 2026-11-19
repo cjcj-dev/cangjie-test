@@ -34,7 +34,13 @@ func check(id: String) { Assert.equals(msg, id); msg = "" }
 main() {
     var i: Int32 = 0
 
-    while (let _ <- i) {
+    var evaluated = 0
+    func nextValue(): Int32 {
+        evaluated++
+        i
+    }
+
+    while (let _ <- nextValue()) {
         if (i == 5) {
             visit("seen")
             break
@@ -42,4 +48,5 @@ main() {
         i++
     }
     check("seen")
+    Assert.equals(6, evaluated)
 }

@@ -31,15 +31,19 @@
 
 import utils.assert.Assert
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
 
 main(ina :Array<String>) {
-    var x: Option<Int64> = Option<Int64>.Some(100)
+    var x: Option<Int64> = present<Int64>(100 + Assert.getRuntimeZero(ina))
     if (let Some(v) <- x) {
         Assert.equals(100, v)
     } else {
         Assert.fail() 
     }
-    x = Option<Int64>.Some(101)
+    x = present<Int64>(101)
     if (let Some(v1) <- x) {
         Assert.equals(101, v1)
     } else {

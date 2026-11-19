@@ -26,7 +26,7 @@
 import utils.assert.Assert
 
 main() {
-    let v = true
+    let v = Assert.getRuntimeZero() == 0
     match(v) {
         case false => ()
         case _ => Assert.notEquals(false, v) // The value `v` and the constant pattern `false` do not match.

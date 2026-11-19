@@ -33,7 +33,8 @@ import utils.assert.Assert
 
 
 main(ina :Array<String>) {
-    let x: Int64 = 1
+    let _ = ina
+    let x: Int64 = 1 + Assert.getRuntimeZero()
     if (let 1 <- x) {
     } else {
         Assert.fail() 

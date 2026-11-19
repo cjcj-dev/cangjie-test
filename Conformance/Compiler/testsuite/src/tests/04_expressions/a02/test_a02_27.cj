@@ -46,7 +46,5 @@ main() {
 
     Assert.equals(5, sum)
     Assert.isTrue(unit is Unit) 
-    if(() != unit) {
-        Assert.fail(reason: "Unit should have value ()") 
-    }
+    Assert.equals((), unit, reason: "Unit should have value ()")
 }

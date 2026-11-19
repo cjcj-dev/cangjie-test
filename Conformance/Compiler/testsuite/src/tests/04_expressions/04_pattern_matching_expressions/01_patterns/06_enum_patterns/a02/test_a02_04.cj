@@ -46,69 +46,69 @@ enum E {
 }
 
 main() {
-    Assert.isTrue(match(A(1i8)) {
+    Assert.isTrue({value: E => match (value) {
         case A(_) => true
         case _ => false
-    })
-    Assert.isTrue(match(B(1i16)) {
+    } }(A(1i8)))
+    Assert.isTrue({value: E => match (value) {
         case B(_) => true
         case _ => false
-    })
-    Assert.isTrue(match(C(1i32)) {
+    } }(B(1i16)))
+    Assert.isTrue({value: E => match (value) {
         case C(_) => true
         case _ => false
-    })
-    Assert.isTrue(match(D(1i64)) {
+    } }(C(1i32)))
+    Assert.isTrue({value: E => match (value) {
         case D(_) => true
         case _ => false
-    })
-    Assert.isTrue(match(E.E(1u8)) {
+    } }(D(1i64)))
+    Assert.isTrue({value: E => match (value) {
         case E(_) => true
         case _ => false
-    })
-    Assert.isTrue(match(F(1u16)) {
+    } }(E.E(1u8)))
+    Assert.isTrue({value: E => match (value) {
         case F(_) => true
         case _ => false
-    })
-    Assert.isTrue(match(G(1u32)) {
+    } }(F(1u16)))
+    Assert.isTrue({value: E => match (value) {
         case G(_) => true
         case _ => false
-    })
-    Assert.isTrue(match(H(1u64)) {
+    } }(G(1u32)))
+    Assert.isTrue({value: E => match (value) {
         case H(_) => true
         case _ => false
-    })
-    Assert.isTrue(match(I(1)) {
+    } }(H(1u64)))
+    Assert.isTrue({value: E => match (value) {
         case I(_) => true
         case _ => false
-    })
-    Assert.isTrue(match(J(10.0_f32)) {
+    } }(I(1)))
+    Assert.isTrue({value: E => match (value) {
         case J(_) => true
         case _ => false
-    })
-    Assert.isTrue(match(K(0.5)) {
+    } }(J(10.0_f32)))
+    Assert.isTrue({value: E => match (value) {
         case K(_) => true
         case _ => false
-    })
-    Assert.isTrue(match(L(r'a')) {
+    } }(K(0.5)))
+    Assert.isTrue({value: E => match (value) {
         case L(_) => true
         case _ => false
-    })
-    Assert.isTrue(match(M(b'a')) {
+    } }(L(r'a')))
+    Assert.isTrue({value: E => match (value) {
         case M(_) => true
         case _ => false
-    })
-    Assert.isTrue(match(N("AAA")) {
+    } }(M(b'a')))
+    Assert.isTrue({value: E => match (value) {
         case N(_) => true
         case _ => false
-    })
-    Assert.isTrue(match(O(true)) {
+    } }(N("AAA")))
+    Assert.isTrue({value: E => match (value) {
         case O(_) => true
         case _ => false
-    })
-    Assert.isTrue(match(P(())) {
+    } }(O(true)))
+    Assert.isTrue({value: E => match (value) {
         case P(_) => true
         case _ => false
-    })
+    } }(P(())))
     return
 }

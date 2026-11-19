@@ -17,8 +17,12 @@
   @Comment:         CompilerBug v0.38.2. Verified for the Spec v0.22.14
 */
 
+func someValue(): Option<Int64> {
+    Some(100)
+}
+
 main(): Int64 {
-    let x: Option<Int64> = Option<Int64>.Some(100)
+    let x: Option<Int64> = someValue()
     // if-let expression without else branch
     if (let Some(v) <- x) {
         print("x has value")

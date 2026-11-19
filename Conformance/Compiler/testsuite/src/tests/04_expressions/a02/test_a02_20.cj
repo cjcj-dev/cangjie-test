@@ -21,7 +21,11 @@
 
 import utils.assert.Assert
 
+func absent<T>(): Option<T> {
+    None
+}
+
 main() {
-    Assert.isTrue((Option<Int64>.None ?? 0) is Int64)
-    Assert.equals(0, (Option<Int64>.None ?? 0))
+    Assert.isTrue((absent<Int64>() ?? 0) is Int64)
+    Assert.equals(0, (absent<Int64>() ?? 0))
 }

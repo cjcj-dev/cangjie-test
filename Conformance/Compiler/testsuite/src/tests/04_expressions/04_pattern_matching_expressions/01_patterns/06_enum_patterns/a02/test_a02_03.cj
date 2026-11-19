@@ -106,9 +106,9 @@ main() {
         case O(true) => true
         case _ => false
     })
-    Assert.isTrue(match(P(())) {
+    Assert.isTrue({value: E => match (value) {
         case P(()) => true
         case _ => false
-    })
+    } }(P(())))
     return
 }

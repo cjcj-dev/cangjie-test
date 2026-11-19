@@ -26,11 +26,12 @@ import utils.assert.Assert
 enum E { A | B }
 
 main() {
+    let z = Assert.getRuntimeZero()
     var v1: (Int64, Float32) = (123, 0.123)
     Assert.isTrue(match(v1) {
         case (a, b) => true
     })
-    var v2: (Int64, Float64) = (123, 0.123)
+    var v2: (Int64, Float64) = (123 + z, 0.123)
     Assert.isTrue(match(v2) {
         case (123, 0.123) => true
         case _ => false
@@ -39,18 +40,20 @@ main() {
     Assert.isTrue(match(v3) {
         case (a, b, c) => true
     })
-    var v4: (Int16, Float32, Rune) = (123, 0.123, r'a')
+    var v4: (Int16, Float32, Rune) = (123 + Int16(z), 0.123, r'a')
     Assert.isTrue(match(v4) {
         case (123, 0.123, 'a') => true
         case _ => false
     })
-    var v5: (Int8, Float32, Rune) = (123, 0.123, r'a')
+    var v5: (Int8, Float32, Rune) = (123 + Int8(z), 0.123 + Float32(z), r'a')
     Assert.isTrue(match(v5) {
         case (123, a, b) => true
         case (a, 0.123, c) => false
         case _ => false
     })
-    var v6: (E, E) = (A, B)
+    let first: E = if (z == 0) { A } else { B }
+    let second: E = if (z < 2) { B } else { A }
+    var v6: (E, E) = (first, second)
     Assert.isTrue(match(v6) {
         case (A, b) => true
         case (a, B) => false

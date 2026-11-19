@@ -26,6 +26,10 @@
 
 import utils.assert.Assert
 
+func absent<T>(): Option<T> {
+    None
+}
+
 let i1: Int64 = Assert.getRuntimeZero()
 let i2: Int64 = 2
 let i3: Int64 = 3
@@ -100,7 +104,7 @@ main() {
     Assert.equals(0, x7)
 
     var z = (j1 >> Int8(1)) & j2 ^ (j3 | 0b1111101_i8) + 
-            (Option<Int8>.None ?? 1)
+            (absent<Int8>() ?? 1)
     Assert.isTrue(z is Int8)
     Assert.equals(108_i8, z)
 

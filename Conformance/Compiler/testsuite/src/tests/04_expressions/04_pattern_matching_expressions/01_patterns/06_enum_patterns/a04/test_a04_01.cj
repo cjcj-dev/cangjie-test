@@ -53,7 +53,12 @@ enum TimeUnit {
 }
 
 main() {
-    let oneYear = TimeUnit.Year(1.0)
+    let oneYear: TimeUnit = match (Assert.getRuntimeZero()) {
+        case 0 => TimeUnit.Year(1.0)
+        case 1 => TimeUnit.Month(0.0, 1.0)
+        case 2 => TimeUnit.Day(0.0, 0.0, 1.0)
+        case _ => TimeUnit.Hour(0.0, 0.0, 0.0, 1.0)
+    }
     var howManyHours: Float32 = match (oneYear) {
         case Year(y) => y * 365.0 * 24.0 // matched
         case Month(y, m) => y * 365.0 * 24.0 + m * 30.0 * 24.0

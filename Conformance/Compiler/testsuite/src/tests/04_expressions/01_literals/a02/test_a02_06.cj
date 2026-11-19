@@ -29,8 +29,6 @@ import utils.assert.Assert
 main() {
     var u = ()
     Assert.isTrue(u is Unit)
-    if( u != ()) {
-        Assert.fail(reason: "Should be equal.")
-    }
+    Assert.equals((), u, reason: "Should be equal.")
 }
 

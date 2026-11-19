@@ -27,10 +27,18 @@
   @Issue: 0006482
 */
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
+func absent<T>(): Option<T> {
+    None
+}
+
 main() {
-    var c1: ?Int64 = 0
-    var c2: ?Int64 = 0
-    var c3 = Option<Int64>.None
+    var c1: ?Int64 = present(0)
+    var c2: ?Int64 = present(0)
+    var c3 = absent<Int64>()
 
     // Rule:  coalescingExpression = logicDisjunctionExpression ('??' logicDisjunctionExpression)*
     // Case:  coalescingExpression = logicDisjunctionExpression '??' logicDisjunctionExpression

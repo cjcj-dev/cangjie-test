@@ -40,29 +40,29 @@ main() {
         case _ => false
     })
 
-    Assert.isTrue(match(A(1)) {
+    Assert.isTrue({value: E => match (value) {
         case A(x) => Assert.equals(1, x); true
         case _ => false
-    })
+    } }(A(1)))
 
     Assert.isTrue(match(B(1i32, 0.5_f32)) {
         case B(1, f) => true
         case _ => false
     })
 
-    Assert.isTrue(match(C(r'a', 0.3, 5i16)) {
+    Assert.isTrue({value: E => match (value) {
         case C(r'b', 0.3, z) => false
         case C(x, y, z) => true
         case _ => false
-    })
+    } }(C(r'a', 0.3, 5i16)))
 
-    Assert.isTrue(match(D("aaa", 2u8, 3u32, b'a')) {
+    Assert.isTrue({value: E => match (value) {
         case C(r'b', 0.3, z) => false
         case C(x, y, z) => false
         case B(x, y) => false
         case D("aaa", 2u8, 3u32, b'a') => true
         case _ => false
-    })
+    } }(D("aaa", 2u8, 3u32, b'a')))
 
     return
 }

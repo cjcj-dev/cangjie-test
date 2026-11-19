@@ -29,9 +29,7 @@ func checkTry() {
     } catch (_) {}
     Assert.equals(1, cnt)  
     Assert.isTrue(unit1 is Unit)
-    if(() != unit1) { 
-        Assert.fail(reason: "Unit should have value ()") 
-    }
+    Assert.equals((), unit1, reason: "Unit should have value ()")
 
     var unit2 = try { 
         throw Exception() 
@@ -40,9 +38,7 @@ func checkTry() {
     } 
     Assert.equals(2, cnt)  
     Assert.isTrue(unit2 is Unit)
-    if(() != unit2) { 
-        Assert.fail(reason: "Unit should have value ()") 
-    }
+    Assert.equals((), unit2, reason: "Unit should have value ()")
 
     var i3 = try {
         cnt++
@@ -77,7 +73,7 @@ func checkTryWithResources() {
     }
   Assert.equals(2, cnt)  
   Assert.isTrue(unit1 is Unit)
-  if(() != unit1) { Assert.fail(reason: "Unit1 should have value ()") }
+  Assert.equals((), unit1, reason: "Unit1 should have value ()")
 
   var unit2 = try {
       throw Exception() 
@@ -90,7 +86,7 @@ func checkTryWithResources() {
     }
   Assert.equals(4, cnt)  
   Assert.isTrue(unit2 is Unit)
-  if(() != unit2) { Assert.fail(reason: "Unit2 should have value ()") }
+  Assert.equals((), unit2, reason: "Unit2 should have value ()")
 
 
   var unit3 = try {

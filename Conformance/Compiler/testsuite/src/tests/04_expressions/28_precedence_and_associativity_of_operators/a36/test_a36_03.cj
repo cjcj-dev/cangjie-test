@@ -31,9 +31,17 @@
 
 import utils.assert.Assert
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
+func absent<T>(): Option<T> {
+    None
+}
+
 main() {
-    let s = Option<String>.Some("hi")
-    let i = Option<Int64>.None
+    let s = present<String>("hi")
+    let i = absent<Int64>()
 
     Assert.isTrue((s ?? "hello") is String)
     Assert.isTrue((i ?? 1234567) is Int64)

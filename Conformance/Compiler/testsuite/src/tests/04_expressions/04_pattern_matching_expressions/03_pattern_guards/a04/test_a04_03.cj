@@ -29,7 +29,7 @@ var N = 0
 func inc() { N++ }
 
 main() {
-    let boolExpression = false
+    let boolExpression = Assert.getRuntimeZero() != 0
     Assert.isFalse(match (0) {
         case 0 where boolExpression => inc()
                                     true

@@ -23,6 +23,10 @@
 
 import utils.assert.Assert
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
 class C { 
     var x = 0
     C(y : Int64) {
@@ -31,7 +35,7 @@ class C {
 }
 
 func checkCoalescing<T>(x : T) where T <: Equatable<T> {
-    Assert.equals(x, Option<T>.Some(x) ?? throw(Exception("Should not be evaluated")))
+    Assert.equals(x, present<T>(x) ?? throw(Exception("Should not be evaluated")))
 }
 
 main() {
@@ -49,10 +53,10 @@ main() {
     checkCoalescing("1")
     checkCoalescing(r'1')
     checkCoalescing(true)
-    let tuple = Some((1, 2)) ?? throw(Exception("Should not be evaluated"))
+    let tuple = present((1, 2)) ?? throw(Exception("Should not be evaluated"))
     Assert.equals(1, tuple[0])
     Assert.equals(2, tuple[1])
-    let obj = Some(C(1)) ?? throw(Exception("Should not be evaluated"))
+    let obj = present(C(1)) ?? throw(Exception("Should not be evaluated"))
     Assert.equals(1, obj.x)
 }
 

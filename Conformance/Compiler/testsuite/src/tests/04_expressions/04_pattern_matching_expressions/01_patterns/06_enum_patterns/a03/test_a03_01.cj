@@ -26,6 +26,8 @@
   @CompileWarning: no
 */
 
+import utils.assert.Assert
+
 enum E {
     | EE(Rune)
 }
@@ -37,94 +39,108 @@ enum F {
     | D(E)
 }
 
+func selectF(kind: Int64): F {
+    match (kind) {
+        case 0 => F.A
+        case 1 => F.B(1)
+        case 2 => F.C(1, 2)
+        case _ => F.D(E.EE(r'E'))
+    }
+}
+
 main() {
-    match(A) {
+    let n = Assert.getRuntimeZero()
+    let a = selectF(n)
+    let b = selectF(n + 1)
+    let c = selectF(n + 2)
+    let d = selectF(n + 3)
+    Assert.isTrue(match (a) {
         case F.A => true
         case _ => false
-    }
-    match(A) {
+    })
+    Assert.isTrue(match (a) {
         case A => true
         case _ => false
-    }
+    })
 
-    match(B(1)) {
+    Assert.isTrue(match (b) {
         case B(1) => true
         case _ => false
-    }
-    match(B(1)) {
+    })
+    Assert.isTrue(match (b) {
         case F.B(1) => true
         case _ => false
-    }
-    match(B(1)) {
+    })
+    Assert.isTrue(match (b) {
         case F.B(foo) => true
         case _ => false
-    }
-    match(B(1)) {
+    })
+    Assert.isTrue(match (b) {
         case F.B(_) => true
         case _ => false
-    }
-    match(B(1)) {
+    })
+    Assert.isTrue(match (b) {
         case F.B(_: Int64) => true
         case _ => false
-    }
-    match(B(1)) {
+    })
+    Assert.isTrue(match (b) {
         case F.B(foo: Int64) => true
         case _ => false
-    }
+    })
 
-    match(C(1, 2)) {
+    Assert.isFalse(match (c) {
         case B(1) => true
         case _ => false
-    }
-    match(C(1, 2)) {
+    })
+    Assert.isTrue(match (c) {
         case F.C(1, 2) => true
         case _ => false
-    }
-    match(C(1, 2)) {
+    })
+    Assert.isTrue(match (c) {
         case F.C(foo, 2) => true
         case _ => false
-    }
-    match(C(1, 2)) {
+    })
+    Assert.isTrue(match (c) {
         case F.C(_, 2) => true
         case _ => false
-    }
-    match(C(1, 2)) {
+    })
+    Assert.isTrue(match (c) {
         case F.C(_: Int64, 2) => true
         case _ => false
-    }
-    match(C(1, 2)) {
+    })
+    Assert.isTrue(match (c) {
         case F.C(foo: Int64, 2) => true
         case _ => false
-    }
+    })
 
-    match(D(EE(r'E'))) {
+    Assert.isTrue(match (d) {
         case D(EE(r'E')) => true
         case _ => false
-    }
-    match(D(EE(r'E'))) {
+    })
+    Assert.isTrue(match (d) {
         case F.D(EE(r'E')) => true
         case _ => false
-    }
-    match(D(EE(r'E'))) {
+    })
+    Assert.isTrue(match (d) {
         case F.D(foo) => true
         case _ => false
-    }
-    match(D(EE(r'E'))) {
+    })
+    Assert.isTrue(match (d) {
         case F.D(_) => true
         case _ => false
-    }
-    match(D(EE(r'E'))) {
+    })
+    Assert.isTrue(match (d) {
         case F.D(_: E) => true
         case _ => false
-    }
-    match(D(EE(r'E'))) {
+    })
+    Assert.isTrue(match (d) {
         case F.D(foo: E) => true
         case _ => false
-    }
-    match(D(EE(r'E'))) {
+    })
+    Assert.isTrue(match (d) {
         case F.D(EE(foo)) => true
         case _ => false
-    }
+    })
 
     return
 }

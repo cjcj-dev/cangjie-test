@@ -27,7 +27,7 @@
 import utils.assert.Assert
 
 main() {
-    let v = true
+    let v = Assert.getRuntimeZero() == 0
     match(v) {
         case false => Assert.fail()
         case _ => // Bool variable can be only `false` or `true`. If we here it means that v is true. So

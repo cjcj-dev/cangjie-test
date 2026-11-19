@@ -31,7 +31,7 @@ func fail(id: String)  { Assert.fail(reason: "Should not reach here: ${id}") }
 enum E { Foo(Int32, Bool) | Bar }
 
 main() {
-    var e1 = Bar
+    var e1: E = if (Assert.getRuntimeZero() == 0) { Bar } else { Foo(0, false) }
     while (let Foo(x, y) <- e1) {
         fail("1")
     }

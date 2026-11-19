@@ -34,14 +34,14 @@ main() {
   match (expr1) {
         case 0 => expr1++
                   expr2++
-        case _ => "fail"
+        case _ => Assert.fail()
     }
     Assert.equals(1, expr1);
     Assert.equals(1, expr2);
 
     match (expr2) {
         case 0 => expr1++; expr2++
-        case _ => "fail"
+        case _ => Assert.isTrue(expr2 != 0)
     }
     Assert.equals(1, expr1);
     Assert.equals(1, expr2);

@@ -23,6 +23,10 @@
 
 import utils.assert.Assert
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
 class C {
     static var s : Int64 = 0
 
@@ -51,7 +55,8 @@ main() {
     Assert.equals(3, C.s)
     S.s = 4
     Assert.equals(4, S.s)
-    var cq : ?C = C(1)
+    var cq : ?C = present(C(1))
     cq?.x = 5
     Assert.equals(5, cq?.x ?? 0)
+    Assert.isTrue(cq.getOrThrow() == C(5))
 }

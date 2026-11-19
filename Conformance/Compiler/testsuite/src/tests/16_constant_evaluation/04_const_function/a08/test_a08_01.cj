@@ -28,20 +28,35 @@ import utils.assert.Assert
 
 class C { }
 
-const func f(x: C) { 2 }
+const func f(x: C) {
+    let _ = x
+    2
+}
 
 struct S {
     let v: Int64
 
-    static const func sf(x: C) { 3 }
+    static const func sf(x: C) {
+        let _ = x
+        3
+    }
 
-    const func mf(x: C) { 4 }
+    const func mf(x: C) {
+        let _ = x
+        4
+    }
 
-    const init(x: C) { v = 5 }
+    const init(x: C) {
+        let _ = x
+        v = 5
+    }
 }
 
 main() {
-    const l = {x: C => 1}
+    const l = {x: C =>
+        let _ = x
+        1
+    }
     let c = C()
     Assert.equals(1, l(c))
     Assert.equals(2, f(c))

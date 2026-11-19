@@ -58,7 +58,8 @@ main() {
     Assert.equals(36, u)
 
     // Enum destructuring expression.
-    let v = match (E.A) {
+    let input: E = if (Assert.getRuntimeZero() == 0) { E.A } else { E.B }
+    let v = match (input) {
         case A => 1
         case B => 2
     }

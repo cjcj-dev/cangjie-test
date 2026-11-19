@@ -40,9 +40,13 @@
 
 import utils.assert.Assert
 
-class GetTupleKey {}
+class GetTupleKey {
+    let reverse = false
+}
 
-class GetFuncKey {}
+class GetFuncKey {
+    let answer = 9
+}
 
 struct S {
     func foo() {
@@ -58,22 +62,25 @@ struct S {
     }
 
     operator func() (fn: () -> Unit) {
+        fn()
         return 8
     }
 
     operator func() (x: GetFuncKey) {
-        return { => 9 }
+        return { => x.answer }
     }
 
     operator func() (x: GetTupleKey) {
-        return t
+        return if (x.reverse) { (t[1], t[0]) } else { getTuple() }
     }
 
     func getInvokableFromFun(fn: () -> Unit) {
+        fn()
         return { => 10 }
     }
 
     func getInvokableFromFunGeneric<T>(fn: () -> Unit) {
+        fn()
         return { => 11 }
     }
 
@@ -82,11 +89,17 @@ struct S {
     }
 
     func getTupleFromFun(fn: () -> Unit) {
+        fn()
         return t
     }
 
     var x: Int64 = 3
     var t: (Int64, Int64) = (4, 5)
+}
+
+class CallbackCounter {
+    var total = 0
+    func record() { total++ }
 }
 
 struct S2 {
@@ -97,6 +110,7 @@ main() {
     // NOTE: According to "5.3.3. Trailing lambda" trailing closure syntax can only be used on function calls with
     //       function/variable names. So, some invalid cases which are formally allowed by this syntax are ommited.
 
+    let callbacks = CallbackCounter()
     var s: ?S = S()
     var s2: ?S2 = S2()
 
@@ -131,7 +145,7 @@ main() {
     Assert.equals(2, x7.getOrThrow())
 
     // Case: itemAfterQuest = "trailingLambdaExpression"
-    let x8 = s?{}
+    let x8 = s?{ callbacks.record() }
     Assert.equals(8, x8.getOrThrow())
 
 
@@ -158,7 +172,7 @@ main() {
 
     // Case: itemAfterQuest = "trailingLambdaExpression"
     let f6 = s?.getInvokableFromFun
-    let y7 = f6?{}()
+    let y7 = f6?{ callbacks.record() }()
     Assert.equals(10, y7.getOrThrow())
 
 
@@ -167,19 +181,19 @@ main() {
     //
 
     // Case: itemAfterQuest = "'.' identifier"
-    let z1 = s?.getInvokableFromFun{}
+    let z1 = s?.getInvokableFromFun{ callbacks.record() }
     Assert.equals(10, z1.getOrThrow()())
 
     // Case: itemAfterQuest = "'.' identifier typeArguments"
-    let z2 = s?.getInvokableFromFunGeneric<String>{}
+    let z2 = s?.getInvokableFromFunGeneric<String>{ callbacks.record() }
     Assert.equals(11, z2.getOrThrow()())
 
     // Case: itemAfterQuest = "indexAccess"
     let zt4: ?((() -> Unit) -> Int64, (() -> Unit) -> Int64) = (
-        { x => 100 },
-        { x => 200 }
+        { x => x(); 100 },
+        { x => x(); 200 }
     )
-    let z5 = zt4?[0]({=>})
+    let z5 = zt4?[0]({=> callbacks.record() })
     Assert.equals(100, z5.getOrThrow())
 
 
@@ -188,19 +202,19 @@ main() {
     //
 
     // Case: itemAfterQuest = "'.' identifier"
-    let p1 = s?.getInvokableFromFun(){}
+    let p1 = s?.getInvokableFromFun(){ callbacks.record() }
     Assert.equals(10, p1.getOrThrow()())
 
     // Case: itemAfterQuest = "'.' identifier typeArguments"
-    let p2 = s?.getInvokableFromFunGeneric<String>(){}
+    let p2 = s?.getInvokableFromFunGeneric<String>(){ callbacks.record() }
     Assert.equals(11, p2.getOrThrow()())
 
     // Case: itemAfterQuest = "indexAccess"
     let pt4: ?((() -> Unit) -> Int64, (() -> Unit) -> Int64) = (
-        { x => 100 },
-        { x => 200 }
+        { x => x(); 100 },
+        { x => x(); 200 }
     )
-    let p5 = pt4?[0]({=>})
+    let p5 = pt4?[0]({=> callbacks.record() })
     Assert.equals(100, p5.getOrThrow())
 
 
@@ -226,7 +240,8 @@ main() {
 
     // Case: itemAfterQuest = "trailingLambdaExpression"
     let f5 = s?.getTupleFromFun
-    let q5 = f5?{}[0]
+    let q5 = f5?{ callbacks.record() }[0]
     Assert.equals(4, q5.getOrThrow())
+    Assert.equals(9, callbacks.total)
 }
 

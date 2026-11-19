@@ -40,7 +40,7 @@ class Foo {}
 
 extend Foo { // OK
     private func f() {}
-    func g() {}
+    func g() { f() }
 }
 
 extend Foo { // OK
@@ -49,4 +49,4 @@ extend Foo { // OK
     }
 }
 
-main() {}
+main() { Foo().h() }

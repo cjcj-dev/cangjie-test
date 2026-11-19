@@ -32,7 +32,8 @@ func check(id: String) { Assert.equals(msg, id); msg = "" }
 struct S { }
 class C { }
 enum E { Foo | Bar(Int32) }
-func f () {}
+var unitCalls = 0
+func f () { unitCalls++ }
 
 main() {
     while (let ((), x) <- ((), ())) {
@@ -55,11 +56,15 @@ main() {
     }
     check("3")
 
-    while (let (_, _) <- ((), ())) {
+    let units = (f(), f())
+    Assert.equals((), units[0])
+    Assert.equals((), units[1])
+    while (let (_, _) <- units) {
         visit("4")
         break
     }
     check("4")
+    Assert.equals(2, unitCalls)
 
     while (let ((a, b), (c, d), (e, f)) <- ((f, f), (S(), C()), (Foo, Bar(2)))) {
         visit("5")

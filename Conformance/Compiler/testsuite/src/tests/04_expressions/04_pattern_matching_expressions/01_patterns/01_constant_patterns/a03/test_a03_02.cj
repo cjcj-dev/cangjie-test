@@ -31,23 +31,23 @@ var v3 = 0.3
 
 main() {
     var m = match (v1) {
-        case 2 => Assert.fail(); 0
-        case 4 | 5 => Assert.fail(); 0
-        case 0 => Assert.fail(); 0
+        case 2 => Assert.fail()
+        case 4 | 5 => Assert.fail()
+        case 0 => Assert.fail()
         case _ => 1
     }
     Assert.equals(1, m)
 
     m = match (v2) {
-        case "AAA" => Assert.fail(); 0
-        case "aaa" => Assert.fail(); 0
+        case "AAA" => Assert.fail()
+        case "aaa" => Assert.fail()
         case _ => 1
     }
     Assert.equals(1, m)
 
     m = match (v3) {
-        case 0.2 => Assert.fail(); 0
-        case 0.1 => Assert.fail(); 0
+        case 0.2 => Assert.fail()
+        case 0.1 => Assert.fail()
         case _ => 1
     }
     Assert.equals(1, m)

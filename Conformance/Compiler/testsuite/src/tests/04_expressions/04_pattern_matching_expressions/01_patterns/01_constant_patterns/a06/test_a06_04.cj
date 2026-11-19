@@ -25,7 +25,7 @@
 import utils.assert.Assert
 
 main() {
-    var f: Float64 = (0.3 * 3.0) + 0.1
+    var f: Float64 = (0.3 * 3.0) + 0.1 + Float64(Assert.getRuntimeZero())
     match(f) {
         case 1.0 => Assert.fail()
         case _ => Assert.notEquals(1.0, f)

@@ -23,6 +23,10 @@
 
 import utils.assert.Assert
 
+func absent<T>(): Option<T> {
+    None
+}
+
 class C { 
     var x = 0
     C(y : Int64) {
@@ -31,7 +35,7 @@ class C {
 }
 
 func checkCoalescing<T>(x : T) where T <: Equatable<T> {
-    Assert.equals(x, Option<T>.None ?? x)
+    Assert.equals(x, absent<T>() ?? x)
 }
 
 main() {
@@ -49,9 +53,9 @@ main() {
     checkCoalescing("1")
     checkCoalescing(r'1')
     checkCoalescing(true)
-    let tuple = Option<(Int64, Int64)>.None ?? (2, 1)
+    let tuple = absent<(Int64, Int64)>() ?? (2, 1)
     Assert.equals(2, tuple[0])
     Assert.equals(1, tuple[1])
-    let obj = Option<C>.None ?? C(2)
+    let obj = absent<C>() ?? C(2)
     Assert.equals(C(2).x, obj.x)
 }

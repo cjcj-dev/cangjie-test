@@ -33,15 +33,18 @@ func foo(x : Int64, y : Int64) : Int64 {
 
 main() {
     var caught = false
+    var result: Option<Int64> = None
     var arr = [1, 2, 3, 4, 5]
     try {
         var x = 2
         var y = 3
         var z = foo(x, y)
         var v = arr[z]
+        result = Some(v)
     } catch (e: Exception) {
         caught = true
     }
     Assert.isTrue(caught)
+    Assert.isTrue(result.isNone())
 }
 

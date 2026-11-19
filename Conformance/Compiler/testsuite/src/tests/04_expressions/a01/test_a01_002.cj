@@ -60,17 +60,19 @@ func foo(): Future<Unit> {
         var unit = synchronized(mutex) { 
             cnt++ 
         }
+        Assert.equals((), unit)
     }
 }
 
 main(): Int64 {
-    i > 0
+    Assert.isFalse(i > 0)
     "abc" == "def"
 
     let unused = match("any") { 
         case _ => "a string" 
     }
 
+    Assert.equals("a string", unused)
     if(i != 0) { 
         println("Hello there")
     } else { 
@@ -100,13 +102,23 @@ main(): Int64 {
     i is Int8
     i as Int8
 
-    foo()
+    foo().get()
+    Assert.equals(1, cnt)
     
     C1().verifyExpression()
     C2().verifyExpression()
 
-    0..2
-    i..150 : 3
+    let action = simpleFunction
+    let tuple = getTuple
+    action()
+    Assert.equals(2, tuple(1, 2)[1])
+
+    var steps = 0
+    for (_ in 0..2) { steps++ }
+    Assert.equals(2, steps)
+    steps = 0
+    for (_ in i..150 : 3) { steps++ }
+    Assert.equals(50, steps)
 
     return 0
 }

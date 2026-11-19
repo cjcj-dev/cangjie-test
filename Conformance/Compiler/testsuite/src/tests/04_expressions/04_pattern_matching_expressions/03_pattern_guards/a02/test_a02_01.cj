@@ -24,9 +24,10 @@
 import utils.assert.Assert
 
 main() {
-    match (0) {
-        case 0 where false => Assert.fail()
-        case 0 where true => Assert.isTrue(true)
+    let zero = Assert.getRuntimeZero()
+    match (zero) {
+        case 0 where zero != 0 => Assert.fail()
+        case 0 where zero == 0 => Assert.isTrue(true)
         case _ => Assert.fail()
     }
 }

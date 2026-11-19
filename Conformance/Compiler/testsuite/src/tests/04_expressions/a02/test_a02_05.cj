@@ -75,7 +75,7 @@ func checkWildcardPattern() {
 }
 
 func checkBindingPattern() {
-    var score = 12
+    var score = 12 + Assert.getRuntimeZero()
     var previous = 5
     var result = match(score) { 
         case 1 => 2 
@@ -124,7 +124,7 @@ func checkEnumPattern() {
 }
   
 func checkPatternGuard() {
-    let score = 150
+    let score = 150 + Assert.getRuntimeZero()
     var isScored = true
     var result = match { 
         case score < 10 && isScored => "fail" 

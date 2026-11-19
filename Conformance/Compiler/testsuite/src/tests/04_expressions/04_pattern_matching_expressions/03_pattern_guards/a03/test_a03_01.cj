@@ -26,7 +26,7 @@
 import utils.assert.Assert
 
 main() {
-    let boolExpression = true
+    let boolExpression = Assert.getRuntimeZero() == 0
     match (0) {
         case pattern where boolExpression => Assert.equals(0, pattern)
         case _ => Assert.fail()

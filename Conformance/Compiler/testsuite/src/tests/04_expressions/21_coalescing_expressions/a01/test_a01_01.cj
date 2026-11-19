@@ -25,9 +25,18 @@
 
 import utils.assert.Assert
 
+func numeric(n: Int64): ?Int64 {
+    if (n == 0) { None } else { Some(2) }
+}
+
+func value(n: Int64): Any {
+    if (n == 0) { "321" } else { r'1' }
+}
+
 main() {
-    Assert.equals(4, Option<Int64>.None ?? 4)
-    Assert.equals(2, Some(2) ?? 1)
-    Assert.equals("321", "321" as String ?? "123")
-    Assert.equals("2", r'1' as String ?? "2")
+    let zero = Assert.getRuntimeZero()
+    Assert.equals(4, numeric(zero) ?? 4)
+    Assert.equals(2, numeric(zero + 1) ?? 1)
+    Assert.equals("321", value(zero) as String ?? "123")
+    Assert.equals("2", value(zero + 1) as String ?? "2")
 }

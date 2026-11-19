@@ -44,6 +44,14 @@
 
 import utils.assert.Assert
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
+func absent<T>(): Option<T> {
+    None
+}
+
 struct S {
     var xi: Int64 = 1812
     var xf: Float64 = 10.0
@@ -72,14 +80,14 @@ func equals<T>(x: Option<T>, y: Option<T>) where T <: Comparable<T> {
 func patternMatchCall<T>(x: Option<(T) -> T>, y: T) {
     match (x) {
         case Some(v) => Some(v(y))
-        case None => Option<T>.None
+        case None => absent<T>()
     }
 }
 
 func patternMatchIndexAccess<T>(x: Option<Array<T>>, y: Int64) {
     match (x) {
-        case Some(v) => Option<T>.Some(v[y])
-        case None => Option<T>.None
+        case Some(v) => present<T>(v[y])
+        case None => absent<T>()
     }
 }
 
@@ -88,43 +96,43 @@ main() {
     //
     // Case: 'a?.b'
     //
-    var s: ?S = Option<S>.Some(S())
+    var s: ?S = present<S>(S())
 
     let pmsxi = match (s) {
         case Some(t) => Some(t.xi)
-        case None => Option<Int64>.None
+        case None => absent<Int64>()
     }
     Assert.isTrue(equals(s?.xi, pmsxi))
 
     let pmsxf = match (s) {
         case Some(t) => Some(t.xf)
-        case None => Option<Float64>.None
+        case None => absent<Float64>()
     }
     Assert.isTrue(equals(s?.xf, pmsxf))
 
     let pmsxs = match (s) {
         case Some(t) => Some(t.xs)
-        case None => Option<String>.None
+        case None => absent<String>()
     }
     Assert.isTrue(equals(s?.xs, pmsxs))
 
-    var n: ?S = Option<S>.None
+    var n: ?S = absent<S>()
 
     let pmnxi = match (n) {
         case Some(t) => Some(t.xi)
-        case None => Option<Int64>.None
+        case None => absent<Int64>()
     }
     Assert.isTrue(equals(n?.xi, pmnxi))
 
     let pmnxf = match (n) {
         case Some(t) => Some(t.xf)
-        case None => Option<Float64>.None
+        case None => absent<Float64>()
     }
     Assert.isTrue(equals(n?.xf, pmnxf))
 
     let pmnxs = match (n) {
         case Some(t) => Some(t.xs)
-        case None => Option<String>.None
+        case None => absent<String>()
     }
     Assert.isTrue(equals(n?.xs, pmnxs))
 
@@ -138,9 +146,9 @@ main() {
     Assert.isTrue(equals(ff?(10.0), patternMatchCall(ff, 10.0)))
     Assert.isTrue(equals(fs?("hi"), patternMatchCall(fs, "hi")))
 
-    let gi = Option<(Int64) -> Int64>.None
-    let gf = Option<(Float64) -> Float64>.None
-    let gs = Option<(String) -> String>.None
+    let gi = absent<(Int64) -> Int64>()
+    let gf = absent<(Float64) -> Float64>()
+    let gs = absent<(String) -> String>()
     Assert.isTrue(equals(gi?(1709), patternMatchCall(gi, 1709)))
     Assert.isTrue(equals(gf?(10.0), patternMatchCall(gf, 10.0)))
     Assert.isTrue(equals(gs?("hi"), patternMatchCall(gs, "hi")))
@@ -155,9 +163,9 @@ main() {
     Assert.isTrue(equals(af?[1], patternMatchIndexAccess(af, 1)))
     Assert.isTrue(equals(aw?[1], patternMatchIndexAccess(aw, 1)))
 
-    var bi = Option<Array<Int64>>.None
-    var bf = Option<Array<Float64>>.None
-    var bw = Option<Array<String>>.None
+    var bi = absent<Array<Int64>>()
+    var bf = absent<Array<Float64>>()
+    var bw = absent<Array<String>>()
     Assert.isTrue(equals(bi?[1], patternMatchIndexAccess(bi, 1)))
     Assert.isTrue(equals(bf?[1], patternMatchIndexAccess(bf, 1)))
     Assert.isTrue(equals(bw?[1], patternMatchIndexAccess(bw, 1)))

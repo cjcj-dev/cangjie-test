@@ -26,32 +26,33 @@
 import utils.assert.Assert
 
 main() {
-    Assert.isTrue(match ((1, 2)) {
+    let zero = Assert.getRuntimeZero()
+    Assert.isTrue(match ((1 + zero, 2)) {
         case (1, 2) => true
         case _ => false
     })
 
-    Assert.isTrue(match ((1, 2, 3)) {
+    Assert.isTrue(match ((1 + zero, 2, 3)) {
         case (1, 2, 3) => true
         case _ => false
     })
 
-    Assert.isTrue(match ((1, 2, 3, 4)) {
+    Assert.isTrue(match ((1 + zero, 2, 3, 4)) {
         case (1, 2, 3, 4) => true
         case _ => false
     })
 
-    Assert.isTrue(match ((1, 2)) {
+    Assert.isTrue(match ((1 + zero, 2)) {
         case (1, a) => true
         case _ => false
     })
 
-    Assert.isTrue(match ((1, 2, 3)) {
+    Assert.isTrue(match ((1, 2 + zero, 3)) {
         case (a, 2, 3) => true
         case _ => false
     })
 
-    Assert.isTrue(match ((1, 2, 3, 4)) {
+    Assert.isTrue(match ((1 + zero, 2, 3, 4)) {
         case (a, b, c, d) => true
     })
     return

@@ -27,6 +27,14 @@
 
 import utils.assert.Assert
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
+func absent<T>(): Option<T> {
+    None
+}
+
 class C { 
     var x = 0
     C(y : Int64) {
@@ -35,11 +43,11 @@ class C {
 }
 
 func getMatches<T>(x : T, y : T) {
-    let some = match (Some(x)) {
+    let some = match (present(x)) {
         case Some(v) => v
         case None => throw(Exception("Should not be evaluated"))
     }
-    let none = match (Option<T>.None) {
+    let none = match (absent<T>()) {
         case Some(v) => v
         case None => y
     }
@@ -50,8 +58,8 @@ func getMatches<T>(x : T, y : T) {
 
 func checkMatches<T>(x : T, y : T) where T <: Equatable<T> {
     let pair = getMatches(x, y)
-    Assert.equals(pair[0], Option<T>.Some(x) ?? throw(Exception("Should not be evaluated")))
-    Assert.equals(pair[1], Option<T>.None ?? y)
+    Assert.equals(pair[0], present<T>(x) ?? throw(Exception("Should not be evaluated")))
+    Assert.equals(pair[1], absent<T>() ?? y)
 }
 
 main() {
@@ -70,8 +78,8 @@ main() {
     checkMatches(r'1', r'0')
     checkMatches(true, false)
     let tupleMatches = getMatches((1, 2), (2, 1))
-    let tupleSome = Some((1, 2)) ?? (2, 1)
-    let tupleNone = Option<(Int64, Int64)>.None ?? (2, 1)
+    let tupleSome = present((1, 2)) ?? (2, 1)
+    let tupleNone = absent<(Int64, Int64)>() ?? (2, 1)
     Assert.equals(tupleSome[0], tupleMatches[0][0])
     Assert.equals(tupleSome[1], tupleMatches[0][1])
     Assert.equals(tupleNone[0], tupleMatches[1][0])

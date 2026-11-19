@@ -25,7 +25,11 @@ import utils.assert.Assert
 
 func empty() {}
 
-func with_params(i: Int64, j: Int32, name: String) {}
+func with_params(i: Int64, j: Int32, name: String) {
+    Assert.equals(7, i)
+    Assert.equals(3i32, j)
+    Assert.equals("argument", name)
+}
 
 func with_return(): Int64 {
     Assert.getRuntimeZero()
@@ -36,7 +40,7 @@ func generic<T>(): Int64 {
 }
 
 func complex<T1, T2, T3>(a: T1, b: T2, c: T3): T3 {
-    c
+    (a, b, c)[2]
 }
 
 func checkSimpleClosure(f: () -> Unit) {
@@ -59,6 +63,12 @@ main() {
     var c3: () -> Int64 = with_return
     var c4: () -> Int64 = generic<Int64>
     var c5: (Int8, Int16, Int32) -> Int32 = complex<Int8, Int16, Int32>
+
+    checkSimpleClosure(c1)
+    Assert.equals((), c2(7, 3i32, "argument"))
+    Assert.equals(0, c3())
+    Assert.equals(1, c4())
+    Assert.equals(42i32, c5(7i8, 3i16, 42i32))
 
     return
 }

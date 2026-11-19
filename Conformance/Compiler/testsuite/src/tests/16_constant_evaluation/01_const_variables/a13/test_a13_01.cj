@@ -72,5 +72,10 @@ main(): Int64 {
     Assert.equals(0, v.a)
     Assert.equals(0, v.b)
     Assert.equals(0, Foo.c)
+
+    var mutable = Foo()
+    mutable.f3()
+    Assert.equals(123, mutable.b)
+    Assert.equals(0, v.b)
     return 0
 }

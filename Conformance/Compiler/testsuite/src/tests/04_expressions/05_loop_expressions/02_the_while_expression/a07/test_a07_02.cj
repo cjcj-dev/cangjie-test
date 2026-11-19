@@ -61,5 +61,6 @@ main() {
     while (let b'A' <- b'A') { visit("match_char_byte"); break }
     check("match_char_byte")
 
-    while (let b'Z' <- b'A') { fail("no_match_char_byte") }
+    let byte = b'A' + UInt8(Assert.getRuntimeZero())
+    while (let b'Z' <- byte) { fail("no_match_char_byte") }
 }

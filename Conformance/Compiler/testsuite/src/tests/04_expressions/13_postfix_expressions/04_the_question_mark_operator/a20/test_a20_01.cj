@@ -24,6 +24,10 @@
 
 import utils.assert.Assert
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
 class A {
     init() {
         b = 0
@@ -33,7 +37,7 @@ class A {
 }
 
 main() {
-    var a: ?A = A()
+    var a: ?A = present(A())
     Assert.equals(0, a?.b ?? 42)
     a?.b = 9  // Should be mutated.
     Assert.equals(9, a?.b ?? 42)

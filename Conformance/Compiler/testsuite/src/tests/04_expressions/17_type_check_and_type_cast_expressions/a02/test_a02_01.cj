@@ -26,6 +26,8 @@
 
 */
 
+import utils.assert.Assert
+
 main() {
     let expr = 1.0
     -expr as Int64
@@ -35,10 +37,13 @@ main() {
     expr / expr as Float64
     Int64(expr) % Int64(expr) << 1 as UInt64
     expr + expr is (Rune, Bool)
-    expr as Int32 ?? 5 - (expr as Int32 ?? 6)
+    let useFloat = Assert.getRuntimeZero() == 0
+    let offset: Any = if (useFloat) { expr } else { 2i32 }
+    Assert.equals(-1, offset as Int32 ?? 5 - (offset as Int32 ?? 6))
     Int64(expr) << Int64(expr)
     -(-expr) ** expr as Unit
     -(-expr) ** expr ** expr is Bool
-    expr is Bool && (expr + expr) is Array<String>
+    let kinds: Any = if (useFloat) { expr } else { true }
+    Assert.isFalse(kinds is Bool && (expr + expr) is Array<String>)
     0
 }

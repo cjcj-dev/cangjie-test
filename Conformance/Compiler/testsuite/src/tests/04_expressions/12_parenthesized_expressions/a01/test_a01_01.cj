@@ -43,7 +43,8 @@ main(inp: Array<String>) {
     Assert.equals(1, x2)
 
     // Pattern matching parenthesized expression.
-    let a = (match (E.A) {
+    let input: E = if (Assert.getRuntimeZero(inp) == 0) { E.A } else { E.B }
+    let a = (match (input) {
         case A => 1
         case B => 2
     })

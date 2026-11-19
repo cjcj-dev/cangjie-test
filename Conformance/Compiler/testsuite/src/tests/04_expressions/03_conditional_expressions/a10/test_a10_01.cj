@@ -33,9 +33,13 @@
 
 import utils.assert.Assert
 
+func present<T>(value: T): Option<T> {
+    Some(value)
+}
+
 
 main(ina :Array<String>) {
-    let x: Option<Int32> = Option<Int32>.Some(100)
+    let x: Option<Int32> = present<Int32>(100 + Int32(Assert.getRuntimeZero(ina)))
     if (let Some(v) <- x) {
         Assert.equals(100, v)
     } else {

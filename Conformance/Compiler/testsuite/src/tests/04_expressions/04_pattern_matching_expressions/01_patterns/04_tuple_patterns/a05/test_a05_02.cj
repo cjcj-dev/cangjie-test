@@ -27,7 +27,8 @@ import utils.assert.Assert
 enum E { A | B }
 
 main() {
-    Assert.isTrue(match ((A, B)) {
+    let choice: E = if (Assert.getRuntimeZero() == 0) { A } else { B }
+    Assert.isTrue(match ((choice, B)) {
         case (A, B) => true
         case _ => false
     })

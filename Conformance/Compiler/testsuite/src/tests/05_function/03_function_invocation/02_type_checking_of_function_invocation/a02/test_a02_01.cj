@@ -29,44 +29,50 @@
 import utils.assert.Assert
 
 class myClass {
-    func myFunc0(a: Int32) {"myClass.myFunc0(a: Int32)"}
-    func myFunc0(a: Rune) {"myClass.myFunc0(a: Rune)"}
-    func myFunc0(a: Bool) {"myClass.myFunc0(a: Bool)"}
+    func myFunc0(a: Int32) {Assert.equals(1, [a].size); "myClass.myFunc0(a: Int32)"}
+    func myFunc0(a: Rune) {Assert.equals(1, [a].size); "myClass.myFunc0(a: Rune)"}
+    func myFunc0(a: Bool) {Assert.equals(1, [a].size); "myClass.myFunc0(a: Bool)"}
 
-    func myFunc1(a!: Int32, b!: Int64) {"myClass.myFunc1(a!: Int32, b!: Int64)"}
-    func myFunc1(a!: Int64, b!: Int32) {"myClass.myFunc1(a!: Int64, b!: Int32)"}
-    func myFunc1(a!: Int32, b!: String) {"myClass.myFunc1(a!: Int32, b!: String)"}
-    func myFunc1(a!: Int32, b!: Bool) {"myClass.myFunc1(a!: Int32, b!: Bool)"}
+    func myFunc1(a!: Int32, b!: Int64) {Assert.equals(1, [(a, b)].size); "myClass.myFunc1(a!: Int32, b!: Int64)"}
+    func myFunc1(a!: Int64, b!: Int32) {Assert.equals(1, [(a, b)].size); "myClass.myFunc1(a!: Int64, b!: Int32)"}
+    func myFunc1(a!: Int32, b!: String) {Assert.equals(1, [(a, b)].size); "myClass.myFunc1(a!: Int32, b!: String)"}
+    func myFunc1(a!: Int32, b!: Bool) {Assert.equals(1, [(a, b)].size); "myClass.myFunc1(a!: Int32, b!: Bool)"}
 
     func myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Bool>) {
+        Assert.equals(1, [(a, b, c, d)].size)
         "myClass.myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Bool>)"
     }
-    func myFunc2(a: Int32, b: Int64, c: Bool, d: Bool) {"myClass.myFunc2(a: Int32, b: Int64, c: Bool, d: Bool)"}
+    func myFunc2(a: Int32, b: Int64, c: Bool, d: Bool) {Assert.equals(1, [(a, b, c, d)].size); "myClass.myFunc2(a: Int32, b: Int64, c: Bool, d: Bool)"}
     func myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Int32>) {
+        Assert.equals(1, [(a, b, c, d)].size)
         "myClass.myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Int32>)"
     }
     func myFunc2(a: Int32, b: Int64, c: Bool, d: Array<String>) {
+        Assert.equals(1, [(a, b, c, d)].size)
         "myClass.myFunc2(a: Int32, b: Int64, c: Bool, d: Array<String>)"
     }
 }
 
 struct myStruct {
-    func myFunc0(a: Int32) {"myStruct.myFunc0(a: Int32)"}
-    func myFunc0(a: Rune) {"myStruct.myFunc0(a: Rune)"}
-    func myFunc0(a: Bool) {"myStruct.myFunc0(a: Bool)"}
+    func myFunc0(a: Int32) {Assert.equals(1, [a].size); "myStruct.myFunc0(a: Int32)"}
+    func myFunc0(a: Rune) {Assert.equals(1, [a].size); "myStruct.myFunc0(a: Rune)"}
+    func myFunc0(a: Bool) {Assert.equals(1, [a].size); "myStruct.myFunc0(a: Bool)"}
 
-    func myFunc1(a: Int32, b: Int64) {"myStruct.myFunc1(a: Int32, b: Int64)"}
-    func myFunc1(a: Int32, b: String) {"myStruct.myFunc1(a: Int32, b: String)"}
-    func myFunc1(a: Int32, b: Bool) {"myStruct.myFunc1(a: Int32, b: Bool)"}
+    func myFunc1(a: Int32, b: Int64) {Assert.equals(1, [(a, b)].size); "myStruct.myFunc1(a: Int32, b: Int64)"}
+    func myFunc1(a: Int32, b: String) {Assert.equals(1, [(a, b)].size); "myStruct.myFunc1(a: Int32, b: String)"}
+    func myFunc1(a: Int32, b: Bool) {Assert.equals(1, [(a, b)].size); "myStruct.myFunc1(a: Int32, b: Bool)"}
 
     func myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Bool>) {
+        Assert.equals(1, [(a, b, c, d)].size)
         "myStruct.myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Bool>)"
     }
-    func myFunc2(a: Int32, b: Int64, c: Bool, d: Bool) {"myStruct.myFunc2(a: Int32, b: Int64, c: Bool, d: Bool)"}
+    func myFunc2(a: Int32, b: Int64, c: Bool, d: Bool) {Assert.equals(1, [(a, b, c, d)].size); "myStruct.myFunc2(a: Int32, b: Int64, c: Bool, d: Bool)"}
     func myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Int32>) {
+        Assert.equals(1, [(a, b, c, d)].size)
         "myStruct.myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Int32>)"
     }
     func myFunc2(a: Int32, b: Int64, c: Bool, d: Array<String>) {
+        Assert.equals(1, [(a, b, c, d)].size)
         "myStruct.myFunc2(a: Int32, b: Int64, c: Bool, d: Array<String>)"
     }
 }
@@ -74,48 +80,70 @@ struct myStruct {
 enum myEnum {
 	E
 	
-    func myFunc0(a: Int32) {"myEnum.myFunc0(a: Int32)"}
-    func myFunc0(a: Rune) {"myEnum.myFunc0(a: Rune)"}
-    func myFunc0(a: Bool) {"myEnum.myFunc0(a: Bool)"}
+    func myFunc0(a: Int32) {Assert.equals(1, [a].size); "myEnum.myFunc0(a: Int32)"}
+    func myFunc0(a: Rune) {Assert.equals(1, [a].size); "myEnum.myFunc0(a: Rune)"}
+    func myFunc0(a: Bool) {Assert.equals(1, [a].size); "myEnum.myFunc0(a: Bool)"}
 
-    func myFunc1(a: Int32, b: Int64) {"myEnum.myFunc1(a: Int32, b: Int64)"}
-    func myFunc1(a: Int32, b: String) {"myEnum.myFunc1(a: Int32, b: String)"}
-    func myFunc1(a: Int32, b: Bool) {"myEnum.myFunc1(a: Int32, b: Bool)"}
+    func myFunc1(a: Int32, b: Int64) {Assert.equals(1, [(a, b)].size); "myEnum.myFunc1(a: Int32, b: Int64)"}
+    func myFunc1(a: Int32, b: String) {Assert.equals(1, [(a, b)].size); "myEnum.myFunc1(a: Int32, b: String)"}
+    func myFunc1(a: Int32, b: Bool) {Assert.equals(1, [(a, b)].size); "myEnum.myFunc1(a: Int32, b: Bool)"}
 
     func myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Bool>) {
+        Assert.equals(1, [(a, b, c, d)].size)
         "myEnum.myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Bool>)"
     }
-    func myFunc2(a: Int32, b: Int64, c: Bool, d: Bool) {"myEnum.myFunc2(a: Int32, b: Int64, c: Bool, d: Bool)"}
+    func myFunc2(a: Int32, b: Int64, c: Bool, d: Bool) {Assert.equals(1, [(a, b, c, d)].size); "myEnum.myFunc2(a: Int32, b: Int64, c: Bool, d: Bool)"}
     func myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Int32>) {
+        Assert.equals(1, [(a, b, c, d)].size)
         "myEnum.myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Int32>)"
     }
     func myFunc2(a: Int32, b: Int64, c: Bool, d: Array<String>) {
+        Assert.equals(1, [(a, b, c, d)].size)
         "myEnum.myFunc2(a: Int32, b: Int64, c: Bool, d: Array<String>)"
     }
 }
 
-func myFunc0(a: Int32) {"myFunc0(a: Int32)"}
-func myFunc0(a: Rune) {"myFunc0(a: Rune)"}
-func myFunc0(a: Bool) {"myFunc0(a: Bool)"}
+func myFunc0(a: Int32) {Assert.equals(1, [a].size); "myFunc0(a: Int32)"}
+func myFunc0(a: Rune) {Assert.equals(1, [a].size); "myFunc0(a: Rune)"}
+func myFunc0(a: Bool) {Assert.equals(1, [a].size); "myFunc0(a: Bool)"}
 
-func myFunc1(a: Int32, b: Int64) {"myFunc1(a: Int32, b: Int64)"}
-func myFunc1(a: Int32, b: String) {"myFunc1(a: Int32, b: String)"}
-func myFunc1(a: Int32, b: Bool) {"myFunc1(a: Int32, b: Bool)"}
+func myFunc1(a: Int32, b: Int64) {Assert.equals(1, [(a, b)].size); "myFunc1(a: Int32, b: Int64)"}
+func myFunc1(a: Int32, b: String) {Assert.equals(1, [(a, b)].size); "myFunc1(a: Int32, b: String)"}
+func myFunc1(a: Int32, b: Bool) {Assert.equals(1, [(a, b)].size); "myFunc1(a: Int32, b: Bool)"}
 
 func myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Bool>) {
+    Assert.equals(1, [(a, b, c, d)].size)
     "myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Bool>)"
 }
 func myFunc2(a: Int32, b: Int64, c: Bool, d: Bool) {
+    Assert.equals(1, [(a, b, c, d)].size)
     "myFunc2(a: Int32, b: Int64, c: Bool, d: Bool)"
 }
 func myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Int32>) {
+    Assert.equals(1, [(a, b, c, d)].size)
     "myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Int32>)"
 }
 func myFunc2(a: Int32, b: Int64, c: Bool, d: Array<String>) {
+    Assert.equals(1, [(a, b, c, d)].size)
     "myFunc2(a: Int32, b: Int64, c: Bool, d: Array<String>)"
 }
 
+func matchTypeArity<T>(x: T) {
+    Assert.equals(1, [x].size)
+    1
+}
+
+func matchTypeArity<T, U>(x: T, extra!: Option<U> = None) {
+    Assert.equals(1, [x].size)
+    Assert.isTrue(extra.isNone())
+    2
+}
+
 main() {
+    // Both declarations accept the same single value argument.
+    Assert.equals(1, matchTypeArity<Int64>(23), reason: "one explicit type argument")
+    Assert.equals(2, matchTypeArity<Int64, Bool>(23), reason: "two explicit type arguments")
+
     Assert.equals("myFunc0(a: Bool)", myFunc0(true))
     Assert.notEquals("myFunc0(a: Rune)", myFunc0(true))
     Assert.notEquals("myFunc0(a: Int32)", myFunc0(true))
@@ -210,4 +238,34 @@ main() {
         myEnum.E.myFunc2(12, 64, false, [true]))
     Assert.notEquals("myEnum.myFunc2(a: Int32, b: Int64, c: Bool, d: Bool)", 
         myEnum.E.myFunc2(12, 64, false, [true]))
+
+    let wide: Int64 = 40
+    let narrow: Int32 = 5
+    let ints: Array<Int32> = [1, 2]
+    let strings: Array<String> = ["text"]
+    Assert.equals("myClass.myFunc1(a!: Int64, b!: Int32)", myClassImpl.myFunc1(a: wide, b: narrow))
+    Assert.equals("myClass.myFunc0(a: Int32)", myClassImpl.myFunc0(narrow))
+    Assert.equals("myClass.myFunc0(a: Rune)", myClassImpl.myFunc0(r'k'))
+    Assert.equals("myClass.myFunc1(a!: Int32, b!: String)", myClassImpl.myFunc1(a: narrow, b: "text"))
+    Assert.equals("myClass.myFunc1(a!: Int32, b!: Bool)", myClassImpl.myFunc1(a: narrow, b: true))
+    Assert.equals("myClass.myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Int32>)", myClassImpl.myFunc2(narrow, wide, false, ints))
+    Assert.equals("myClass.myFunc2(a: Int32, b: Int64, c: Bool, d: Array<String>)", myClassImpl.myFunc2(narrow, wide, false, strings))
+    Assert.equals("myStruct.myFunc0(a: Int32)", myStructImpl.myFunc0(narrow))
+    Assert.equals("myStruct.myFunc0(a: Rune)", myStructImpl.myFunc0(r'k'))
+    Assert.equals("myStruct.myFunc1(a: Int32, b: String)", myStructImpl.myFunc1(narrow, "text"))
+    Assert.equals("myStruct.myFunc1(a: Int32, b: Bool)", myStructImpl.myFunc1(narrow, true))
+    Assert.equals("myStruct.myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Int32>)", myStructImpl.myFunc2(narrow, wide, false, ints))
+    Assert.equals("myStruct.myFunc2(a: Int32, b: Int64, c: Bool, d: Array<String>)", myStructImpl.myFunc2(narrow, wide, false, strings))
+    Assert.equals("myEnum.myFunc0(a: Int32)", myEnum.E.myFunc0(narrow))
+    Assert.equals("myEnum.myFunc0(a: Rune)", myEnum.E.myFunc0(r'k'))
+    Assert.equals("myEnum.myFunc1(a: Int32, b: String)", myEnum.E.myFunc1(narrow, "text"))
+    Assert.equals("myEnum.myFunc1(a: Int32, b: Bool)", myEnum.E.myFunc1(narrow, true))
+    Assert.equals("myEnum.myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Int32>)", myEnum.E.myFunc2(narrow, wide, false, ints))
+    Assert.equals("myEnum.myFunc2(a: Int32, b: Int64, c: Bool, d: Array<String>)", myEnum.E.myFunc2(narrow, wide, false, strings))
+    Assert.equals("myFunc0(a: Int32)", myFunc0(narrow))
+    Assert.equals("myFunc0(a: Rune)", myFunc0(r'k'))
+    Assert.equals("myFunc1(a: Int32, b: String)", myFunc1(narrow, "text"))
+    Assert.equals("myFunc1(a: Int32, b: Bool)", myFunc1(narrow, true))
+    Assert.equals("myFunc2(a: Int32, b: Int64, c: Bool, d: Array<Int32>)", myFunc2(narrow, wide, false, ints))
+    Assert.equals("myFunc2(a: Int32, b: Int64, c: Bool, d: Array<String>)", myFunc2(narrow, wide, false, strings))
 }

@@ -85,19 +85,23 @@
 
 */
 
+import utils.assert.Assert
+
 import std.sync.*  // Concurrency
-import std.time.* // Duration
 
 class BoundedQueue {
     // Create a MultiConditionMonitor, two Conditions.
     let m = Mutex()
     var notFull: Condition
     var notEmpty: Condition
+    private var waitStarted: Condition
+    private var fullWaits = 0
+    private var emptyWaits = 0
     var count: Int64 // Object count in buffer.
     var head: Int64  // Write index.
     var tail: Int64  // Read index.
     // Queue's length is 100.
-    let items: Array<Object> = Array<Object>(100, {i => Object()})
+    let items: Array<Object> = Array<Object>(100, {_ => Object()})
 
     init() {
         count = 0
@@ -106,6 +110,7 @@ class BoundedQueue {
         synchronized(m) {
             notFull  = m.condition()
             notEmpty = m.condition()
+            waitStarted = m.condition()
         }
     }
 
@@ -115,6 +120,8 @@ class BoundedQueue {
         synchronized(m) {
             while (count == 100) {
                 // If the queue is full, wait for the "queue notFull" event.
+                fullWaits++
+                waitStarted.notify()
                 notFull.wait()
             }
             items[head] = x
@@ -130,12 +137,29 @@ class BoundedQueue {
         } // Release the mutex.
     }
 
+    func expectWaiting(whenFull: Bool) {
+        synchronized(m) {
+            Assert.isTrue(waitStarted.waitUntil({ =>
+                (if (whenFull) { fullWaits } else { emptyWaits }) > 0
+            }, timeout: Duration.second * 5), reason: "worker did not enter the queue wait")
+            // The worker signalled under m; we can own m only after it releases m.
+            // No opposing operation has run, so the boundary must still hold.
+            if (whenFull) {
+                Assert.equals(100, count, reason: "put must remain blocked while full")
+            } else {
+                Assert.equals(0, count, reason: "get must remain blocked while empty")
+            }
+        }
+    }
+
     // Pop an object, if the queue is empty, block the current thread.
     public func get(): Object {
         // Acquire the mutex.
         synchronized(m) {
             while (count == 0) {
                 // If the queue is empty, wait for the "queue notEmpty" event.
+                emptyWaits++
+                waitStarted.notify()
                 notEmpty.wait()
             }
             let x: Object = items[tail]
@@ -165,19 +189,51 @@ class Item <: ToString {
     }
 }
 
+func checkEmptyWait() {
+    let queue = BoundedQueue()
+    let getter = spawn { queue.get() }
+    queue.expectWaiting(false)
+    queue.put(Item(17))
+    try {
+        Assert.equals(17, (getter.get(Duration.second * 5) as Item).getOrThrow().i, reason: "get resumes after put")
+    } catch (_: TimeoutException) {
+        Assert.fail(reason: "put did not wake the waiting get")
+    }
+}
+
+func checkFullWait() {
+    let queue = BoundedQueue()
+    for (i in 0..100) {
+        queue.put(Item(i))
+    }
+    let putter = spawn { queue.put(Item(100)) }
+    queue.expectWaiting(true)
+    Assert.equals(0, (queue.get() as Item).getOrThrow().i, reason: "get creates space for put")
+    try {
+        putter.get(Duration.second * 5)
+    } catch (_: TimeoutException) {
+        Assert.fail(reason: "get did not wake the waiting put")
+    }
+    for (i in 1..101) {
+        Assert.equals(i, (queue.get() as Item).getOrThrow().i)
+    }
+}
+
 main(): Int64 {
+    checkEmptyWait()
+    checkFullWait()
+
     let iters = 1000
     let queue = BoundedQueue()
     let producer = spawn {
         for (i in 0..iters) {
             queue.put(Item(i))
-            sleep(Duration.nanosecond * 10) // take a break
         }
     }
     let consumer = spawn {
         for (i in 0..iters) {
             let item = queue.get() as Item
-            sleep(Duration.nanosecond * 10) // take a break
+            Assert.equals(i, item.getOrThrow().i)
         }
     }
 

@@ -34,7 +34,11 @@ open class Klass {
     func foo(x: Float32) {
         x
     }
+    func foo(x: Float64): Float32 {
+        Float32(x) + 1.0f32
+    }
     func goo(x: Float64) {
+        Assert.equals(1, [x].size)
         Assert.fail()
     }
     
@@ -42,7 +46,13 @@ open class Klass {
 }
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     var kl:Klass = Klass();
-    Assert.equals(0.15f32, kl.foo(0.15f32))
+    let argument32: Float32 = 0.15f32
+    let argument64: Float64 = 0.15f64
+    Assert.equals(0.15f32, kl.foo(argument32))
+    Assert.equals(Float32(argument64) + 1.0f32, kl.foo(argument64))
+    let rejected: (Float64) -> Unit = kl.goo
+    Assert.equals(1, [rejected].size)
     0
 }

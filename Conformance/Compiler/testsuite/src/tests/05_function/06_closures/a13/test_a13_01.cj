@@ -67,7 +67,18 @@ func test2() {
     Assert.equals(6, g())
 
     // Usage as an expression.
-    { => global * 2 }
+    let expression: () -> Int64 = if (g() == 6) {
+        { => global * 2 }
+    } else {
+        { => -global * 2 }
+    }
+    // The branch produced a closure, so it reads the state at invocation.
+    let previous = global
+    global = 5
+    let updated = expression()
+    global = previous
+    Assert.equals(10, updated, reason: "lambda expression reads updated global")
+    Assert.equals(6, expression())
 
     // Usage as an argument.
     var x = callMe({ => global * 2 })
@@ -111,9 +122,21 @@ class C {
     func test4() {
         // Assignment to a variable.
         let g = { => s * 2 }
+        Assert.equals(6, g())
 
         // Usage as an expression.
-        { => s * 2 }
+        let expression: () -> Int64 = if (g() == 6) {
+            { => s * 2 }
+        } else {
+            { => -s * 2 }
+        }
+        // The branch produced a closure, so it reads the state at invocation.
+        let previous = s
+        s = 5
+        let updated = expression()
+        s = previous
+        Assert.equals(10, updated, reason: "lambda expression reads updated s")
+        Assert.equals(6, expression())
 
         // Usage as an argument.
         var x = callMe({ => s * 2 })
@@ -152,9 +175,21 @@ class C {
     func test6() {
         // Assignment to a variable.
         let g = { => m * 2 }
+        Assert.equals(6, g())
 
         // Usage as an expression.
-        { => m * 2 }
+        let expression: () -> Int64 = if (g() == 6) {
+            { => m * 2 }
+        } else {
+            { => -m * 2 }
+        }
+        // The branch produced a closure, so it reads the state at invocation.
+        let previous = m
+        m = 5
+        let updated = expression()
+        m = previous
+        Assert.equals(10, updated, reason: "lambda expression reads updated m")
+        Assert.equals(6, expression())
 
         // Usage as an argument.
         var x = callMe({ => m * 2 })

@@ -57,12 +57,15 @@ func SCheck(arg:Int64) {
         Assert.equals(0x60006B0A, arg)
     }
      func SCheck(arg:MyInt8,b!: Bool = false) {
+        Assert.equals(0, arg.my)
         Assert.isTrue(b)
     }
     func SCheck(arg:MyInt16,b!: Bool = false) {
+        Assert.equals(0, arg.my)
         Assert.isTrue(b)
     }
     func SCheck(arg:MyInt32,b!: Bool = false) {
+        Assert.equals(0, arg.my)
         Assert.isTrue(b)
     }
     let i8 = Int8(arg & 0xff)
@@ -71,14 +74,9 @@ func SCheck(arg:Int64) {
     SCheck(i8) 
     SCheck(i16) 
     SCheck(i32) 
-    if (arg == 0) {
-        let mi8 = MyInt8(i8)
-        let mi16 = MyInt16(i16)
-        let mi32 = MyInt32(i32)
-        SCheck(mi8) 
-        SCheck(mi16) 
-        SCheck(mi32) 
-    }
+    SCheck(MyInt8(0), b: true)
+    SCheck(MyInt16(0), b: true)
+    SCheck(MyInt32(0), b: true)
 
 }
 
@@ -98,11 +96,36 @@ func SCheck(arg:Int32) {
 
 
 func SCheck(arg:MyInt32,b!: Bool = false) {
+    Assert.equals(17, arg.my)
     Assert.isTrue(b)
 }
+interface LeftCandidate {
+    func leftTag(): Int64
+}
+
+interface RightCandidate {
+    func rightTag(): Int64
+}
+
+class BothCandidates <: LeftCandidate & RightCandidate {
+    public func leftTag(): Int64 { 1 }
+    public func rightTag(): Int64 { 2 }
+}
+
+func SCheck(value: LeftCandidate) { value.leftTag() }
+func SCheck(value: RightCandidate) { value.rightTag() }
+
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     SCheck(0x04030201i32)
     SCheck(0x6111111160006B0Ai64)
+    SCheck(MyInt32(17), b: true)
+    let both = BothCandidates()
+    let left: LeftCandidate = both
+    let right: RightCandidate = both
+    // A call with static type BothCandidates is ambiguous; each view is unique.
+    Assert.equals(1, SCheck(left), reason: "left-only match")
+    Assert.equals(2, SCheck(right), reason: "right-only match")
     0
 }
 

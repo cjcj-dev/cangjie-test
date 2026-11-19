@@ -116,11 +116,31 @@ func SCheck(a:Base) {
 
 
 func SCheck(a:Sub,b!: Bool = false) {
+    Assert.equals(0x0201, a.Ki16)
     Assert.isTrue(b)
 }
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     var b32 : Base = Base(0x04030201i32)
     SCheck(b32)
+    SCheck(Sub(0x0201i16), b: true)
+
+    func nearest(a: Base) {
+        Assert.equals(1, a.i16)
+        1
+    }
+
+    func nearest(a: Sub, b!: Bool = true) {
+        Assert.equals(2, a.Ki16)
+        Assert.isTrue(b)
+        2
+    }
+
+    // The argument is viable for both same-scope overloads; the label is omitted.
+    let sub = Sub(2i16)
+    let base: Base = sub
+    Assert.equals(2, nearest(sub), reason: "closest match with default argument")
+    Assert.equals(1, nearest(base), reason: "base-typed control")
     0
 }
 

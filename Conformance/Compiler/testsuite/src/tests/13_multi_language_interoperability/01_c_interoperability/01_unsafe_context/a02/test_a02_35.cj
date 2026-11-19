@@ -45,4 +45,5 @@ class C <: B {
 main() {
     var Value : B = unsafe { var V : C = C(); V };
     Assert.equals(777, Value.getB());
+    Assert.equals(666, (Value as C).getOrThrow().getKey());
 }

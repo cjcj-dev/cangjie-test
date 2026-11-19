@@ -29,15 +29,25 @@ open class C1 {}
 open class C2 <: C1 {}
 class C3 <: C2 {}
 func f(a: C1, b: C2, c: C1) {
+	Assert.equals(1, [(a, b, c)].size)
+
 	Assert.fail()
 } // f1
-func f(a: C3, b: C3, c: C2) {} // f2
+func f(a: C3, b: C3, c: C2) {
+	Assert.equals(1, [(a, b, c)].size)
+} // f2
 
 func f(a: C3, b: C2, c: C1) {
+	Assert.equals(1, [(a, b, c)].size)
+
 	Assert.fail()
 } // f3
 
 main() {
 	//function call
 	var x = f(C3(), C3(), C3()) // f2
+	Assert.equals((), x)
+	let first: (C1, C2, C1) -> Unit = f
+	let third: (C3, C2, C1) -> Unit = { a, b, c => f(a, b, c) }
+	Assert.equals(1, [(first, third)].size)
 }

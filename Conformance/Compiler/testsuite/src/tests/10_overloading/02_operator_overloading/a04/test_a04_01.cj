@@ -89,9 +89,12 @@ class IRange {
 
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     var otr1:IRange = IRange(0,7,6)
     var otr2:IRange = IRange(-5,4, 4)
 
+    Assert.equals(7, otr1 + 4)
+    Assert.equals(0, otr1 + (-12))
     var otr = otr1 + otr2;
 
     Assert.equals(4,otr.upper)    

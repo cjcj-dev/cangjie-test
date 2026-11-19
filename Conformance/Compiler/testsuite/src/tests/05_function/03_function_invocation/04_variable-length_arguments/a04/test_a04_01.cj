@@ -26,29 +26,29 @@
 import utils.assert.Assert
 
 class myClass {
-    func f0(arr: Array<Rune>): String { "f0" }
-    func f1(a: Bool, arr: Array<Rune>): String { "f1" }
-    func f2(a: Int32, arr: Array<Rune>, b!: String): String { "f2" }
+    func f0(arr: Array<Rune>): String { Assert.equals([r'f', r'R', r'f'], arr); "f0" }
+    func f1(a: Bool, arr: Array<Rune>): String { Assert.isTrue(a); Assert.equals([r'f', r'R', r'f'], arr); "f1" }
+    func f2(a: Int32, arr: Array<Rune>, b!: String): String { Assert.equals(12, a); Assert.equals([r'f', r'R', r'f'], arr); Assert.equals("DDD", b); "f2" }
 }
 
 struct myStruct {
-    func f0(arr: Array<Rune>): String { "f0" }
-    func f1(a: Bool, arr: Array<Rune>): String { "f1" }
-    func f2(a: Int32, arr: Array<Rune>, b!: String): String { "f2" }
+    func f0(arr: Array<Rune>): String { Assert.equals([r'f', r'R', r'f'], arr); "f0" }
+    func f1(a: Bool, arr: Array<Rune>): String { Assert.isTrue(a); Assert.equals([r'f', r'R', r'f'], arr); "f1" }
+    func f2(a: Int32, arr: Array<Rune>, b!: String): String { Assert.equals(12, a); Assert.equals([r'f', r'R', r'f'], arr); Assert.equals("DDD", b); "f2" }
 }
 
 enum myEnum {
 
     S
 
-    func f0(arr: Array<Rune>): String { "f0" }
-    func f1(a: Bool, arr: Array<Rune>): String { "f1" }
-    func f2(a: Int32, arr: Array<Rune>, b!: String): String { "f2" }
+    func f0(arr: Array<Rune>): String { Assert.equals([r'f', r'R', r'f'], arr); "f0" }
+    func f1(a: Bool, arr: Array<Rune>): String { Assert.isTrue(a); Assert.equals([r'f', r'R', r'f'], arr); "f1" }
+    func f2(a: Int32, arr: Array<Rune>, b!: String): String { Assert.equals(12, a); Assert.equals([r'f', r'R', r'f'], arr); Assert.equals("DDD", b); "f2" }
 }
 
-func f0(arr: Array<Rune>): String { "f0" }
-func f1(a: Bool, arr: Array<Rune>): String { "f1" }
-func f2(a: Int32, arr: Array<Rune>, b!: String): String { "f2" }
+func f0(arr: Array<Rune>): String { Assert.equals([r'f', r'R', r'f'], arr); "f0" }
+func f1(a: Bool, arr: Array<Rune>): String { Assert.isTrue(a); Assert.equals([r'f', r'R', r'f'], arr); "f1" }
+func f2(a: Int32, arr: Array<Rune>, b!: String): String { Assert.equals(12, a); Assert.equals([r'f', r'R', r'f'], arr); Assert.equals("DDD", b); "f2" }
 
 main() {
     Assert.equals("f0", f0([r'f',r'R',r'f']))
@@ -85,6 +85,9 @@ main() {
 
     Assert.equals("f1", myEnum.S.f1(true, [r'f',r'R',r'f']))
     Assert.equals("f1", myEnum.S.f1(true, r'f',r'R',r'f'))
+
+    Assert.equals("f2", myStructImpl.f2(12, [r'f',r'R',r'f'], b: "DDD"))
+    Assert.equals("f2", myStructImpl.f2(12, r'f',r'R',r'f', b: "DDD"))
 
     Assert.equals("f2", myEnum.S.f2(12, [r'f',r'R',r'f'], b: "DDD"))
     Assert.equals("f2", myEnum.S.f2(12, r'f',r'R',r'f', b: "DDD"))

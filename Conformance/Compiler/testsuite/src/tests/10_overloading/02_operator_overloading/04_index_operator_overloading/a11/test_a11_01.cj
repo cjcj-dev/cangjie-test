@@ -31,8 +31,14 @@
 
 */
 
+import utils.assert.Assert
+
+
 class A {
     operator func [](arg1: Int64, arg2: String, value!: Int64): Unit {
+        Assert.equals(1, arg1)
+        Assert.equals("2", arg2)
+        Assert.equals(0, value)
         return
     }
 }
@@ -42,5 +48,7 @@ func f() {
     a[1, "2"] = 0
 }
 
-main() {}
+main() {
+    f()
+}
 

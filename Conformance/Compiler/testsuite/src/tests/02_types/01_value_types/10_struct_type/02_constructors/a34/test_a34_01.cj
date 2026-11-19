@@ -115,7 +115,7 @@ struct Test {
         get() {
             "q1"
         }
-        set(v) {}
+        set(v) { Assert.equals("changed", v) }
     }
 
     prop q2: String {
@@ -128,7 +128,7 @@ struct Test {
         get() {
             "q3"
         }
-        set(v) {}
+        set(v) { Assert.equals("changed", v) }
     }
 
     public prop q4: String {
@@ -141,7 +141,7 @@ struct Test {
         get() {
             "q5"
         }
-        set(v) {}
+        set(v) { Assert.equals("changed", v) }
     }
 
     private prop q6: String {
@@ -149,9 +149,18 @@ struct Test {
             "q6"
         }
     }
+    mut func checkSetters() {
+        q1 = "changed"
+        q3 = "changed"
+        q5 = "changed"
+        Assert.equals("q1", q1)
+        Assert.equals("q3", q3)
+        Assert.equals("q5", q5)
+    }
 }
 
 main() {
-    Test()
+    var value = Test()
+    value.checkSetters()
     0
 }

@@ -38,18 +38,21 @@ import utils.assert.Assert
 
 
 open class Father {
-     func f(x: Child) { print("in Father") }
+     func f(x: Child) { Assert.equals(1, [x].size); print("in Father") }
 }
 class Child <: Father {
-     func f(x: Father) {Assert.fail()  }
+     func f(x: Father) { Assert.equals(1, [x].size); Assert.fail()  }
 }
 func display() {
      var obj: Child = Child()
      obj.f(Child())     // in Father
+     let rejected: (Father) -> Unit = obj.f
+     Assert.equals(1, [rejected].size)
 }
 
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     display()
     0
 }

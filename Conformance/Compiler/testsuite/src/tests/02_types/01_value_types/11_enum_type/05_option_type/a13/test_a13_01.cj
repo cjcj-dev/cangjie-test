@@ -25,10 +25,13 @@
 */
 import utils.assert.Assert
 
+func runtimeOption<T>(value: Option<T>): Option<T> { value }
+
 main() {
-    var a = Some(123) ?? 321
+    var a = runtimeOption(Some(123)) ?? 321
     Assert.isTrue(a is Int64)
-    let b = None<Rune> ?? r'a'
+    Assert.equals(123, a)
+    let b = runtimeOption(None<Rune>) ?? r'a'
     Assert.isTrue(b is Rune)
-    Assert.isTrue((Some(None<(String,Unit)>) ?? Some(("", ()))) is Option<(String, Unit)>)
+    Assert.isTrue((runtimeOption(Some(None<(String,Unit)>)) ?? Some(("", ()))) is Option<(String, Unit)>)
 }

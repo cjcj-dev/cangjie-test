@@ -31,6 +31,9 @@
 
 */
 
+import utils.assert.Assert
+
+
 
 class IRange {
     var lower : Int64;
@@ -50,16 +53,26 @@ class IRange {
     }
 
     public operator func + (Right:IRange):IRange {
+        Assert.equals(1, [Right].size)
         IRange(0,0,0)
     }
     private  operator func - (Right:Float64):Float64 {
+        Assert.equals(1, [Right].size)
         var cur : Float64 = 0.0
         return cur;
     }
 
+    func checkPrivateOperators() {
+        Assert.equals(7, this + 3)
+        Assert.equals(0.0, this - 1.0)
+    }
 }
 
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
+    let x = IRange(0, 10, 4)
+    x.checkPrivateOperators()
+    Assert.equals(0, (x + x).value)
     0
 }

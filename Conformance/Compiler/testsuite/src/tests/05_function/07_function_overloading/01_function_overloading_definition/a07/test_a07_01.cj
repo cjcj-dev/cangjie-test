@@ -45,16 +45,20 @@ abstract class myAClass {
     func myFunc(a: Int64, b: Bool) { "${a} ${b}" }
 }
 
+class ConcreteAClass <: myAClass {}
+
 class myClass <: myInterface {
     var myIntVar = 12
     var myBoolVar = true
 
     init(){}
     init(a: String) {
+        Assert.equals("AAA", a)
         this.myIntVar = 10
         this.myBoolVar = false
     }
     myClass(f: Rune) {
+        Assert.equals(r'm', f)
         this.myIntVar = -10
         this.myBoolVar = true
     }
@@ -74,6 +78,7 @@ struct myStruct {
 
     init(){}
     init(a: String) {
+        Assert.equals("AAA", a)
         this.myIntVar = 10
         this.myBoolVar = false
     }
@@ -165,6 +170,14 @@ main() {
     Assert.equals("myStruct 8 C", myStructImpl.myFunc(myInt64, r'C'))
     Assert.equals("myStruct 8 BBB", myStructImpl.myFunc(myInt64, "BBB"))
     Assert.equals("myStruct 8 true", myStructImpl.myFunc(myInt64, true))
+
+    let abstractImpl = ConcreteAClass()
+    Assert.equals(14, abstractImpl.myFunc(myInt16))
+    Assert.equals(8, abstractImpl.myFunc(myInt32))
+    Assert.equals(9, abstractImpl.myFunc(myInt64))
+    Assert.equals("8 C", abstractImpl.myFunc(myInt64, r'C'))
+    Assert.equals("8 BBB", abstractImpl.myFunc(myInt64, "BBB"))
+    Assert.equals("8 true", abstractImpl.myFunc(myInt64, true))
 
     Assert.equals(14, myEnum.A.myFunc(myInt16))
     Assert.equals(8, myEnum.A.myFunc(myInt32))

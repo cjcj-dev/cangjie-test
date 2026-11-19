@@ -157,7 +157,7 @@ struct Test6 {
       get() {
           30
       }
-      set(v) {}
+      set(v) { Assert.equals(1, v) }
     }
 
     static prop ip: Rune {
@@ -170,7 +170,7 @@ struct Test6 {
         get() {
             20
         }
-        set(v) {}
+        set(v) { Assert.equals(1, v) }
     }
 
     static prop p_ip: Rune {
@@ -216,4 +216,7 @@ main() {
     let case6 = Test6()
     let case7 = Test7()
     let case8 = Test8()
+    Assert.equals(1, [(case1, case2, case3, case4, case5, case6, case7, case8)].size)
+    Test6.mp = 1
+    Test6.p_mp = 1
 }

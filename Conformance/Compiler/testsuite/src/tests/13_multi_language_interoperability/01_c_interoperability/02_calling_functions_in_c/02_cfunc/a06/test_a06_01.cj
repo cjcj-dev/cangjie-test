@@ -27,17 +27,21 @@
   @Issue: 0006421
 */
 
+import utils.assert.Assert
+
 // Case 1
 foreign func free(ptr: CPointer<Int8>): Unit
 
 // Case 2
 @C
 func callableInC(ptr: CPointer<Int8>) {
+    Assert.equals(1, [ptr].size)
 print("This function is defined in Cangjie.")
 }
 
 // Case 3
 let f1: CFunc<(CPointer<Int8>) -> Unit> = { ptr =>
+    Assert.equals(1, [ptr].size)
 print("This function is defined with CFunc lambda.")
 }
 
@@ -45,4 +49,5 @@ main() {
     var CB1: CFunc<(CPointer<Int8>)->Unit> = free
     var CB2: CFunc<(CPointer<Int8>)->Unit> = callableInC
     var CB3: CFunc<(CPointer<Int8>)->Unit> = f1
+    Assert.equals(3, [CB1, CB2, CB3].size)
 }

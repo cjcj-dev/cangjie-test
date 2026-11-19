@@ -47,6 +47,7 @@ main() {
         var f32Number: Float32 = 1024e10
         var i32Number: Int32 = Int32(f32Number) // throw an ArithmeticException: (Int32)f32Number is not 
                                                 // in the range of Int32
+        Assert.equals(0, i32Number)
     }, check: { e => e is ArithmeticException})
     return 0
 }

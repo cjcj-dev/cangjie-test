@@ -53,23 +53,25 @@ import utils.assert.Assert
 open class A {}
 open class B <: A {}
 func g(a: A): B {     //g1
+    Assert.equals(1, [a].size)
     B()
 }
 func g(a: B): B {     //g2
+    Assert.equals(1, [a].size)
     B()
 }
 
-func g(a: Int64): Unit {}      //g3
+func g(a: Int64): Unit { Assert.equals(7, a) }      //g3
 
 // (A)->B <: (B)->B <: (B)->A
 
-func f(a: (A)->B) {println(1)}      //f1, g1 can pass the type check
+func f(a: (A)->B) { Assert.equals(1, [a].size); println(1)}      //f1, g1 can pass the type check
 
-func f(a: (B)->B) {println(2)}      //f2, g1, g2 can pass the type check
+func f(a: (B)->B) { Assert.equals(1, [a].size); println(2)}      //f2, g1, g2 can pass the type check
 
-func f(a: (B)->A) {println(3)}      //f3, g1, g2 can pass the type check
+func f(a: (B)->A) { Assert.equals(1, [a].size); println(3)}      //f3, g1, g2 can pass the type check
 
-func f(a: Bool) {Assert.fail()}    //f4, no g can pass the type check
+func f(a: Bool) { Assert.equals(1, [a].size); Assert.fail()}    //f4, no g can pass the type check
 
 func test() {
     f(g)   // candidate set: { f1, f2, f3 }
@@ -78,7 +80,17 @@ func test() {
 
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     test()
+    // Separate uses leave f(g) and its candidate set unchanged.
+    g(7)
+    Assert.equals(1, [g(B())].size)
+    let narrow: (B) -> B = { _ => B() }
+    let wideResult: (B) -> A = { _ => A() }
+    f(narrow)
+    f(wideResult)
+    let rejected: (Bool) -> Unit = f
+    Assert.equals(1, [rejected].size)
     0
 }
 

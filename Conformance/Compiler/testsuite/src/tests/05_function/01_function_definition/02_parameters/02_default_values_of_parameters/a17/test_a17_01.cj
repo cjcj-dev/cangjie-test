@@ -37,12 +37,14 @@
 
 */
 
+import utils.assert.Assert
+
 var x = 10 
 var y = 10 
 
 func g() {} 
 
-public func f2(a!: Int64 = x * 2 + y, b!: ()->Unit = g) {}             // OK. 
+public func f2(a!: Int64 = x * 2 + y, b!: ()->Unit = g) { Assert.equals(30, a); b() }             // OK.
 
 class AAA { 
   static private var x = 10 
@@ -55,4 +57,6 @@ class AAA {
 }  
 
 main() {
+  f2()
+  AAA().f()
 }

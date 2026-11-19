@@ -41,6 +41,7 @@ struct Test {
 
     init(a: Int64) {
         this()
+        Assert.equals(1, a)
         let x = 1
         let y = 2
 
@@ -54,6 +55,7 @@ struct Test {
 
     init(x: String) {
         this()
+        Assert.equals(1, [x].size)
 
         var m = 20
 
@@ -68,20 +70,27 @@ struct Test {
 
     init(x: Rune) {
         this()
+        Assert.equals(r'w', x)
     }
 }
 
 main() {
     let case1 = Test(1)
+    Assert.equals(1, [case1].size)
     Assert.equals(4, gv)
     Assert.equals(2, called_const)
     called_const = 0
 
     let case2 = Test("")
+    Assert.equals(1, [case2].size)
     Assert.equals(200, gv)
     Assert.equals(2, called_const)
     called_const = 0
 
     let case3 = Test('w')
+    Assert.equals(1, [case3].size)
+    Assert.equals(2, called_const)
+    called_const = 0
+    Assert.equals(1, [Test(r'w')].size)
     Assert.equals(2, called_const)
 }

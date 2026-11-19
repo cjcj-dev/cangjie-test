@@ -30,10 +30,12 @@ var check = ""
 
 enum E { 
     E1(Int64)
-    operator func ()(x : Int64) { check="(Int64)" } 
+    operator func ()(x : Int64) { Assert.equals(1, x); check="(Int64)" }
 } 
 
 main() { 
-    E1(1)
+    let value = E1(1)
     Assert.equals("", check)
+    value(1)
+    Assert.equals("(Int64)", check)
 }

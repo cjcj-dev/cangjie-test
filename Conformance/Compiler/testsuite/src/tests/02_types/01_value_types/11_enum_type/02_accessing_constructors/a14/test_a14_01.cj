@@ -29,6 +29,9 @@ enum E<T> {
 
 */
 
+import utils.assert.Assert
+
+
 enum E<T> {
    | A(T)
    | B(T)
@@ -36,6 +39,8 @@ enum E<T> {
   func f() {
    let a = A(1) // ok, a: E<Int64>
    let b = A<Int32>(2) // ok, b: E<Int32>
+   Assert.equals(1, [(a, b)].size)
   }
 main() {
+    f()
 }

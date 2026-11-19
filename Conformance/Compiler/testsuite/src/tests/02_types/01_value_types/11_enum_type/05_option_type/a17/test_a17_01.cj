@@ -32,15 +32,17 @@ class C {
 }
 let prim = (1,3,5,7,11)
 func g(){ -1i16 }
+func runtimeReceiver(value: Option<C>): Option<C> { value }
+
 main() {
     Assert.equals((3), (Some(prim)?[1]).getOrThrow())
     Assert.equals(-1i16, (Some(g)?()).getOrThrow())
-    var a = Some(C())
+    var a = runtimeReceiver(Some(C()))
     Assert.equals((10), a?.item ?? 0)
     Assert.equals(("qwert"), a?.f(Some("qwert")) ?? "")
     Assert.equals(('g'), a?.seq[2] ?? 'r')
 
-    let b = None<C>
+    let b = runtimeReceiver(None<C>)
     match (b?.item) {
       case None => ()
       case _ => Assert.fail()

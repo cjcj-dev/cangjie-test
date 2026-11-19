@@ -26,21 +26,31 @@
 
 */
 
+import utils.assert.Assert
+
 
 
 open class Klass {
     
     func Check(arg:Int8) {
+        Assert.equals(4i8, arg)
     }
 
 }
 extend Klass {
     private func h() {}
+    func checkInstanceExtension() { h() }
 }
 extend Klass {
-    private static func h(a: Int64) {} // OK
+    private static func h(a: Int64) { Assert.equals(12, a) } // OK
+    static func checkStaticExtension() { h(12) }
 }
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     var kl:Klass;
+    kl = Klass()
+    kl.Check(4i8)
+    kl.checkInstanceExtension()
+    Klass.checkStaticExtension()
     0
 }

@@ -39,9 +39,12 @@
 
 */
 
+import utils.assert.Assert
+
 struct A { 
     mut func f(): Unit {} // ok 
     mut operator func +(rhs: A): A {
+        Assert.equals(1, [rhs].size)
         return A() 
     } 
 } 
@@ -54,5 +57,9 @@ interface I {
     mut func f(): Unit // ok 
 }
 
-main() { 
+main() {
+    var a = A()
+    a.f()
+    a.h()
+    Assert.equals(1, [a + A()].size)
 } 

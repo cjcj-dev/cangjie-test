@@ -29,8 +29,9 @@ interface I3 {}
 interface I1 <: I2 & I3 {}
 interface I2 <: I4 {}
 interface I4 <: I3 {}
-func f(x: I4) {} // f1
+func f(x: I4) { Assert.equals(1, [x].size) } // f1
 func f(x: I3) {
+	Assert.equals(1, [x].size)
 	Assert.fail()
 } // f2
 class C1 <: I1 {}
@@ -40,4 +41,7 @@ class C1 <: I1 {}
 main() {
 	var obj = C1()
 	var result = f(obj) // choose f1, because I4 <: I3
+	Assert.equals((), result)
+	let other: (I3) -> Unit = f
+	Assert.equals(1, [other].size)
 }

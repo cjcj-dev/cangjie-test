@@ -27,6 +27,8 @@
 
 */
 
+import utils.assert.Assert
+
 
 
 class A {}
@@ -34,6 +36,7 @@ class A {}
 extend A {
 
     private func h() {}
+    func checkInstanceExtension() { h() }
 
 }
 
@@ -41,10 +44,14 @@ extend A {
 
 extend A {
 
-    private static func h(a: Int64) {} // OK
+    private static func h(a: Int64) { Assert.equals(12, a) } // OK
+    static func checkStaticExtension() { h(12) }
 
 }
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
+    A().checkInstanceExtension()
+    A.checkStaticExtension()
     0
 }

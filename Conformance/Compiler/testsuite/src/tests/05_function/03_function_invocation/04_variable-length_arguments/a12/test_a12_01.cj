@@ -51,10 +51,12 @@ import utils.assert.Assert
 
 open class A{
     public func f(v:Int64 ):Unit {// f1
+        Assert.equals(1, v)
     }
 }
 class B<:A {
     func f(v:Array <Int64 >):Unit {// f2
+        Assert.equals([1, 2], v)
     }
 }
 func p1(){
@@ -62,15 +64,19 @@ func p1(){
     x.f( 1)// call the f1
 }
 func g<T>(arg :T):Unit {// g1
+    Assert.equals(1, [arg].size)
 }
 func g(arg :Array <Int64 >):Unit {// g2
+    Assert.equals([1, 2], arg)
 }
 func p2(){
     g(1)// call the g1
 }
 func h(arg :Any) :Unit {// h1
+    Assert.equals(1, [arg].size)
 }
 func h(arg :Array <Int64 >):Unit {// h2
+    Assert.equals([1, 2], arg)
 }
 func p3(){
     h(1)// call the h1
@@ -83,6 +89,14 @@ main() {
     Assert.isTrue(g is (Array<Int64>) -> Unit)
     Assert.isTrue(p2 is () -> Unit)
     Assert.isTrue(p3 is () -> Unit)
+
+    p1()
+    p2()
+    p3()
+    let values: Array<Int64> = [1, 2]
+    B().f(values)
+    g(values)
+    h(values)
 
     var implA = A()
     Assert.isTrue(implA.f is (Int64) -> Unit)

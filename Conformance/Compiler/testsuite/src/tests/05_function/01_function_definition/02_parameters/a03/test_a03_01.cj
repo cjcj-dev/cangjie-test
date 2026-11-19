@@ -35,7 +35,7 @@
 */
 import utils.assert.Assert
 
-func bar(a: Int64 , b!: Float64 = 1.0, s!: String) {}        // OK 
+func bar(a: Int64 , b!: Float64 = 1.0, s!: String) { Assert.equals(7, a); Assert.equals(1.0, b); Assert.equals("named", s) }        // OK
 
 func f1(a:Int64 ,_:Int64 ):Int64 {
   return a+1
@@ -48,5 +48,7 @@ func f2(_:String) :Unit {
 main() {
   Assert.equals(4, f1(3, 7))
   Assert.equals(8, f1(7, 3))
+  bar(7, s: "named")
+  f2("ignored")
 
 }

@@ -35,19 +35,23 @@
 
 */
 
+import utils.assert.Assert
+
 open class Father {
-     func f(x: Child) { print("in Father") }
+     func f(x: Child) { Assert.equals(1, [x].size); print("in Father") }
 }
 class Child <: Father {
-     func f(x: Father) { print("in Child") }
+     func f(x: Father) { Assert.equals(1, [x].size); print("in Child") }
 }
 func display() {
      var obj: Child = Child()
      obj.f(Child())     // in Father
+     obj.f(Father())
 }
 
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     display()
     0
 }

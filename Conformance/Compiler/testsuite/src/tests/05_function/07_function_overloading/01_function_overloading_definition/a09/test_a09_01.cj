@@ -34,16 +34,22 @@
 
 */
 
+import utils.assert.Assert
+
 interface I { 
     func f1() {} 
 } 
 open class C1 { 
-    func f1(a: Int32) {} 
+    func f1(a: Int32) { Assert.equals(4i32, a) }
 } 
 class C2 <: C1 & I { 
     // f1 overloading 
-    func f1(a: Int32, b: String) {} 
+    func f1(a: Int32, b: String) { Assert.equals(4i32, a); Assert.equals("two", b) }
 } 
 
 main() {
+    let c = C2()
+    c.f1()
+    c.f1(4i32)
+    c.f1(4i32, "two")
 }

@@ -27,8 +27,12 @@
 
 */
 
+import utils.assert.Assert
+
 func f() {}
-func f(a: Int32) {}
+func f(a: Int32) { Assert.equals(9i32, a) }
 
 main() {
+    f()
+    f(9i32)
 }

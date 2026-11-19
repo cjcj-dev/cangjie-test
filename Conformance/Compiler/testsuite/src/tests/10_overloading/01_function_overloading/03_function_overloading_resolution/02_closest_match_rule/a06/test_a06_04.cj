@@ -28,15 +28,20 @@ import utils.assert.Assert
 open class A {}
 class B <: A {}
 func foo<X>(a: X, b: X): Int32 {
+	Assert.equals(1, [(a, b)].size)
 	Assert.fail()
 } // foo1
 func foo(a: A, b: B): Int32 {
+	Assert.equals(1, [(a, b)].size)
 	Assert.fail()
 } // foo2
 func foo<X>(a: A, b: X): Int32 {
+	Assert.equals(1, [(a, b)].size)
 	return Int32(0)
 } // foo3
 
 main() {
 	foo(A(), 1) // foo3. foo3 is the only function in candidate set.
+	let rejected: (A, B) -> Int32 = foo
+	Assert.equals(1, [rejected].size)
 }

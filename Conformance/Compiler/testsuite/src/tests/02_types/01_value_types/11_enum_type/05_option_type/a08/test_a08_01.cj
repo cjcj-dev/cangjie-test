@@ -28,9 +28,12 @@ struct S {
     S(var a: ??ToString) {}
 }
 type T = ???S
+func wrappedFunction(value: Option<(Option<(String, Option<Option<Range<UInt32>>>)>) -> Unit>): Option<(Option<(String, Option<Option<Range<UInt32>>>)>) -> Unit> { value }
+
 main() {
     var v1: ??Bool = true
     Assert.isTrue(v1 is ?Option<Bool>)
+    Assert.isTrue(v1.getOrThrow().getOrThrow())
 
     func f (x: ?(String, ??Range<UInt32>)) {
         let v1 = x.getOrThrow()
@@ -40,7 +43,7 @@ main() {
         return ()
     }
     var fr: ?(Option<(String, Option<Option<Range<UInt32>>>)>) -> Unit = f
-    match (fr) {
+    match (wrappedFunction(fr)) {
         case Some(x) => Assert.isTrue(x is (Option<(String, ??Range<UInt32>)>) -> Unit)
         case _ => Assert.fail()
     }

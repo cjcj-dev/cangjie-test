@@ -38,15 +38,17 @@ open class Base {}
 open class Sub <: Base {}
 
 
-func f(a: (Base)->Int64, b : Sub) {} //f1
+func f(a: (Base)->Int64, b : Sub) { Assert.equals(1, [(a, b)].size) } //f1
 
-func f(a: (Sub)->Int64, b: Base) {}         //f2
+func f(a: (Sub)->Int64, b: Base) { Assert.equals(1, [(a, b)].size) }         //f2
 
 func g(a: Base): Int64 {
+    Assert.equals(1, [a].size)
     Assert.fail()
 }         // g1
 
 func g(a: Sub): Int64 {
+    Assert.equals(1, [a].size)
     0
 }          // g2
 
@@ -58,7 +60,11 @@ func test() {
 
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     test()
+    let narrower: (Sub)->Int64 = { _ => 0 }
+    f(narrower, Base())
+    Assert.equals(0, g(Sub()))
 }
 
 

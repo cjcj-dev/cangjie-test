@@ -34,8 +34,11 @@ import utils.assert.Assert
 open class Base {}
 class Sub <: Base {}
 func f(a!: Sub = Sub(), b!: Int32 = 2) {
+    Assert.equals(1, [a].size)
+    Assert.equals(2, b)
 }           // This is f1
 func f(a!: Base = Base()) {
+    Assert.equals(1, [a].size)
     Assert.fail()
 }         // This is f2.
 
@@ -43,7 +46,11 @@ func f(a!: Base = Base()) {
 
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
    var x1 = f(a: Sub()) // parameters involved in comparison in f1 is only a
+   Assert.equals((), x1)
+   let rejected: (Base) -> Unit = f
+   Assert.equals(1, [rejected].size)
 
 
     0

@@ -48,21 +48,28 @@ open class Base {}
 class Sub <: Base {}
 class C {
     func f(a: Sub): Unit {
+        Assert.equals(1, [a].size)
     }       // f1
 }
 extend C {
     func f(a: Base): Unit {
+        Assert.equals(1, [a].size)
         Assert.fail()
     }      // f2
     func g() {
+         let rejected: (Base) -> Unit = f
+         Assert.equals(1, [rejected].size)
          f(Sub()) // f1
     }
 }
 
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     var obj = C()
     var x = obj.f(Sub()) // f1
+    Assert.equals((), x)
+    obj.g()
 
     0
 }

@@ -24,6 +24,8 @@
   @Structure:     single
 
 */
+
+import utils.assert.Assert
 public var testA1001 = "SSS"
 var myTopVar = "SSS"
 
@@ -35,14 +37,21 @@ open class myClass  {
   protected var myClassProtectedVar: String = "12"
   var myClassVar: Rune = 'v'
 
-  static func myStaticClassFunc(x!: UInt32 =  myPrivateClassStaticVar, y!: Bool = myStaticClassVar) {}
+  static func myStaticClassFunc(x!: UInt32 =  myPrivateClassStaticVar, y!: Bool = myStaticClassVar) { Assert.equals(2u32, x); Assert.isTrue(y) }
 
   public func myClassPublicFunc(a!: Int64 = myClassPublicVar, b!: Float32 = myClassPrivateVar, 
-                                c!: String = myClassProtectedVar, d!: Rune = myClassVar) {}
+                                c!: String = myClassProtectedVar, d!: Rune = myClassVar) { Assert.equals(12, a); Assert.equals(64.3f32, b); Assert.equals(cExpected(), c); Assert.equals(r'v', d) }
   private func myClassPrivateFunc(a!: Int64 = myClassPublicVar, b!: Float32 = myClassPrivateVar, 
-                                c!: String = myClassProtectedVar, d!: Rune = myClassVar) {}
+                                c!: String = myClassProtectedVar, d!: Rune = myClassVar) { Assert.equals(12, a); Assert.equals(64.3f32, b); Assert.equals(cExpected(), c); Assert.equals(r'v', d) }
   protected func myClassProtectedFunc(a!: Int64 = myClassPublicVar, b!: Float32 = myClassPrivateVar, 
-                                c!: String = myClassProtectedVar, d!: Rune = myClassVar) {}
+                                c!: String = myClassProtectedVar, d!: Rune = myClassVar) { Assert.equals(12, a); Assert.equals(64.3f32, b); Assert.equals(cExpected(), c); Assert.equals(r'v', d) }
+  func cExpected(): String { "12" }
+
+  func checkDefaults() {
+    myClassPublicFunc()
+    myClassPrivateFunc()
+    myClassProtectedFunc()
+  }
 }
 
 struct myStruct {
@@ -52,15 +61,26 @@ struct myStruct {
   private var myStructPrivateVar: Float32 = 64.3
   var myStructVar: Rune = 'v'
 
-  static func myStaticFunc(x!: UInt32 =  myPrivateStaticVar, y!: Bool = myStaticVar) {}
+  static func myStaticFunc(x!: UInt32 =  myPrivateStaticVar, y!: Bool = myStaticVar) { Assert.equals(2u32, x); Assert.isTrue(y) }
 
   public func myStructPublicFunc(a!: Int64 = myStructPublicVar, b!: Float32 = myStructPrivateVar, 
-                                c!: String = myTopVar,d!: Rune = myStructVar) {}
+                                c!: String = myTopVar,d!: Rune = myStructVar) { Assert.equals(12, a); Assert.equals(64.3f32, b); Assert.equals(cExpected(), c); Assert.equals(r'v', d) }
   private func myStructPrivateFunc(a!: Int64 = myStructPublicVar, b!: Float32 = myStructPrivateVar, 
-                                c!: String = testA1001,d!: Rune = myStructVar) {}
+                                c!: String = testA1001,d!: Rune = myStructVar) { Assert.equals(12, a); Assert.equals(64.3f32, b); Assert.equals(cExpected(), c); Assert.equals(r'v', d) }
+  func cExpected(): String { "SSS" }
+
+  func checkDefaults() {
+    myStructPublicFunc()
+    myStructPrivateFunc()
+  }
 }
 
-func myFunc(g!: String = testA1001, f!: Bool = myStruct.myStaticVar) {}
+func myFunc(g!: String = testA1001, f!: Bool = myStruct.myStaticVar) { Assert.equals("SSS", g); Assert.isTrue(f) }
 
 main() {
+  myClass.myStaticClassFunc()
+  myClass().checkDefaults()
+  myStruct.myStaticFunc()
+  myStruct().checkDefaults()
+  myFunc()
 }

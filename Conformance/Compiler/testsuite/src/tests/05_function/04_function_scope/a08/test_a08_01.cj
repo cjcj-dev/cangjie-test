@@ -33,6 +33,7 @@ extend myType {
     func foo(): Unit {}
     public func publicInfo(): String {"This is public info about MyType"}
     private func privateInfo(): String {"This is private info about MyType"}
+    func checkPrivateInfo() { Assert.equals("This is private info about MyType", privateInfo()) }
 }
 
 struct myStruct {
@@ -43,6 +44,7 @@ extend myStruct {
     static func info(): String {"This is myStruct"}
     public func publicInfo(): String {"This is public info about myStruct ${i}"}
     private func privateInfo(): String {"This is private info about myStruct"}
+    func checkPrivateInfo() { Assert.equals("This is private info about myStruct", privateInfo()) }
     mut func f(): Unit { i += 1 } 
 
 }
@@ -50,12 +52,16 @@ extend myStruct {
 main() {
     var myVar: myType = 12
     Assert.isTrue(myVar.foo is () -> Unit)
+    myVar.foo()
+    myVar.checkPrivateInfo()
     Assert.isTrue(myVar.publicInfo is () -> String)
     Assert.equals("This is public info about MyType", myVar.publicInfo())
 
     Assert.isTrue(myStruct.info is () -> String)
     Assert.equals("This is myStruct", myStruct.info())
     var myStructImpl = myStruct()
+    myStructImpl.foo()
+    myStructImpl.checkPrivateInfo()
     Assert.isTrue(myStructImpl.publicInfo is () -> String)
     Assert.equals("This is public info about myStruct 0", myStructImpl.publicInfo())
     myStructImpl.f()

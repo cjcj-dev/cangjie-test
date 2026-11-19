@@ -20,17 +20,22 @@
   @Comment:      Fixed in v0.37.2
 */
 
+import utils.assert.Assert
+
+
 class C {} // if this line is commented, test compiles
 
 struct S {
     func C(): String { "ok" }
     func test() {
         let str: String = C()
+        Assert.equals("ok", str)
     }
 }
 
 main() {
     let s = S()
+    s.test()
     0
 }
 

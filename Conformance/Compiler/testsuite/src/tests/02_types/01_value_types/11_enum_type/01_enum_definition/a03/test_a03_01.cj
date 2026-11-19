@@ -24,6 +24,8 @@
 
 */
 
+import utils.assert.Assert
+
 struct St {
     var i = 575
 }
@@ -55,9 +57,9 @@ enum En {
     }
 
     func foo1() {}
-    operator func+(x: Int64) { 42 }
+    operator func+(x: Int64) { Assert.equals(1, [x].size); 42 }
     static func buzz() {}
-    operator func+(x: En) { 4453 }
+    operator func+(x: En) { Assert.equals(1, [x].size); 4453 }
     operator func+(x: Tada) { (x?[0]).getOrThrow()+64243 }
 }
  
@@ -81,5 +83,9 @@ main() {
     b.foo1()
     En.buzz()
     var fin = s + a + d.x + e.y
+    Assert.equals(4, [c, f, g, h].size)
+    Assert.equals(124845, aha)
+    Assert.equals(61237, fin)
+    Assert.equals(42, a + 12)
     En.z - 4254
 }

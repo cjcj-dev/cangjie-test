@@ -80,11 +80,13 @@ class IRange {
 
 
 main(ina :Array<String>) {
+    Assert.equals(1, [ina].size)
     var v1:IRange = IRange(10)
     var v2:IRange = IRange(-2)
     var v3:IRange = IRange(3)
     var vs:IRange;
     vs = (v1 + v2 * v3)/(v2+v3)
-    Assert.equals(4, vs.value)    
+    Assert.equals(4, vs.value)
+    Assert.equals(7, (v1 - v3).value)
     0
 }

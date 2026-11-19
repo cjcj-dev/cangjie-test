@@ -25,6 +25,8 @@
 
 */
 
+import utils.assert.Assert
+
 public func checkingFunc<T>(x: T) {
   if(x is Int64){
     return "x is Int64"
@@ -54,6 +56,10 @@ class myClass {
   protected func myProtectedFunc(){
     "myProtectedFunc"
   }
+  func checkAccess() {
+    Assert.equals("private => 12", myPrivateFunc())
+    Assert.equals("myProtectedFunc", myProtectedFunc())
+  }
   static func myStaticFunc():Int32{
     
     
@@ -78,10 +84,26 @@ func myFuncRetBool(a:Bool)
 }
 func myFuncRetTyple(a:Bool)
 {
+  Assert.isTrue(a)
   ('a',true,7.62)
 }
 func myFuncRetString()
 {
   "agsdg"}
 main() {
+  let value = myClass()
+  value.myClassFunc(5.5f32)
+  Assert.equals(5.5f32, value.myVar)
+  Assert.isTrue(value.getValues().contains("Values are:"))
+  value.checkAccess()
+  Assert.equals(12i32, myClass.myStaticFunc())
+  Assert.equals("12", myParentFunc())
+  Assert.equals(5, myFuncRetInt64(5))
+  Assert.equals(7i32, myFuncRetInt32(7i32))
+  Assert.isTrue(myFuncRetBool(true))
+  let (tupleText, tupleFlag, tupleNumber) = myFuncRetTyple(true)
+  Assert.equals("a", tupleText)
+  Assert.isTrue(tupleFlag)
+  Assert.equals(7.62, tupleNumber)
+  Assert.equals("agsdg", myFuncRetString())
 }

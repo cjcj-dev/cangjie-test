@@ -38,8 +38,8 @@
 */
 import utils.assert.Assert
 
-func f1(arr :Array <Int64 >){}
-func f2(a:Int64 ,arr:Array <Int64 >){}
+func f1(arr :Array <Int64 >){ Assert.isTrue(arr.isEmpty() || arr == [1, 2, 3]) }
+func f2(a:Int64 ,arr:Array <Int64 >){ Assert.equals(4, a); Assert.equals([1, 2, 3], arr) }
 func g(){
     let li=[1,2,3]
     f1(li)
@@ -50,6 +50,7 @@ func g(){
 }
 
 main() {
+    g()
     Assert.isTrue(f1 is (Array <Int64 >) -> Unit)
     Assert.isTrue(f2 is (Int64, Array <Int64 >) -> Unit)
 }

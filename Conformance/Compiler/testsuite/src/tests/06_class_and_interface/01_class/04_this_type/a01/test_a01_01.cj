@@ -37,6 +37,7 @@ open class Test1 {
     }
 
     func f2(x: Int64): This {
+        Assert.equals(1, x)
         return this
     }
 
@@ -45,6 +46,7 @@ open class Test1 {
     }
 
     func f4<T>(x: Int64): This {
+        Assert.equals(1, x)
         return this
     }
 
@@ -53,6 +55,7 @@ open class Test1 {
     }
     
     public func f6(x: Int64): This {
+        Assert.equals(1, x)
         return this
     }
 
@@ -61,6 +64,7 @@ open class Test1 {
     }
 
     public func f8<T>(x: Int64): This {
+        Assert.equals(1, x)
         return this
     }
 
@@ -69,6 +73,7 @@ open class Test1 {
     }
     
     protected func f10(x: Int64): This {
+        Assert.equals(1, x)
         return this
     }
 
@@ -77,6 +82,7 @@ open class Test1 {
     }
 
     protected func f12<T>(x: Int64): This {
+        Assert.equals(1, x)
         return this
     }
 
@@ -85,6 +91,7 @@ open class Test1 {
     }
     
     private func f14(x: Int64): This {
+        Assert.equals(1, x)
         return this
     }
 
@@ -93,10 +100,13 @@ open class Test1 {
     }
 
     private func f16<T>(x: Int64): This {
+        Assert.equals(1, x)
         return this
     }
 
     operator func -(rhs: Test1): This {
+        let operand: Any = rhs
+        Assert.isTrue(operand is Test1)
         return this
     }
 
@@ -105,6 +115,7 @@ open class Test1 {
     }
 
     operator func [](index: Int64): This {
+        Assert.equals(0, index)
         return this
     }
 
@@ -169,6 +180,7 @@ class Test2 <: A {
     }
 
     public func f2(x: Int64): This {
+        Assert.equals(1, x)
         return this
     }
 
@@ -177,6 +189,7 @@ class Test2 <: A {
     }
 
     protected func f4(x: Int64): This {
+        Assert.equals(1, x)
         return this
     }
 

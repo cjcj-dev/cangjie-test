@@ -29,6 +29,8 @@
 
 import utils.assert.Assert
 
+let setterSeen = [false, false, false, false, false, false, false]
+
 var call_proof = false
 
 open class Parent {
@@ -62,7 +64,7 @@ open class Parent {
         get() {
             r'm'
         }
-        set(v) {}
+        set(v) { Assert.equals(r'A', v); setterSeen[0] = true }
     }
 
     prop p2: Int64 {
@@ -75,7 +77,7 @@ open class Parent {
         get() {
             r'u'
         }
-        set(v) {}
+        set(v) { Assert.equals(r'B', v); setterSeen[1] = true }
     }
 
     public prop p4: Int64 {
@@ -88,7 +90,7 @@ open class Parent {
         get() {
             r'y'
         }
-        set(v) {}
+        set(v) { Assert.equals(r'C', v); setterSeen[2] = true }
     }
 
     protected prop p6: Int64 {
@@ -110,10 +112,13 @@ class Test <: Parent {
 
         // Check inherited properties
         Assert.equals(r'm', super.p1)
+        this.p1 = r'A'
         Assert.equals(5, super.p2)
         Assert.equals(r'u', super.p3)
+        this.p3 = r'B'
         Assert.equals(6, super.p4)
         Assert.equals(r'y', super.p5)
+        this.p5 = r'C'
         Assert.equals(7, super.p6)
 
         // Check instance functions
@@ -128,12 +133,16 @@ class Test <: Parent {
 
         // Check instance properties
         Assert.equals(r'r', this.q1)
+        this.q1 = r'D'
         Assert.equals(13, this.q2)
         Assert.equals(r'3', this.q3)
+        this.q3 = r'E'
         Assert.equals(14, this.q4)
         Assert.equals(r'<', this.q5)
+        this.q5 = r'F'
         Assert.equals(15, this.q6)
         Assert.equals(r'(', this.q7)
+        this.q7 = r'G'
         Assert.equals(16, this.q8)
 
         call_proof = true
@@ -175,7 +184,7 @@ class Test <: Parent {
         get() {
             r'r'
         }
-        set(v) {}
+        set(v) { Assert.equals(r'D', v); setterSeen[3] = true }
     }
 
     prop q2: Int64 {
@@ -188,7 +197,7 @@ class Test <: Parent {
         get() {
             r'3'
         }
-        set(v) {}
+        set(v) { Assert.equals(r'E', v); setterSeen[4] = true }
     }
 
     public prop q4: Int64 {
@@ -201,7 +210,7 @@ class Test <: Parent {
         get() {
             r'<'
         }
-        set(v) {}
+        set(v) { Assert.equals(r'F', v); setterSeen[5] = true }
     }
 
     protected prop q6: Int64 {
@@ -214,7 +223,7 @@ class Test <: Parent {
         get() {
             r'('
         }
-        set(v) {}
+        set(v) { Assert.equals(r'G', v); setterSeen[6] = true }
     }
 
     private prop q8: Int64 {
@@ -227,4 +236,5 @@ class Test <: Parent {
 main() {
     Test()
     Assert.equals(true, call_proof)
+    Assert.equals([true, true, true, true, true, true, true], setterSeen)
 }

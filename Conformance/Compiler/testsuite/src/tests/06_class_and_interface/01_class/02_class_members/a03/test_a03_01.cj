@@ -29,6 +29,8 @@
 
 import utils.assert.Assert
 
+let setterSeen = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+
 class SimpleClass {
   static var a = 1
   static let b = 2
@@ -43,15 +45,19 @@ class SimpleClass {
     return 9
   }
   static protected func f2(x: Int64, y: Float64) {
+    Assert.equals(1, x)
+    Assert.equals(0.1, y)
     return 10
   }
   static public func f3() {
     return 11
   }
   static private func f4(x: Bool) {
+    Assert.isTrue(x)
     return 12
   }
   static func f5<T>(x: Rune) {
+    Assert.equals(r'a', x)
     return 13
   }
   static protected func f6<T>() {
@@ -68,7 +74,7 @@ class SimpleClass {
     get() {
       17
     }
-    set(v) {}
+    set(v) { Assert.equals(101, v); setterSeen[0] = true }
   }
 
   static prop pb: Int64 {
@@ -80,7 +86,7 @@ class SimpleClass {
     get() {
       19
     }
-    set(v) {}
+    set(v) { Assert.equals(102, v); setterSeen[1] = true }
   }
 
   public static prop pd: Int64 {
@@ -92,7 +98,7 @@ class SimpleClass {
     get() {
       21
     }
-    set(v) {}
+    set(v) { Assert.equals(103, v); setterSeen[2] = true }
   }
 
   protected static prop pf: Int64 {
@@ -104,7 +110,7 @@ class SimpleClass {
     get() {
       23
     }
-    set(v) {}
+    set(v) { Assert.equals(104, v); setterSeen[3] = true }
   }
 
   private static prop ph: Int64 {
@@ -117,6 +123,10 @@ class SimpleClass {
     Assert.equals(7, SimpleClass.g)
     Assert.equals(8, SimpleClass.h)
     Assert.equals(12, SimpleClass.f4(true))
+    SimpleClass.pa = 101
+    SimpleClass.pc = 102
+    SimpleClass.pe = 103
+    SimpleClass.pg = 104
     Assert.equals(16, SimpleClass.f8<Rune, Bool, Rune>())
     Assert.equals(23, SimpleClass.pg)
     Assert.equals(24, SimpleClass.ph)
@@ -137,15 +147,19 @@ class GenericClass<T> {
     return 33
   }
   static protected func f2(x: Int64, y: Float64) {
+    Assert.equals(1, x)
+    Assert.equals(0.1, y)
     return 34
   }
   static public func f3() {
     return 35
   }
   static private func f4(x: Bool) {
+    Assert.isTrue(x)
     return 36
   }
   static func f5<T>(x: Rune) {
+    Assert.equals(r'a', x)
     return 37
   }
   static protected func f6<T>() {
@@ -162,7 +176,7 @@ class GenericClass<T> {
     get() {
       41
     }
-    set(v) {}
+    set(v) { Assert.equals(105, v); setterSeen[4] = true }
   }
 
   static prop pb: Int64 {
@@ -174,7 +188,7 @@ class GenericClass<T> {
     get() {
       43
     }
-    set(v) {}
+    set(v) { Assert.equals(106, v); setterSeen[5] = true }
   }
 
   public static prop pd: Int64 {
@@ -186,7 +200,7 @@ class GenericClass<T> {
     get() {
       45
     }
-    set(v) {}
+    set(v) { Assert.equals(107, v); setterSeen[6] = true }
   }
 
   protected static prop pf: Int64 {
@@ -198,7 +212,7 @@ class GenericClass<T> {
     get() {
       47
     }
-    set(v) {}
+    set(v) { Assert.equals(108, v); setterSeen[7] = true }
   }
 
   private static prop ph: Int64 {
@@ -211,6 +225,10 @@ class GenericClass<T> {
     Assert.equals(31, GenericClass<T>.g)
     Assert.equals(32, GenericClass<T>.h)
     Assert.equals(36, GenericClass<T>.f4(true))
+    GenericClass<T>.pa = 105
+    GenericClass<T>.pc = 106
+    GenericClass<T>.pe = 107
+    GenericClass<T>.pg = 108
     Assert.equals(40, GenericClass<T>.f8<Rune, Bool, Rune>())
     Assert.equals(47, GenericClass<T>.pg)
     Assert.equals(48, GenericClass<T>.ph)
@@ -231,15 +249,19 @@ open class OpenClass {
     return 57
   }
   static protected func f2(x: Int64, y: Float64) {
+    Assert.equals(1, x)
+    Assert.equals(0.1, y)
     return 58
   }
   static public func f3() {
     return 59
   }
   static private func f4(x: Bool) {
+    Assert.isTrue(x)
     return 60
   }
   static func f5<T>(x: Rune) {
+    Assert.equals(r'a', x)
     return 61
   }
   static protected func f6<T>() {
@@ -256,7 +278,7 @@ open class OpenClass {
     get() {
       65
     }
-    set(v) {}
+    set(v) { Assert.equals(109, v); setterSeen[8] = true }
   }
 
   static prop pb: Int64 {
@@ -268,7 +290,7 @@ open class OpenClass {
     get() {
       67
     }
-    set(v) {}
+    set(v) { Assert.equals(110, v); setterSeen[9] = true }
   }
 
   public static prop pd: Int64 {
@@ -280,7 +302,7 @@ open class OpenClass {
     get() {
       69
     }
-    set(v) {}
+    set(v) { Assert.equals(111, v); setterSeen[10] = true }
   }
 
   protected static prop pf: Int64 {
@@ -292,7 +314,7 @@ open class OpenClass {
     get() {
       71
     }
-    set(v) {}
+    set(v) { Assert.equals(112, v); setterSeen[11] = true }
   }
 
   private static prop ph: Int64 {
@@ -305,6 +327,10 @@ open class OpenClass {
     Assert.equals(55, OpenClass.g)
     Assert.equals(56, OpenClass.h)
     Assert.equals(60, OpenClass.f4(true))
+    OpenClass.pa = 109
+    OpenClass.pc = 110
+    OpenClass.pe = 111
+    OpenClass.pg = 112
     Assert.equals(64, OpenClass.f8<Rune, Bool, Rune>())
     Assert.equals(71, OpenClass.pg)
     Assert.equals(72, OpenClass.ph)
@@ -325,15 +351,19 @@ abstract class AbstractClass {
     return 81
   }
   static protected func f2(x: Int64, y: Float64) {
+    Assert.equals(1, x)
+    Assert.equals(0.1, y)
     return 82
   }
   static public func f3() {
     return 83
   }
   static private func f4(x: Bool) {
+    Assert.isTrue(x)
     return 84
   }
   static func f5<T>(x: Rune) {
+    Assert.equals(r'a', x)
     return 85
   }
   static protected func f6<T>() {
@@ -350,7 +380,7 @@ abstract class AbstractClass {
     get() {
       89
     }
-    set(v) {}
+    set(v) { Assert.equals(113, v); setterSeen[12] = true }
   }
 
   static prop pb: Int64 {
@@ -362,7 +392,7 @@ abstract class AbstractClass {
     get() {
       91
     }
-    set(v) {}
+    set(v) { Assert.equals(114, v); setterSeen[13] = true }
   }
 
   public static prop pd: Int64 {
@@ -374,7 +404,7 @@ abstract class AbstractClass {
     get() {
       93
     }
-    set(v) {}
+    set(v) { Assert.equals(115, v); setterSeen[14] = true }
   }
 
   protected static prop pf: Int64 {
@@ -386,7 +416,7 @@ abstract class AbstractClass {
     get() {
       95
     }
-    set(v) {}
+    set(v) { Assert.equals(116, v); setterSeen[15] = true }
   }
 
   private static prop ph: Int64 {
@@ -399,6 +429,10 @@ abstract class AbstractClass {
     Assert.equals(79, AbstractClass.g)
     Assert.equals(80, AbstractClass.h)
     Assert.equals(84, AbstractClass.f4(true))
+    AbstractClass.pa = 113
+    AbstractClass.pc = 114
+    AbstractClass.pe = 115
+    AbstractClass.pg = 116
     Assert.equals(88, AbstractClass.f8<Rune, Bool, Rune>())
     Assert.equals(95, AbstractClass.pg)
     Assert.equals(96, AbstractClass.ph)
@@ -501,4 +535,5 @@ main() {
   Assert.equals(94, AbstractClass.pf)
 
   AbstractClass.privateVerify()
+    Assert.equals([true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true], setterSeen)
 }

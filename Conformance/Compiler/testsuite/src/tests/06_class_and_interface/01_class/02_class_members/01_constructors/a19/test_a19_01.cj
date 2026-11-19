@@ -47,7 +47,12 @@ class TestNoNamedRegularParams {
     private let p6!: Int64 = c2,
     var p7!: Int64 = c3,
     let p8!: Int64 = c4
-  ) {}
+  ) {
+    Assert.equals(r1, p1)
+    Assert.equals(r2, p2)
+    Assert.equals(r3, p3)
+    Assert.equals(r4, p4)
+  }
 
   func check() {
     Assert.equals(1, p1)
@@ -79,7 +84,16 @@ class TestNoUnnamedClassParams {
     private let p6!: Int64 = r6,
     var p7!: Int64 = r7,
     let p8!: Int64 = r8
-  ) {}
+  ) {
+    Assert.equals(r1, p1)
+    Assert.equals(r2, p2)
+    Assert.equals(r3, p3)
+    Assert.equals(r4, p4)
+    Assert.equals(r5, p5)
+    Assert.equals(r6, p6)
+    Assert.equals(r7, p7)
+    Assert.equals(r8, p8)
+  }
 
   func check() {
     Assert.equals(1, p1)
@@ -104,7 +118,9 @@ class TestNamedClassParamsChain {
     private let p6!: Int64 = p5 + 1,
     var p7!: Int64 = p6 + 1,
     let p8!: Int64 = p7 + 1
-  ) {}
+  ) {
+    Assert.equals(r, p1)
+  }
 
   func check() {
     Assert.equals(-8, p1)

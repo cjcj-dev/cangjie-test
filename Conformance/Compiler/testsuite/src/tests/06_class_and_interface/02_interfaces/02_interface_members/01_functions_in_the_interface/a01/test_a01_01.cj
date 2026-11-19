@@ -52,7 +52,7 @@ interface I {
     func f9() {}
     func f10() {
         func local(x: Int64) {
-            return true
+            return x == 3
         }
         return local(1 + 2)
     }
@@ -69,6 +69,7 @@ interface I {
         let y = 2
         var z = 0
         z = x + y
+        Assert.equals(3, z)
     }
     static func f14() {
         func local(x: (Int64) -> Int64) {
@@ -77,7 +78,10 @@ interface I {
         let lambda = {x: Int64 => x + 1}
         return local(lambda)
     }
-    static func f15(a: Rune, b: Bool) {}
+    static func f15(a: Rune, b: Bool) {
+        Assert.equals(r'a', a)
+        Assert.isTrue(b)
+    }
     static func f16(x: Int64, b: Int64, c: Int64) {
         var m = [x, b, c]
         m[1] = -1
@@ -97,17 +101,18 @@ interface I {
     }
     static func f22<T>() {
         var i = 0
-        for (l in 1..100:1) {
+        for (_ in 1..100:1) {
             i++
         }
         return i
     }
     static func f23<T>(x: T) {
-        let unused = if (x is String) {
+        let isString = if (x is String) {
             1
         } else {
             0
         }
+        Assert.equals(0, isString)
         return ()
     }
     static func f24<T>(a!: Bool, c!: Rune) {
@@ -153,7 +158,7 @@ class A <: I {
     public func f2() {
         return 100
     }
-    public func f3(x: String) {}
+    public func f3(x: String) { Assert.equals("", x) }
     public func f4(x: Rune, y!: Bool) {
         return (x, y)
     }
@@ -162,7 +167,11 @@ class A <: I {
     public static func f6() {
         return [r'c', r'b']
     }
-    public static func f7(x: Int32, y: UInt32, z: Unit) {}
+    public static func f7(x: Int32, y: UInt32, z: Unit) {
+        Assert.equals(1i32, x)
+        Assert.equals(1u32, y)
+        Assert.equals((), z)
+    }
     public static func f8(a!: Rune, b!: Rune) {
         if (a == r'x') {
             return b
@@ -175,8 +184,9 @@ class A <: I {
     public static func f18<T>() {
         return r'u'
     }
-    public static func f19<T>(x: T) {}
+    public static func f19<T>(x: T) { Assert.isTrue(x is Rune) }
     public static func f20<T>(a!: T) {
+        Assert.isTrue(a is String)
         return "\\\\\\"
     }
 }

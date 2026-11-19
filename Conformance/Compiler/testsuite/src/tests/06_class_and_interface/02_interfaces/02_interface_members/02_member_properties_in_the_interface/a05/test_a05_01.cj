@@ -30,6 +30,8 @@
 
 import utils.assert.Assert
 
+let setterSeen = [false, false, false, false]
+
 interface I {
     func f1() {
         return 1
@@ -49,7 +51,10 @@ interface I {
         get() {
             7
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(71, v)
+            setterSeen[0] = true
+        }
     }
     prop p2: Int64 {
         get() {
@@ -60,7 +65,10 @@ interface I {
         get() {
             9
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(73, v)
+            setterSeen[1] = true
+        }
     }
     static prop p4: Int64 {
         get() {
@@ -125,6 +133,7 @@ interface I {
             Assert.equals(14, p8)
         }
         set(v) {
+            Assert.equals((), v)
             Assert.equals(1, f1())
             Assert.equals(2, f2())
             Assert.equals(3, f3<Unit>())
@@ -177,6 +186,7 @@ interface I {
             Assert.equals(14, p8)
         }
         set(v) {
+            Assert.equals((), v)
             Assert.equals(2, f2())
             Assert.equals(3, f3<Unit>())
             Assert.equals(5, f5())
@@ -219,7 +229,10 @@ class A <: I {
         get() {
             11
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(75, v)
+            setterSeen[2] = true
+        }
     }
     public prop p6: Int64 {
         get() {
@@ -230,7 +243,10 @@ class A <: I {
         get() {
             13
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(77, v)
+            setterSeen[3] = true
+        }
     }
     public static prop p8: Int64 {
         get() {
@@ -249,4 +265,9 @@ main() {
     var ps = A.p_static
     ps = A.p_static_let
     A.p_static = ps
+    tst.p1 = 71
+    I.p3 = 73
+    tst.p5 = 75
+    A.p7 = 77
+    Assert.equals([true, true, true, true], setterSeen)
 }

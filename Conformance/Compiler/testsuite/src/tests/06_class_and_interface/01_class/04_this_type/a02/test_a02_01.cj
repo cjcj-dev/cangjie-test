@@ -65,7 +65,8 @@ class Test {
             return y + 1
         }
         var z = x
-        z = local(x)
+        z = local(z)
+        Assert.equals(x + 1, z)
         return this
     }
     // Implicitly return the result of the call to a function of This type
@@ -74,21 +75,25 @@ class Test {
             return "1"
         }
         let b = s + local()
+        Assert.equals("31", b)
         f1()
     }
     // Explicitly return the result of the call to a function of This type
     func f8(): This {
         var a = 0
-        func local() {}
+        func local() { a++ }
         f1()
         f1()
         local()
+        Assert.equals(1, a)
         f1()
         return f1()
     }
 
     // Operators are also functions
     operator func +(rhs: Test): This {
+        let operand: Any = rhs
+        Assert.isTrue(operand is Test)
         return this
     }
     operator func -(): This {

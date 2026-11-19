@@ -32,6 +32,8 @@
 
 import utils.assert.Assert
 
+let setterSeen = [false]
+
 // Empty class
 class A {}
 
@@ -43,18 +45,19 @@ class C <: B {}
 
 // Class with a constructor with parameters
 class D {
-    init(x: Int64, y: Bool) {}
+    init(x: Int64, y: Bool) { Assert.equals(10, x); Assert.isFalse(y) }
 }
 
 // Open class with a constructor with parameters
 open class E {
-    init(a: String, b: Rune) {}
+    init(a: String, b: Rune) { Assert.equals("", a); Assert.isTrue(b == r'b' || b == r'e') }
 }
 
 // Derived class with a constructor with parameters
 class F <: E {
     init(a: Float64) {
         super("", r'b')
+        Assert.equals(1.3031, a)
     }
 }
 
@@ -84,7 +87,7 @@ class J {
 
 // A public-modified class
 public class TestA0201 {
-    init(x: Int64) {}
+    init(x: Int64) { Assert.equals(0, x) }
 }
 
 // A sealed-modified class
@@ -121,7 +124,7 @@ class N {
         get() {
             ""
         }
-        set(v) {}
+        set(v) { Assert.equals("fixture", v); setterSeen[0] = true }
     }
     static prop p2: Bool {
         get() {
@@ -175,4 +178,13 @@ main() {
 
     let o = O()
     Assert.isTrue(o is N)
+    Assert.equals((), H.f())
+    Assert.equals((), i.f())
+    Assert.equals((), j.g())
+    Assert.equals((), n.f())
+    Assert.equals((), N.s())
+    n.p1 = "fixture"
+    Assert.equals("", n.p1)
+    Assert.isFalse(N.p2)
+    Assert.equals([true], setterSeen)
 }

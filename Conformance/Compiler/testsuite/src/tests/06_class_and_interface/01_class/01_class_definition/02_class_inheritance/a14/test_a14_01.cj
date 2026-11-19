@@ -31,6 +31,8 @@
 
 import utils.assert.Assert
 
+let setterSeen = [false, false, false, false, false, false]
+
 public open class TheTopClass {
   static func s_topFunc() {
     return 0x1
@@ -48,7 +50,7 @@ public open class TheTopClass {
     get() {
       0x4
     }
-    set(v) {}
+    set(v) { Assert.equals(1, v); setterSeen[0] = true }
   }
 
   static var s_top_var_mem = 0x5
@@ -70,7 +72,7 @@ public open class TheTopClass {
     get() {
       0xa
     }
-    set(v) {}
+    set(v) { Assert.equals(2, v); setterSeen[1] = true }
   }
 
   var top_var_mem = 0xb
@@ -94,7 +96,7 @@ public abstract class UpperClass <: TheTopClass {
     get() {
       0x14
     }
-    set(v) {}
+    set(v) { Assert.equals(3, v); setterSeen[2] = true }
   }
 
   static var s_upper_var_mem = 0x15
@@ -116,7 +118,7 @@ public abstract class UpperClass <: TheTopClass {
     get() {
       0x1a
     }
-    set(v) {}
+    set(v) { Assert.equals(4, v); setterSeen[3] = true }
   }
 
   var upper_var_mem = 0x1b
@@ -140,7 +142,7 @@ sealed abstract class TheParent <: UpperClass {
     get() {
       0x104
     }
-    set(v) {}
+    set(v) { Assert.equals(5, v); setterSeen[4] = true }
   }
 
   static var s_var_mem = 0x105
@@ -162,7 +164,7 @@ sealed abstract class TheParent <: UpperClass {
     get() {
       0x10a
     }
-    set(v) {}
+    set(v) { Assert.equals(6, v); setterSeen[5] = true }
   }
 
   var var_mem = 0x10b
@@ -176,6 +178,7 @@ class Test <: TheParent {
     Assert.equals(0x2, s_topGenFunc<Rune>())
     Assert.equals(0x3, s_top_immut_prop)
     Assert.equals(0x4, s_top_mut_prop)
+    s_top_mut_prop = 1
     Assert.equals(0x5, s_top_var_mem)
     Assert.equals(0x6, s_top_let_mem)
 
@@ -184,6 +187,7 @@ class Test <: TheParent {
     Assert.equals(0x8, topGenFunc<Int64>())
     Assert.equals(0x9, top_immut_prop)
     Assert.equals(0xa, top_mut_prop)
+    top_mut_prop = 2
     Assert.equals(0xb, top_var_mem)
     Assert.equals(0xc, top_let_mem)
 
@@ -192,6 +196,7 @@ class Test <: TheParent {
     Assert.equals(0x12, s_upperGenFunc<Bool>())
     Assert.equals(0x13, s_upper_immut_prop)
     Assert.equals(0x14, s_upper_mut_prop)
+    s_upper_mut_prop = 3
     Assert.equals(0x15, s_upper_var_mem)
     Assert.equals(0x16, s_upper_let_mem)
 
@@ -200,6 +205,7 @@ class Test <: TheParent {
     Assert.equals(0x18, upperGenFunc<()->Unit>())
     Assert.equals(0x19, upper_immut_prop)
     Assert.equals(0x1a, upper_mut_prop)
+    upper_mut_prop = 4
     Assert.equals(0x1b, upper_var_mem)
     Assert.equals(0x1c, upper_let_mem)
 
@@ -208,6 +214,7 @@ class Test <: TheParent {
     Assert.equals(0x102, s_GenFunc<Test>())
     Assert.equals(0x103, s_immut_prop)
     Assert.equals(0x104, s_mut_prop)
+    s_mut_prop = 5
     Assert.equals(0x105, s_var_mem)
     Assert.equals(0x106, s_let_mem)
 
@@ -216,6 +223,7 @@ class Test <: TheParent {
     Assert.equals(0x108, genFunc<Float32>())
     Assert.equals(0x109, immut_prop)
     Assert.equals(0x10a, mut_prop)
+    mut_prop = 6
     Assert.equals(0x10b, var_mem)
     Assert.equals(0x10c, let_mem)
   }
@@ -224,4 +232,5 @@ class Test <: TheParent {
 main() {
   var test = Test()
   test.test()
+    Assert.equals([true, true, true, true, true, true], setterSeen)
 }

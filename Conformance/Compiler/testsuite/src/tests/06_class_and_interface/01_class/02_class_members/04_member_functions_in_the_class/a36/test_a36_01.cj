@@ -31,25 +31,27 @@ import utils.assert.Assert
 open class Open {
     public func f1() {}
 
-    public func f2(x: Int64) {}
+    public func f2(x: Int64) { Assert.equals(1, x) }
 
     public func f3() {
         return 1
     }
 
     public func f4(x: Int64) {
+        Assert.equals(1, x)
         return 2
     }
 
     protected func f5() {}
 
-    protected func f6(x: Int64) {}
+    protected func f6(x: Int64) { Assert.equals(1, x) }
 
     protected func f7() {
         return 3
     }
 
     protected func f8(x: Int64) {
+        Assert.equals(1, x)
         return 4
     }
 }
@@ -57,25 +59,27 @@ open class Open {
 abstract class Abstract {
     public func f1() {}
 
-    public func f2(x: Int64) {}
+    public func f2(x: Int64) { Assert.equals(1, x) }
 
     public func f3() {
         return 5
     }
 
     public func f4(x: Int64) {
+        Assert.equals(1, x)
         return 6
     }
 
     protected func f5() {}
 
-    protected func f6(x: Int64) {}
+    protected func f6(x: Int64) { Assert.equals(1, x) }
 
     protected func f7() {
         return 7
     }
 
     protected func f8(x: Int64) {
+        Assert.equals(1, x)
         return 8
     }
 }
@@ -85,28 +89,32 @@ class Real <: Abstract {}
 sealed abstract class Sealed {
     public func f1() {}
 
-    public func f2(x: Int64) {}
+    public func f2(x: Int64) { Assert.equals(1, x) }
 
     public func f3() {
         return 9
     }
 
     public func f4(x: Int64) {
+        Assert.equals(1, x)
         return 10
     }
 
     protected func f5() {}
 
-    protected func f6(x: Int64) {}
+    protected func f6(x: Int64) { Assert.equals(1, x) }
 
     protected func f7() {
         return 11
     }
 
     protected func f8(x: Int64) {
+        Assert.equals(1, x)
         return 12
     }
 }
+
+class SealedProbe <: Sealed {}
 
 main() {
     let case1 = Open()
@@ -128,4 +136,14 @@ main() {
     Assert.isTrue(case2.f6(1) is Unit)
     Assert.equals(7, case2.f7())
     Assert.equals(8, case2.f8(1))
+
+    let case3 = SealedProbe()
+    Assert.isTrue(case3.f1() is Unit)
+    Assert.isTrue(case3.f2(1) is Unit)
+    Assert.equals(9, case3.f3())
+    Assert.equals(10, case3.f4(1))
+    Assert.isTrue(case3.f5() is Unit)
+    Assert.isTrue(case3.f6(1) is Unit)
+    Assert.equals(11, case3.f7())
+    Assert.equals(12, case3.f8(1))
 }

@@ -32,6 +32,8 @@
 
 import utils.assert.Assert
 
+let setterSeen = [false, false, false, false, false, false, false, false, false, false, false, false]
+
 interface S1 {
     // Functions without body
     func f1_s1(): Int64
@@ -60,7 +62,9 @@ interface S1 {
         get() {
             0
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(0, v)
+        }
     }
     prop p6_s1: Int64 {
         get() {
@@ -71,7 +75,9 @@ interface S1 {
         get() {
             0
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(0, v)
+        }
     }
     static prop p8_s1: Int64 {
         get() {
@@ -84,6 +90,7 @@ interface S1 {
 
     // Operator with body
     operator func -(rhs: S1) {
+        Assert.equals(f4_s1(), rhs.f4_s1())
         return 0
     }
 }
@@ -116,7 +123,9 @@ interface S2 {
         get() {
             0
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(0, v)
+        }
     }
     prop p6_s2: Int64 {
         get() {
@@ -127,7 +136,9 @@ interface S2 {
         get() {
             0
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(0, v)
+        }
     }
     static prop p8_s2: Int64 {
         get() {
@@ -140,6 +151,7 @@ interface S2 {
 
     // Operator with body
     operator func /(rhs: S2) {
+        Assert.equals(f4_s2(), rhs.f4_s2())
         return 0
     }
 }
@@ -172,7 +184,9 @@ interface I <: S1 & S2 {
         get() {
             0
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(0, v)
+        }
     }
     prop p6: Int64 {
         get() {
@@ -183,7 +197,9 @@ interface I <: S1 & S2 {
         get() {
             0
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(0, v)
+        }
     }
     static prop p8: Int64 {
         get() {
@@ -276,7 +292,10 @@ class A <: I {
         get() {
             7
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(71, v)
+            setterSeen[0] = true
+        }
     }
     public override prop p2: Int64 {
         get() {
@@ -287,7 +306,10 @@ class A <: I {
         get() {
             9
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(72, v)
+            setterSeen[1] = true
+        }
     }
     public redef static prop p4: Int64 {
         get() {
@@ -298,7 +320,10 @@ class A <: I {
         get() {
             11
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(73, v)
+            setterSeen[2] = true
+        }
     }
     public override prop p6: Int64 {
         get() {
@@ -309,7 +334,10 @@ class A <: I {
         get() {
             13
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(74, v)
+            setterSeen[3] = true
+        }
     }
     public redef static prop p8: Int64 {
         get() {
@@ -339,7 +367,10 @@ class A <: I {
         get() {
             21
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(75, v)
+            setterSeen[4] = true
+        }
     }
     public override prop p2_s1: Int64 {
         get() {
@@ -350,7 +381,10 @@ class A <: I {
         get() {
             23
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(76, v)
+            setterSeen[5] = true
+        }
     }
     public redef static prop p4_s1: Int64 {
         get() {
@@ -361,7 +395,10 @@ class A <: I {
         get() {
             25
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(77, v)
+            setterSeen[6] = true
+        }
     }
     public override prop p6_s1: Int64 {
         get() {
@@ -372,7 +409,10 @@ class A <: I {
         get() {
             27
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(78, v)
+            setterSeen[7] = true
+        }
     }
     public redef static prop p8_s1: Int64 {
         get() {
@@ -402,7 +442,10 @@ class A <: I {
         get() {
             35
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(79, v)
+            setterSeen[8] = true
+        }
     }
     public override prop p2_s2: Int64 {
         get() {
@@ -413,7 +456,10 @@ class A <: I {
         get() {
             37
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(80, v)
+            setterSeen[9] = true
+        }
     }
     public redef static prop p4_s2: Int64 {
         get() {
@@ -424,7 +470,10 @@ class A <: I {
         get() {
             39
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(81, v)
+            setterSeen[10] = true
+        }
     }
     public override prop p6_s2: Int64 {
         get() {
@@ -435,7 +484,10 @@ class A <: I {
         get() {
             41
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(82, v)
+            setterSeen[11] = true
+        }
     }
     public redef static prop p8_s2: Int64 {
         get() {
@@ -450,15 +502,19 @@ class A <: I {
         return 44
     }
     public override operator func +(rhs: S1) {
+        Assert.equals(f4_s1(), rhs.f4_s1())
         return 45
     }
     public override operator func -(rhs: S1) {
+        Assert.equals(f4_s1(), rhs.f4_s1())
         return 46
     }
     public override operator func *(rhs: S2) {
+        Assert.equals(f4_s2(), rhs.f4_s2())
         return 47
     }
     public override operator func /(rhs: S2) {
+        Assert.equals(f4_s2(), rhs.f4_s2())
         return 48
     }
 }
@@ -475,4 +531,17 @@ main() {
     Assert.equals(46, op1 - op2)
     Assert.equals(47, op1 * op2)
     Assert.equals(48, op1 / op2)
+    op1.p1 = 71
+    A.p3 = 72
+    op1.p5 = 73
+    A.p7 = 74
+    op1.p1_s1 = 75
+    A.p3_s1 = 76
+    op1.p5_s1 = 77
+    A.p7_s1 = 78
+    op1.p1_s2 = 79
+    A.p3_s2 = 80
+    op1.p5_s2 = 81
+    A.p7_s2 = 82
+    Assert.equals([true, true, true, true, true, true, true, true, true, true, true, true], setterSeen)
 }

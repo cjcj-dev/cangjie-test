@@ -48,7 +48,7 @@ interface I {
     func fi3(x!: String) {
         Rune(x[0])
     }
-    func fi4(a: Rune) {}
+    func fi4(a: Rune) { Assert.equals(r'o', a) }
     func fi5(x: Array<String>, y: Int64, z: Int64) {
         return x[y + z]
     }
@@ -73,7 +73,7 @@ open class B <: A & I {
     }
     func fc3<T>(x!: Int64 = 12) {
         var i = 0
-        var res = Array<Int64>(x) { i => 0 }
+        var res = Array<Int64>(x) { _ => 0 }
         while(i < x) {
             res[i] = 1
             i++
@@ -81,6 +81,7 @@ open class B <: A & I {
         return res
     }
     open protected func fc4(x: String) {
+        Assert.equals("", x)
         return 1e6
     }
     static func fc5(a: Rune) {
@@ -99,6 +100,7 @@ open class B <: A & I {
         return "${a} ${b}"
     }
     public func ai5(a: Unit) {
+        Assert.equals((), a)
         return (11, 11, -8)
     }
     public func ac1() {
@@ -115,6 +117,7 @@ open class B <: A & I {
         return res
     }
     protected func ac4(x: Unit) {
+        Assert.equals((), x)
         return ([1, 17, 74], ["m", "mm", "mmm"])
     }
     public func ac5(z: Bool, l: Bool) {

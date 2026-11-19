@@ -42,6 +42,8 @@
 
 import utils.assert.Assert
 
+let setterSeen = [false, false, false, false, false, false]
+
 class Test {
   private static let priv_static_var = 100
 
@@ -51,7 +53,7 @@ class Test {
       Assert.equals(100, x)
       1
     }
-    set(v) {}
+    set(v) { Assert.equals(1, v); setterSeen[0] = true }
   }
 
   private static prop b: Int64 {
@@ -68,7 +70,7 @@ class Test {
       Assert.equals(100, x)
       3
     }
-    set(v) {}
+    set(v) { Assert.equals(2, v); setterSeen[1] = true }
   }
 
   protected static prop d: Int64 {
@@ -85,7 +87,7 @@ class Test {
       Assert.equals(100, x)
       5
     }
-    set(v) {}
+    set(v) { Assert.equals(3, v); setterSeen[2] = true }
   }
 
   static prop f: Int64 {
@@ -102,7 +104,7 @@ class Test {
       Assert.equals(100, x)
       7
     }
-    set(v) {}
+    set(v) { Assert.equals(4, v); setterSeen[3] = true }
   }
 
   private prop h: Int64 {
@@ -119,7 +121,7 @@ class Test {
       Assert.equals(100, x)
       9
     }
-    set(v) {}
+    set(v) { Assert.equals(5, v); setterSeen[4] = true }
   }
 
   protected prop j: Int64 {
@@ -136,7 +138,7 @@ class Test {
       Assert.equals(100, x)
       11
     }
-    set(v) {}
+    set(v) { Assert.equals(6, v); setterSeen[5] = true }
   }
 
   prop l: Int64 {
@@ -149,16 +151,22 @@ class Test {
 
   func check() {
     Assert.equals(1, a)
+    a = 1
     Assert.equals(2, b)
     Assert.equals(3, c)
+    c = 2
     Assert.equals(4, d)
     Assert.equals(5, e)
+    e = 3
     Assert.equals(6, f)
     Assert.equals(7, g)
+    g = 4
     Assert.equals(8, h)
     Assert.equals(9, i)
+    i = 5
     Assert.equals(10, j)
     Assert.equals(11, k)
+    k = 6
     Assert.equals(12, l)
   }
 
@@ -187,4 +195,5 @@ main() {
   Test.check_private()
 
   test.check()
+    Assert.equals([true, true, true, true, true, true], setterSeen)
 }

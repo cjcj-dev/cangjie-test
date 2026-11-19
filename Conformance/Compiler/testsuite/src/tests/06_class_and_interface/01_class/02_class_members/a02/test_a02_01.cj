@@ -32,6 +32,8 @@
 
 import utils.assert.Assert
 
+let setterSeen = [false, false]
+
 class Test {
   // Static members
   // - Variables
@@ -40,6 +42,7 @@ class Test {
 
   // - Functions
   static func sf(s: String) {
+    Assert.equals("1", s)
     return 3
   }
 
@@ -48,7 +51,7 @@ class Test {
     get() {
       4
     }
-    set(v) {}
+    set(v) { Assert.equals(44, v); setterSeen[0] = true }
   }
 
   static prop sip: Int64 {
@@ -64,6 +67,7 @@ class Test {
 
   // - Functions
   func `if`(x: Bool) {
+    Assert.isFalse(x)
     return 8
   }
 
@@ -72,7 +76,7 @@ class Test {
     get() {
       9
     }
-    set(v) {}
+    set(v) { Assert.equals(99, v); setterSeen[1] = true }
   }
 
   prop iip: Int64 {
@@ -87,6 +91,7 @@ main() {
   Assert.equals(2, Test.siv)
   Assert.equals(3, Test.sf("1"))
   Assert.equals(4, Test.smp)
+  Test.smp = 44
   Assert.equals(5, Test.sip)
 
   let tst = Test()
@@ -95,5 +100,7 @@ main() {
   Assert.equals(7, tst.iiv)
   Assert.equals(8, tst.`if`(false))
   Assert.equals(9, tst.imp)
+  tst.imp = 99
   Assert.equals(10, tst.iip)
+    Assert.equals([true, true], setterSeen)
 }

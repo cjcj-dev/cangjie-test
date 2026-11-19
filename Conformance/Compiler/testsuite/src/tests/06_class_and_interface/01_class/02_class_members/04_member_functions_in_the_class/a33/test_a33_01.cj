@@ -31,20 +31,26 @@ import utils.assert.Assert
 
 open class Open {
     public open func a() {}
-    public open func b(x: String) {}
+    public open func b(x: String) { Assert.equals("", x) }
     public open func c() {
         return r'y'
     }
     public open func d(x: Rune) {
+        Assert.equals(r'(', x)
         return r']'
     }
 
     static func e() {}
-    static func f(x: (Int64, Int64)) {}
+    static func f(x: (Int64, Int64)) {
+        Assert.equals(1, x[0])
+        Assert.equals(1, x[1])
+    }
     static func g() {
         return "p"
     }
     static func h(x: Unit, y: Unit) {
+        Assert.equals((), x)
+        Assert.equals((), y)
         return "mm"
     }
 
@@ -63,20 +69,26 @@ open class Open {
 
 abstract class Abstract {
     public open func a() {}
-    public open func b(x: String) {}
+    public open func b(x: String) { Assert.equals("", x) }
     public open func c() {
         return r'y'
     }
     public open func d(x: Rune) {
+        Assert.equals(r'(', x)
         return r']'
     }
 
     static func e() {}
-    static func f(x: (Int64, Int64)) {}
+    static func f(x: (Int64, Int64)) {
+        Assert.equals(1, x[0])
+        Assert.equals(1, x[1])
+    }
     static func g() {
         return "p"
     }
     static func h(x: Unit, y: Unit) {
+        Assert.equals((), x)
+        Assert.equals((), y)
         return "mm"
     }
 
@@ -97,20 +109,26 @@ class Real <: Abstract {}
 
 sealed abstract class Sealed {
     public open func a() {}
-    public open func b(x: String) {}
+    public open func b(x: String) { Assert.equals("", x) }
     public open func c() {
         return r'y'
     }
     public open func d(x: Rune) {
+        Assert.equals(r'(', x)
         return r']'
     }
 
     static func e() {}
-    static func f(x: (Int64, Int64)) {}
+    static func f(x: (Int64, Int64)) {
+        Assert.equals(1, x[0])
+        Assert.equals(1, x[1])
+    }
     static func g() {
         return "p"
     }
     static func h(x: Unit, y: Unit) {
+        Assert.equals((), x)
+        Assert.equals((), y)
         return "mm"
     }
 
@@ -127,7 +145,10 @@ sealed abstract class Sealed {
     }
 }
 
+class SealedProbe <: Sealed {}
+
 main() {
     Open().test()
     Real().test()
+    SealedProbe().test()
 }

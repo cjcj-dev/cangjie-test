@@ -31,6 +31,8 @@
 
 import utils.assert.Assert
 
+let setterSeen = [false, false, false, false, false, false]
+
 interface I {
     func f1(): Unit
     func f2(): Int64
@@ -40,7 +42,7 @@ interface I {
     func f6() {
         return 10
     }
-    func f7(x: Int64) {}
+    func f7(x: Int64) { Assert.equals(1, x) }
     func f8(x: Rune) {
         return "${x}"
     }
@@ -48,8 +50,9 @@ interface I {
     static func f10() {
         return 100
     }
-    static func f11(x: Int64) {}
+    static func f11(x: Int64) { Assert.equals(12, x) }
     static func f12(x: Unit) {
+        Assert.equals((), x)
         return [1, 2, 3]
     }
 
@@ -69,7 +72,10 @@ interface I {
         get() {
             r'a'
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(r'a', v)
+            setterSeen[0] = true
+        }
     }
     static prop p5: Bool {
         get() {
@@ -80,7 +86,10 @@ interface I {
         get() {
             1.5f32
         }
-        set(v) {}
+        set(v) {
+            Assert.approxEquals(1.5f32, v)
+            setterSeen[1] = true
+        }
     }
 }
 
@@ -93,7 +102,7 @@ interface IG<T> {
     func f6() {
         return -10
     }
-    func f7(x: Int64) {}
+    func f7(x: Int64) { Assert.equals(1, x) }
     func f8(x: Rune) {
         return "${x}"
     }
@@ -101,8 +110,9 @@ interface IG<T> {
     static func f10() {
         return -100
     }
-    static func f11(x: Int64) {}
+    static func f11(x: Int64) { Assert.equals(12, x) }
     static func f12(x: Unit) {
+        Assert.equals((), x)
         return 1..10:1
     }
 
@@ -122,7 +132,10 @@ interface IG<T> {
         get() {
             r't'
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(r't', v)
+            setterSeen[2] = true
+        }
     }
     static prop p5: Int32 {
         get() {
@@ -133,7 +146,10 @@ interface IG<T> {
         get() {
             0.5f32
         }
-        set(v) {}
+        set(v) {
+            Assert.approxEquals(0.5f32, v)
+            setterSeen[3] = true
+        }
     }
 }
 
@@ -142,11 +158,13 @@ class C1 <: I {
     public func f2() {
         return 1
     }
-    public func f3(x: Int64) {}
+    public func f3(x: Int64) { Assert.equals(1, x) }
     public func f4(x: Rune) {
+        Assert.equals(r'e', x)
         return "B"
     }
     public operator func +(rhs: I) {
+        Assert.equals(f2(), rhs.f2())
         return 2
     }
     public prop p1: Unit {
@@ -158,7 +176,10 @@ class C1 <: I {
         get() {
             3
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(3, v)
+            setterSeen[4] = true
+        }
     }
 }
 
@@ -167,11 +188,13 @@ class C2 <: IG<Unit> {
     public func f2() {
         return -1
     }
-    public func f3(x: Int64) {}
+    public func f3(x: Int64) { Assert.equals(1, x) }
     public func f4(x: Rune) {
+        Assert.equals(r'e', x)
         return "O"
     }
     public operator func +(rhs: IG<Unit>) {
+        Assert.equals(f2(), rhs.f2())
         return -2
     }
     public prop p1: Array<String> {
@@ -183,7 +206,10 @@ class C2 <: IG<Unit> {
         get() {
             -3
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(-3, v)
+            setterSeen[5] = true
+        }
     }
 }
 
@@ -231,4 +257,11 @@ main() {
     Assert.equals(r't', tst2.p4)
     Assert.equals(1i32, IG<Unit>.p5)
     Assert.approxEquals(0.5f32, IG<Unit>.p6)
+    tst1.p4 = r'a'
+    I.p6 = 1.5f32
+    tst2.p4 = r't'
+    IG<Unit>.p6 = 0.5f32
+    tst1.p2 = 3
+    tst2.p2 = -3
+    Assert.equals([true, true, true, true, true, true], setterSeen)
 }

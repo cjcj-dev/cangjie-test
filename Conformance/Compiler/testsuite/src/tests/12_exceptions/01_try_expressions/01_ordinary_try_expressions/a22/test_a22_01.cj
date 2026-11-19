@@ -151,21 +151,30 @@ main() {
     Assert.equals(true, catch_block) 
 
 // test case #3
-    var a = 1 
-    func throwE() { 
+    func throwE(a: Int64) {
          if (a == 1) { 
-             ChildOne() 
-         } else { 
-             ChildTwo() 
+             let err = ChildOne()
+             err.whatChildOne()
+             err.whatChild()
+             throw err
+         } else {
+             let err = ChildTwo()
+             err.whatChildTwo()
+             err.whatChild()
+             throw err
          } 
     }
-    try { 
-        throwE() 
-    } catch (e: ChildOne | ChildTwo) {
-        e.whatFather() // ok: e is an object of Father
-        Assert.equals(0, e.father) // ok: e is an object of Father 
-        print(e.father)
-    } 
+    var caughtChildren = 0
+    for (child in [1, 2]) {
+        try {
+            throwE(child)
+        } catch (e: ChildOne | ChildTwo) {
+            e.whatFather() // ok: e is an object of Father
+            Assert.equals(0, e.father) // ok: e is an object of Father
+            caughtChildren++
+        }
+    }
+    Assert.equals(2, caughtChildren)
 
 // test case #4
     var cnt : Int32 = 0
@@ -177,6 +186,7 @@ main() {
 
     try { 
          let lastElement = arrayTest[index]
+         Assert.fail(reason: "unexpected index "+index.toString()+": "+lastElement.toString())
     } catch (e: ArithmeticException | IndexOutOfBoundsException) { 
          print("exception info: " + e.toString())
          cnt++

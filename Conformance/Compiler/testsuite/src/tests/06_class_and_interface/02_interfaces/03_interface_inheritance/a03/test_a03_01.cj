@@ -29,6 +29,8 @@
 
 import utils.assert.Assert
 
+let setterSeen = [false, false, false, false]
+
 interface I {
     // Functions without body
     func f1(): Int64
@@ -57,7 +59,9 @@ interface I {
         get() {
             0
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(0, v)
+        }
     }
     prop p6: Int64 {
         get() {
@@ -68,7 +72,9 @@ interface I {
         get() {
             0
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(0, v)
+        }
     }
     static prop p8: Int64 {
         get() {
@@ -81,6 +87,7 @@ interface I {
 
     // Operator with body
     operator func -(rhs: I) {
+        Assert.equals(f4(), rhs.f4())
         return 0
     }
 }
@@ -104,6 +111,11 @@ interface J <: I {
         Assert.equals(10, p4)
         Assert.equals(13, p7)
         Assert.equals(14, p8)
+
+        x.p1 = 71
+        A.p3 = 73
+        x.p5 = 75
+        A.p7 = 77
 
         // Check operators
         Assert.equals(15, x + x)
@@ -135,7 +147,10 @@ class A <: J {
         get() {
             7
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(71, v)
+            setterSeen[0] = true
+        }
     }
     public override prop p2: Int64 {
         get() {
@@ -146,7 +161,10 @@ class A <: J {
         get() {
             9
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(73, v)
+            setterSeen[1] = true
+        }
     }
     public redef static prop p4: Int64 {
         get() {
@@ -157,7 +175,10 @@ class A <: J {
         get() {
             11
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(75, v)
+            setterSeen[2] = true
+        }
     }
     public override prop p6: Int64 {
         get() {
@@ -168,7 +189,10 @@ class A <: J {
         get() {
             13
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(77, v)
+            setterSeen[3] = true
+        }
     }
     public redef static prop p8: Int64 {
         get() {
@@ -176,13 +200,16 @@ class A <: J {
         }
     }
     public override operator func +(rhs: I) {
+        Assert.equals(f4(), rhs.f4())
         return 15
     }
     public override operator func -(rhs: I) {
+        Assert.equals(f4(), rhs.f4())
         return 16
     }
 }
 
 main() {
     A().verify_access(A())
+    Assert.equals([true, true, true, true], setterSeen)
 }

@@ -38,24 +38,34 @@ class Child <: Parent {}
 
 interface I {
     func f(x: Child) {
+        let argument: Any = x
+        Assert.isTrue(argument is Child)
         return 1
     }
     static func g(x: Child) {
+        let argument: Any = x
+        Assert.isTrue(argument is Child)
         return 11
     }
 }
 
 interface J <: I {
     func f(x: Parent) {
+        let argument: Any = x
+        Assert.isTrue(argument is Parent)
         return 2
     }
     static func g(x: Parent) {
+        let argument: Any = x
+        Assert.isTrue(argument is Parent)
         return 12
     }
 
     func verify() {
         Assert.equals(1, f(Child()))
         Assert.equals(11, g(Child()))
+        Assert.equals(2, f(Parent()))
+        Assert.equals(12, g(Parent()))
     }
 }
 
@@ -63,38 +73,54 @@ class JImpl <: J {}
 
 open class A {
     func f(x: Child) {
+        let argument: Any = x
+        Assert.isTrue(argument is Child)
         return 1
     }
     static func g(x: Child) {
+        let argument: Any = x
+        Assert.isTrue(argument is Child)
         return 11
     }
 }
 
 class B <: A {
     func f(x: Parent) {
+        let argument: Any = x
+        Assert.isTrue(argument is Parent)
         return 2
     }
     static func g(x: Parent) {
+        let argument: Any = x
+        Assert.isTrue(argument is Parent)
         return 12
     }
 
     func verify() {
         Assert.equals(1, f(Child()))
         Assert.equals(11, g(Child()))
+        Assert.equals(2, f(Parent()))
+        Assert.equals(12, g(Parent()))
     }
 }
 
 class C <: I {
     func f(x: Parent) {
+        let argument: Any = x
+        Assert.isTrue(argument is Parent)
         return 2
     }
     static func g(x: Parent) {
+        let argument: Any = x
+        Assert.isTrue(argument is Parent)
         return 12
     }
 
     func verify() {
         Assert.equals(1, f(Child()))
         Assert.equals(11, g(Child()))
+        Assert.equals(2, f(Parent()))
+        Assert.equals(12, g(Parent()))
     }
 }
 

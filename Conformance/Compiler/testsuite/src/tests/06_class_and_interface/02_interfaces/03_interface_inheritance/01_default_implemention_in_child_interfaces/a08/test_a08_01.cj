@@ -35,14 +35,20 @@
 
 import utils.assert.Assert
 
+let setterSeen = [false, false, false, false]
+
 interface I {
     func f1(x: Bool, y: I) {
+        Assert.isFalse(x)
+        Assert.isTrue(y is BaseImpl)
         return 0
     }
     static func f2(x: Bool) {
+        Assert.isFalse(x)
         return 0
     }
     static func f3<T>(x: Bool) {
+        Assert.isFalse(x)
         return 0
     }
 
@@ -50,7 +56,10 @@ interface I {
         get() {
             0
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(71, v)
+            setterSeen[0] = true
+        }
     }
     prop p2: Int64 {
         get() {
@@ -61,7 +70,10 @@ interface I {
         get() {
             0
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(73, v)
+            setterSeen[1] = true
+        }
     }
     static prop p4: Int64 {
         get() {
@@ -110,7 +122,10 @@ interface J <: I {
             }
             4
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(81, v)
+            setterSeen[2] = true
+        }
     }
     prop p2: Int64 {
         get() {
@@ -131,7 +146,10 @@ interface J <: I {
             }
             6
         }
-        set(v) {}
+        set(v) {
+            Assert.equals(83, v)
+            setterSeen[3] = true
+        }
     }
     static prop p4: Int64 {
         get() {
@@ -153,6 +171,7 @@ interface J <: I {
     }
 }
 
+class BaseImpl <: I {}
 class Impl <: J {}
 
 main() {
@@ -167,4 +186,13 @@ main() {
     Assert.equals(7, J.p4)
 
     Assert.equals(8, !tst)
+    let base = BaseImpl()
+    Assert.equals(0, base.f1(false, base))
+    Assert.equals(0, I.f2(false))
+    Assert.equals(0, I.f3<Unit>(false))
+    base.p1 = 71
+    I.p3 = 73
+    tst.p1 = 81
+    J.p3 = 83
+    Assert.equals([true, true, true, true], setterSeen)
 }

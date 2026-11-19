@@ -34,6 +34,8 @@
 
 import utils.assert.Assert
 
+let setterSeen = [false, false, false, false, false, false, false]
+
 open class Parent {
     func f1() {
         return "f1"
@@ -63,7 +65,7 @@ open class Parent {
         get() {
             "p1"
         }
-        set(v) {}
+        set(v) { Assert.equals("setter-0", v); setterSeen[0] = true }
     }
 
     prop p2: String {
@@ -76,7 +78,7 @@ open class Parent {
         get() {
             "p3"
         }
-        set(v) {}
+        set(v) { Assert.equals("setter-1", v); setterSeen[1] = true }
     }
 
     public prop p4: String {
@@ -89,7 +91,7 @@ open class Parent {
         get() {
             "p5"
         }
-        set(v) {}
+        set(v) { Assert.equals("setter-2", v); setterSeen[2] = true }
     }
 
     protected prop p6: String {
@@ -127,10 +129,13 @@ class Test <: Parent {
 
         // Call properties from the superclass
         Assert.equals("p1", super.p1)
+        this.p1 = "setter-0"
         Assert.equals("p2", super.p2)
         Assert.equals("p3", super.p3)
+        this.p3 = "setter-1"
         Assert.equals("p4", super.p4)
         Assert.equals("p5", super.p5)
+        this.p5 = "setter-2"
         Assert.equals("p6", super.p6)
 
         // Instance members capture 'this'
@@ -145,12 +150,16 @@ class Test <: Parent {
 
         // Instance properties capture 'this'
         Assert.equals("q1", this.q1)
+        this.q1 = "setter-3"
         Assert.equals("q2", this.q2)
         Assert.equals("q3", this.q3)
+        this.q3 = "setter-4"
         Assert.equals("q4", this.q4)
         Assert.equals("q5", this.q5)
+        this.q5 = "setter-5"
         Assert.equals("q6", this.q6)
         Assert.equals("q7", this.q7)
+        this.q7 = "setter-6"
         Assert.equals("q8", this.q8)
 
         // Use 'this' as an expression
@@ -223,7 +232,7 @@ class Test <: Parent {
         get() {
             "q1"
         }
-        set(v) {}
+        set(v) { Assert.equals("setter-3", v); setterSeen[3] = true }
     }
 
     prop q2: String {
@@ -236,7 +245,7 @@ class Test <: Parent {
         get() {
             "q3"
         }
-        set(v) {}
+        set(v) { Assert.equals("setter-4", v); setterSeen[4] = true }
     }
 
     public prop q4: String {
@@ -249,7 +258,7 @@ class Test <: Parent {
         get() {
             "q5"
         }
-        set(v) {}
+        set(v) { Assert.equals("setter-5", v); setterSeen[5] = true }
     }
 
     protected prop q6: String {
@@ -262,7 +271,7 @@ class Test <: Parent {
         get() {
             "q7"
         }
-        set(v) {}
+        set(v) { Assert.equals("setter-6", v); setterSeen[6] = true }
     }
 
     private prop q8: String {
@@ -274,5 +283,6 @@ class Test <: Parent {
 
 main() {
     Test()
+    Assert.equals([true, true, true, true, true, true, true], setterSeen)
     0
 }

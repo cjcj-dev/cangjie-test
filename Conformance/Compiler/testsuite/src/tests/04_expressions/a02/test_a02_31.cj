@@ -22,10 +22,6 @@
 
 import utils.assert.Assert
 
-func return15(): Int64 {
-    15
-}
-
 func getPi(): Float64 {
     3.14
 }
@@ -40,7 +36,6 @@ let str: String = "Hello"
 let arrI8: Array<UInt8> = [72, 101, 108, 108, 111]
 
 main() {
-
     var sum = 0
     var unit1 = for (item in arrI8) {
         sum++
@@ -58,10 +53,9 @@ main() {
     }
     Assert.equals(5, sum)
     Assert.isTrue(unit1 is Unit) 
-    if(() != unit1) {
-        Assert.fail(reason: "Unit1 should have value ()") 
-    }
+    Assert.equals((), unit1, reason: "Unit1 should have value ()")
 
+    var rangeLoopTailVisits = 0
     var unit2 = for (item in [1..10 : 2]) {
         sum++
         if(getPi() == 3.14) {
@@ -82,11 +76,11 @@ main() {
         } else {
             j %= k
         }
+        rangeLoopTailVisits++
     }
     Assert.equals(6, sum)
+    Assert.equals(0, rangeLoopTailVisits, reason: "continue should skip the rest of the range loop")
     Assert.isTrue(unit2 is Unit) 
-    if(() != unit2) {
-        Assert.fail(reason: "Unit2 should have value ()") 
-    }
+    Assert.equals((), unit2, reason: "Unit2 should have value ()")
 
 }

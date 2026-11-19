@@ -31,37 +31,44 @@ open class CC {
 } 
 
 let arrI8: Array<UInt8>  = [72, 101, 108, 108, 111]
-var i = 0
 var j = 0
 
-main() {
-    var matches: Int64 = match (i) { 
+func matchValue(i: Int64, variant: Foo): Int64 {
+    match (i) {
         case 0 => 0
         case 10 | 20 | 30 | 40 | 50 => 1
-        case 60 => match(B) {
-            case A => 0 
+        case 60 => match(variant) {
+            case A => 0
             case B => match {
                 case i < 0 => 3
                 case i == 0 => -3
-                case _ =>   
+                case _ =>
                     let c: CC = CC()
                     let cc = Some(c)
-                    match (cc?.id) { 
-                        case c => 15 
+                    match (cc?.id) {
+                        case c => 15
                     }
-                } 
-                case C => 2 
             }
-            case 70 | 80 => match(j) {
-                case 1 => 14
-                case 2 => Int64(arrI8[2])
-                case other => other
-            }
-            case 90 | 100 => match(1) { 
-                case _ => 0
-            }
-            case _ => -1
+            case C => 2
         }
+        case 70 | 80 => match(j) {
+            case 1 => 14
+            case 2 => Int64(arrI8[2])
+            case other => other
+        }
+        case 90 | 100 => match(1) {
+            case _ => 0
+        }
+        case _ => -1
+    }
+}
+
+main() {
+    let matches: Int64 = matchValue(0, B)
     Assert.isTrue(matches is Int64)
     Assert.equals(0, matches)
+
+    Assert.equals(0, matchValue(60, A), reason: "case 60 with A")
+    Assert.equals(2, matchValue(60, C), reason: "case 60 with C")
+    Assert.equals(15, matchValue(60, B), reason: "case 60 with B")
 }

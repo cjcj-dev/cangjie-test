@@ -15,8 +15,9 @@
               of the if expression is the least common supertype T of T1 and T2.
               If the least common super type does not exist, a compilation 
               error is reported.
-  @Description: Checks that compile error occurs if common supertype does not 
-                exists for T1 and T2. Tests function name and String.
+  @Description: Checks that an uncontextualized if with a function reference and
+                a String value has Any as its least common supertype and
+                preserves the value of the selected branch.
   @Mode: compileonly
   @Negative: no
   @Structure: single
@@ -33,11 +34,21 @@ func returnZero() {
 }
 
 main() {
-    var v =
-        if (x == 0) {
-            returnZero
+    for (branch in 0..2) {
+        x = branch
+        var v =
+            if (x == 0) {
+                returnZero
+            } else {
+                "returnZero"
+            }
+        if (branch == 0) {
+            let selected = (v as (() -> Int64)).getOrThrow()
+            Assert.equals(0, selected())
         } else {
-            "returnZero"
+            let selected = (v as String).getOrThrow()
+            Assert.equals("returnZero", selected)
         }
+    }
     return
 }

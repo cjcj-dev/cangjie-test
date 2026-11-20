@@ -14,6 +14,8 @@ Options:
     <value>=json                
     <value>=noColor             
     <value>=default             
+  --compat-version <value>    Compile with compatibility behavior for the specified SDK version. Candidate versions: 
+    <value>=1.3                 
   --scan-dependency           Get the package(s) which the current package depends on
   --no-sub-pkg                The package doesn't have sub-packages
   --cfg <value>               User defined condition to compile
@@ -54,6 +56,7 @@ Options:
   --profile-compile-time      Write time spent of all phases to <package>.time.prof in the output directory
   --profile-compile-memory    Write memory usage of all phases to <package>.mem.prof in the output directory
   --enable-eh                 Enables experimental support for effect handlers (Experimental)
+  --enable-local-mode         Enables experimental support for local mode (Experimental)
   --dump-ast                  Dump human readable AST when compiling for debug
   --dump-chir                 Dump human readable CHIR when compiling for debug
   --dump-ir                   Dump human readable IR
@@ -156,6 +159,7 @@ Options:
   -h, --help                  Show usage
   --compile-macro             Options to compile the macro define package
   --coverage                  Enable coverage
+  --cj-pct                    Enable PCT model-check mode: remap std.sync imports to stdx.unittest.sync, reroute sleep to virtual time (Experimental)
   --experimental              Enable experimental options
   -j, --jobs <value>          Number of tasks to run at once
   --apc, --aggressive-parallel-compile

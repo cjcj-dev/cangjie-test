@@ -35,8 +35,8 @@ main() {
 
 //  Test-case 2: Check that the value of a block without expressions is UNIT
     
-    var blockRes02 : Unit = {a : Int64, b : Int64 => var add : Int64 = 10; let mult : Int64 = -5} (1, 5)
-    Assert.isTrue(blockRes02 is Unit)
+    var blockRes02 : Unit = {_: Int64, _: Int64 => var _: Int64 = 10; let _: Int64 = -5} (1, 5)
+    Assert.equals((), blockRes02)
 
 //  Test-case3: Check that internal declarations can effect the value of the block 
     
@@ -46,8 +46,8 @@ main() {
 //  Test-case 4: Check that if the last item of the block is a declaration the value of the block is UNIT
     
     var blockRes04 : Unit = 
-        {a : Int64, b : Int64, c:Int64 => let add = 10; 4 * add + a * b; var new : Int64 = 7} (1, 2, 3)
-    Assert.isTrue(blockRes04 is Unit)
+        {a : Int64, b : Int64, _: Int64 => let add = 10; 4 * add + a * b; var _: Int64 = 7} (1, 2, 3)
+    Assert.equals((), blockRes04)
     
 }   //main
 

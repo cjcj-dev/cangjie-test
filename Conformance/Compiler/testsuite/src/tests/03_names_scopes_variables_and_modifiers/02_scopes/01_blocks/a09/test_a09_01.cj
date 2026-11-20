@@ -31,13 +31,14 @@ main() {
 
 //  Test-case 1: check that if the last item of the block is a var declaration, the value of the block is () 
 
-    var blockRes01 : Unit = {a:Int64, b:Int64 => var add:Int64 = 7; add = add + b; var v:Int64 = 50} (1, 5)
-    Assert.isTrue(blockRes01 is Unit)
+    // Observe the inferred result after the call, without imposing a Unit return type.
+    let blockRes01 : Any = {_: Int64, b: Int64 => var add: Int64 = 7; add = add + b; var _: Int64 = 50} (1, 5)
+    Assert.isTrue(blockRes01 is Unit, reason: "A final var declaration must yield Unit")
 
 //  Test-case 2: check that if the last item of the block is a let declaration, the value of the block is () 
 
-    var blockRes02 : Unit = {a:Int64, b:Int64 => var add:Int64 = 7; add = add + b; let v:Int64 = 50} (2, 10)
-    Assert.isTrue(blockRes02 is Unit)
+    let blockRes02 : Any = {_: Int64, b: Int64 => var add: Int64 = 7; add = add + b; let _: Int64 = 50} (2, 10)
+    Assert.isTrue(blockRes02 is Unit, reason: "A final let declaration must yield Unit")
 
 //  Test-case 3: check that if the last item of the block is not a declaration, the value of the block is not () 
 

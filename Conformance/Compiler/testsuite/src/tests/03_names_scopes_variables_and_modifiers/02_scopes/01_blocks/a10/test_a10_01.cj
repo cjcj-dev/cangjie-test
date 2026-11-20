@@ -32,13 +32,13 @@ main() {
     
 //  Test-case 1:  check that the value of a block with only let declarations is ()
 
-    var blockRes : Unit = {par1 : Int64, par2 : Int64 => let a = 1} (1, 5)
-    Assert.isTrue(blockRes is Unit)
+    var blockRes : Unit = {_: Int64, _: Int64 => let _ = 1} (1, 5)
+    Assert.equals((), blockRes)
 
 //  Test-case 2:  check that the value of a block with only var declarations is ()
 
-    var blockRes02 : Unit = {a:Int64, b:Int64 => var add:Int64 = 7; var v:Int64 = 50} (1, 5)
-    Assert.isTrue(blockRes02 is Unit)
+    var blockRes02 : Unit = {_: Int64, _: Int64 => var _: Int64 = 7; var _: Int64 = 50} (1, 5)
+    Assert.equals((), blockRes02)
 
 //  Test-case 3: check that if the block contains expressions it's not () 
 

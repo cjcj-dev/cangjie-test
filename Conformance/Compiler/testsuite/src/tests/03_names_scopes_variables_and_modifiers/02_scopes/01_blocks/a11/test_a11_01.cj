@@ -27,36 +27,36 @@
 import utils.assert.Assert
 
 //  Function body is an empty block
-func foo01(a: Int64) { }
+func foo01(_: Int64) { }
 
 main() {
 
 //  Test-case 1:  check that the value of an empty function body is ()
 
     var res = foo01(0)
-    Assert.isTrue(res is Unit)
+    Assert.equals((), res)
 
 //  Test-case 2:  check that the value of an empty if_block is ()
 
     let x02 = 100
     var ifRes : Unit = if (x02 > 0) { }
-    Assert.isTrue(ifRes is Unit)
+    Assert.equals((), ifRes)
 
 //  Test-case 3: check that the value of an empty for_in_loop block is ()
 
     let evenRange03 = 10..=20:2    
     var forInRes : Unit = for (value in evenRange03 ) { }
-    Assert.isTrue(forInRes is Unit)
+    Assert.equals((), forInRes)
 
 //  Test-case 4: check that if the block doesn't contain any expression, the value of the block is () 
 
-    var blockRes04 : Unit = {a:Int64, b:Int64 => var add:Int64 = 7; let new : Int64 = 10; var v:Int64 = 50} (1, 5)
-    Assert.isTrue(blockRes04 is Unit)
+    var blockRes04 : Unit = {_: Int64, _: Int64 => var _: Int64 = 7; let _: Int64 = 10; var _: Int64 = 50} (1, 5)
+    Assert.equals((), blockRes04)
 
 //  Test-case 5: check that if the block of lambda is empty, the value of the block is () 
 
-    var blockRes05 : Unit = {a : Int64 => } (1)
-    Assert.isTrue(blockRes05 is Unit)
+    var blockRes05 : Unit = {_: Int64 => } (1)
+    Assert.equals((), blockRes05)
 
 }   //main
 

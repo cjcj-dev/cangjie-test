@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// DEPENDENCE: pkg_nested_exports.cj
+// DEPENDENCE: Inputs/pkg_nested_exports.cj
 // EXEC: %compiler %local %compile_lib_opt pkg_nested_exports.cj -o pkg_nested_exports.%middle
 // EXEC-PIPE-1: %compiler pkg_nested_exports.%middle %f -o %output %diag_json 2>&1 | compare %f
 

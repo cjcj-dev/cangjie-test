@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// DEPENDENCE: pkg_iface.cj
+// DEPENDENCE: Inputs/pkg_iface.cj
 // EXEC: %compiler %local %compile_lib_opt pkg_iface.cj -o pkg_iface.%middle
 // EXEC-PIPE-1: %compiler %cmp_opt pkg_iface.%middle %f -o %output %diag_json 2>&1 | compare %f
 

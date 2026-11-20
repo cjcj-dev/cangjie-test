@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// DEPENDENCE: pkg_func.cj
+// DEPENDENCE: Inputs/pkg_func.cj
 // EXEC: %compiler %local %compile_lib_opt pkg_func.cj -o pkg_func.%middle
 // EXEC: %compiler %cmp_opt pkg_func.%middle %f -o %output
 // RUN-EXEC: %run %run_opt %output

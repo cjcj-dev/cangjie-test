@@ -7,7 +7,7 @@
  */
 
 // LEVEL: 1
-// DEPENDENCE: caserunner.cj
+// DEPENDENCE: ../../../../HLT/API/std/math/caserunner.cj
 // EXEC: %compiler %cmp_opt %f caserunner.cj -o %output
 // RUN-EXEC-PIPE: %run %run_opt %output %run_args | compare %f
 // ASSERT: scan-not AssertionError

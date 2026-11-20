@@ -92,13 +92,18 @@ class CookieStoreTest {
     @TestCase
     func maxAgeZeroExpiresImmediately(): Unit {
         let jar = newJar()
-        try {
-            storeOne(jar, "http://www.example.com/a", Cookie("a", "1", maxAge: 0))
-        } catch (e: Exception) {
-            @Fail("RFC 6265 5.2.2 allows Max-Age=0: ${e.message}")
-            return
-        }
+        // RFC 6265 5.2.2 applies to received headers, not the server-side constructor.
+        let cookies = CookieJar.parseSetCookieHeader(responseWith(["a=1; Max-Age=0"]))
+        @Assert(cookies.size, 1)
+        @Expect(cookies[0].maxAge == Some(0))
+        jar.storeCookies(URL.parse("http://www.example.com/a"), cookies)
         @Expect(jar.getCookies(URL.parse("http://www.example.com/")).size, 0)
+    }
+    @TestCase
+    func constructorRejectsMaxAgeZero(): Unit {
+        // RFC 6265 4.1.1 requires a positive Max-Age for an emitted Set-Cookie.
+        @AssertThrows[IllegalArgumentException](Cookie("a", "1", maxAge: 0))
+        @Expect(Cookie("a", "1", maxAge: 60).maxAge == Some(60))
     }
     @TestCase
     func replaceSameNameDomainPath(): Unit {

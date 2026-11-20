@@ -5,6 +5,9 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// RUN-EXEC: %run %run_opt %output %run_utest_opt %run_args
+
 
 internal import std.collection.concurrent.*
 internal import std.collection.*

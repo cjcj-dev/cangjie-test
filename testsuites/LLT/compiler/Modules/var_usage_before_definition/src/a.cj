@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 // DEPENDENCE: ../../var_usage_before_definition
-// %compiler %pkg_opt var_usage_before_definition 2>&1 | compare %f
+// EXEC: %compiler %pkg_opt var_usage_before_definition/src 2>&1 | compare %f
 // ASSERT: regex-auto usage of a variable 'b' which is not defined yet
 
 var a = C()

@@ -5,7 +5,7 @@
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
 //DEPENDENCE: ./list.txt
-// ERRORCHECK: %frontendCompiler ./list.txt
+// ERRCHECK: %frontendCompiler ./list.txt
 // ASSERT: scan-not core dumped
 // ASSERT: scan-not stack trace
 // ASSERT: regex the arg './list.txt' may be unused

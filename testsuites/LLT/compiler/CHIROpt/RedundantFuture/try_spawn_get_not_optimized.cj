@@ -9,17 +9,10 @@
 // a `try`. The Future has four users here (TryApply for <init>, TrySpawn,
 // Debug, TryApply for get), which is one too many to fold.
 
-// DEPENDENCE: ../pick_defination.py
+// DEPENDENCE: ../pick_defination.py check_retained_future.mjs
 // EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff unused %n.cj
-// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantFutureOpt.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantFutureOpt.chirtxt "Func @_CN7default6<main>Hv" | node check_retained_future.mjs trySpawn
 // RUN-EXEC-PIPE-0: %run main
-// ASSERT: scan-not executeClosure:
-// ASSERT: regex-begin %(?P<closure>\d+): \(\) -> Int64 = Lambda\[
-// ASSERT: regex-after %(?P<future>\d+): Class-_CNat6FutureIG_E<Int64>& = TryAllocate\(Class-_CNat6FutureIG_E<Int64>\)
-// ASSERT: regex-after %\d+: Void = TryApply\(Class-_CNat6FutureIG_E<Int64>&->@_CNat6FutureIG_E6<init>HF0G_E, %(?P=future), %(?P=closure), normal: #\d+, exception: #\d+\)
-// ASSERT: regex-after %\d+: Class-_CNat6FutureIG_E<Int64>& = TrySpawn\(%(?P=future), normal: #\d+, exception: #\d+\)
-// ASSERT: regex-after %\d+: Unit = Debug\(%(?P=future), f\)
-// ASSERT: regex-after %\d+: Int64 = TryApply\(Class-_CNat6FutureIG_E<Int64>&->@_CNat6FutureIG_E3getHv, %(?P=future), normal: #\d+, exception: #\d+\)
 
 main(): Int64 {
     try {

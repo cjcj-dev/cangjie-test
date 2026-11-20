@@ -9,5 +9,5 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex .*warning.*: Function name 'i________' recommend to use lower camel case
-// ASSERT: regex-1 warning
+// ASSERT: regex ^(?:[^\r\n]*[/\\])?src[/\\]test\.cj:10:3: (?:warning|\x1b\[33mwarning\x1b\[0m): G\.NAM\.04: Function name 'i________' recommend to use lower camel case$
+// ASSERT: regex-1 (?m)^[^\r\n]+\.cj:[1-9][0-9]*:[1-9][0-9]*: (?:warning|\x1b\[33mwarning\x1b\[0m): (?:[A-Z][A-Z0-9_]*\.)+[0-9]+: [^\r\n]+$

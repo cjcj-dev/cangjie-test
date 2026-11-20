@@ -16,21 +16,13 @@
 // site is a normal candidate and one level IS inlined -- at 15_FunctionInline
 // main holds both the inlined `get()` and the recursive `Apply(foo)`. What
 // reaches this pass is the recursive tail call: later const-propagation folds
-// `n <= 0` to false and DCEs the inlined `get()` branch. The `scan-not` on
-// `get` below pins that premise down, so this case cannot silently decay into
+// `n <= 0` to false and DCEs the inlined `get()` branch. The checker verifies that main has no direct `get` call, pinning that premise down, so this case cannot silently decay into
 // a duplicate of spawn_tryget_not_optimized.cj.
 
-// DEPENDENCE: ../pick_defination.py
+// DEPENDENCE: ../pick_defination.py check_retained_future.mjs
 // EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff unused %n.cj
-// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantFutureOpt.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantFutureOpt.chirtxt "Func @_CN7default6<main>Hv" | node check_retained_future.mjs argument
 // RUN-EXEC-PIPE-0: %run main
-// ASSERT: scan-not executeClosure:
-// ASSERT: scan-not @_CNat6FutureIG_E3getHv
-// ASSERT: regex-begin %(?P<closure>\d+): \(\) -> Int64 = Lambda\[
-// ASSERT: regex-after %(?P<future>\d+): Class-_CNat6FutureIG_E<Int64>& = Allocate\(Class-_CNat6FutureIG_E<Int64>\)
-// ASSERT: regex-after %\d+: Void = Apply\(Class-_CNat6FutureIG_E<Int64>&->@_CNat6FutureIG_E6<init>HF0G_E, %(?P=future), %(?P=closure)\)
-// ASSERT: regex-after %\d+: Class-_CNat6FutureIG_E<Int64>& = Spawn\(%(?P=future)\)
-// ASSERT: regex-after %\d+: Int64 = Apply\(@_CN7default3fooHCNat6FutureIlEl, %(?P=future), %\d+\)
 
 func foo(a: Future<Int64>, n: Int64): Int64 {
     if (n <= 0) {

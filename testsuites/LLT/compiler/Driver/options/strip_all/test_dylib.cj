@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// (Darwin and EXEC-PIPE: %compiler --output-type=dylib --strip-all --verbose %f -o %output 2>&1 | compare %f
+// (Darwin and CJNATIVE) EXEC-PIPE: %compiler --output-type=dylib --strip-all --verbose %f -o %output 2>&1 | compare %f
 // (Darwin and CJNATIVE) ASSERT: regex strip'.* '-x'
 
 main() {

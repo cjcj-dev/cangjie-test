@@ -9,7 +9,7 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex .*warning.*: Identifier 'i1' recommend to use upper camel case for interface, class, struct, enumeration type, enumeration member construction, type alias
-// ASSERT: regex .*warning.*: Identifier 'i________' recommend to use upper camel case for interface, class, struct, enumeration type, enumeration member construction, type alias
-// ASSERT: regex .*warning.*: Identifier 'i__' recommend to use upper camel case for interface, class, struct, enumeration type, enumeration member construction, type alias
-// ASSERT: regex-3 warning
+// ASSERT: regex ^(?:[^\r\n]*[/\\])?src[/\\]p[/\\]test\.cj:11:1: (?:warning|\x1b\[33mwarning\x1b\[0m): G\.NAM\.03: Identifier 'i1' recommend to use upper camel case for interface, class, struct, enumeration type, enumeration member construction, type alias$
+// ASSERT: regex ^(?:[^\r\n]*[/\\])?src[/\\]p[/\\]test\.cj:15:1: (?:warning|\x1b\[33mwarning\x1b\[0m): G\.NAM\.03: Identifier 'i________' recommend to use upper camel case for interface, class, struct, enumeration type, enumeration member construction, type alias$
+// ASSERT: regex ^(?:[^\r\n]*[/\\])?src[/\\]p[/\\]test\.cj:16:5: (?:warning|\x1b\[33mwarning\x1b\[0m): G\.NAM\.03: Identifier 'i__' recommend to use upper camel case for interface, class, struct, enumeration type, enumeration member construction, type alias$
+// ASSERT: regex-3 (?m)^[^\r\n]+\.cj:[1-9][0-9]*:[1-9][0-9]*: (?:warning|\x1b\[33mwarning\x1b\[0m): (?:[A-Z][A-Z0-9_]*\.)+[0-9]+: [^\r\n]+$

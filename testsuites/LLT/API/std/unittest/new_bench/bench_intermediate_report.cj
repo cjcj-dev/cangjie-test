@@ -5,6 +5,9 @@
  *
  * See https://cangjie-lang.cn/pages/LICENSE for license information.
  */
+// EXEC: %compiler %cmp_opt %f -o %output %cmp_utest_opt
+// EXEC-PIPE: %run %run_opt %output %run_utest_opt --bench --no-color | compare %f
+
 
 /* SCAN-IN
 Starting the benchmark `BenchClass.bench()`.

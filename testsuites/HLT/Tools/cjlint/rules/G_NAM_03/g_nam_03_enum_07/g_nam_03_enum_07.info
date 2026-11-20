@@ -9,6 +9,6 @@
 // LEVEL: 1
 // DEPENDENCE: ./src
 // EXEC-PIPE: %lint -f ./src  -c %cangjieDir/tools -m %cangjieDir 2>&1 | compare %f
-// ASSERT: regex .*warning.*: Identifier 'i________' recommend to use upper camel case for interface, class, struct, enumeration type, enumeration member construction, type alias
-// ASSERT: regex .*warning.*: Identifier 'i_______' recommend to use upper camel case for interface, class, struct, enumeration type, enumeration member construction, type alias
-// ASSERT: regex-2 warning
+// ASSERT: regex ^(?:[^\r\n]*[/\\])?src[/\\]p[/\\]test\.cj:11:1: (?:warning|\x1b\[33mwarning\x1b\[0m): G\.NAM\.03: Identifier 'i________' recommend to use upper camel case for interface, class, struct, enumeration type, enumeration member construction, type alias$
+// ASSERT: regex ^(?:[^\r\n]*[/\\])?src[/\\]p[/\\]test\.cj:12:5: (?:warning|\x1b\[33mwarning\x1b\[0m): G\.NAM\.03: Identifier 'i_______' recommend to use upper camel case for interface, class, struct, enumeration type, enumeration member construction, type alias$
+// ASSERT: regex-2 (?m)^[^\r\n]+\.cj:[1-9][0-9]*:[1-9][0-9]*: (?:warning|\x1b\[33mwarning\x1b\[0m): (?:[A-Z][A-Z0-9_]*\.)+[0-9]+: [^\r\n]+$

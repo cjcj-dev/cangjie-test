@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// ERRORCHECK: %compiler %cmp_opt %f
+// ERRCHECK: %compiler %cmp_opt %f
 // ASSERT: scan-2 error: cannot assign to immutable value
 
 interface IA {

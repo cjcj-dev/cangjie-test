@@ -9,16 +9,10 @@
 // the fold is blocked. Guards against a fold keyed on a list of known reader
 // methods instead of on the user count.
 
-// DEPENDENCE: ../pick_defination.py
+// DEPENDENCE: ../pick_defination.py check_retained_future.mjs
 // EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff unused %n.cj
-// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantFutureOpt.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantFutureOpt.chirtxt "Func @_CN7default6<main>Hv" | node check_retained_future.mjs thread
 // RUN-EXEC-PIPE-0: %run main
-// ASSERT: scan-not executeClosure:
-// ASSERT: regex-begin %(?P<closure>\d+): \(\) -> Int64 = Lambda\[
-// ASSERT: regex-after %(?P<future>\d+): Class-_CNat6FutureIG_E<Int64>& = Allocate\(Class-_CNat6FutureIG_E<Int64>\)
-// ASSERT: regex-after %\d+: Void = Apply\(Class-_CNat6FutureIG_E<Int64>&->@_CNat6FutureIG_E6<init>HF0G_E, %(?P=future), %(?P=closure)\)
-// ASSERT: regex-after %\d+: Class-_CNat6FutureIG_E<Int64>& = Spawn\(%(?P=future)\)
-// ASSERT: regex-after %\d+: Unit = Debug\(%(?P=future), f\)
 
 main(): Int64 {
     let f = spawn {

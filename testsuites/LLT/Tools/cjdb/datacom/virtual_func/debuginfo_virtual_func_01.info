@@ -4,7 +4,7 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-// DEPENDENCE:  ../cjdb_test.py  ../basecase/virtual_func/debuginfo_virtual_func_01.cj
+// DEPENDENCE:  ../../cjdb_test.py  ../../basecase/virtual_func/debuginfo_virtual_func_01.cj
 // EXEC: %compiler %cmp_opt %enableCompileDebug debuginfo_virtual_func_01.cj -o debuginfo_virtual_func_01
 // EXEC: python3 cjdb_test.py debuginfo_virtual_func_01.info debuginfo_virtual_func_01 %run_env
 

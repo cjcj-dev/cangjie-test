@@ -4,8 +4,8 @@
 //
 // See https://cangjie-lang.cn/pages/LICENSE for license information.
 
-(// DEPENDENCE: )..(/src2
-)// EXEC: %compiler %pkg_opt %cmp_opt src2/
+// DEPENDENCE: ../src2
+// EXEC: %compiler %pkg_opt %cmp_opt src2/
 
 let var61 : Int8 = Int8(Int8(31))
 main(): Int64 {

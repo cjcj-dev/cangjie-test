@@ -11,6 +11,9 @@ API/
 Tools/cjdb
 
 [EXCLUDE-TEST-CASE]
+# Package sources staged by Sealed/pkg_visibility tests through DEPENDENCE.
+compiler/Sema/PatternMatching/Sealed/pkg_visibility/Inputs
+
 # Package sources staged by modal compatibility tests through DEPENDENCE.
 compiler/Sema/modal/compatibility/Inputs
 

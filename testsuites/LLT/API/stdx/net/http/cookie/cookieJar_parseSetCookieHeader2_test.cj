@@ -89,7 +89,9 @@ class TestCookieJarParseSetCookieHeader2 {
         let httpResponseBuilder = HttpResponseBuilder().request(httpRequest)
         httpResponseBuilder.header("Set-Cookie", "a=b; ; ;")
         httpResponseBuilder.header("Set-Cookie", "a=b;  expIRes =Sun, 23 Apr 2023 04:12:34 UTC; ;")
+        // Cookie-date ignores the weekday, but rejects a second above 59.
         httpResponseBuilder.header("Set-Cookie", "a=b;  expIRes =S, 23 Apr 2023 04:12:34 UTC; ;")
+        httpResponseBuilder.header("Set-Cookie", "a=b;  expIRes =S, 23 Apr 2023 04:12:60 UTC; Path=/kept")
         httpResponseBuilder.header("Set-Cookie", "a=b;  expIRes = Fri, 12 Jan 1601 12:12:12 UTC; ;")
         httpResponseBuilder.header("Set-Cookie", "a=b;  expIRes = Wed, 12 Jan 1600 12:12:12 UTC; ;")
         httpResponseBuilder.header("Set-Cookie", "a=b;  expIRes ; ;")
@@ -99,11 +101,12 @@ class TestCookieJarParseSetCookieHeader2 {
 
         @Expect(resultCookies[0].others.isEmpty(), true)
         @Expect(resultCookies[1].toSetCookieString(), "a=b; Expires=Sun, 23 Apr 2023 04:12:34 UTC")
-        @Expect(resultCookies[2].toSetCookieString(), "a=b")
-        @Expect(resultCookies[3].toSetCookieString(), "a=b; Expires=Fri, 12 Jan 1601 12:12:12 UTC")
-        @Expect(resultCookies[4].toSetCookieString(), "a=b")
+        @Expect(resultCookies[3].toSetCookieString(), "a=b; Path=/kept")
+        @Expect(resultCookies[2].toSetCookieString(), "a=b; Expires=Sun, 23 Apr 2023 04:12:34 UTC")
+        @Expect(resultCookies[4].toSetCookieString(), "a=b; Expires=Fri, 12 Jan 1601 12:12:12 UTC")
         @Expect(resultCookies[5].toSetCookieString(), "a=b")
         @Expect(resultCookies[6].toSetCookieString(), "a=b")
+        @Expect(resultCookies[7].toSetCookieString(), "a=b")
     }
 
     @TestCase

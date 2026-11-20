@@ -10,15 +10,10 @@
 // escapes. Any surviving user has the same effect -- a plain call that is not
 // inlined away is enough, see spawn_arg_not_optimized.cj.
 
-// DEPENDENCE: ../pick_defination.py
+// DEPENDENCE: ../pick_defination.py check_retained_future.mjs
 // EXEC: %compiler %cmp_opt %enableO2 %dumpCHIRDebug -Woff unused %n.cj
-// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantFutureOpt.chirtxt "Func @_CN7default6<main>Hv" | compare %f
+// EXEC: %python pick_defination.py default_CHIR/[0-9]*_RedundantFutureOpt.chirtxt "Func @_CN7default6<main>Hv" | node check_retained_future.mjs escapes
 // RUN-EXEC-PIPE-0: %run main
-// ASSERT: scan-not executeClosure:
-// ASSERT: regex-begin %(?P<closure>\d+): \(\) -> Int64 = Lambda\[
-// ASSERT: regex-after %(?P<future>\d+): Class-_CNat6FutureIG_E<Int64>& = Allocate\(Class-_CNat6FutureIG_E<Int64>\)
-// ASSERT: regex-after %\d+: Void = Apply\(Class-_CNat6FutureIG_E<Int64>&->@_CNat6FutureIG_E6<init>HF0G_E, %(?P=future), %(?P=closure)\)
-// ASSERT: regex-after %\d+: Class-_CNat6FutureIG_E<Int64>& = Spawn\(%(?P=future)\)
 
 import std.collection.*
 
@@ -27,8 +22,15 @@ main(): Int64 {
     fs.add(spawn {
         => return 7
     })
+    var count = 0
     for (f in fs) {
-        f.get()
+        count++
+        if (f.get() != 7) {
+            return 1
+        }
+    }
+    if (count != 1) {
+        return 1
     }
     return 0
 }

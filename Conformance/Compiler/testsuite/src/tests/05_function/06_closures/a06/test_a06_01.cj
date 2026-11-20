@@ -68,7 +68,12 @@ func foo2() {
     Assert.equals(6, x2)
 
     // Usage as an expression.
-    f
+    let expressionValue = if (x1 == 6) {
+        f
+    } else {
+        { arg: Int64 => -arg }
+    }
+    Assert.equals(12, expressionValue(4))
 
     // Usage as a return value.
     return f

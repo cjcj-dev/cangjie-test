@@ -32,13 +32,31 @@ func sync(m: Mutex) {
     }
 }
 
+func acquireInWorker(m: Mutex): Bool {
+    let worker = spawn {
+        let acquired = m.tryLock()
+        if (acquired) {
+            m.unlock()
+        }
+        acquired
+    }
+    return worker.get()
+}
+
 func test(m: Mutex) {
-    Assert.isTrue(m.tryLock(), reason: "Mutex should be unlocked")
-    m.unlock()
+    Assert.isTrue(acquireInWorker(m), reason: "Mutex should be unlocked")
 }
 
 main(): Int64 {
-    test(Mutex())
+    let control = Mutex()
+    synchronized (control) {
+        Assert.isTrue(!acquireInWorker(control), reason: "Worker must not acquire a mutex held by this thread")
+    }
+    test(control)
+
+    let m = Mutex()
+    Assert.equals(0, sync(m))
+    test(m)
 
     return 0
 }

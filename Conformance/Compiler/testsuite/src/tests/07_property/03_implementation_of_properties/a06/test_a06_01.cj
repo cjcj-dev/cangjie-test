@@ -25,18 +25,26 @@
 
 */
 
+import utils.assert.Assert
+
 class A {
   mut prop aProp: Int64 {
     get() {
       aProp
     }
-    set(v) { }
+    set(v) { let _ = v }
   } 
 }
 
 
 main() {
   var x = A()
-  let y = x.aProp
+  x.aProp = 1
+  try {
+    let value = x.aProp
+    Assert.fail(reason: "Recursive getter returned ${value}; expected StackOverflowError")
+  } catch (_: StackOverflowError) {
+    println("caught StackOverflowError from x.aProp")
+  }
   return 0
 }

@@ -30,6 +30,8 @@
 
 */
 
+import utils.assert.Assert
+
 class Foo {
   prop i: Int64 {
     get() {
@@ -40,6 +42,11 @@ class Foo {
 
 main() {
   var x = Foo()
-  var y = x.i
+  try {
+    let value = x.i
+    Assert.fail(reason: "Recursive getter returned ${value}; expected StackOverflowError")
+  } catch (_: StackOverflowError) {
+    println("caught StackOverflowError from x.i")
+  }
   return 0
 }

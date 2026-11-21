@@ -38,6 +38,8 @@ struct S1 {
 foreign func func_01(): S1
 
 main() {
+    // Exercise the Cangjie-side S1 constructor this case does not otherwise call.
+    Assert.isTrue(S1().fld.isNull())
     var St = unsafe{ func_01() }
     Assert.isFalse(St.fld.isNull())
     let Var1 = unsafe{ St.fld.read() }

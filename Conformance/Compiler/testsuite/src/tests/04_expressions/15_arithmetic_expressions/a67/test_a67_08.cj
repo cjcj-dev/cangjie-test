@@ -41,6 +41,9 @@ func g(a: Int32, b: Int32) {
 }
 
 main() {
+    // Exercise the aux_a67.cj Int64 helpers this case does not otherwise call.
+    Assert.equals(5i64, add(2i64, 3i64))
+    Assert.equals(6i64, mul(2i64, 3i64))
     let rnd = Random(123)
     var overflowCount : Int32 = 0
 

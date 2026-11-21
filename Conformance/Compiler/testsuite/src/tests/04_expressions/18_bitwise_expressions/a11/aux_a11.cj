@@ -36,7 +36,7 @@ func toInt8(x : UInt8) {
 func getBit(x : UInt8, idx : UInt8) {
     Assert.isTrue(idx < 8)
     var val = x
-    for (i in 0..idx) {
+    for (_ in 0..idx) {
         val = val / 2
     }
     return val % 2
@@ -69,7 +69,7 @@ func toInt16(x : UInt16) {
 func getBit(x : UInt16, idx : UInt8) {
     Assert.isTrue(idx < 16)
     var val = x
-    for (i in 0..idx) {
+    for (_ in 0..idx) {
         val = val / 2
     }
     return val % 2
@@ -102,7 +102,7 @@ func toInt32(x : UInt32) {
 func getBit(x : UInt32, idx : UInt8) {
     Assert.isTrue(idx < 32)
     var val = x
-    for (i in 0..idx) {
+    for (_ in 0..idx) {
         val = val / 2
     }
     return val % 2
@@ -135,7 +135,7 @@ func toInt64(x : UInt64) {
 func getBit(x : UInt64, idx : UInt8) {
     Assert.isTrue(idx < 64)
     var val = x
-    for (i in 0..idx) {
+    for (_ in 0..idx) {
         val = val / 2
     }
     return val % 2

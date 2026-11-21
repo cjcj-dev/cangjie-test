@@ -28,6 +28,10 @@
 import std.random.Random
 
 main() {
+    // Exercise the aux_a11.cj getBit overloads this case does not otherwise call.
+    Assert.equals(1i16, getBit(1i16, 0u8))
+    Assert.equals(1i32, getBit(1i32, 0u8))
+    Assert.equals(1i64, getBit(1i64, 0u8))
     let rnd = Random(123)
 
     for (_ in 0..2**10) {

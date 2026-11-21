@@ -27,6 +27,10 @@
 import std.random.Random
 
 main() {
+    // Exercise the aux_a03.cj getBit overloads this case does not otherwise call.
+    Assert.equals(1i16, getBit(1i16, 0u8))
+    Assert.equals(1i32, getBit(1i32, 0u8))
+    Assert.equals(1i64, getBit(1i64, 0u8))
     let rnd = Random(123)
 
     let lhs = rnd.nextInt8()
@@ -36,7 +40,7 @@ main() {
     let or = lhs | rhs
     let inv = !lhs
 
-    for (i in 0..1024) {
+    for (_ in 0..1024) {
         let newLhs = rnd.nextInt8()
         let newRhs = rnd.nextInt8()
         let newAndLhs = newLhs & rhs
